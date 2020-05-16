@@ -1,0 +1,219 @@
+\documentclass[14]{article}
+\usepackage{pgfplots}
+\pgfplotsset{width=7cm,compat=1.9}
+\usetikzlibrary{external}
+\tikzexternalize % activate!
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{chngcntr}
+\usepackage{gensymb}
+\usepackage{cancel}
+\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\usepackage[left=3cm, right=3cm, top=2cm]{geometry}
+\newtheorem{id}{Identity Type}
+\newtheorem{theorem}{Theorem}
+\newtheorem{define}{Definition}
+\newtheorem*{ex}{Example}
+\begin{document}
+\title{Calculus Beyond CBSE}
+\author{Aryan Mediratta}
+\maketitle
+\tableofcontents
+\pagebreak
+\section{Limits}
+\subsection{Definition}
+\subsubsection{Provisional Definition}
+\begin{define}
+$\lim\limits_{x \to c} f(x) = L$ if we can make $f(x)$ as close as we like to $L$ by requiring that $x$ be sufficiently close to, but not necessarily equal to $c$.
+\end{define}
+\subsubsection{Rigorous Definition}
+\begin{define}
+Let $f(x)$ be a function with domain $D$.\\
+Then $\lim\limits_{x \to c} f(x) = L \Leftrightarrow \forall \epsilon > 0, \exists \delta > 0:\forall x \in D, 0 < |x-c| < \delta \Rightarrow |f(x)-L| < \epsilon$
+\end{define}
+\subsection{Standard Limits}
+\begin{itemize}
+\item $\lim\limits_{x \to 0} \dfrac{\sin(x)}{x} = 1$
+\item $\lim\limits_{x \to 0} \dfrac{\sin^{-1}(x)}{x} = 1$
+\item $\lim\limits_{x \to 0} \dfrac{\tan(x)}{x} = 1$
+\item $\lim\limits_{x \to 0} \dfrac{\tan^{-1}(x)}{x} = 1$
+\item $\lim\limits_{x \to 0} \dfrac{a^x - 1}{x} = \log_e{a}$
+\item $\lim\limits_{x \to 0} (1+x)^{\frac{1}{x}} = e$
+\item $\lim\limits_{x \to 0} \dfrac{\log_e{(1+x)}}{x} = 1$
+\item $\lim\limits_{x \to 0} \dfrac{x^n - a^n}{x-a} = na^{n-1}$
+\item $\lim\limits_{x \to 0} (1+x)^{\dfrac{1}{x}} = e$
+\item $\lim\limits_{x \to \infty} \Big(1 + \dfrac{1}{x}\Big)^x = e$
+\end{itemize}
+\subsection{Other Ideas}
+\subsubsection{Uniqueness}
+The limit of a function at a given point is \textbf{unique}. If two or more different values of the limit can be found, the limit is said to not exist. Consequently, the left hand limit of a function at a point must equal the right hand limit at that point for the overall limit to exist.
+\subsubsection{Sequential Criterion for Existence of Limits}
+For all sequences that approach $c$, the answer to $\lim\limits_{x \rightarrow c} f(x)$ should evaluate to the same quantity if the overall limit exists.\\
+$\lim\limits_{x \to c} f(x) = L$ iff for all sequences $x_n$ (with $x_n \neq a$ for all $n$) converging to $a$, $f(x_n)$ converges to $L$.
+\pagebreak
+\paragraph{Application:}
+Proof that $\lim\limits_{x \to \infty} sin(x)$ does not exist.\\
+\textbf{The idea}: We will take two sequences that both blow up to infinity (i.e. get larger and larger as we increase the index variable) and show that the when we evaluate the limits using both the sequences, we get different values. By the sequential criterion for existence of limits, we will show that the limit does not exist.
+\begin{proof} (kind of) (Using sequential criterion of limits)\\
+Consider the sequence $a_n = n \pi$ where $n \in \mathbb{Z^+}$.\\
+$n$ can be increased to get arbitrarily close to infinity.\\
+One way to evaluate the limit $\lim\limits_{x \to \infty} \sin(x)$ would be to evaluate $\lim\limits_{n \to \infty}\sin(a_n)$ where $n \in \mathbb{Z^+}$.\\
+Then,
+$$\lim\limits_{n \to \infty}\sin(a_n)= \lim\limits_{n \to \infty} \sin(n\pi)$$
+But $\sin(n\pi) = 0 \forall n \in \mathbb{Z}$.\\
+Therefore, this would give us the limiting value as $0$.\\
+However, now consider the sequence $b_n = (2n+1)\dfrac{\pi}{2}$.\\
+Again, $b_n$ can be made arbitrarily large by increasing $n$.\\
+Similarly, \\Another way to evaluate the limit $\lim\limits_{x \to \infty} \sin(x)$ would be to evaluate $\lim\limits_{n \to \infty}\sin(b_n)$ where $n \in \mathbb{Z^+}$.\\
+Then,
+$$\lim\limits_{n\to \infty} \sin(b_n) = \lim\limits_{n \to \infty} \sin\Big((2n+1)\dfrac{\pi}{2}\Big)$$
+But $\sin\Big((2n+1)\dfrac{\pi}{2}\Big) = 1 \forall n \in \mathbb{Z}$.\\
+That would give us the limiting value as 1.\\
+But by the property of uniqueness of limits, the limit of a function at a point must be unique.\\Therefore the limit does not exist.
+\end{proof}
+\subsection{L'Hôpital's Rule}
+If a function $f$ is differentiable in any neighbourhood of $a$, except maybe at $a$,\\
+And $\Big[(\lim\limits_{x \to a} f(x) = 0$ and $\lim\limits_{x \to a} g(x) = 0)$ or $(\lim\limits_{x \to a}\dfrac{1}{f(x)} = 0)$ and $\lim\limits_{x \to a} \dfrac{1}{g(x)} = 0\Big]$, then\\
+$\lim\limits_{x \to a} \dfrac{f(x)}{g(x)} = \lim\limits_{x \to a} \dfrac{f'(x)}{g'(x)}$
+\subsection{Guidelines for Evaluating Limits}
+\subsubsection*{Do not apply limits non-uniformly.}
+If you apply a standard limit formula to one part of an expression, this should be done to the entire expression at once.
+
+\subsubsection*{Never approximate.}
+For example, this is incorrect:\\
+\textcolor{red}{$\lim\limits_{x \to 0} \dfrac{e^x - \dfrac{\sin(x)}{x}}{x} = \lim\limits_{x \to 0} \dfrac{e^x - \dfrac{x}{x}}{x} = \lim\limits_{x \to 0} \dfrac{e^x - 1}{x} = 1$}
+\subsubsection*{Do not employ L'Hôpital's Rule recklessly.}
+Some problems will result in an infinite loop of differentiation if you try to solve them with L'Hôpital's Rule. Others will become tedious because of long derivatives. Anyway, evaluating limits should be analytical, not mechanical.
+\pagebreak
+\subsection{One-Sided Limits}
+\subsubsection{Left Hand Limit}
+\begin{define}
+Let $f(x)$ be a function and let $I$ be an interval within its domain.\\
+Then $\lim\limits_{x \to a^-} f(x) = L \Leftrightarrow \forall \epsilon > 0, \exists \, \delta > 0 : \forall x \in I,\, 0 < x - a < \delta \Rightarrow 0 < |f(x) - L| < \epsilon$.
+\end{define}
+\subsubsection{Right Hand Limit}
+\begin{define}
+Let $f(x)$ be a function and let $I$ be an interval within its domain.\\
+Then $\lim\limits_{x \to a^+} f(x) = L \Leftrightarrow \forall \epsilon > 0, \exists \, \delta > 0 : \forall x \in I,\, 0 < a - x < \delta \Rightarrow 0 < |f(x) - L| < \epsilon$.
+\end{define}
+\subsection{Cluster Point}
+\begin{define}
+Say a function $f$ is defined over set $S$, then $x = a$ is said to be a \underline{cluster point} of the function $f$ if $\forall \delta > 0,\, \exists x \in (a - \delta, a + \delta)\, : \, x \neq a$ but $x \in S$.
+\end{define}
+We can check the limit and continuity of a function only at cluster points. If a point is not a cluster point, it is called an isolated point.
+\pagebreak
+\section{Continuity}
+\subsection{Definition}
+\begin{define}
+A function $f$ is said to be \underline{continuous} at $a$ if and only if $\lim\limits_{x \to a} f(x) = f(a)$.
+\end{define}
+But we know that the limit only exists if both its right hand limit and left hand limit are equal.
+So we can expand the condition to:\\\\
+$\lim\limits_{x \to a^+} f(x) = \lim\limits_{x \to a^-} f(x) = f(a)$\\\\
+or $\lim\limits_{h \to 0^+} f(a+h) = \lim\limits_{h \to 0^-} f(a+h) = f(a)$\\\\
+All polynomial functions, logarithmic function, sine, cosine and exponential function are examples of continuous functions.
+\subsection{Continuity of Combinations of Continuous Functions}
+Let $f$ and $g$ be two functions which are continuous at $a$, then:
+\begin{enumerate}
+\item $h(x) = f(x) + g(x)$ is continuous at 
+$x = a$
+\item $h(x) = f(x) - g(x)$ is continuous at $x = a$
+\item $h(x) = f(x)\cdot g(x)$ is continuous at $x = a$
+\item $h(x) = \dfrac{f(x)}{g(x)}$ is continuous at $x = a$ if $g(a) \neq 0$.
+\end{enumerate}
+In fact, if $f$ and $g$ are continuous functions, then $\dfrac{f(x)}{g(x)}$ is continuous for all $x$ except those values for which $g(x)=0$
+\subsection{Continuity of Composite Functions}
+If the function $g$ is continuous at $a$ and the function $f$ is continuous at $g(a)$, then the function $f(g(x))$ is continuous at $a$.
+\begin{ex}
+Given $f(x) = \dfrac{1}{1-x}$, find the points of discontinuity of $f(f(x))$.\\
+\textbf{Solution: }$f(x)$ is the ratio of two continuous (polynomial) functions. Therefore, it will have a discontinuity where $1 - x = 0$, i.e. at $x = 1$.\\
+So $x = 1$ is one of the points where $f(f(x))$ is discontinuous.\\
+Now, $f(f(x))$ will be discontinuous when $f(x) = 1$.\\
+$$f(x) = 1$$
+$$\Rightarrow \dfrac{1}{1-x}=1$$
+$$\Rightarrow x = 0$$
+Therefore, there two points of discontinuity: at $x = 0$ and at $x = 1$.
+\end{ex}
+\pagebreak
+\subsection{Product of Continuous and Discontinuous Function}
+Let $f$ be a continuous function and $g$ be a discontinuous function and assume that all the limits are real and finite.\\\\
+Say $K_1 = \lim\limits_{x \to a^-} f(x) = \lim\limits_{x \to a^+} f(x) = f(a)$\\\\
+Say $K_2 = \lim\limits_{x \to a^-} g(x) \neq \lim\limits_{x \to a^+} g(x) = g(x) = K_3$\\\\
+And let $h(x) = f(x) + g(x)$. We have to comment on the nature of $h(x)$.\\\\
+$\lim\limits_{x \to a^-} h(x) = \lim\limits_{x \to a^-} (f(x) \cdot g(x)) = K_1 K_2$\\\\
+$\lim\limits_{x \to a^+} h(x) = \lim\limits_{x \to a^+} (f(x) \cdot g(x)) = K_1 K_3$\\\\
+$h(x) = f(x) \cdot g(x) = K_1 K_3$\\\\
+Clearly, for $h(x)$ to be continuous,
+$$K_1 K_2 = K_1 K_3$$
+$$\Rightarrow K_1 \cdot (K_2 - K_3) = 0$$
+(But $K_2 \neq K_3$)
+$$\Rightarrow K_1 = 0$$
+\paragraph{Conclusion:}The product of a continuous and a discontinuous function will be continuous at a point iff the value of the continuous function at that point is zero.
+\begin{ex}
+Where will the function $f(x) = \floor{x} \cdot \cos\Big(\Big(\dfrac{2x-1}{2}\Big) \pi\Big)$ be discontinuous?\\
+\textbf{Solution:} Note that $\cos\Big(\Big(\dfrac{2x-1}{2}\Big) \pi\Big)$ is continuous and $\floor{x}$ is discontinuous.
+The vulnerable points are integer values of $x$, because $\floor{x}$ is discontinuous at integer values.\\
+But if $x \in \mathbb{Z}$, then $\cos\Big(\Big(\dfrac{2x-1}{2}\Big) \pi\Big) = \cos\Big((2x-1)\dfrac{\pi}{2}\Big) = 0$.\\
+Using the above result, since the continuous function in the product is zero at the points of discontinuity of the discontinuous function, this function is continuous everywhere.
+\end{ex}
+\begin{ex}
+Where will the function $f(x) = \floor{x} \cdot \sin(x \pi)$ be discontinuous?\\
+\textbf{Solution:} By the same reasoning as the previous example, if $x$ is an integer (vulnerable point of the floor function), the continuous function $\sin(x\pi) = 0$, so the function product is continuous everywhere.
+\end{ex}
+\subsection{Calculus and Zeros}
+\subsubsection{Warm-Up Problem}
+\begin{ex}
+Let $p(x) = x^4 + a_3x^3 + a_2 x^2 + a_1x + a_0$ be a polynomial in $x$ with real coefficients. Assume that $p(0) = 1$, $p(1) = 2$, $p(2) = 3$ and $p(3) = 4$. Then find the value of $p(4)$.
+\paragraph{Solution:} Let us define a function $g(x) = p(x) - (x + 1)$.\\
+Then $g(0) = p(0) - (0 + 1) = 1 - 1 = 0$.\\
+Similarly $g(0) = g(1) = g(2) = g(3) = 0$.\\
+Now, $g(x) =  p(x) - (x + 1) = (x)(x-1)(x-2)(x-3)$ (Because $g(x)$ is a polynomial of degree 4 with roots 0, 1, 2, 3)\\
+So $p(x) = g(x) + (x +1) = x(x-1)(x-2)(x-3) + (x + 1) $.\\  
+$\therefore p(4) = 4(3)(2)(1) + 5 = 29$
+\end{ex}
+In general, if a problem looks like $f(x) = g(x)$ for some values of $x$, define $h(x) = f(x) - g(x).$ Then those values of $x$ will be the zeros of $h(x)$.
+\subsubsection{Bolzano's Theorem}
+\begin{theorem}
+\textbf{Bolzano's Theorem:} Let a function $f$ be continuous in the interval $[a, b]$ and $f(a)$ and $f(b)$ are of opposite signs. Then there exists at least one $c \in (a, b)$ such that $f(c) = 0$. In other words, there exists at least $1$ zero of $f(x)$ in $(a, b)$.
+\end{theorem}
+\subsubsection{Important Results Derived From Bolzano's Theorem}
+\begin{theorem}
+Every polynomial of odd degree will have at least one zero.
+\begin{proof} (Using Bolzano's Theorem)\\\\
+Let $f(x) = a_{2n+1}x^{2n+1} + a_{2n} x^{2n} + a_{2n-1} x^{2n-1} + \cdots + a_2 x^2 + a_1 x + a_0 $ where $a_{2n+1} \neq 0$.\\
+(Note that $f(x)$ is continuous $\forall x \in \mathbb{R}$)\\
+$\Rightarrow f(x) = x^{2n+1}\Big(a_{2n+1} + \dfrac{a_{2n}}{x} + \dfrac{a_{2n-1}}{x^2} + \cdots + \dfrac{a_1}{x^{2n}} + \dfrac{a_0}{x^{2n+1}} \Big)$\\
+\textbf{Case 1:} ($a_{2n+1} > 0$)\\
+$\lim\limits_{x \to \infty} f(x) = \infty$\\
+$\lim\limits_{x \to -\infty} f(x) = -\infty$\\
+Using Bolzano's Theorem, there exists at least one root of $f(x)$ in the interval $(-\infty, \infty)$.\\
+\textbf{Case 2:} ($a_{2n + 1} < 0$)\\
+$\lim\limits_{x \to \infty} f(x) = -\infty$\\
+$\lim\limits_{x \to -\infty} f(x) = \infty$\\
+Again, Using Bolzano's Theorem, there exists at least one root of $f(x)$ in the interval($-\infty, \infty$).\\
+\end{proof}
+\end{theorem}
+\begin{theorem}
+For a polynomial of even degree whose leading coefficient and constant term are of opposite signs, there exist at least two real zeros.
+\begin{proof}
+(Using Bolzano's Theorem)\\\\
+Let $f(x) = a_{2n} x^{2n} + a_{2n-1}x^{2n-1} + a_{2n-2}x^{2n-1} + \cdots + a_2 x^2 + a_1 x + a_0$.\\\\
+$\Rightarrow f(x) = x^{2n} \Big( a_{2n} +
+\dfrac{a_{2n-1}}{x} + \dfrac{a_{2n-2}}{x^2} + \cdots + \dfrac{a_{3}}{x^{2n-2}} + \dfrac{a_1}{x^{2n-1}} + \dfrac{a_0}{x^{2n}} \Big)$\\
+WLOG, let $a_{2n} > 0$ and $a_0 < 0$.\\
+Then $f(0) = a_{0} < 0$. (1)\\
+And $\lim\limits_{x \to \infty} f(x) = \infty > 0$. (2)\\
+Also, $\lim\limits_{x \to -\infty} f(x) =\infty > 0$. (3)\\
+Applying Bolzano's Theorem on (1) and (2), there exists at least one root of $f(x)$ in $(0, \infty)$\\
+Applying Bolzano's Theorem on (1) and (3), there exists at least one root of $f(x)$ in $(-\infty, 0)$\\
+Therefore, there exist at least two real zeros of $f(x)$.\\
+\end{proof}
+\end{theorem}
+\subsubsection{Problems based on Bolzano's Theorem}
+
+\end{document}

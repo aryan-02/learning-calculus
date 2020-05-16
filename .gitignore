@@ -1,0 +1,6 @@
+*.aux
+*.auxlock
+*.log
+*.toc
+*.gz
+

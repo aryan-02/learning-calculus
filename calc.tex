@@ -214,6 +214,47 @@ Applying Bolzano's Theorem on (1) and (3), there exists at least one root of $f(
 Therefore, there exist at least two real zeros of $f(x)$.\\
 \end{proof}
 \end{theorem}
+\pagebreak
 \subsubsection{Problems based on Bolzano's Theorem}
-
+\begin{ex}
+Suppose $f:[a,b] \to [a,b]$ is a continuous function. Prove that there exists some $x_0 \in [a, b]$ such that $f(x_0) = x_0$. What does it say about the graph of $y = f(x)$?
+\begin{proof}
+Let $g(x) = f(x) - x$.\\
+$g$ is continuous in $[a, b]$ since the difference of two continuous functions is continuous.\\
+$g(a) = f(a) - a$,\\
+$g(b) = f(b) - b$.\\
+\textbf{Case 1:} $f(a) = a$\\
+In this case, the given statement is trivially true, where $x_0 = a$.\\
+\textbf{Case 2:} $f(b) = b$\\
+In this case also, the given statement is trivially true, where $x_0 = b$.\\
+\textbf{Case 3:} $f(a) \neq a$ and $f(b) \neq b$\\
+Since $f(a) \neq a$ and $f(b) \neq b$ and the co-domain of $f$ is $[a, b]$\\
+$\Rightarrow f(a) > a$ and $f(b) < b$\\
+$\Rightarrow f(a) - a > 0$ and $f(b) - b < 0$\\
+$\Rightarrow g(a) > 0$ and $g(b) < 0$\\
+Using Bolzano's Theorem, $g(a) = f(a) - a$ has a root in $(a, b)$.\\
+$\Rightarrow \exists\: x_0 : f(x_0) = x_0$.\\
+This means, the graph of $y = f(x)$ intersects the graph of $y = x$ at least once.\\
+\end{proof}
+\end{ex}
+\begin{ex}
+Suppose $f:[0, 1] \to \mathbb{R}$ is a continuous function and $f(0) = f(1)$. Then prove that there exists some $c \in \Big[0, \dfrac{1}{2}\Big]$ such that $f(c) = f\Big(c + \dfrac{1}{2}\Big)$
+\begin{proof} (Using Bolzano's Theorem)\\
+Let $g(x) = f(x) - f\Big(x + \dfrac{1}{2}\Big)$\\
+$g$ is continuous in $\mathbb{R}$ since $f$ is continuous in $\mathbb{R}$.\\
+\begin{align}
+g(0) &= f(0) - \cancel{f\Big(\dfrac{1}{2}\Big)}\\
+g\Big(\dfrac{1}{2}\Big) &= \cancel{f\Big(\dfrac{1}{2}\Big)} - f(1)\\
+\cline{1-2}
+g(0)+g\Big(\dfrac{1}{2}\Big) &= f(0) - f(1) = 0
+\end{align}
+$g(0)+g\Big(\dfrac{1}{2}\Big) = 0$\\
+\textit{Case 1:} $g(0)=g\Big(\dfrac{1}{2}\Big) = 0$\\
+In this case, the given statement will be trivially true where $c$ can be $0$ or $\dfrac{1}{2}$.\\
+\textit{Case 2:} $g(0) > 0$ and $g\Big(\dfrac{1}{2}\Big) < 0$\\
+Using Bolzano's Theorem, $\exists c \in \Big(0, \dfrac{1}{2}\Big) : f(c) = f\Big(c + \dfrac{1}{2}\Big) \Rightarrow c \in \Big[0, \dfrac{1}{2}\Big]\;\;\;\;\;\;\;\;\;\;$ $\because \Big(0, \dfrac{1}{2}\Big) \subset \Big[0, \dfrac{1}{2}\Big] $\\
+\textit{Case 3:} $g(0) < 0$ and $g\Big(\dfrac{1}{2}\Big) > 0$\\
+Using Bolzano's Theorem, $\exists c \in \Big(0, \dfrac{1}{2}\Big) : f(c) = f\Big(c + \dfrac{1}{2}\Big) \Rightarrow c \in \Big[0, \dfrac{1}{2}\Big]\;\;\;\;\;\;\;\;\;\;$ $\because \Big(0, \dfrac{1}{2}\Big) \subset \Big[0, \dfrac{1}{2}\Big] $\\
+\end{proof}
+\end{ex}
 \end{document}

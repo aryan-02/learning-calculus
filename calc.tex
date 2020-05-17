@@ -14,6 +14,7 @@
 \usepackage{mathtools}
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\DeclarePairedDelimiter\paren{\left(}{\right)}
 \usepackage[left=3cm, right=3cm, top=2cm]{geometry}
 \newtheorem{id}{Identity Type}
 \newtheorem{theorem}{Theorem}
@@ -106,6 +107,15 @@ Then $\lim\limits_{x \to a^+} f(x) = L \Leftrightarrow \forall \epsilon > 0, \ex
 Say a function $f$ is defined over set $S$, then $x = a$ is said to be a \underline{cluster point} of the function $f$ if $\forall \delta > 0,\, \exists x \in (a - \delta, a + \delta)\, : \, x \neq a$ but $x \in S$.
 \end{define}
 We can check the limit and continuity of a function only at cluster points. If a point is not a cluster point, it is called an isolated point.
+\subsection{Additional Stuff}
+\subsubsection{Taylor Series}
+If a function $f$ is continuous and differentiable infinitely many times and its successive derivatives are continuous infinitely many times, then for some $a$ in the domain of $f$,\\
+$$f(x) = \sum\limits_{n=0}^{\infty} f^n(a) \cdot \dfrac{{(x-a)^n}}{n!}$$
+Where $f^n(x)$ is the $n^{th}$ derivative of $f(x)$.
+\subsubsection{Maclaurin Series}
+Maclaurin Series is just the taylor series for $a = 0$.\\
+$$f(x) = \sum\limits_{n=0}^{\infty} f^n(0) \cdot \dfrac{x^n}{n!}$$
+Where $f^n(x)$ is the $n^{th}$ derivative of $f(x)$
 \pagebreak
 \section{Continuity}
 \subsection{Definition}
@@ -257,4 +267,32 @@ Using Bolzano's Theorem, $\exists c \in \Big(0, \dfrac{1}{2}\Big) : f(c) = f\Big
 Using Bolzano's Theorem, $\exists c \in \Big(0, \dfrac{1}{2}\Big) : f(c) = f\Big(c + \dfrac{1}{2}\Big) \Rightarrow c \in \Big[0, \dfrac{1}{2}\Big]\;\;\;\;\;\;\;\;\;\;$ $\because \Big(0, \dfrac{1}{2}\Big) \subset \Big[0, \dfrac{1}{2}\Big] $\\
 \end{proof}
 \end{ex}
+\pagebreak
+\begin{ex}
+Suppose $f$ is a continuous function on $[0, 1]$ and $f(0) = f(1)$. Let $n$ be any natural number, then prove that there exists some $c$ such that $f(c) = f\Big(c + \dfrac{1}{n}\Big)$.
+\end{ex}
+\begin{proof}
+(Note: this is just the generalized version of the previous problem)\\
+Let $g(x) = f(x) - f\Big(x + \dfrac{1}{n}\Big)$\\
+$g$ is continuous in $\mathbb{R}$ since $f$ is continuous in $\mathbb{R}$.\\
+We get the following telescoping series.
+\begin{align*}
+g\left(0\right) &= f\left(0\right) - \cancel{f\left(\dfrac{1}{n}\right)}\\
+g\left(\dfrac{1}{n}\right) &= \cancel{f\left(\dfrac{1}{n}\right)} - \cancel{f\left(\dfrac{2}{n}\right)}\\
+g\left(\dfrac{2}{n}\right) &= \cancel{f\left(\dfrac{2}{n}\right)} -\cancel{f\left(\dfrac{3}{n}\right)}\\
+\vdots\;\;\;\;\; &=\;\;\;\;\;\;\;\;\vdots \;\;\;\;\;\;\;\;\; \vdots\\
+g\left(\dfrac{n - 2}{n}\right) &= \cancel{f\left(\dfrac{n - 2}{n}\right)} - \cancel{f\left(\dfrac{n - 1}{n}\right)}\\
+g\left(\dfrac{n - 1}{n}\right) &= \cancel{f\left(\dfrac{n - 1}{n}\right)} - f\left(1\right)\\
+\cline{1-2}
+g\left(0\right) + g\left(\dfrac{1}{n}\right) + \cdots + g\left(\dfrac{n - 1}{n}\right) &= f(0) - f(1) = 0 \;\;\;\;\;\; [\because f(0) = f(1)]
+\end{align*}
+$\Rightarrow g\left(0\right) + g\left(\dfrac{1}{n}\right) + \cdots + g\left(\dfrac{n - 1}{n}\right) = 0$\\
+\textit{Case 1:} $g\left(0\right) = g\left(\dfrac{1}{n}\right) = \cdots = g\left(\dfrac{n - 1}{n}\right)= 0$\\
+In this case, the given statement is trivially true for $c = 0\, \dfrac{1}{n}, \dfrac{2}{n}, \cdots, \dfrac{n-1}{n}$.\\
+\textit{Case 2:} At least one term is positive and at least one term is negative.\\
+WLOG, Let $g(a)$ be one of the positive term(s) and $g(b)$ be one of the negative term(s) and let $a < b$.\\
+Since $g$ is continuous and $g(a) > 0; g(b) < 0$,\\ Using Bolzano's Theorem, $\exists c : g(c) = 0$\\
+$\Rightarrow \exists c : f(c) - f\left(c + \dfrac{1}{n}\right) = 0$\\
+$\Rightarrow \exists c : f(c) = f\left(c + \dfrac{1}{n}\right)$\\
+\end{proof}
 \end{document}

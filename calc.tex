@@ -13,6 +13,7 @@
 \usepackage{cancel}
 \usepackage{mathtools}
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
 \DeclarePairedDelimiter\paren{\left(}{\right)}
 \usepackage[left=3cm, right=3cm, top=2cm]{geometry}
@@ -65,14 +66,14 @@ Consider the sequence $a_n = n \pi$ where $n \in \mathbb{Z^+}$.\\
 $n$ can be increased to get arbitrarily close to infinity.\\
 One way to evaluate the limit $\lim\limits_{x \to \infty} \sin(x)$ would be to evaluate $\lim\limits_{n \to \infty}\sin(a_n)$ where $n \in \mathbb{Z^+}$.\\
 Then,
-$$\lim\limits_{n \to \infty}\sin(a_n)= \lim\limits_{n \to \infty} \sin(n\pi)$$
+\[\lim\limits_{n \to \infty}\sin(a_n)= \lim\limits_{n \to \infty} \sin(n\pi)\]
 But $\sin(n\pi) = 0 \forall n \in \mathbb{Z}$.\\
 Therefore, this would give us the limiting value as $0$.\\
 However, now consider the sequence $b_n = (2n+1)\dfrac{\pi}{2}$.\\
 Again, $b_n$ can be made arbitrarily large by increasing $n$.\\
 Similarly, \\Another way to evaluate the limit $\lim\limits_{x \to \infty} \sin(x)$ would be to evaluate $\lim\limits_{n \to \infty}\sin(b_n)$ where $n \in \mathbb{Z^+}$.\\
 Then,
-$$\lim\limits_{n\to \infty} \sin(b_n) = \lim\limits_{n \to \infty} \sin\Big((2n+1)\dfrac{\pi}{2}\Big)$$
+\[\lim\limits_{n\to \infty} \sin(b_n) = \lim\limits_{n \to \infty} \sin\Big((2n+1)\dfrac{\pi}{2}\Big)\]
 But $\sin\Big((2n+1)\dfrac{\pi}{2}\Big) = 1 \forall n \in \mathbb{Z}$.\\
 That would give us the limiting value as 1.\\
 But by the property of uniqueness of limits, the limit of a function at a point must be unique.\\Therefore the limit does not exist.
@@ -107,14 +108,14 @@ Then $\lim\limits_{x \to a^+} f(x) = L \Leftrightarrow \forall \epsilon > 0, \ex
 Say a function $f$ is defined over set $S$, then $x = a$ is said to be a \underline{cluster point} of the function $f$ if $\forall \delta > 0,\, \exists x \in (a - \delta, a + \delta)\, : \, x \neq a$ but $x \in S$.
 \end{define}
 We can check the limit and continuity of a function only at cluster points. If a point is not a cluster point, it is called an isolated point.
-\subsection{Additional Stuff}
+\subsection{Polynomial Approximation of Functions to Arbitrary Precision}
 \subsubsection{Taylor Series}
 If a function $f$ is continuous and differentiable infinitely many times and its successive derivatives are continuous infinitely many times, then for some $a$ in the domain of $f$,\\
-$$f(x) = \sum\limits_{n=0}^{\infty} f^n(a) \cdot \dfrac{{(x-a)^n}}{n!}$$
+\[f(x) = \sum\limits_{n=0}^{\infty} f^n(a) \cdot \dfrac{{(x-a)^n}}{n!}\]
 Where $f^n(x)$ is the $n^{th}$ derivative of $f(x)$.
 \subsubsection{Maclaurin Series}
 Maclaurin Series is just the taylor series for $a = 0$.\\
-$$f(x) = \sum\limits_{n=0}^{\infty} f^n(0) \cdot \dfrac{x^n}{n!}$$
+\[f(x) = \sum\limits_{n=0}^{\infty} f^n(0) \cdot \dfrac{x^n}{n!}\]
 Where $f^n(x)$ is the $n^{th}$ derivative of $f(x)$
 \pagebreak
 \section{Continuity}
@@ -144,9 +145,9 @@ Given $f(x) = \dfrac{1}{1-x}$, find the points of discontinuity of $f(f(x))$.\\
 \textbf{Solution: }$f(x)$ is the ratio of two continuous (polynomial) functions. Therefore, it will have a discontinuity where $1 - x = 0$, i.e. at $x = 1$.\\
 So $x = 1$ is one of the points where $f(f(x))$ is discontinuous.\\
 Now, $f(f(x))$ will be discontinuous when $f(x) = 1$.\\
-$$f(x) = 1$$
-$$\Rightarrow \dfrac{1}{1-x}=1$$
-$$\Rightarrow x = 0$$
+\[f(x) = 1\]
+\[\Rightarrow \dfrac{1}{1-x}=1\]
+\[\Rightarrow x = 0\]
 Therefore, there two points of discontinuity: at $x = 0$ and at $x = 1$.
 \end{ex}
 \pagebreak
@@ -159,10 +160,10 @@ $\lim\limits_{x \to a^-} h(x) = \lim\limits_{x \to a^-} (f(x) \cdot g(x)) = K_1 
 $\lim\limits_{x \to a^+} h(x) = \lim\limits_{x \to a^+} (f(x) \cdot g(x)) = K_1 K_3$\\\\
 $h(x) = f(x) \cdot g(x) = K_1 K_3$\\\\
 Clearly, for $h(x)$ to be continuous,
-$$K_1 K_2 = K_1 K_3$$
-$$\Rightarrow K_1 \cdot (K_2 - K_3) = 0$$
+\[K_1 K_2 = K_1 K_3\]
+\[\Rightarrow K_1 \cdot (K_2 - K_3) = 0\]
 (But $K_2 \neq K_3$)
-$$\Rightarrow K_1 = 0$$
+\[\Rightarrow K_1 = 0\]
 \paragraph{Conclusion:}The product of a continuous and a discontinuous function will be continuous at a point iff the value of the continuous function at that point is zero.
 \begin{ex}
 Where will the function $f(x) = \floor{x} \cdot \cos\Big(\Big(\dfrac{2x-1}{2}\Big) \pi\Big)$ be discontinuous?\\
@@ -295,4 +296,105 @@ Since $g$ is continuous and $g(a) > 0; g(b) < 0$,\\ Using Bolzano's Theorem, $\e
 $\Rightarrow \exists c : f(c) - f\left(c + \dfrac{1}{n}\right) = 0$\\
 $\Rightarrow \exists c : f(c) = f\left(c + \dfrac{1}{n}\right)$\\
 \end{proof}
+\pagebreak
+\subsection{Checking Continuity of Some Weird Functions}
+\subsubsection{Dirichlet Function}
+The Dirichlet Function $f:\mathbb{R}\to \{0, 1\}$ is defined in the following way:
+\[
+f\left(x\right) = \left\{
+        \begin{array}{ll}
+            1 & \quad \text{if } x \in \mathbb{Q} \\
+            0 & \quad \text{if } x \notin \mathbb{Q}
+        \end{array}
+    \right.
+\]
+In other words, the Dirichlet Function maps to $1$ if $x$ is rational and $0$ if $x$ is irrational.\\
+\paragraph{Claim:} The Dirichlet Function is discontinuous everywhere.\\
+If the input at some point is rational, we can approach it using a sequence consisting entirely of rational numbers and a sequence consisting of entirely irrational numbers; the former will give us the limiting value as $1$ and the latter will give us the limiting value as $0$.\\
+Similarly, if the input at some point is irrational, we can again approach it with sequences consisting entirely of rational or irrational terms, resulting in two limiting values: $0$ and $1$.\\
+Therefore, the limit of this function doesn't exist at any point, which means the Dirichlet function discontinuous everywhere.
+\subsubsection{Thomae's Function}
+Thomae's Function (commonly called the Popcorn Function) is defined in the following way:\\
+\[
+f\left(x\right) = \left\{
+        \begin{array}{ll}
+            \dfrac{1}{n} & \quad \text{if } x = \dfrac{m}{n}\; : \; m, n \in \mathbb{Z}\,;\, n \neq 0\,;\, \gcd (m, n) = 1  \\\\
+            0 & \quad \text{if } x \notin \mathbb{Q}
+        \end{array}
+    \right.
+\]
+\paragraph{Claim:} This function is discontinuous at all rational values of $x$.
+\begin{proof}(analogous to that of Dirichlet Function)\\
+Let $x = \dfrac{m}{n}$ be a rational number where $m, n \in \mathbb{Z}, \gcd(m, n) = 1$\\
+Then $f(x) = \dfrac{1}{n}$\\
+If we approach $x$ from a sequence of irrationals, we will get the limiting value as $0$. Even if the limit does exist, $\dfrac{1}{n}$ (the value of the function) cannot be equal to $0$ (The limiting value).\\
+So it has to be discontinuous for all rational inputs.\\
+\end{proof}
+\paragraph{Claim:} This function is continuous at all rational values of $x$.
+\begin{proof}
+Let $x_0$ be an irrational number.\\
+$\Rightarrow f(x_0) = 0$\\
+Consider a sequence $x_n (n \geq 1)$ such that $\lim\limits_{n \to \infty} x_n = x_0$.\\
+\textit{Case 1:} If $x_n$ is irrational $\forall n$, $\lim\limits_{x \to \infty} f(x_n) = 0$.\\
+\textit{Case 2:} Otherwise, $Let x_{n_k}$ be a subsequence of $x_n$, where $x_{n_k} \in \mathbb{Q}\; \forall k$. Again, $\lim\limits_{k \to \infty} x_{n_k} = x_0$\\
+Let $x_{n_k} = \dfrac{p_{n_k}}{q_{n_k}}$\\
+Then $q_{n_k} \to \infty$ as $k \to \infty \Rightarrow \lim\limits_{k \to \infty}f(x_{n_k}) = \lim\limits_{k \to \infty}\left(\dfrac{1}{q_{n_k}}\right) = 0$\\
+$\lim\limits_{x \to x_0} f(x) = f(x_0) = 0$\\
+Therefore, $f(x)$ is continuous at all irrational points.
+\end{proof}
+\pagebreak
+\subsection{The Intermediate Value Theorem}
+\subsubsection{Statement and Proof}
+\begin{theorem}
+If $f$ is a function that is continuous in the closed interval $[a, b]$, then $f(x)$ takes all the values lying between $f(a)$ and $f(b)$ (both inclusive).\\\\
+Note that although technically Bolzano's Theorem is a corollary of the Intermediate Value Theorem, we will prove the Intermediate Value Theorem using Bolzano's Theorem here. Alternatively, Bolzano's theorem can be proved by Bisection.
+\begin{proof}
+WLOG, let $f(a) < f(b)$.\\
+Let $k$ be any real number between $f(a)$ and $f(b)$.\\
+$\Rightarrow f(a) < k < f(b)$\\
+Then we have to prove that there exists at least one solution to $f(x) = k$.\\
+Let us define $g(x) = f(x) - k$.\\
+Then $g(a) = f(a) - k < 0$\\
+And $g(b) = f(b) - k > 0$\\
+$\Rightarrow$ There exists at least one $c$ such that $g(c) = 0$ or $f(c) - k = 0$ or $f(c) = k$
+\end{proof}
+\end{theorem}
+\paragraph{Important:} The converse of this is not necessarily true.
+\subsubsection{Example Problems}
+\begin{ex}
+Does the function $f(x) = \dfrac{x^3}{4} - \sin(\pi x) + 3$ take the value $\dfrac{7}{3}$ in the interval $[-2, 2]$?\\
+\textbf{Solution.}
+$f(x)$ is continuous everywhere because $\dfrac{x^3}{3}$, $\sin(\pi x)$ and $3$ are continuous everywhere.\\
+$f(-2) = \dfrac{(-2)^3}{4} - \sin(-2\pi) + 3 = 1 + \sin(2\pi) = 1$\\
+$f(2) = \dfrac{(2)^3}{4} - \sin(2\pi) + 3 = 5 - \sin(2\pi) = 5$\\
+$\Rightarrow f(x)$ takes all values in $[1, 5]$ in the interval $[-2, 2]$ (By Intermediate Value Theorem)\\
+And $\dfrac{7}{3} = 2.333\cdots \in [1, 5]$.\\
+Therefore, \underline{yes}, $f(x)$ will take the value $\dfrac{7}{3}$ in the interval $[-2, 2]$.
+\end{ex}
+\subsection{Boundedness}
+\subsubsection{Definition}
+\begin{define}
+A function $f$ defined on a set $S$ (domain) is said to be \underline{bounded} if $\exists M > 0$ such that $\abs{f(x)} \leq M \; \forall x \in S$
+\end{define}
+\paragraph{Geometrically} call a function bounded if the function can be contained between two horizontal lines $y = x$ and $y = -x$
+\pagebreak
+\subsection{Absolute Maxima and Minima}
+\subsubsection{Absolute/Global Maximum}
+\begin{define}
+Let $f$ be a function defined on set $S$. The point $c \in S$ is said to be a point of absolute or global maximum if $f(c) \geq f(x) \; \forall x \in S$
+\end{define}
+\subsubsection{Absolute/Global Minimum}
+\begin{define}
+Let $f$ be a function defined on set $S$. The point $c \in S$ is said to be a point of absolute or global minimum if $f(c) \leq f(x) \; \forall x \in S$
+\end{define}
+\subsection{Properties of a Continuous Function}
+If a function $f$ is continuous on the closed interval $[a, b]$, then:
+\begin{enumerate}
+\item $f$ is bounded on the given interval.
+\item There is a point of absolute minimum and maximum in this interval.
+\item Say $m$ is the least value of $f$ and $M$ is the maximum value of $f$, then $f$ will take all values lying in the interval $[m, M]$, i.e. $m \leq f(x) \leq M$ (consequence of the Intermediate Value Theorem).
+\item A continuous function $f$ defined on $[a, b]$ maps to a closed interval $[c, d]$
+\end{enumerate}
+\pagebreak
+
 \end{document}

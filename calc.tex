@@ -15,6 +15,7 @@
 \usepackage{mathtools}
 \usepackage{chngcntr}
 \usepackage{commath}
+\usepackage{bigints}
 %\usepackage{enumitem}
 \usepackage[inline]{enumitem}
 \usepackage{pgffor}
@@ -47,7 +48,7 @@ $\lim\limits_{x \to c} f(x) = L$ if we can make $f(x)$ as close as we like to $L
 \subsubsection{Rigorous Definition}
 \begin{define}
 Let $f(x)$ be a function with domain $D$.\\
-Then $\lim\limits_{x \to c} f(x) = L \Leftrightarrow \forall \epsilon > 0, \exists \delta > 0:\forall x \in D, 0 < |x-c| < \delta \Rightarrow |f(x)-L| < \epsilon$
+Then $\lim\limits_{x \to c} f(x) = L \Leftrightarrow \forall \varepsilon > 0, \exists \delta > 0:\forall x \in D, 0 < |x-c| < \delta \Rightarrow |f(x)-L| < \varepsilon$
 \end{define}
 \subsection{Standard Limits}
 \begin{itemize}
@@ -108,12 +109,12 @@ Some problems will result in an infinite loop of differentiation if you try to s
 \subsubsection{Left Hand Limit}
 \begin{define}
 Let $f(x)$ be a function and let $I$ be an interval within its domain.\\
-Then $\lim\limits_{x \to a^-} f(x) = L \Leftrightarrow \forall \epsilon > 0, \exists \, \delta > 0 : \forall x \in I,\, 0 < x - a < \delta \Rightarrow 0 < |f(x) - L| < \epsilon$.
+Then $\lim\limits_{x \to a^-} f(x) = L \Leftrightarrow \forall \varepsilon > 0, \exists \, \delta > 0 : \forall x \in I,\, 0 < x - a < \delta \Rightarrow 0 < |f(x) - L| < \varepsilon$.
 \end{define}
 \subsubsection{Right Hand Limit}
 \begin{define}
 Let $f(x)$ be a function and let $I$ be an interval within its domain.\\
-Then $\lim\limits_{x \to a^+} f(x) = L \Leftrightarrow \forall \epsilon > 0, \exists \, \delta > 0 : \forall x \in I,\, 0 < a - x < \delta \Rightarrow 0 < |f(x) - L| < \epsilon$.
+Then $\lim\limits_{x \to a^+} f(x) = L \Leftrightarrow \forall \varepsilon > 0, \exists \, \delta > 0 : \forall x \in I,\, 0 < a - x < \delta \Rightarrow 0 < |f(x) - L| < \varepsilon$.
 \end{define}
 \subsection{Cluster Point}
 \begin{define}
@@ -708,17 +709,17 @@ $\therefore \lim\limits_{x \to 0^+} x \left( \fract*{\dfrac1x} + \fract*{\dfrac2
 \begin{prob}
 Prove that $\lim\limits_{x \to 5} 3x = 15$
 \begin{proof}
-According to the $\epsilon$-$\delta$ definition of a limit, we have to effectively prove that $\forall \epsilon > 0, \exists \delta > 0 \; \forall x$ such that $0 < \abs{x - 5} < \delta \Rightarrow \abs{3x - 15} < \epsilon$.\\
-We are given any $\epsilon > 0$,\\
-Let us choose $\delta = \dfrac{\epsilon}{3}$.\\ Then,\\
+According to the $\varepsilon$-$\delta$ definition of a limit, we have to effectively prove that $\forall \varepsilon > 0, \exists \delta > 0 \; \forall x$ such that $0 < \abs{x - 5} < \delta \Rightarrow \abs{3x - 15} < \varepsilon$.\\
+We are given any $\varepsilon > 0$,\\
+Let us choose $\delta = \dfrac{\varepsilon}{3}$.\\ Then,\\
 \begin{align*}
 0 < \abs{x - 5} < \delta &&\\
-\Rightarrow 0 < \abs{x - 5} < \dfrac\epsilon 3 && \text{Multiply by } 3\\
-\Rightarrow 0 < 3\cdot \abs{x - 5} < \epsilon\\
-\Rightarrow 0 < \abs{3x - 15} < \epsilon
+\Rightarrow 0 < \abs{x - 5} < \dfrac\varepsilon 3 && \text{Multiply by } 3\\
+\Rightarrow 0 < 3\cdot \abs{x - 5} < \varepsilon\\
+\Rightarrow 0 < \abs{3x - 15} < \varepsilon
 \end{align*}
-i.e. $0 < \abs{x - 5} < \delta \Rightarrow 0 < \abs{3x - 15} < \epsilon$.\\
-Therefore, $\lim\limits_{x \to 5} 3x = 15$ for $\delta = \dfrac{\epsilon}{3}$.\\
+i.e. $0 < \abs{x - 5} < \delta \Rightarrow 0 < \abs{3x - 15} < \varepsilon$.\\
+Therefore, $\lim\limits_{x \to 5} 3x = 15$ for $\delta = \dfrac{\varepsilon}{3}$.\\
 \end{proof}
 \end{prob}
 \pagebreak
@@ -934,7 +935,7 @@ Let $p:\mathbb{R}\to \mathbb{R}$ be a continuous function such that $p(x) = x$ d
 Let $g(x) = p(x) - x$\\
 $g(x)$ is continuous since $p(x)$ is continuous.\\
 It is given that $p(x) = x$ has no real solution.\\
-$\Rightarrow g(x)$ has no real zeroes.
+$\Rightarrow g(x)$ has no real zeros.
 \paragraph{Claim: }$g(x) > 0 \forall x$ or $g(x) < 0 \forall x$\\
 \textbf{Proof of the claim: }(by contradiction)
 Assume for the purpose of contradiction that there exist some $a,b \in \mathbb{R}$ such that $g(a)g(b) < 0$. Then by Bolzano's Theorem, $g(x)$ will have at least one real root in $(a, b)$, which contradicts the above statement that $g(x)$ has no real root.\\
@@ -961,4 +962,215 @@ Therefore, $p(p(x)) \neq x \;\forall x$, i.e. $p(p(x)) = x$ has no real solution
 \end{prob}
 \pagebreak
 \section{Applications of Derivatives}
+\subsection{Derivative as a Rate of Change}
+Consider a function of time $y = f(t)$.\\
+The average rate of change of $f$ over some time interval $\Delta t$ is given by $\dfrac{\Delta y}{\Delta t} = \dfrac{y_2 - y_1}{t_2 - t_1} = \dfrac{f(t_2) - f(t_1)}{t_2 - t_1}$, which is the same as the slope of the secant to the graph of the function.\\
+Now, the limit of this average rate of change as the time interval $\Delta t$ approaches $0$ is nothing but the derivative of $f(t)$\\
+\[
+f'(t) = \lim\limits_{t_2 \to t_1} \dfrac{f(t_2) - f(t_1)}{t_2 - t_1}
+\]
+This is called the \textbf{instantaneous rate of change} of $f(t)$ with respect to $t$.\\
+In crude terms, the derivative can be thought of as a measure of how sensitive a function's value is to small changes in its input.
+\subsection{Tangents and Normals}
+The derivative of a differentiable and continuous function at a point gives the slope of the tangent to the function's graph at that point.\\
+Consider the function $y = f(x)$ and a point $x_0$ on the function's graph.
+\subsubsection{Equation of Tangent at $(x_0, y_0)$}
+\[
+y - y_0 = f'(x_0) \left[x - x_0\right]
+\]
+\subsubsection{Equation of Normal at $(x_0, y_0)$}
+\[
+y - y_0 = \dfrac{-1}{f'(x_0)} \left[x - x_0\right]
+\]
+\subsection{Angle of Intersection of 2 Curves}
+The angle of intersection between two curves is defined as the angle between their tangents at the point of intersection.\\
+Given the slopes of the tangents $m_1$ and $m_2$, we can calculate the angle between them using this result from coordinate geometry:
+\[\tan(\theta)= \left(\dfrac{m_1 - m_2}{1 + m_1 m_2}\right)\]
+\pagebreak
+\subsection{Lengths}
+Let the tangent and normal to $y = f(x)$ at point $P$ meet the $x$-axis at points $T$ and $N$ respectively. Let $G$ be the foot of the ordinate of $P$. Then $TG$ and $GN$ are the Cartesian Subtangent and Subnormal respectively, while $PT$ and $PN$ are the lengths of the tangent and normal respectively.
+\begin{figure}[h]
+\includegraphics{images/tangentGraph}
+\end{figure}
+\subsubsection{Length of Subtangent}
+Subtangent $= TG = \dfrac{\abs{y}}{\tan(\theta)} = \dfrac{\abs{y}}{\left( \dfrac{\dif y}{\dif x} \right)}$
+\subsubsection{Length of Subnormal}
+Subnormal $= GN = \abs{y} \tan(\theta) = \abs{y} \dfrac{\dif y}{\dif x}$
+\subsubsection{Length of Tangent}
+Tangent $= PT = \dfrac{\abs{y}}{\sin(\theta)} = \abs{y} \csc(\theta) = \abs{y} \sqrt{1 + \cot^2(\theta)} = \dfrac{\abs{y} \sqrt{1 + \left(\dfrac{\dif y}{\dif x}\right)^2}}{\abs{\dfrac{\dif y}{\dif x}}}$
+\subsubsection{Length of Normal}
+Normal $= PN = \abs{y} \sec(\theta) = \abs{y} \sqrt{1 + \tan^2(\theta)} = \abs{y} \sqrt{1 + \left(\dfrac{\dif y}{\dif x}\right)^2}$
+\subsubsection{Length of the Curve from $a$ to $b$}
+Length of curve = $\bigints\limits_a^b \left(1 + \left(\dfrac{\dif y}{\dif x}\right)^2\right) \dif x$
+\subsubsection{Radius of Curvature}
+$R = \dfrac{\left[ 1 + \left(\dfrac{\dif y}{\dif x}\right)^2\right]^{\dfrac32}}{\dfrac{\dif^{\;2}y}{\dif x ^2}}$
+\pagebreak
+\subsection{Local Maxima and Minima}
+\subsubsection{Local Maximum}
+\begin{define}
+Let a function $f$ be defined on a set $S$. The point $c \in S$ is called a \underline{point of local maximum} if there exists an open interval $I$ containing $c$ such that $f(c) \geq f(x) \forall x \in I \cap S$ and $I$ should be a subset of $S$.
+\end{define}
+\subsubsection{Local Minimum}
+\begin{define}
+Let a function $f$ be defined on a set $S$. The point $c \in S$ is called a \underline{point of local minimum} if there exists an open interval $I$ containing $c$ such that $f(c) \leq f(x) \forall x \in I \cap S$ and $I$ should be a subset of $S$.
+\end{define}
+Note that Local Maxima and Local Minima don't exist at end-points because you can't have an open interval which contains the end-point and is a subset of $S$.
+\subsection{Fermat's Theorem}
+\begin{theorem}
+If a function attains a local maximum or a local minimum at an interior point $c$, and if the function is differentiable at $c$, then $f'(c) = 0$.
+\end{theorem}
+\subsection{Rolle's Theorem}
+\begin{theorem}
+If a function $f$ is continuous in $[a, b]$ and differentiable in $(a, b)$ and $f(a) = f(b)$, then there exists at least one $c \in (a, b)$ such that $f'(c) = 0$.
+\end{theorem}
+\subsubsection{Conclusions}
+Let $f$ be a function which is infinitely continuously differentiable (i.e. all subsequent derivatives are also continuous), then:
+\begin{itemize}
+\item Between two real roots of $f(x) = 0$ lies at least one real root of $f'(x) = 0$.
+\item Between $n$ real roots of $f(x) = 0$ lie at least $(n - 1)$ real roots of $f'(x) = 0$
+\item Between $n$ real roots of $f(x) = 0$ lie at least $(n - 2)$ real roots of $f''(x) = 0$\\
+(Generalizing)
+\item Between $n$ real roots of $f(x) = 0$ lie at least $(n - k)$ real roots of $f^{(k)}(x) = 0$
+\item If $f^{(k)}(x) = 0$ has $(n - k)$ roots, then $f(x) = 0$ has at most $n$ roots.
+\end{itemize}
+\subsection{Linear Differential Equation and Inequality}
+\[f'(x) + k f(x) = 0\]
+\[f'(x) - k f(x) = 0\]
+Whenever we see an equation or inequality of this form, we will multiply both sides by the integrating factor. The integrating factor of $f'(x) + k f(x)$ is ${\rm e}^{kx}$ and that of $f'(x) - k f(x)$ is ${\rm e}^{-kx}$. Notice that both are positive and won't change the sign of the inequality.
+\begin{align*}
+{\rm e}^{kx}f'(x) + k {\rm e}^{kx} f(x) = 0\\
+\dfrac{\dif}{\dif x}\left({\rm e}^{kx} f(x)\right) = 0
+\end{align*}
+\pagebreak
+\subsection{Darboux's Theorem}
+\begin{theorem}
+If a function $f$ is differentiable in the closed interval $I = [a, b]$ and $f'(a) < k < f'(b)$, then $\exists \; c \in (a, b) : f'(c) = k$.\\
+In other words, $f'(x)$ will have intermediate value property.
+\end{theorem}
+\subsection{Multiplicity of Roots and Rolle's Theorem}
+Suppose $f$ is a polynomial of which $\alpha$ is a zero with multiplicity $r$ where $f(x) = (x-\alpha)^r \cdot g(x)$, where $g$ is another polynomial and $g(\alpha) \neq 0$. Then $f'(x)$ has $\alpha$ as one of its zeros with multiplicity $(r - 1)$.
+\begin{proof}
+\begin{align*}
+f(x) &= (x - \alpha)^r \cdot g(x)\\
+f'(x) &= r(x - \alpha)^{r-1}\cdot g(x) + (x - \alpha)^r \cdot g'(x)\\
+&= (x - \alpha)^{r-1} \left[ r g(x) + (x - \alpha) g'(x) \right]
+\end{align*}
+Now, observing $\left[ r g(x) + (x - \alpha) g'(x) \right]$. This won't be zero at $x = \alpha$ since $g(\alpha) \neq 0$ [given].\\
+Also, $(x - \alpha)^{r-1}$ has $\alpha$ as a zero with multiplicity $(r - 1)$.\\
+Therefore, $f'(x)$ will have $\alpha$ as one of its zeros with multiplicity $(r - 1)$.\\
+\end{proof}
+Similarly, the multiplicity of $\alpha$ in $f''(x)$ will be $(r - 2)$ and so on...
+\pagebreak
+\subsection{Problems on Rolle's Theorem and Roots}
+\begin{prob}
+Prove that $x {\rm e}^x = 1$ has exactly one root in $(0, 1)$.
+\begin{proof}
+Consider a function $f(x) = x {\rm e}^x - 1$.\\
+We need to prove that $f(x)$ has at least one root in $(0, 1)$.\\
+Now, $f$ is continuous everywhere, so it's also continuous in $[0, 1]$.\\
+Applying Bolzano's Theorem:
+\begin{align*}
+f(0) &= 0 - 1 = -1 < 0\\
+f(1) &= {\rm e} - 1 > 0\\
+\Rightarrow f(0) \cdot f(1) &< 0
+\end{align*}
+Therefore, there exists \textbf{at least one} root of $f(x)$ in $(0, 1)$.\\
+But we have to prove that it has exactly one root.\\
+Assume for the purpose of contradiction that $f(x)$ has two roots in $(0, 1)$.\\
+Then by Rolle's theorem, $f'(x)$ will have at least one root in $(0, 1)$.\\
+\begin{equation*}
+f'(x) = {\rm e} ^ x + x {\rm e}^x
+\end{equation*}
+But ${\rm e} ^ x + x {\rm e}^x > 0 \; \forall x \in (0, 1)$\\
+Or, $f'(x)$ has no root in $(0, 1)$.\\ This contradicts our assumption that $f(x)$ has two roots in $(0, 1)$.\\
+$\therefore f$ has exactly one root in (0, 1). 
+\end{proof}
+\end{prob}
+\begin{prob}
+Comment on the number of roots of $f(x) = x^4- 4x - 1$.\\
+\textbf{Solution: } The given polynomial is of even degree and has the leading coefficient and constant term of opposite signs. Therefore it has at least 2 real roots: one in $(-\infty, 0)$ and the other in $(0, \infty)$.\\
+Assume $f(x)$ has 3 or more roots.\\
+Then $f'(x)$ should have at least 2 real roots.\\
+\begin{align*}
+f'(x) &= 4x^3 - 4\\
+&= 4(x^3 - 1)
+\end{align*}
+But $f'(x)$ has exactly 1 real root (i.e. $x = 1$). This is a contradiction.\\
+Therefore, $f(x)$ has exactly 2 roots.
+\end{prob}
+\pagebreak
+\begin{prob}
+Let $f$ be a function which is differentiable on $\mathbb{R}$ and $\alpha$ and $\beta$ be two numbers such that $\alpha < \beta$ and $f(\alpha) = f(\beta) = 0$. Then which of the following is/are correct?\\
+\begin{enumerate*}[label=(\Alph*)]
+\item There exists $c \in (\alpha, \beta)$ such that $f'(c) = f(c)$\\
+\item There exists $c \in (\alpha, \beta)$ such that $f'(c) = 2f(c)$\\
+\item There exists $c \in (\alpha, \beta)$ such that $f'(c) = 3f(c)$\\
+\item There exists $c \in (\alpha, \beta)$ such that $f'(c) = kf(c)$ for any real $k$\\
+\end{enumerate*}\\
+\textbf{Solution: (A, B, C, D) } D is just a generalization of A, B and C. So if we prove D, that will prove all the options.\\
+We have to prove that $\exists c \in (\alpha, \beta) \mid f'(c) - kf(c) = 0 \;\forall k > 0$\\
+Consider $g(x) = {\rm e}^{-kx} f(x)$\\
+$g$ is continuous in $[a, b]$ and differentiable in $(a, b)$\\
+Now, $g(\alpha) = 0$ and $g(\beta) = 0$ because $f(\alpha) = f(\beta) = 0$ [Given]\\
+Then by Rolle's Theorem,
+\begin{align*}
+\exists c \in (\alpha, \beta) : g'(c) &= 0\\
+\Rightarrow {\rm e}^{-kc} f'(c) - k{\rm e}^{-kc}f(c) &= 0 && \text{Divide by } {\rm e}^{-kc}\\
+\Rightarrow f'(c) - k f(c) &= 0\\
+\Rightarrow f'(c) &= kf(c)
+\end{align*}
+This completes the proof. Hence all the options \textbf{A, B, C and D} are correct.
+\end{prob}
+\begin{prob}
+If $\dfrac{a}{3} + \dfrac{b}{2} + c = 0$, then prove that the equation $ax^2 + bx + c = 0$ has at least one root in $(0, 1)$
+\end{prob}
+\begin{proof}
+We will treat $ax^2 + bx + c$ as the derivative of some function.\\
+Let $f(x) = \dfrac{ax^3}{3} + \dfrac{bx^2}{2} + cx$.
+\begin{align*}
+f'(x) &= ax^2 + bx + c\\
+f(x) &= \dfrac{ax^3}{3} + \dfrac{bx^2}{2} + cx\\
+f(1) &= \dfrac{a}3 + \dfrac{b}2 + c = 0\\
+f(0) &= 0
+\end{align*}
+Since $f(x)$ is continuous in $[0, 1]$ and differentiable in $(0, 1)$, Applying Rolle's Theorem,\\
+\begin{align*}
+\Rightarrow \exists k \in (0, 1) : f'(k) &= 0\\
+\Rightarrow \exists k \in (0, 1) : ak^2 + bk + c &= 0
+\end{align*}
+i.e. $ax^2 + bx + c = 0$ has at least one root in $(0, 1)$
+\end{proof}
+\pagebreak
+\begin{prob}
+The Legendre Polynomial is defined by the following formula (Rodrigues Formula).
+\[P_n(x) = \dfrac{1}{2^n n!} \dfrac{\dif^{\;n}}{\dif x^n} (x^2 - 1)^n\]
+Prove that $P_n(x)$ has $n$ different real roots, all of which are found between $-1$ and $1$.
+\begin{proof}
+Notice that $\dfrac{1}{2^n n!}$ is just a constant. So the roots of $P_n(x)$ will be the same as the roots of $\dfrac{\dif^{\;n}}{\dif x^n} (x^2 - 1)^n$.\\
+Consider $g(x) = (x^2 - 1)^n$. This is a polynomial of degree $2n$. If we differentiate it $n$ times, we will get a polynomial of degree $n$.\\
+So $\dfrac{\dif^{\;n}}{\dif x^n} (x^2 - 1)^n$ is a polynomial of degree $n$.
+By the Fundamental Theorem of Algebra, it will have at most $n$ roots.\\
+\begin{align*}
+g(x) &=  (x^2 - 1)^n\\
+&= (x+1)^n(x-1)^n
+\end{align*}
+$g(x)$ has two roots: $-1$ and $1$, each having multiplicity $n$.\\\\
+By Rolle's Theorem, $g'(x)$ will have at least one root in $(-1, 1)$. Also $g'(x)$ will have $-1$ and $1$ as roots, each having multiplicity $(n-1)$. So $g'(x)$ has at least $3$ distinct roots.\\\\
+Again applying Rolle's Theorem, between 3 roots of $g'(x)$ will lie at least 2 real roots of $g''(x)$. And $g''(x)$ will have $-1$ and $1$ as roots of multiplicity $(n-2)$. So $g''(x)$ will have at least $4$ distinct roots.\\\\
+And so on...\\\\
+Applying Rolle's Theorem $(n-1)$ times. Then $g^{(n-1)}(x)$ will have at least $n-1$ roots in $(0, 1)$ and also $-1$ and $1$ as roots of multiplicity $1$ each. So $g^{(n-1)}(x)$ will have at least $(n + 1)$ real roots.\\\\
+\begin{figure}[h]
+\includegraphics[scale=0.35]{images/legendre}
+\end{figure}
+Finally, applying Rolle's Theorem, $g^{(n)}(x)$ will have at least $n$ roots, all of which lie in $(0, 1)$.\\
+Therefore, $P_n(x)$ will have exactly $n$ real roots, all of which lie in $(0, 1)$
+\end{proof}
+\end{prob}
+\pagebreak
+\subsection{Lagrange's Mean Value Theorem}
+\begin{theorem}
+If a function $f$ is continuous in $[a, b]$ and differentiable in $(a, b)$, then there exists at least one $c \in (a, b)$ such that:
+\[\dfrac{f(b) - f(a)}{b - a} = f'(c)\]
+Geometrically, it means at that at some point in the interval $(a, b)$, the tangent will be parallel to the chord.
+\end{theorem}
 \end{document}

@@ -226,7 +226,7 @@ Again, Using Bolzano's Theorem, there exists at least one root of $f(x)$ in the 
 For a polynomial of even degree whose leading coefficient and constant term are of opposite signs, there exist at least two real zeros.
 \begin{proof}
 (Using Bolzano's Theorem)\\\\
-Let $f(x) = a_{2n} x^{2n} + a_{2n-1}x^{2n-1} + a_{2n-2}x^{2n-1} + \cdots + a_2 x^2 + a_1 x + a_0$.\\\\
+Let $f(x) = a_{2n} x^{2n} + a_{2n-1}x^{2n-1} + a_{2n-2}x^{2n-2} + \cdots + a_2 x^2 + a_1 x + a_0$.\\\\
 $\Rightarrow f(x) = x^{2n} \Big( a_{2n} +
 \dfrac{a_{2n-1}}{x} + \dfrac{a_{2n-2}}{x^2} + \cdots + \dfrac{a_{3}}{x^{2n-2}} + \dfrac{a_1}{x^{2n-1}} + \dfrac{a_0}{x^{2n}} \Big)$\\
 WLOG, let $a_{2n} > 0$ and $a_0 < 0$.\\
@@ -1059,7 +1059,8 @@ Now, observing $\left[ r g(x) + (x - \alpha) g'(x) \right]$. This won't be zero 
 Also, $(x - \alpha)^{r-1}$ has $\alpha$ as a zero with multiplicity $(r - 1)$.\\
 Therefore, $f'(x)$ will have $\alpha$ as one of its zeros with multiplicity $(r - 1)$.\\
 \end{proof}
-Similarly, the multiplicity of $\alpha$ in $f''(x)$ will be $(r - 2)$ and so on...
+Similarly, the multiplicity of $\alpha$ in $f''(x)$ will be $(r - 2)$ and so on...\\
+The converse is also true.
 \pagebreak
 \subsection{Problems on Rolle's Theorem and Roots}
 \begin{prob}
@@ -1167,10 +1168,272 @@ Therefore, $P_n(x)$ will have exactly $n$ real roots, all of which lie in $(0, 1
 \end{proof}
 \end{prob}
 \pagebreak
-\subsection{Lagrange's Mean Value Theorem}
+\subsection{Mean Value Theorems}
+\subsubsection{Lagrange's Mean Value Theorem}
 \begin{theorem}
 If a function $f$ is continuous in $[a, b]$ and differentiable in $(a, b)$, then there exists at least one $c \in (a, b)$ such that:
 \[\dfrac{f(b) - f(a)}{b - a} = f'(c)\]
 Geometrically, it means at that at some point in the interval $(a, b)$, the tangent will be parallel to the chord.
 \end{theorem}
+\begin{proof}
+Consider the following function.
+\[g(x) = \left( f(b) - f(a) \right)x - f(x)\cdot (b - x)\]
+Then,
+\[g'(x) = f(b) - f(a) - f'(x) \cdot (b - a)\]
+Now, $g$ is continuous in $[a, b]$ and differentiable in $(a, b)$ and $g(a) = g(b)$. Applying Rolle's Theorem.\\
+$\exists c \in (a, b)$ such that $g'(c) = 0$.\\
+\begin{align*}
+\Rightarrow f(b) - f(a) - f'(c) \cdot (b - a) &= 0\\
+\Rightarrow f(b) - f(a) &= f'(c) \cdot (b - a)\\
+\Rightarrow \dfrac{f(b) - f(a)}{b - a} &= f'(c)
+\end{align*}
+\end{proof}
+\subsubsection{Cauchy's Mean Value Theorem}
+\begin{theorem}
+Let $f$ and $g$ be two functions continuous in $[a, b]$ and differentiable in $(a, b)$, then there exists at least one $c \in (a, b)$ such that $\dfrac{f(b) - f(a)}{g(b) - g(a)} = \dfrac{f'(c)}{g'(c)}$
+\end{theorem}
+\begin{proof}
+We need to prove that for some $x = c$, where $c \in (a, b)$, $\dfrac{f(b) - f(a)}{g(b) - g(a)} = \dfrac{f'(x)}{g'(x)}$.\\
+Or $g'(x) \cdot \left( f(b) - f(a) \right) - f'(x) \cdot \left( g(b) - g(a) \right) = 0$.
+Consider the following function:
+\[h(x) = g(x) \cdot \left( f(b) - f(a) \right) - f(x) \cdot \left( g(b) - g(a) \right)\]
+Then,
+\[h'(x) = g'(x) \cdot \left( f(b) - f(a) \right) - f'(x) \cdot \left( g(b) - g(a) \right)\]
+Now, $h(x)$ is  continuous in $[a, b]$ and differentiable in $(a, b)$ and $h(a) = h(b)$. Applying Rolle's Theorem.\\
+$\exists c \in (a, b)$ such that $h'(c) = 0$\\
+Or $g'(c) \cdot \left( f(b) - f(a) \right) - f'(c) \cdot \left( g(b) - g(a) \right) = 0$\\
+$\Rightarrow \dfrac{f(b) - f(a)}{g(b) - g(a)} = \dfrac{f'(c)}{g'(c)}$\\
+\end{proof}
+\pagebreak
+\subsubsection{Important Result from Lagrange's Mean Value Theorem}
+\begin{theorem}
+If $f'(x) > g'(x) \; \forall x$ and $f(a) = g(a)$, then $f(x) > g(x) \; \forall x > a$ and $f(x) < g(x) \; \forall x < a$.
+\end{theorem}
+\begin{proof}
+Consider $h(x) = f(x) - g(x)$\\
+Then $h'(x) = f'(x) - g'(x)$\\
+Also, $h'(x) > 0 \; \forall x$\\
+Then we have to prove that $h(x) > 0 \; \forall x > a$ and $h(x) < 0 \; \forall x < a$.\\
+Now,
+\begin{align*}
+h(a) = f(a) - g(a) = 0 && \because f(a) = g(a) \text{ [given]}
+\end{align*}
+Consider any real number $x \neq a$.\\
+Note that $h$ is continuous and differentiable. Applying Lagrange's Mean Value Theorem.
+\[\exists c : \dfrac{h(x) - h(a)}{x - a} = h'(c) > 0\]
+\textbf{Case 1:} $x > a$\\
+Then $x - a > 0$,\\
+Therefore,\\
+\[h(x) - h(a) > 0\]
+\[\Rightarrow h(x) > h(a)\]
+\textbf{Case 2:} $x < a$\\
+Then $x - a < 0$,\\
+Therefore,\\
+\[h(x) - h(a) < 0\]
+\[\Rightarrow h(x) < h(a)\]
+\end{proof}
+\pagebreak
+\subsubsection{Example Problems}
+\begin{prob}
+Suppose $f'(x) \geq M$ in the interval $[a, b]$, then prove that $f(b) \geq f(a) + M(b - a)$
+\end{prob}
+\begin{proof}
+$f(x)$ is continuous in $[a, b]$ and differentiable in $(a, b)$.\\
+Applying Lagrange's Mean Value Theorem.
+\[\exists c \in (a, b) : \dfrac{f(b) - f(a)}{b - a} = f'(c)\]
+But $f'(x) \geq M \; \forall x \in [a, b]$ (Given), so\\
+\begin{align*}
+\dfrac{f(b) - f(a)}{b - a} &\geq M\\
+f(b) - f(a) &\geq M (b - a)\\
+f(b) &\geq f(a) + M (b - a)
+\end{align*}
+\end{proof}
+\begin{prob}
+Suppose $f'(x) \leq M$ in the interval $[a, b]$, then prove that $f(b) \leq f(a) + M(b - a)$
+\end{prob}
+\begin{proof}
+$f(x)$ is continuous in $[a, b]$ and differentiable in $(a, b)$.\\
+Applying Lagrange's Mean Value Theorem.
+\[\exists c \in (a, b) : \dfrac{f(b) - f(a)}{b - a} = f'(c)\]
+But $f'(x) \leq M \; \forall x \in [a, b]$ (Given), so\\
+\begin{align*}
+\dfrac{f(b) - f(a)}{b - a} &\leq M\\
+f(b) - f(a) &\leq M (b - a)\\
+f(b) &\leq f(a) + M (b - a)
+\end{align*}
+\end{proof}
+\begin{prob}
+Let the second derivative $f''$ of a function be continuous and satisfy $\abs{f''(x)} \leq 1$. If $f(0) = f(1)$, show that $\abs{f'(x)} < 1 \;\forall x \in (0, 1)$.
+\end{prob}
+\begin{proof} $\text{}$\\
+$f$ is continuous in $[0, 1]$ and differentiable in $(0, 1)$, and $f(0) = f(1)$. Applying Rolle's Theorem.\\
+$\exists c \in (0, 1) : f'(c) = 0$ or $\abs{f'(c)} \leq 1$\\
+But we have to prove it for all $x$ not just some specific value.\\
+\textbf{General advice:} If you see an inequality in the second derivative, using Lagrange's Mean Value Theorem could be helpful.\\
+Applying Lagrange's Mean Value Theorem.\\
+Consider any $x \in (0, 1) - \{c\}$.\\
+The function $f'$ is continuous in $[x, c]$ or $[c, x]$ and differentiable in $(x, c)$ or $(c, x)$
+\[\dfrac{f'(x) - f'(c)}{x - c} = f''(c_1) \text{\; for some } c_1 \in (x, c) \text{ or } (c, x)\]
+\[\abs{f'(x) - f'(c)} = \abs{x - c} \cdot \abs{f''(c_1)} \;\; [\text{Now, } f'(c) = 0 \text{ and } \abs{f''(c_1)} \leq 1 ]\]
+\[\abs{f'(x)} = \abs{x - c} \cdot \abs{f''(c_1)} \leq \abs{x - c} < 1\]
+\end{proof}
+\pagebreak
+\begin{prob}
+Assume that $\abs{f''(x)} \leq m$ for each $x$ in the interval $[0, a]$ and assume that $f$ takes its largest value at an interior point in this interval. If $f''$ is continuous in the closed interval $[0, a]$, show that $\abs{f'(0)} + \abs{f'(a)}\leq am$ where $f'(0)$ denotes the right-hand derivative of $f$ at $0$ and $f'(a)$ denotes the left-hand derivative of $f$ at $a$.
+\end{prob}
+\begin{proof}
+$f$ takes its largest value at an interior point of $[0, a]$.\\
+Or, $f$ has a point of maximum in $(0, a)a$.\\
+By Fermat's Theorem, \[\exists c \in (0, a) : f'(c) = 0\]\\
+Applying Lagrange's Mean Value Theorem on $f'$ in $[0, c]$.\\
+\[\dfrac{f'(0) - f'(c)}{0 - c} = f''(c_1) \text{\;\;\; for some } c_1 \in (0, c)\]
+But $f'(c) = 0$\\
+Taking modulus on both sides and multiplying by $\abs{c}$
+\[\abs{f'(0)} = \abs{c} \cdot \abs{f''(c_1)}\]
+But $\abs{f''(c_1)}\leq m$
+\begin{equation}\label{eqn:c1}
+\abs{f'(0)} = \abs{c} \cdot \abs{f''(c_1)} \leq \abs{c} \cdot m
+\end{equation}
+Applying Lagrange's Mean Value Theorem on $f'$ in $[c, a]$.\\
+\[\dfrac{f'(a) - f'(c)}{a - c} = f''(c_2) \text{\;\;\; for some } c_2 \in (c, a)\]
+But $f'(c) = 0$
+Taking modulus on both sides and multiplying by $\abs{a - c}$
+\[\abs{f'(a)} = \abs{a - c} \cdot \abs{f''(c_2)}\]
+But $\abs{f''(c_2)} \leq m$
+\begin{equation}\label{eqn:c2}
+\abs{f'(a)} = \abs{a - c} \cdot \abs{f''(c_2)} \leq \abs{a - c} \cdot m
+\end{equation}
+Adding $(\ref{eqn:c1})$ and $(\ref{eqn:c2})$,
+\begin{align*}
+\abs{f'(0)} + \abs{f'(a)} &\leq \abs{c} \cdot m + \abs{a - c} \cdot m\\
+\abs{f'(0)} + \abs{f'(a)} &\leq m \cdot \left(\abs{c} + \abs{a - c}\right)\\
+\abs{f'(0)} + \abs{f'(a)} &\leq m \cdot \abs{a} && \text{But } a \geq 0 \text{ so } \abs{a} = a \\
+\Rightarrow \abs{f'(0)} + \abs{f'(a)} &\leq a m
+\end{align*}
+\end{proof}
+\pagebreak
+\begin{prob}
+Suppose $f$ is continuous on $[a, b]$ and differentiable on $(a, b)$. Assume further that $f(b) - f(a) = b - a$, then prove that for all positive integer $n$, there exist distinct points $c_1, c_2, c_3, \cdots, c_n$ such that $f'(c_1) + f'(c_2) + f'(c_3) + \cdots + f'(c_n) = n$.
+\end{prob}
+\begin{proof}
+We will try to prove it for $n = 1$ and $n = 2$, and then we'll try to draw inspiration from it to prove for any general $n$.\\
+\textbf{For $n = 1$,}\\
+$f$ is continuous in $[a, b]$ and differentiable in $(a, b)$.\\
+Applying Lagrange's Mean Value Theorem.\\
+\[
+\exists c_1 \in (a, b) : \dfrac{f(b) - f(a)}{b - a} = f'(c_1)
+\]
+But $f(b) - f(a) = b - a$ (Given),
+\begin{align*}
+\Rightarrow\exists c_1 \in (a, b) &: \dfrac{\cancel{b - a}}{\cancel{b - a}} = f'(c_1)\\
+\Rightarrow\exists c_1 \in (a, b) &: f'(c_1) = 1
+\end{align*}
+And this proves the result for $n = 1$.\\
+\textbf{For $n = 2$,}\\
+We need to prove that there exist $c_1$ and $c_2$ such that $f'(c_1) + f'(c_2) = 2$
+We will divide the interval $[a, b]$ into $2$ equal parts using the point $\dfrac{a + b}{2}$.\\
+Applying Lagrange's Mean Value Theorem and Adding the equations.\\
+For some $c_1$ and $c_2$,
+\begin{align*}
+\cancel{f\left(\dfrac{a+b}{2}\right)} - f(a) &= \dfrac{b-a}{2} f'(c_1)\\
+f(b) - \cancel{f\left(\dfrac{a+b}{2}\right)} &= \dfrac{b - a }{2} f'(c_2)\\
+\cline{0-1}
+f(b) - f(a) &= \dfrac{b - a}{2} \left(f'(c_1) + f'(c_2)\right)\\
+\cline{0-1}
+\end{align*}
+$\Rightarrow \dfrac{f(b) - f(a)}{b - a} = \dfrac12 \left(f'(c_1) + f'(c_2)\right)$\\
+But $f(b) - f(a) = b - a$ (Given),
+\[\Rightarrow \dfrac{\cancel{b - a}}{\cancel{b - a}} = \dfrac12 \left(f'(c_1) + f'(c_2)\right) \]
+\[f'(c_1) + f'(c_2) = 2\]
+This proves the result for $n = 2$.
+\pagebreak
+Now we will prove it for any general $n$ by the same analogy.\\\\
+\textbf{For any General $n$,}\\
+For the case of $n = 2$, we divided the interval $(a, b)$ into two equal parts.\\
+So for the general case, we will try to divide the interval into $n$ equal parts, i.e. $\left(a, a + \dfrac{b - a}{n}\right),\\ \left(a + \dfrac{b - a}{n}, a + \dfrac{2(b - a)}{n}\right), \left(a + \dfrac{2(b - a)}{n}, a + \dfrac{3(b - a)}{n}\right), \cdots, \left(a + \dfrac{(n-1)(b - a)}{n}, b\right)$\\\\
+Applying Lagrange's Mean Value Theorem $n$ times (on each of these intervals) and adding all the resulting equations. This makes a telescopic sum. There exist $c_1, c_2, c_3, \cdots, c_n$ such that:
+\begin{align*}
+\cancel{f\left(a + \dfrac{b - a}{n}\right)} - f(a) &= \left(\dfrac{b - a}{n}\right) \cdot f'(c_1)\\
+\cancel{f\left(a + \dfrac{2(b - a)}{n}\right)} - \cancel{f\left(a + \dfrac{b - a}{n}\right)} &= \left(\dfrac{b - a}{n}\right) \cdot f'(c_2)\\
+\cancel{f\left(a + \dfrac{3(b - a)}{n}\right)} - \cancel{f\left(a + \dfrac{2(b - a)}{n}\right)} &= \left(\dfrac{b - a}{n}\right) \cdot f'(c_3)\\
+\cancel{f\left(a + \dfrac{3(b - a)}{n}\right)} - \cancel{f\left(a + \dfrac{2(b - a)}{n}\right)} &= \left(\dfrac{b - a}{n}\right) \cdot f'(c_3)\\
+\cancel{f\left(a + \dfrac{4(b - a)}{n}\right)} - \cancel{f\left(a + \dfrac{3(b - a)}{n}\right)} &= \left(\dfrac{b - a}{n}\right) \cdot f'(c_4)\\
+\vdots\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\vdots\;\;\;\;\;\;\;\;\;\;\;\;\;&= \;\;\;\;\;\;\;\;\vdots\\
+f\left(b \right) - \cancel{f\left(a + \dfrac{(n-1)(b - a)}{n}\right)} &= \left(\dfrac{b - a}{n}\right) \cdot f'(c_n)\\
+\cline{0-1}
+f(b) - f(a) &= \left(\dfrac{b-a}{n}\right)\cdot \left(f'(c_1) + f'(c_2) + \cdots + f'(c_n)\right)\\
+\cline{0-1}
+\end{align*}
+$\Rightarrow \dfrac{f(b) - f(a)}{b - a} =\dfrac1{n} \left(f'(c_1) + f'(c_2) + \cdots + f'(c_n)\right)$\\\\
+But $f(b) - f(a) = b - a$
+\begin{align*}
+\Rightarrow \dfrac{\cancel{b - a}}{\cancel{b - a}} =\dfrac1{n} \left(f'(c_1) + f'(c_2) + \cdots + f'(c_n)\right)\\
+\Rightarrow f'(c_1) + f'(c_2) + f'(c_3) + \cdots + f'(c_n) = n
+\end{align*}
+\end{proof}
+\pagebreak
+\subsubsection*{Proving Some Inequalities}
+\begin{prob}
+Prove that $\forall a, b \in \mathbb{R}$, 
+\[\abs{\sin(a) - \sin(b)} \leq \abs{a - b}\]
+\end{prob}
+\begin{proof} (using Lagrange's Mean Value Theorem)\\
+\textbf{Case 1:} If $a = b$\\
+This inequality is trivially true if $a = b$, because $LHS = \sin(a) - \sin(a) = 0$ and $RHS = a - a = 0$\\\\
+\textbf{Case 2:} If $a \neq b$\\
+Consider a function $f(x) = \sin(x)$
+$f$ is continuous and differentiable everywhere. Applying Lagrange's Mean Value Theorem.\\
+There exists $c \in (a, b)$ or $(b, a)$ such that
+\begin{align*}
+\dfrac{\sin(a) - \sin(b)}{a - b} &= \cos(c)\\
+\Rightarrow \abs{\dfrac{\sin(a) - \sin(b)}{a - b}} &= \abs{\cos(c)} \leq 1 && \text{Multiply by } \abs{a - b}\\
+\Rightarrow \abs{\sin(a) - \sin(b)} &\leq \abs{a - b}
+\end{align*}
+\end{proof}
+\begin{prob}
+Prove that $\forall x > 0$,
+\[\dfrac{x}{1+x} < \log_{\rm e}(1+x) < x\]
+\end{prob}
+\begin{proof}
+Consider the function $f(t) = \log_{\rm e}(t)$\\
+$f$ is continuous in $[1, 1+x]$ and differentiable in $(1, 1+x)$. Applying Lagrange's Mean Value Theorem.\\
+There exists $c \in (1, 1 + x)$ such that
+\[\dfrac{\ln(1 + x) - \ln(1)}{1 + x - 1} = \dfrac1{c}\]
+Now,
+\[1 < c < 1+x\]
+\[\Rightarrow \dfrac1{1 + x} < \dfrac1{c} < 1\]
+\[\Rightarrow \dfrac1{1 + x} < \dfrac{\ln(1 + x) - \ln(1)}{\cancel{1} + x \cancel{- 1}} < 1\]
+But $\ln(1) = 0$
+\[\Rightarrow \dfrac1{1 + x} < \dfrac{\ln(1 + x)}{x} < 1\]
+Now, $x > 0$ (Given), so multiplying by x,
+\[\dfrac{x}{1 + x} < \ln(1+x) < x\]
+\end{proof}
+\pagebreak
+\begin{prob}
+Show that the square roots two successive natural numbers greater than $N^2$ differ by less than $\dfrac1{2N}$.
+\end{prob}
+\begin{proof}
+Consider any two consecutive natural numbers $m$ and $m + 1$, both greater than $N^2$.\\
+Also consider the function $f(x) = \sqrt{x}$.\\
+Applying Lagrange's Mean Value Theorem,\\
+$f(x)$ is continuous in $[m, m + 1]$ and differentiable in $(m, m + 1)$.\\
+Therefore, there exists $c \in (m, m+1)$ such that
+\begin{align*}
+\dfrac{\sqrt{m + 1} - \sqrt{m}}{m + 1 - m} &= f'(c)\\
+\sqrt{m + 1} - \sqrt{m} &= \dfrac{1}{2\sqrt{c}}
+\end{align*}
+Now,
+\[m < c < m + 1\]
+\[\sqrt{m} < \sqrt{c} < \sqrt{m + 1}\]
+\[\dfrac1{\sqrt{m + 1}} < \dfrac{1}{\sqrt{c}} < \dfrac1{\sqrt{m}}\]
+Also, it is given that
+\[N^2 < m < m + 1\]
+\[\Rightarrow N < \sqrt{m} < \sqrt{m + 1}\]
+\[\Rightarrow\dfrac1{\sqrt{m + 1}} < \dfrac1{\sqrt{m}} < \dfrac{1}{N}\]
+So $\dfrac1{\sqrt{c}} < \dfrac1{\sqrt{m}}$ and $\dfrac{1}{\sqrt{m}} < \dfrac1{N}$
+\[\Rightarrow \dfrac1{\sqrt{c}} < \dfrac1{N}\]
+Therefore,
+\[\sqrt{m + 1} - \sqrt{m} = \dfrac{1}{2\sqrt{c}} < \dfrac{1}{2N}\]
+\[\Rightarrow\sqrt{m + 1} - \sqrt{m} < \dfrac{1}{2N}\]
+\end{proof}
 \end{document}

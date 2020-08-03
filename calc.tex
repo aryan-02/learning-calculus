@@ -1436,4 +1436,224 @@ Therefore,
 \[\sqrt{m + 1} - \sqrt{m} = \dfrac{1}{2\sqrt{c}} < \dfrac{1}{2N}\]
 \[\Rightarrow\sqrt{m + 1} - \sqrt{m} < \dfrac{1}{2N}\]
 \end{proof}
+\begin{prob}
+If $f$ and $g$ are differentiable functions in $(0, 1)$ satisfying $f(0) = 2 = g(1)$, $g(0) = 0$ and $f(1) = 6$, then for some $c \in [0, 1]$:\\\\
+\begin{enumerate*}[label=(\Alph*)]
+\item $2 f'(c) = g'(c)$\\
+\item $2 f'(c) = 3g'(c)$\\
+\item $f'(c) = g'(c)$\\
+\item $f'(c) = 2 g'(c)$
+\end{enumerate*}
+\end{prob}
+\paragraph{Solution: (D)}
+Simply invoke Cauchy's Mean Value Theorem.\\
+\[\exists c \in (0, 1) : \dfrac{f(1) - f(0)}{g(1) - g(0)} = \dfrac{f'(c)}{g'(c)}\]
+\[\Rightarrow \dfrac{f'(c)}{g'(c)} = \dfrac{6 - 2}{2-0} = 2 \Rightarrow f'(c) = 2 g'(c)\]
+\pagebreak
+\subsubsection{Differentiation of Determinants}
+To differentiate a determinant, we differentiate each row (or column) one at a time, leaving the rest unchanged, and take the sum.
+\[\text{Let } p(x)= 
+\begin{vmatrix}a(x)&b(x)&c(x)\\d(x)&e(x)&f(x)\\g(x)&h(x)&i(x)\end{vmatrix}
+\]
+Then
+\[p'(x) = 
+\begin{vmatrix}a'(x)&b'(x)&c'(x)\\d(x)&e(x)&f(x)\\g(x)&h(x)&i(x)\end{vmatrix} +
+\begin{vmatrix}a(x)&b(x)&c(x)\\d'(x)&e'(x)&f'(x)\\g(x)&h(x)&i(x)\end{vmatrix} +
+\begin{vmatrix}a(x)&b(x)&c(x)\\d(x)&e(x)&f(x)\\g'(x)&h'(x)&i'(x)\end{vmatrix}
+\]
+Or
+\[p'(x) = 
+\begin{vmatrix}a'(x)&b(x)&c(x)\\d'(x)&e(x)&f(x)\\g'(x)&h(x)&i(x)\end{vmatrix} +
+\begin{vmatrix}a(x)&b'(x)&c(x)\\d(x)&e'(x)&f(x)\\g(x)&h'(x)&i(x)\end{vmatrix} +
+\begin{vmatrix}a(x)&b(x)&c'(x)\\d(x)&e(x)&f'(x)\\g(x)&h(x)&i'(x)\end{vmatrix}
+\]
+\subsubsection{The General Mean Value Theorem}
+\begin{theorem}
+Let $f$, $g$ and $h$ be functions which are continuous in $[a, b]$ and differentiable in $(a, b)$, then there exists at least one $c \in (a, b)$ such that
+\[
+\begin{vmatrix}
+f'(c) & g'(c) & h'(c)\\
+f(a) & g(a) & h(a)\\
+f(b) & g(b) & h(b)
+\end{vmatrix} = 0
+\]
+\end{theorem}
+\begin{proof}
+Consider the function $p$ defined as the following.
+\[p(x) = 
+\begin{vmatrix}
+f(x) & g(x) & h(x)\\
+f(a) & g(a) & h(a)\\
+f(b) & g(b) & h(b)
+\end{vmatrix}
+\]
+Then,
+\begin{align*}
+p'(x) &= 
+\begin{vmatrix}
+f'(x) & g'(x) & h'(x)\\
+f(a) & g(a) & h(a)\\
+f(b) & g(b) & h(b)
+\end{vmatrix}
++
+\begin{vmatrix}
+f(x) & g(x) & h(x)\\
+0 & 0 & 0\\
+f(b) & g(b) & h(b)
+\end{vmatrix}
++
+\begin{vmatrix}
+f(x) & g(x) & h(x)\\
+f(a) & g(a) & h(a)\\
+0 & 0 & 0
+\end{vmatrix}\\
+&=
+\begin{vmatrix}
+f'(x) & g'(x) & h'(x)\\
+f(a) & g(a) & h(a)\\
+f(b) & g(b) & h(b)
+\end{vmatrix}
+\end{align*}
+Now, $p$ is continuous in $[a, b]$ and differentiable in $(a, b)$ because $f$, $g$ and $h$ are continuous in $[a, b]$ and differentiable in $(a, b)$.\\
+Also, $p(a) = 0$ (because that would make the first two rows equal) and similarly $p(b) = 0$.\\
+Applying Rolle's Theorem on $p$,
+\[\exists c \in (a, b) : p'(c) = 0\]
+\[\exists c \in (a, b) :
+\begin{vmatrix}
+f'(c) & g'(c) & h'(c)\\
+f(a) & g(a) & h(a)\\
+f(b) & g(b) & h(b)
+\end{vmatrix} = 0
+ \]
+\end{proof}
+\pagebreak
+\subsection{Monotonicity}
+\subsubsection{Definitions}
+\begin{define}
+A function $f$ is said to be \underline{non-decreasing} or \underline{monotonically increasing} in an interval if for all $x_1, x_2$ in the interval, $x_1 > x_2 \Rightarrow f(x_1) \geq f(x_2)$
+\end{define}
+\begin{define}
+A function $f$ is said to be \underline{non-increasing} or \underline{monotonically decreasing} in an interval if for all $x_1, x_2$ in the interval, $x_1 > x_2 \Rightarrow f(x_1) \leq f(x_2)$
+\end{define}
+\begin{define}
+A function $f$ is said to be \underline{strictly increasing} in an interval if for all $x_1, x_2$ in the interval, $x_1 > x_2 \Rightarrow f(x_1) > f(x_2)$
+\end{define}
+\begin{define}
+A function $f$ is said to be \underline{strictly decreasing} in an interval if for all $x_1, x_2$ in the interval, $x_1 > x_2 \Rightarrow (x_1) < f(x_2)$
+\end{define}\;\\
+Note that by these definitions, the constant function is both monotonically increasing and monotonically decreasing.\\
+Also note that a function doesn't have to be continuous or differentiable in order for it to be increasing or decreasing.
+\subsubsection{Properties}
+\begin{enumerate}
+\item If a function is increasing in an interval $[a, b]$, then for this interval, the function assumes its greatest value at $b$ and its least value at $a$.
+\item Similarly, if a function is decreasing in an interval $[a, b]$, then for this interval, the function assumes its greatest value at $a$ and its least value at $b$.
+\item Let $f$ be a function which is continuous in $[a, b]$ and differentiable in $(a, b)$. Then,
+\begin{enumerate}
+\item If $f'(x) \geq 0 \; \forall x \in (a, b)$, then the function is monotonically increasing (or non-decreasing) in the interval.
+\item If $f'(x) \leq 0 \; \forall x \in (a, b)$, then the function is monotonically decreasing (or non-increasing) in the interval.
+\item If $f'(x) > 0 \; \forall x \in (a, b)$, then the function is strictly increasing in the interval.
+\item If $f'(x) < 0 \; \forall x \in (a, b)$, then the function is strictly decreasing in the interval.
+\end{enumerate}
+\item A function can have its derivative equal to zero somewhere and still be strictly increasing or decreasing (For example, $y=x^3$ is strictly increasing). Let $f$ be a function continuous in $[a, b]$ and differentiable in $(a, b)$. Then,
+\begin{enumerate}
+\item If $f'(x) \geq 0 \; \forall x \in (a, b)$ and the equality holds at discrete points, then the function is strictly increasing.
+\item If $f'(x) \leq 0 \; \forall x \in (a, b)$ and the equality holds at discrete points, then the function is strictly decreasing.
+\end{enumerate}
+\item Let $f$ be a continuous and differentiable function.\\ Then, $f$ is strictly increasing or strictly decreasing $\Leftrightarrow$ $f$ is one-one.
+\pagebreak
+\item If $f$ is increasing and $g$ is increasing, then $f\circ g$ is increasing.
+\begin{proof}
+Consider any two real numbers $a$ and $b$ such that $a < b$.\\
+$\Rightarrow g(a) < g(b)$ because $g$ is increasing.\\
+$\Rightarrow f(g(a)) < f(g(b))$ because $f$ is increasing.\\
+$\Rightarrow (f \circ g)$ is decreasing
+\end{proof}
+\item Similarly if $f$ is decreasing and $g$ is decreasing, then $f \circ g$ is increasing.
+\end{enumerate}
+\subsubsection{Problems}
+\begin{prob}
+Find the total number of positive integer solutions of $a^b = b^a$ (where $b>a$).
+\end{prob}
+\paragraph{Solution:}
+\begin{align*}
+a^b &= b^a && \text{Raise both sides to } \dfrac1{ab}^{th}\text{ power}\\
+\Rightarrow a^{\left(\dfrac{1}{a}\right)} &= b^{\left(\dfrac{1}{a}\right)} && \text{Take natural log  on both sides}\\
+\Rightarrow \dfrac{1}{a} \ln(a) &= \dfrac{1}{b} \ln(b)\\
+\Rightarrow \dfrac{\ln(a)}{a} &= \dfrac{\ln(b)}{b}\\
+\Rightarrow \dfrac{a}{\ln(a)} &= \dfrac{b}{\ln(b)}
+\end{align*}
+Consider the function $f(x) = \dfrac{x}{\ln(x)}$, $x > 0$\\
+Then we're looking for solutions of $f(a) = f(b)$ where $a, b \in \mathbb{Z}^+$, $b > a$.
+\begin{align*}
+f(x) &= \dfrac{x}{\ln(x)}\\\\
+\Rightarrow f'(x) &= \dfrac{\ln(x) - 1}{(\ln(x))^2}
+\end{align*}
+Now, $f'(x) = 0$ at $x = {\rm e}$\\
+So $f(x) > 0$ for $x \in ( {\rm e}, \infty)$ and $f(x) < 0$ for $x \in (0, {\rm e})$\\
+Therefore $f$ is strictly decreasing in $(0, {\rm e})$ and $f$ is strictly increasing in $({\rm e}, \infty)$\\
+$\Rightarrow f$ is one-one in $(0, {\rm e})$ and one-one in $({\rm e}, \infty)$\\
+In other words, $f(a) = f(b)$ has no solution for $a, b \in (0, {\rm e})$ and $a, b \in ({\rm e}, \infty)$\\
+Then the only case that remains is when $a \in (0, {\rm e})$ and $b \in ({\rm e}, \infty)$.\\
+There are only two positive integers in $(0, e)$, namely 1 and 2.\\
+If $a = 1$, we get
+\[1^b = b ^1\]
+where $b > 1$.\\
+LHS = 1 but RHS will always be greater than $1$.\\
+So there will be no solution corresponding to $a = 1$
+Now, if $a = 2$, we get
+\[2^b = b^2\]
+There exists exactly one integer solution to this, i.e. $a = 2$ and $b = 4$.
+\[2^4 = 4^2\]
+Therefore, $a^b = b^a$ will have exactly one positive-integer solution for $b > a$.
+\pagebreak
+\begin{prob}
+Let $\alpha$ be a repeated root of a quadratic equation $f(x) = 0$ and $A(x), B(x)$ and $C(x)$ be polynomials of degree 3, 4 and 5 respectively. Then show that $\begin{vmatrix}
+A(x)&B(x)&C(x)\\A(\alpha)&B(\alpha)&C(\alpha)\\A'(\alpha)&B'(\alpha)&C'(\alpha)
+\end{vmatrix}$ is divisible by $f(x)$.
+\end{prob}
+\begin{proof}
+$\alpha$ is a root of $f(x)$. 
+\[
+f(\alpha) = 0
+\]
+\[
+\Rightarrow f(x) = a(x - \alpha)^2
+\]
+Also, since $\alpha$ is a repeated root of $f(x)$, this implies $\alpha$ is also a root of $f'(x)$.
+\[f'(\alpha) = 0\]
+Now
+\[\text{Let } h(x) = \begin{vmatrix}
+A(x)&B(x)&C(x)\\A(\alpha)&B(\alpha)&C(\alpha)\\A'(\alpha)&B'(\alpha)&C'(\alpha)
+\end{vmatrix}\]
+\[h(\alpha) = 0\]
+\[h'(x) = \begin{vmatrix}
+A'(x)&B'(x)&C'(x)\\A(\alpha)&B(\alpha)&C(\alpha)\\A'(\alpha)&B'(\alpha)&C'(\alpha)
+\end{vmatrix} + 0 + 0 = \begin{vmatrix}
+A'(x)&B'(x)&C'(x)\\A(\alpha)&B(\alpha)&C(\alpha)\\A'(\alpha)&B'(\alpha)&C'(\alpha)
+\end{vmatrix}\]
+Therefore,
+\[h'(\alpha) = 0\]
+$\Rightarrow \alpha$ has a multiplicity of $2$ in $h(x)$.\\
+$\Rightarrow h(x)$ is divisible by f(x).\\
+\end{proof}
+\begin{prob}
+Let $p(x)$ be a polynomial such that $p(1) = 0$ and $\dfrac{\dif}{\dif x} p(x) > p(x) \; \forall x > 1$. Show that $p(x) > 0 \; \forall x > 1$. 
+\end{prob}
+\begin{proof}
+\begin{align*}
+\dfrac{\dif}{\dif x} \left(p(x)\right) &> p(x) && \forall x > 1\\
+\Rightarrow p'(x) &> p(x) && \forall x > 1\\
+\Rightarrow p'(x) - p(x) &> 0 && \forall x > 1\\
+\text{Multiply by the integrating factor } {\rm e}^{-x}\\
+\Rightarrow {\rm e}^{-x} p'(x) - {\rm e}^{-x} p(x) &> 0 && \forall x > 1\\
+\Rightarrow \dfrac{\dif}{\dif x} \left( {\rm e}^{-x} \cdot p(x) \right) &>0 && \forall x > 1
+\end{align*}
+Let $g(x) = {\rm e}^{-x}\cdot p(x)$.\\
+Then, $g'(x) > 0 \; \forall x > 1 \Rightarrow g$ is strictly increasing $\forall x > 1$\\
+And $g(1) = {\rm e}^{-1} p(1) = 0$\\
+$\Rightarrow g(x) > 0 \; \forall x > 1$\\
+$\Rightarrow {\rm e}^{-x} \cdot p(x) > 0$\\ 
+$\Rightarrow p(x) > 0 \; \forall x > 1$
+\end{proof}
+\textbf{Actually, this problem is fundamentally flawed.} We can prove that no such polynomial exists by contradiction. However, such a function can exist. Had $p(x)$ been given as a differentiable function, this problem and solution would have been valid.
 \end{document}

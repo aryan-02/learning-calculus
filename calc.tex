@@ -1,4 +1,4 @@
-\documentclass[14]{article}
+ \documentclass[14]{article}
 \usepackage{pgfplots}
 \pgfplotsset{width=7cm,compat=1.9}
 \usetikzlibrary{external}
@@ -33,6 +33,7 @@
 \newtheorem*{ex}{Example}
 \theoremstyle{definition}
 \newtheorem{prob}{Problem}
+\newtheorem{algo}{Algorithm}
 \begin{document}
 \title{Single-Variable Calculus}
 \author{Aryan Mediratta}
@@ -1656,4 +1657,398 @@ $\Rightarrow {\rm e}^{-x} \cdot p(x) > 0$\\
 $\Rightarrow p(x) > 0 \; \forall x > 1$
 \end{proof}
 \textbf{Actually, this problem is fundamentally flawed.} We can prove that no such polynomial exists by contradiction. However, such a function can exist. Had $p(x)$ been given as a differentiable function, this problem and solution would have been valid.
+\pagebreak
+\paragraph{Proof that such a polynomial doesn't exist:}
+\begin{proof} (By contradiction)\\
+Assume for the purpose of contradiction that such a polynomial exists. Let us call it $p(x).$\\
+\[p(x) = a_n x^n + a_{n-1} x^{n-1} + a_{n-2} x^{n-2} + \cdots + a_3 x^3 + a_2 x^2 + a_1 x + a_0\]
+\[\Rightarrow p'(x) = n a_n x^{n-1} + (n-1)a_{n-1}x^{n-2} + (n-2) a_{n-2}x^{n-3} + \cdots + a_1\]
+Now, it is given that $p'(x) > p(x) \forall x > 1$\\
+i.e. $p'(x) - p(x) > 0\; \forall x > 1$
+\begin{align*}
+p'(x) - p(x) &= -a_n x^n + x^{n-1} (na_n - a_{n-1}) + x^{n-2} \left((n-1)a_{n-1} - a_{n-2}\right)+ \cdots \\
+&= -a_n x^n - x^{n-1}(a_{n-1} - na_n) - x^{n-2} \left( a_{n-2} - (n-1)a_{n-1}\right) - \cdots
+\end{align*}
+If $p'(x) - p(x) > 0 \; \forall x > 1$
+\[-a_n x^n - x^{n-1}(a_{n-1} - na_n) - x^{n-2} \left( a_{n-2} - (n-1)a_{n-1}\right) - \cdots > 0 \; \forall x > 1\]
+Then this should also be true for values of $x$ approaching infinity.\\
+\[\Rightarrow a_n < 0\]
+But we proved that $p(x) > 0 \; \forall x > 1$.
+\[\Rightarrow a_n x^n + a_{n-1} x^{n-1} + a_{n-2} x^{n-2} + \cdots + a_3 x^3 + a_2 x^2 + a_1 x + a_0 > 0 \;\forall x > 1\]
+This should also be true for infinitely great values of x.
+\[\Rightarrow a_n > 0\]
+And we have derived a contradiction.\\
+Therefore the assumption that such a polynomial exists is incorrect.\\
+Hence, the given problem is fundamentally flawed.
+\end{proof}
+\pagebreak
+\begin{prob}
+If $f : \mathbb{R} \to \mathbb{R}$ is a differentiable function such that $f'(x) > 2f(x) \; \forall x \in \mathbb{R}$ and $f(0) = 1$. Then:\\
+\begin{enumerate*}[label=(\Alph*)]
+\item $f(x) > {\rm e}^{2x}$ in $(0, \infty)$\\
+\item $f(x)$ is decreasing in $(0, \infty)$\\
+\item $f(x)$ is increasing in $(0, \infty)$\\
+\item $f'(x) < {\rm e}^{2x}$ in $(0, \infty)$\\
+\end{enumerate*}
+\textbf{Solution: (AC)}\\
+\begin{align*}
+f'(x) &> 2f(x) && \text{(Given)}\\
+\Rightarrow f'(x) - 2f(x) &> 0 && \text{(Multiply by the integrating factor)}\\ 
+\Rightarrow {\rm e}^{-2x} f'(x) - 2 {\rm e}^{-2x} f(x) &> 0\\
+\Rightarrow \dfrac{\dif}{\dif x}\left( {\rm e}^{-2x} f(x) \right) &> 0 && \text{Let } g(x) = {\rm e}^{-2x} f(x)\\
+\Rightarrow g'(x) &> 0 && \forall x \in \mathbb{R}\\
+\Rightarrow g(x) \text{ is strictly increasing.}\\
+\Rightarrow g(x) &> g(0) && \forall x > 0\\
+\Rightarrow g(x) &> {\rm e}^0 f(0) && \forall x > 0\\
+\Rightarrow {\rm e}^{-2x} f(x) &> 1 && \forall x > 0\\
+\Rightarrow f(x) &> {\rm e}^{2x} && \forall x \in (0, \infty)\\
+\text{Therefore, option A is correct}\\
+\text{Now, since } f'(x) > 2f(x) \text{ and } f(x) > {\rm e}^{2x},\\
+\Rightarrow f'(x) > 2f(x) &> 2 {\rm e}^{2x} && \forall x \in (0, \infty)\\
+\Rightarrow f'(x) &> 2{\rm e}^{2x} && \forall x \in (0, \infty)\\
+\Rightarrow f'(x) &> 0 && \forall x \in (0, \infty)\\ 
+\Rightarrow f(x) \text{ is strictly increasing in } (0, \infty)\\
+\text{Therefore, option C is correct}
+\end{align*}
+\end{prob}
+\pagebreak
+\subsection{Testing for Local Maxima and Minima}
+\begin{define}
+The critical point of a function is defined as a point where the derivative of the function is either zero or not defined.
+\end{define}
+\begin{algo}
+Consider a function $f(x)$. We have to find its local maxima and minima.
+\begin{enumerate}
+\item Differentiate $f$ to get $f'(x)$.
+\item Find all the points where $f'(x)$ changes sign.
+\item If $f'(x)$ changes sign from positive to negative, then the point is a local maximum. If $f'(x)$ changes sign from negative to positive, then the point is a local minimum.
+\end{enumerate}
+This algorithm is preferred as it gives the answer definitively and in exactly 3 steps.
+\end{algo}
+\begin{prob}
+The function $f(x) = x\left(x^2 - 4\right)^n\left(x^2 - x + 1\right)$, $n \in \mathbb{N}$ assumes a local minimum at $x = 2$, then:\\
+\begin{enumerate*}[label=(\Alph*)]
+\item $n$ can be any odd number\\
+\item $n$ can only be an odd prime number\\
+\item $n$ can be any even integer\\
+\item $n$ can only be a multiple of four\\
+\end{enumerate*}
+\paragraph{Solution: (C)}
+\[f(x) = x\left(x^2 - 4\right)^n\left(x^2 - x + 1\right)\]
+\begin{align*}
+f'(x) &= (x^2 - 4)^n \cdot (x^2 - x + 1) + n(x^2-4)^{n-1} \cdot(2x)(x)(x^2-x+1) + x(x^2-4)^n \cdot (2x-1)\\
+&= (x^2 - 4)^{n-1}\left( (x^2-4)(x^2-x+1) + n(2x)(x)(x^2-x+1)+x(x^2-4)(2x-1) \right)
+\end{align*}
+By Fermat's Theorem, since $f$ attains a local maximum at $x = 2$,
+\[f'(2) = 0\]
+\[\Rightarrow n - 1 \geq 1\]
+\[\Rightarrow n \geq 2\]
+Now, \\
+$\left( (x^2-4)(x^2-x+1) + n(2x)(x)(x^2-x+1)+x(x^2-4)(2x-1) \right)$ is positive in the neighbourhood of $x=2$.\\
+So $(x^2-4)^{n-1}$ must change sign at $x = 2$ from negative to positive.\\
+\begin{figure}[h]
+\includegraphics[scale=0.5]{images/prob40}
+\end{figure}
+This is only possible when $n - 1$ is odd.\\
+$\Rightarrow n$ is any even number.
+\end{prob}
+\pagebreak
+\begin{prob}
+The least value of $a \in \mathbb{R}$ for which $4ax^2 + \dfrac1{x} \geq 1$ for all $x > 0$ is:\\
+\begin{enumerate*}[label=(\Alph*)]
+\item $\dfrac1{64}\quad\quad$
+\item $\dfrac1{32}\quad\quad$
+\item $\dfrac1{27}\quad\quad$
+\item $\dfrac1{25}$\\
+\end{enumerate*}\\
+\textbf{Solution (C):}
+\paragraph{Method 1:} Using Calculus\\
+Consider the function $f(x) = 4ax^2 + \dfrac1{x}$ in the interval $(0, \infty)$.\\
+The problem stipulates that $f(x) \geq 1 \; \forall x \in (0, \infty)$\\
+\textbf{Proposition:} If the minimum value of the function is greater than or equal to 1, then it is necessary and sufficient for the condition to be satisfied.
+\[f'(x) = 8ax - \dfrac1{x^2}\]
+Finding Critical points:
+\[8 ax^3 - 1 = 0\]
+\[\Rightarrow x^3 = \dfrac1{8a}\]
+\[\Rightarrow x = \dfrac1{2(a)^{\frac13}}\]
+\begin{figure}[h]
+\includegraphics[scale=0.25]{images/prob41}
+\end{figure}
+Therefore $f(x)$ attains its minimum value at $x = \dfrac1{2(a)^{\frac13}}$, which is $f\left(\dfrac1{2(a)^{\frac13}}\right)$.
+\[\Rightarrow f\left(\dfrac1{2(a)^{\frac13}}\right) \geq 1\]
+\[\Rightarrow 4a\cdot \left( \dfrac1{2a^{\frac13}}\right)^2 + 2a^{\frac13}\geq 1\]
+\[\Rightarrow 3a^{\frac13} \geq 1\]
+\[\Rightarrow a^{\frac13} \geq \dfrac1{3}\]
+\[\Rightarrow a \geq \left(\dfrac13\right)^3\]
+\[\Rightarrow a \geq \dfrac1{27}\]
+Therefore, option \textbf{C} is correct.
+\pagebreak
+\paragraph{Method 2:} Using AM-GM Inequality
+\[f(x) = 4ax^2 + \dfrac1{x} \geq 1, \quad x \in (0, \infty)\]
+In order to apply the AM-GM inequality, we must ensure that the terms are all non-negative, which will be the case if and only if $a$ is non-negative.\\
+\textbf{Claim:} $a \geq 0$
+\begin{proof}
+Assume for the purpose of contradiction that a is negative.\\
+Then,
+\[\lim\limits_{x \to \infty} f(x) = \lim\limits_{x \to \infty} 4ax^2 + \dfrac1{x} < 0\]
+This contradicts the fact that $f(x) \geq 1 \quad \forall x \in (0, \infty)$\\
+Therefore, $a \geq 0$.\\
+\end{proof}
+Now, applying AM-GM inequality on $4ax^2$, $\dfrac1{2x}$ and $\dfrac1{2x}$
+\[4ax^2 + \dfrac1{2x} + \dfrac1{2x} \geq 3 \left( (4ax^2)\left(\dfrac1{2x}\right)\left(\dfrac1{2x}\right) \right)^{\dfrac13}\]
+\[\Rightarrow 4ax^2 + \dfrac1{x} \geq 3a^{\frac13}\]
+The equality holds when $4ax^2 = \dfrac1{2x}$ or at $x^3 = \dfrac1{8a} \Rightarrow x = \dfrac1{2a^{\frac13}}$, which is permissible.\\
+This implies that the minimum value of $f(x)$ is $3a^{\frac13}$, but $f(x) \geq 1 \; \forall x \in (0, \infty)$.\\
+\[\Rightarrow 3a^{\frac13} \geq 1\]
+\[\Rightarrow a^{\frac13} \geq \dfrac13\]
+\[\Rightarrow a \geq \dfrac1{3^3}\]
+\[\Rightarrow a \geq \dfrac1{27}\]
+Therefore, option \textbf{C} is correct.
+\end{prob}
+\pagebreak
+\begin{prob}
+The function $f(x) = 2 \abs{x} + \abs{x + 2} - \abs{\;\abs{x + 2} - 2 \abs{x}}$ has a local minimum or a local maximum at $x$ equal to:\\
+\begin{enumerate*}[label=(\Alph*)]
+\item $-2\quad\quad\quad\quad$ 
+\item $\dfrac{-2}3\quad\quad\quad\quad$
+\item $2\quad\quad\quad\quad$
+\item $\dfrac23\quad\quad\quad\quad$\\
+\end{enumerate*}
+\textbf{Solution (AB):}\\
+We know that, 
+\[\text{max}\{f(x), g(x)\} = \dfrac{f(x) + g(x)}{2} + \dfrac{\abs{f(x) - g(x)}}{2}\]
+\[\text{min}\{f(x), g(x)\} = \dfrac{f(x) + g(x)}{2} - \dfrac{\abs{f(x) - g(x)}}{2}\]
+Then, \[f(x) = 2 \cdot \text{min}\{\;\abs{x - 2}, 2\abs{x}\}\]
+\begin{figure}[h]
+\includegraphics[scale=0.5]{images/prob42}
+\end{figure}
+We can plot the graph here.\\
+The critical points are at $x = -2, -\dfrac23, 0, 2$
+\end{prob}
+The point at $x=2$ is neither that of a minimum, nor of a maximum, because the derivative is positive both to its immediate left and right.\\
+The points of minima are at $x = -2$ and $x = 0$, and the point of maximum is at $x = \dfrac{-2}{3}$.\\
+Therefore, options \textbf{(A)} and \textbf{(B)} are correct.
+\pagebreak
+\begin{prob}
+If the roots of the equation $x^4 - 4x^3 + ax^2 + bx + 1 = 0$ are all positive, find the value of $(a - b)$.\\
+\textbf{Solution: }
+\[x^4 - 4x^3 + ax^2 + bx + 1 = 0\]
+Say the roots are $x_1$, $x_2$, $x_3$ and $x_4$.\\
+Then,
+\[\text{Sum of roots } = x_1 + x_2 + x_3 + x_4 = 4\]
+\[\Rightarrow \dfrac{x_1 + x_2 + x_3 + x_4}4 = 1\]
+And
+\[
+\text{Product of roots } = x_1 \cdot x_2 \cdot x_3 \cdot x_4 = 1
+\]
+\[
+\Rightarrow (x_1 \cdot x_2 \cdot x_3 \cdot x_4)^{\frac14} = 1^{\frac14} = 1
+\]
+That means, AM of the roots $=$ GM of the roots.\\
+The equality holds for the AM-GM inequality if and only if all the terms are equal.\\
+Therefore,
+\[x_1 = x_2 = x_3 = x_4 = 1\]
+Then,
+\[
+a = \text{Sum of roots taken two at a time} = {}^4C_2 = 6
+\]
+\[
+-b = \text{Sum of roots taken three at a time} = {}^4C_3 = 4
+\]
+\[
+\Rightarrow b = -4
+\]
+\begin{align*}
+a - b &= 6 - (- 4)\\
+&= 6 + 4\\
+&= 10
+\end{align*}
+Therefore, we get the value of $(a - b)$ as 10.
+\end{prob}
+\pagebreak
+\begin{prob}
+Find the total number of points of global maxima of $ f(x) = \cos(x) + \cos(\sqrt{2} x)$\\
+\textbf{Solution:}
+We know that the maximum value of $\cos(A) + \cos(B)$ can be at most $1$ because the range of $\cos(x)$ is $[-1, 1]$.\\
+It is clear that $\cos(x) + \cos(\sqrt2 x)$ will have the value $2$ at $x = 0$. Therefore, $x = 0$ is a point of global maximum.\\
+To check if other such points exist, we can solve $\cos(x) = 1$ and $cos(\sqrt2 x) = 1$ simultaneously, which will give us $x = 0$ as the only solution.\\
+\end{prob}
+\subsection{Concavity}
+\begin{define}
+A function is said to be (weakly) \underline{concave up} if a line joining any two arbitrary points of the curve lies on or above the curve.
+\end{define}
+\begin{define}
+A function is said to be \underline{strictly concave up} if a line joining any two arbitrary points always lies above the curve.
+\end{define}
+\begin{define}
+A function is said to be (weakly) \underline{concave down} if a line joining any two arbitrary points of the curve lies on or below the curve.
+\end{define}
+\begin{define}
+A function is said to be \underline{strictly concave down} if a line joining any two arbitrary points always lies below the curve.
+\end{define}
+\subsubsection{Mathematical Condition for a Function to be Concave Up}
+\begin{figure}[h]
+\includegraphics[scale=0.417]{images/concave_up}
+\end{figure}
+Equation of line joining the points:
+\[y - f(a) = \dfrac{f(b) - f(a)}{b - a} (x-a)\]
+\[\Rightarrow y = \dfrac{f(b) - f(a)}{b - a} (x-a) + f(a)\]
+Condition for concave up:
+\[
+\dfrac{f(b) - f(a)}{b - a} (x-a) + f(a) \geq f(x)\quad \forall x \in [a, b]
+\]
+\[\Rightarrow \dfrac{f(b) - f(a)}{b - a} \geq \dfrac{f(x) - f(a)}{x - a} \quad \forall x \in [a, b]\]\\
+\pagebreak
+Similarly,\\
+For strictly concave up:
+\[\dfrac{f(b) - f(a)}{b - a} > \dfrac{f(x) - f(a)}{x - a} \quad \forall x \in (a, b)\]
+For concave down:
+\[\dfrac{f(b) - f(a)}{b - a} \leq \dfrac{f(x) - f(a)}{x - a} \quad \forall x \in [a, b]\]
+For strictly concave down:
+\[\dfrac{f(b) - f(a)}{b - a} < \dfrac{f(x) - f(a)}{x - a} \quad \forall x \in (a, b)\]
+\subsubsection{Properties}
+Let $f$ be a differentiable function, then:
+\begin{enumerate}
+\item If $f$ is concave up in $(a, b)$ then $f'(a) \leq f'(b)$ and $f'$ is non-decreasing.
+\item If $f$ is strictly concave up in $(a, b)$ then $f'(a) < f'(b)$ and $f'$ is strictly increasing.
+\item If $f$ is concave down in $(a, b)$ then $f'(a) \geq f'(b)$ and $f'$ is non-increasing.
+\item If $f$ is strictly concave down in $(a, b)$, then $f'(a) > f'(b)$ and $f'$ is strictly decreasing.
+\end{enumerate}
+Let $f$ be a twice-differentiable function, then:
+\begin{enumerate}
+\item $f$ is concave up when $f''(x) \geq 0$.
+\item $f$ is strictly concave up when $f''(x) > 0$.
+\item $f$ is concave down when $f''(x) \leq 0$.
+\item $f$ is strictly concave down when $f''(x) < 0$.
+\end{enumerate}
+Suppose $f$ is a twice-differentiable function in $(a, b)$ and strictly concave up. If $f(a) = f(b)$, then $f(x) < f(a) \quad \forall x \in (a, b)$
+\subsection{Inflection Points}
+\begin{define}
+A point $c$ is called a \underline{point of inflection} for a function $f$ if:
+\begin{enumerate}
+\item There exists a tangent at $c$, and
+\item $f$ changes its concavity about $c$.
+\end{enumerate}
+\end{define}
+\begin{define}
+If $f$ is a doubly-differentiable function, then $c$ is said to be a \underline{point of inflection} when:
+\begin{enumerate}
+\item There exists a tangent at $c$,
+\item $f''(c) = 0$ and
+\item $f''(x)$ must change its sign about the point $c$.
+\end{enumerate}
+\end{define}
+\pagebreak
+\begin{prob}
+For what values of $a$ will the curve $y = x^4 + ax^3 + 3x^2 + 1$ be concave about the entire real number line?\\
+\textbf{Solution:}
+\[y = x^4 + ax^3 + 3x^2 + 1\]
+\[\Rightarrow y' = 4x^3 + 3ax^2 + 6x\]
+\[\Rightarrow y'' = 12x^2 + 6ax + 6\]
+\[\Rightarrow y'' = 6 \cdot (2x^2 + ax + 1)\]
+For the curve to be concave up, $y'' \geq 0 \quad \forall x$.\\
+This is only possible when the discriminant of the quadratic is non-positive.\\
+\[\Rightarrow a^2 - 8 \leq 0\]
+\[\Rightarrow \left(a + 2\sqrt2\right)\left(a - 2\sqrt2\right) \leq 0\]
+\[\Rightarrow a \in \left[-2\sqrt2,\; 2\sqrt2\right]\]
+\end{prob}
+\begin{prob}
+What conditions must the coefficients $a, b$ and $c$ satisfy for the curve $f(x) = ax^4 + bx^3 + cx^2 + dx + e$ to have point(s) of inflection?\\
+\textbf{Solution:}\\
+\[f(x) = ax^4 + bx^3 + cx^2 + dx + e\]
+\[f'(x) = 4ax^3 + 3bx^2 + 2cx + d\]
+\[f''(x) = 12ax^2 + 6bx + 2c\]
+For $f$ to have a point of inflection, $f$ must be differentiable (which it is, because $f$ is a polynomial function), and should have a point $c$ where $f''(c) = 0$ and $f''(x)$ changes sign at $c$.\\
+This means the discriminant of the quadratic must be positive.
+\[\Rightarrow (6b)^2 - 4(12a)(2c) > 0\]
+\[\Rightarrow 36b^2 - 96ac > 0\]
+\[\Rightarrow 6b^2 - 16ac > 0\]
+\[\Rightarrow 3b^2 - 8ac > 0\]
+\[\Rightarrow 3b^2 > 8ac\]
+Therefore, for $f$ to have a point of inflection, the coefficients $a$, $b$ and $c$ must satisfy the condition $3b^2 > 4ac$.
+\end{prob}
+\pagebreak
+\subsection{Jensen's Inequality}
+Say a function is concave up in an interval $(x_1, x_2)$\\
+\begin{figure}[h]
+\includegraphics[scale=0.417]{images/jensen}
+\end{figure}
+Say the point $P$ divides the line segment $AB$ in the ratio $(1 - \lambda):\lambda$\\
+Then, using section formula,\\
+$P$ will have coordinates 
+$\left( \lambda x_1 + (1 - \lambda) x_2,\; \lambda f(x_1) + (1 - \lambda) f(x_2) \right)$.\\
+Then, $Q$ will have coordinates $\left( \lambda x_1 + (1 - \lambda) x_2,\; f\left(\lambda x_1 + (1 - \lambda) x_2\right) \right)$\\
+As $\lambda$ varies from $0$ to $1$, the point $P$ takes all positions between $A$ and $B$.\\
+Since the curve is concave up,\\
+$y$-coordinate of $P$ $>$ $y$-coordinate of $Q$
+\[\Rightarrow \lambda f(x_1) + (1 - \lambda) f(x_2) > f\left(\lambda x_1 + (1 - \lambda) x_2\right) \]
+Say $\lambda = \lambda_1$ and $(1 - \lambda) = \lambda_2$\\
+$\lambda_1 > 0, \; \lambda_2 > 0\\ \lambda_1 + \lambda_2 = 1$
+\[\Rightarrow \lambda_1 f(x_1) + \lambda_2f(x_2) \geq f\left( \lambda_1 x_1 + \lambda_2x_2 \right)\]
+Generalizing,\\
+\[\lambda_1 f(x_1) + \lambda_2 f(x_2) + \lambda_3 f(x_3) + \cdots + \lambda_n f(x_n) \geq f\left( \lambda_1 x_1 + \lambda_2 x_2 + \cdots + \lambda_n x_n \right)\]
+where $0 < \lambda_i < 1$, $i \in \{1, 2, 3, \cdots, n\}$ and $\lambda_1 + \lambda_2 + \cdots + \lambda_n = 1$\\
+This is the general Jensen's inequality for a function that is concave up. The generalization can be proved using Mathematical Induction. However, we are more interested in the special case when $\lambda_1 = \lambda_2 = \cdots = \lambda_n = \dfrac1{n}$.\\
+\[\dfrac{f(x_1) + f(x_2) + f(x_3) + \cdots + f(x_n)}{n} \geq f\left(\dfrac{x_1 + x_2 + x_3 + \cdots + x_n}{n}\right)\]
+\pagebreak
+The sign reverses for a function that is concave down.\\\\
+So Jensen's inequality becomes:
+\[\dfrac{f(x_1) + f(x_2) + f(x_3) + \cdots + f(x_n)}{n} \geq f\left(\dfrac{x_1 + x_2 + x_3 + \cdots + x_n}{n}\right)\]
+if the function is concave up, and
+\[\dfrac{f(x_1) + f(x_2) + f(x_3) + \cdots + f(x_n)}{n} \leq f\left(\dfrac{x_1 + x_2 + x_3 + \cdots + x_n}{n}\right)\]
+if the function is concave down.
+\subsubsection{Proof of the AM-GM Inequality}
+\begin{proof}
+Consider $f(x) = \ln(x)$. Note that $x > 0$ (from the domain of $f$).\\
+\[f'(x) = \dfrac1x\]
+\[f''(x) = \dfrac{-1}{x^2}\]
+i.e. $f''(x) < 0 \; \forall x > 0$\\
+$\Rightarrow f(x) = \ln(x)$ is concave down. Applying Jensen's Inequality:\\
+\begin{align*}
+\dfrac{f(x_1) + f(x_2) + f(x_3) + \cdots + f(x_n)}{n} &\leq f\left( \dfrac{x_1 + x_2 + x_3 + \cdots + x_n}{n} \right)\\
+\dfrac1{n}\left[\ln(x_1) + \ln(x_2) + \ln(x_3) + \cdots + \ln(x_n)\right] &\leq \ln\left( \dfrac{x_1 + x_2 + x_3 + \cdots + x_n}{n} \right)\\
+\Rightarrow \dfrac1n \ln \left( x_1 x_2 x_3 \cdots x_n\right)&\leq \ln\left( \dfrac{x_1 + x_2 + x_3 + \cdots + x_n}{n} \right)\\
+\Rightarrow \ln \left( (x_1 x_2 x_3 \cdots x_n)^\frac1n \right)&\leq \ln\left( \dfrac{x_1 + x_2 + x_3 + \cdots + x_n}{n} \right)
+\end{align*}
+Now, since $\ln(x)$ is an increasing function, this means $\ln(x_1) \leq \ln(x_2) \Leftrightarrow x_1 \leq x_2$.
+\[\Rightarrow (x_1 x_2 x_3 \cdots x_n)^{\frac1n}\leq \dfrac{x_1 + x_2 + x_3 + \cdots + x_n}{n}\]
+\[\Rightarrow\dfrac{x_1 + x_2 + x_3 + \cdots + x_n}{n} \geq (x_1 x_2 x_3 \cdots x_n)^{\frac1n} \]
+\[\Rightarrow AM \geq GM\]
+\end{proof}
+\pagebreak
+\subsubsection{Problems}
+\begin{prob}
+Prove that in a triangle $ABC$, $\sin(A) + \sin(B) + \sin(C) \leq \dfrac{3\sqrt3}{2}$.\\
+\begin{proof}
+Since $A, B, C$ are angles in a triangle,\\
+$0 < A, B, C < \pi$ and $A + B + C = \pi$.\\
+Consider the function $f(x) = \sin(x)$ in the interval $[0, \pi].$
+\[f(x) = \sin(x)\]
+\[f'(x) = \cos(x)\]
+\[f''(x) = -\sin(x)\]
+\[f''(x) \leq 0 \; \forall x \in [0, \pi]\]
+$\sin(x)$ is concave down in $[0, \pi]$. Applying Jensen's Inequality:
+\begin{align*}
+\dfrac{\sin(A) + \sin(B)+ \sin(C)}{3} &\leq \sin \left( \dfrac{A+B+C}{3} \right)\\
+\Rightarrow \dfrac{\sin(A) + \sin(B)+ \sin(C)}{3} &\leq \sin \left( \dfrac{\pi}{3} \right)\\
+\Rightarrow \dfrac{\sin(A) + \sin(B)+ \sin(C)}{3} &\leq \dfrac{\sqrt3}{2}\\
+\Rightarrow \sin(A) + \sin(B)+ \sin(C) &\leq \dfrac{3\sqrt3}{2}
+\end{align*}
+\end{proof}
+\end{prob}
+\begin{prob}
+Prove that for an acute-angled triangle $ABC$, $\tan(A) + \tan(B) + \tan(C) \geq 3\sqrt3$
+\end{prob}
+\begin{proof}
+\[A + B + C = \pi\]
+\[0 < A, B, C < \dfrac{\pi}2\]
+Consider the function $f(x) = \tan(x)$ in the interval $\left[0, \dfrac{\pi}{2}\right)$.
+\[f(x) = \tan(x)\]
+\[f'(x) = \sec^2(x)\]
+\[f''(x) = 2\sec(x)\tan(x) \geq 0 \; \forall x \in \left[ 0, \dfrac{\pi}{2} \right)\]
+i.e. $\tan(x)$ is concave up in $\left[0, \dfrac{\pi}{2}\right)$. Applying Jensen's Inequality:
+\[\dfrac{\tan(A) + \tan(B) + \tan(C)}{3} \geq \tan \left( \dfrac{A+B+C}{3} \right)\]
+\[\Rightarrow \tan(A) + \tan(B) + \tan(C) \geq 3 \tan \left( \dfrac{\pi}{3} \right)\]
+\[\Rightarrow \tan(A) + \tan(B) + \tan(C) \geq 3\sqrt3\]
+\end{proof}
 \end{document}

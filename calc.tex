@@ -1,4 +1,4 @@
- \documentclass[14]{article}
+\documentclass[14]{article}
 \usepackage{pgfplots}
 \pgfplotsset{width=7cm,compat=1.9}
 \usetikzlibrary{external}
@@ -14,8 +14,10 @@
 \usepackage{cancel}
 \usepackage{mathtools}
 \usepackage{chngcntr}
+\usepackage{scrextend}
 \usepackage{commath}
 \usepackage{bigints}
+\usepackage{hyperref}
 %\usepackage{enumitem}
 \usepackage[inline]{enumitem}
 \usepackage{pgffor}
@@ -2051,4 +2053,767 @@ i.e. $\tan(x)$ is concave up in $\left[0, \dfrac{\pi}{2}\right)$. Applying Jense
 \[\Rightarrow \tan(A) + \tan(B) + \tan(C) \geq 3 \tan \left( \dfrac{\pi}{3} \right)\]
 \[\Rightarrow \tan(A) + \tan(B) + \tan(C) \geq 3\sqrt3\]
 \end{proof}
+\pagebreak
+\subsection{Problems on Functional Equations}
+\begin{prob}
+A function $f:\mathbb{R} \to \mathbb{R}$ satisfies the equation $f(x+y) = f(x)\cdot f(y) \; \forall x, y \in \mathbb{R}$ and $f(x) \neq 0$ for any $x$ in $\mathbb{R}$. Let the function be differentiable at $0$ and let $f'(0) = 2$. Find the value of $f(\ln(10))$.\\
+\textbf{Solution:}
+\[f(x+y) = f(x) \cdot f(y) \; \forall x, y \in \mathbb{R}\]
+\[\Rightarrow f(0+0) = f(0) \cdot f(0)\]
+\[\Rightarrow f(0) = \left(f(0) \right)^2\]
+\[\Rightarrow f(0) = 1 \lor f(0) = 0\]
+But $f(x) \neq 0$ for any $x \in \mathbb{R}$ (Given).\\
+Therefore,
+\[f(0) = 1\]
+\fbox{
+\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{
+\centering 
+\textbf{But why did the problem say that $f(x)$ is never zero?}\\
+Suppose $f(0) = 0$\\
+Then $f(x+0) = f(x) \cdot f(0) \forall x$\\
+Or $f(x) = 0 \; \forall x \in \mathbb{R}$\\
+i.e. $f$ will become constant and equal to $0$.\\
+In fact, if a function satisfying such a functional equation is zero anywhere, then it's actually zero everywhere.\\
+If $f(c) = 0$,
+\[f(x+c) = f(x) \cdot f(c) \; =\forall x \in \mathbb{R}\]
+\[\Rightarrow f(x+c) = 0 \; \forall x \in \mathbb{R}\]
+\[\Rightarrow f(x) = 0 \; \forall x \in \mathbb{R}\]
+}
+}\\\\
+\textbf{Claim 1:} If the function is continuous at $0$, then it is continuous everywhere.
+\begin{proof}
+$f$ is continuous at 0\\
+\[\Rightarrow \lim\limits_{h \to 0} f(h) = f(0) = 1\]
+If we can prove that $\lim\limits_{h \to 0} f(x+h) = f(x)$, then we're done.
+\[\Rightarrow\lim\limits_{h \to 0} f(x+h) = \lim\limits_{h \to 0} \left( f(x) \cdot f(h) \right) = f(x) \cdot 1 = f(x)\]
+\end{proof}
+\textbf{Claim 2:} If the function is differentiable at $0$, then it is differentiable everywhere.
+\begin{proof}
+\[f'(0) =\lim\limits_{h \to 0}  \dfrac{f(h) - f(0)}{h} = \lim\limits_{h \to 0}\dfrac{f(h) - 1}{h} = 2\]
+\[f'(x) =\lim\limits_{h \to 0} \dfrac{f(x)\cdot f(h) - f(x)}{h} = \lim\limits_{h \to 0} f(x) \cdot \left( \dfrac{f(h) - 1}{f(h)} \right) = 2f(x)\]
+Therefore, it is differentiable everywhere.
+\end{proof}
+Now,
+\[f'(x) = 2f(x)\]
+Since we know that $f(x)$ is not zero anywhere, we can divide by $f(x)$.
+\[\dfrac{f'(x)}{f(x)} = 2\]
+Integrating both sides\\
+\[\int\dfrac{f'(x)}{f(x)} \dif x = \int 2 \dif x\]
+Let $f(x) = t$. This means $f'(x) \dif x = \dif t$.
+\[\Rightarrow \int \dfrac{\dif t}{t} = \int 2\dif x\]
+\[\Rightarrow \ln \left(f(x) \right) = 2x + c\]
+\[\Rightarrow f(x) = {\rm e}^{2x+c} \]
+\[\Rightarrow f(x) = {\rm e}^{2x} \cdot {\rm e}^c\]
+But ${\rm e}^c$ is just a constant. Call it $k$.
+\begin{align*}
+\Rightarrow f(x) &= k {\rm e}^{2x}\\
+f(0) &= k{\rm e}^0\\
+\Rightarrow f(0) &= k && \text{But } f(0) = 1 \text{ (Given)}\\
+\Rightarrow k &= 1\\
+\Rightarrow f(x) &= {\rm e}^{2x}
+\end{align*}
+Now,
+\begin{align*}
+f\left(\ln(10)\right) &= {\rm e}^{2 \ln(10)}\\
+&= {\rm e}^{\ln\left(10^2\right)}\\
+&= {\rm e}^{\ln(100)}\\
+&= 100
+\end{align*}
+Therefore, $f\left(\ln(10)\right) = 100$.
+\end{prob}
+\subsection{Approximations}
+\subsubsection{First Order Approximations}
+\[f'(x) = \lim\limits_{h \to 0} \dfrac{f(x+h) - f(x)}{h}\]
+Say $h = \Delta x$ is sufficiently small.
+\[f'(x) \approx \dfrac{f(x + \Delta x) - f(x)}{\Delta x}\]
+\[f(x + \Delta x) \approx f(x) + \Delta x f'(x)\]
+Higher order approximations can be made using the Taylor Series of the function we're interested in approximating.
+\pagebreak
+\section{The Antiderivative}
+\subsection{The First Fundamental Theorem of Calculus}
+\begin{theorem}
+Let $f$ be an integrable function in $[a, b]$ and let $F(x) = \displaystyle\int\limits_a^x f(x) \dif x$.Let $f$ be continuous at a point $c \in [a, b]$. Then $F'(c) = f(c)$.
+\end{theorem}
+In crude terms, it means that the indefinite integral (a.k.a the antiderivative) is the inverse operator of differentiation and does the reverse of that.
+\subsection{Definition of the Antiderivative}
+\begin{define}
+A function $P$ is called the \underline{primitive} (or the \underline{antiderivative}) of a function $f$ in an open interval $I$ if the derivative of $P$ is $f$, i.e. $P'(x) = f(x) \; \forall x \in I$.
+\end{define}
+\[ F'(x) = f(x) \Rightarrow \int f(x) \dif x = F(x) + c \]
+\subsection{Properties of the Antiderivative}
+\begin{enumerate}
+\item $\displaystyle\int k \cdot f(x) \dif x = k \cdot \displaystyle\int f(x) \dif x$
+\item $\displaystyle\int \left[ f(x_1) \pm f(x_2) \pm f(x_3) \pm \cdots \pm f(x_n) \right]\dif x = \displaystyle\int f(x_1) \dif x \pm \displaystyle\int f(x_2) \dif x \pm \cdots \pm \displaystyle\int f(x_n) \dif x$
+\item $\displaystyle\int \dfrac{f'(x)}{f(x)}\dif x = \log_{\rm e}\left( \; \abs{f(x)} \right) + c$
+\item $\displaystyle\int \left(f(x)\right)^n \cdot f'(x) \dif x = \dfrac{\left[f(x)\right]^{n+1}}{n+1}+c$
+\item If $\displaystyle\int f(x) \dif x = F(x)$, then $\displaystyle\int f(ax+b) \dif x = \dfrac{F(ax+b)}{a}+c$
+\end{enumerate}
+\pagebreak
+\subsection{Standard Integrals}
+\begin{enumerate}
+\item $\displaystyle\int x^n \dif x = \dfrac{x^{n+1}}{n+1} + c$, $n \neq -1$
+\item $\displaystyle\int \dfrac1x \dif x = \log_{\rm e}\left(\;\abs{x}\right) + c$
+\item $\displaystyle\int \dfrac1{x^2} \dif x = -\dfrac1x + c$
+\item $\displaystyle\int\sqrt{x} \dif x = \dfrac23 x\sqrt{x} + c$
+\item $\displaystyle\int \dfrac1{\sqrt{x}} \dif x =  2\sqrt{x} + c$
+\item $\displaystyle\int \cos(x) \dif x = \sin(x) + c$
+\item $\displaystyle\int \sin(x) \dif x = -\cos(x) + c$
+\item $\displaystyle\int \sec^2(x) \dif x = \tan(x) + c$
+\item $\displaystyle\int \sec(x) \tan(x) \dif x = \sec(x) + c$
+\item $\displaystyle\int \csc(x) \cot(x) \dif x = -\csc(x) + c$
+\item $\displaystyle\int \csc^2(x) \dif x = -\cot(x) + c$
+\item $\displaystyle\int \dfrac{\dif x}{x^2 - a^2} = \dfrac1{2a} \log\left(\;\abs{\dfrac{x-a}{x+a}} \right) + c$
+\item $\displaystyle\int \dfrac{\dif x}{a^2 -x^2} = \dfrac1{2a} \log\left(\;\abs{\dfrac{a+x}{a-x}} \right) + c$
+\item $\displaystyle\int \dfrac{\dif x}{x^2 + a^2} = \dfrac1a \tan^{-1}\left(\dfrac{x}{a}\right) + c$
+\end{enumerate}
+\pagebreak
+\subsection{Integration by Transformation and Adjustment}
+\begin{prob}
+$\displaystyle\int \dfrac{2 \dif x}{1+ cos(2x)}$
+\begin{align*}
+I &= \int \dfrac{2 \dif x}{1+ cos(2x)}\\
+&= \int \dfrac{\cancel{2}\dif x}{\cancel{2}\cos^2(x) \dif x}\\
+&= \int \dfrac{\dif x}{\cos^2(x)}\\
+&= \int \sec^2(x) \dif x\\
+&= \tan(x) + c
+\end{align*}
+\end{prob}
+\begin{prob}
+$\displaystyle\int \dfrac{1}{\sin^2(x) \cos^2(x)} \dif x$
+\begin{align*}
+I &= \int \dfrac{1}{\sin^2(x) \cos^2(x)} \dif x\\
+&= \int \dfrac{\sin^2(x) + \cos^2(x)}{\sin^2(x) \cos^2(x)} \dif x\\
+&= \int \dfrac{\cancel{\sin^2(x)}}{\cancel{\sin^2(x)} \cos^2(x)} \dif x + \int \dfrac{\cancel{\cos^2(x)}}{\sin^2(x) \cancel{\cos^2(x)}} \dif x\\
+&= \int \sec^2(x) \dif x + \int \csc^2(x) \dif x\\
+&= \tan(x) - \cot(x) + c
+\end{align*}
+\end{prob}
+\begin{prob}
+$\displaystyle\int \dfrac{x^3 - x^2 + x - 1}{x - 1} \dif x$
+\begin{align*}
+I &= \int \dfrac{x^3 - x^2 + x - 1}{x - 1} \dif x\\
+&= \int \dfrac{x^2 (x-1) + 1(x-1)}{x-1} \dif x\\
+&= \int \dfrac{(x^2 + 1)\cancel{(x - 1)}}{\cancel{x-1}} \dif x\\
+&= \dfrac{x^3}3 + x + c
+\end{align*}
+\end{prob}
+\pagebreak
+\begin{prob}
+$\displaystyle\int \cos(x) \cos(2x) \cos(3x) \dif x$
+\begin{align*}
+I &= \int \cos(x) \cos(2x) \cos(3x) \dif x\\
+&= \int \cos(x) \cos(3x) \cos(2x) \dif x\\
+&= \dfrac12 \int \left( \cos(4x) + \cos(2x) \right) \cos(2x) \dif x\\
+&= \dfrac12 \left[ \int\left( \dfrac{\cos(6x) + \cos(2x)}{2}\right)\dif x + \int \cos^2(2x) \dif x \right]\\
+&= \dfrac12 \left[ \dfrac{\sin(6x)}{12} + \dfrac{\sin(2x)}{4} + \int\left( \dfrac{1 + \cos(4x)}{2} \right)\dif x \right]\\
+&= \dfrac12 \left[ \dfrac{\sin(6x)}{12} + \dfrac{\sin(2x)}{4} + \dfrac{x}2 + \dfrac{\sin(4x)}{8} \right]+c\\
+&= \dfrac14 \left( \dfrac{\sin(6x)}{6} + \dfrac{\sin(2x)}{2} + x + \dfrac{\sin(4x)}{4} \right)+c\\
+&= \dfrac14 \left( \dfrac{\sin(6x)}{6} + \dfrac{\sin(2x)}{2} + \dfrac{\sin(4x)}{4} +x \right)+c
+\end{align*}
+\end{prob}
+\begin{prob}
+$\displaystyle\int \dfrac{1}{1-\sin(x)} \dif x$
+\begin{align*}
+I &= \int \dfrac{1}{1-\sin(x)} \dif x && \text{Multiply and divide by the conjugate}\\
+&= \int \left( \dfrac{1}{1-\sin(x)} \cdot \dfrac{1+\sin(x)}{1+\sin(x)} \right) \dif x\\
+&= \int \dfrac{1 + \sin(x)}{1 - \sin^2(x)}\dif x\\
+&= \int \dfrac{1 + \sin(x)}{\cos^2(x)}\dif x\\
+&= \int \sec^2(x) \dif x + \int \sec(x) \tan(x) \dif x\\
+&= \tan(x) + \sec(x) + c
+\end{align*}
+\end{prob}
+\pagebreak
+\begin{prob}
+$\displaystyle\int \dfrac{x-1}{x+1} \dif x$
+\begin{align*}
+I &= \int \dfrac{x-1}{x+1}\dif x\\
+&= \int \dfrac{x+1 -1 -1}{x+1} \dif x\\
+&= \int \dfrac{x+1-2}{x+1}\dif x\\
+&= \int \dfrac{\cancel{x+1}}{\cancel{x+1}} \dif x - 2\int \dfrac{\dif x}{x+1}\\
+&= x - 2\log_{\rm e}\left(\; \abs{x+1}\right) + c
+\end{align*}
+\end{prob}
+\begin{prob}
+$\displaystyle \int \dfrac{x^2-1}{x^2+1}\dif x$
+\begin{align*}
+I &= \int \dfrac{x^2-1}{x^2+1}\dif x\\
+&= \int \dfrac{x^2 + 1 - 1 - 1}{x^2 + 1} \dif x\\
+&= \int \dfrac{\cancel{x^2 + 1}}{\cancel{x^2 + 1}}\dif x - 2 \int \dfrac{\dif x}{1 + x^2}\\
+&= x - 2\tan^{-1}(x) + c
+\end{align*}
+\end{prob}
+\pagebreak
+\subsection{Integration By Substitution}
+This method of integration is sort-of like reverse Chain Rule.\\
+Generic Example:\\
+Let the antiderivative of $f$ be $F$.
+\[\int f\left(g(x)\right) g'(x)\]
+Let $g(x) = t$.\\
+$\Rightarrow g'(x) \dif x = \dif t$\\
+So the integral becomes
+\[\int f(t) \dif t = F(t) + c = F\left(g(x)\right) + c\]
+If we want to assume $g(x) = t$, first ensure that $g'(x)$ is present along with $\dif x$ in the numerator.
+\begin{prob}
+$\displaystyle\int \sin^2(x) \cos(x) \dif x$
+\end{prob}
+\[I = \int \sin^2(x) \cos(x) \dif x\]
+Let $\sin(x) = t$\\
+$\Rightarrow \cos(x) \dif x = \dif t$
+\begin{align*}
+\Rightarrow I &= \int t^2 \dif t\\
+&= \dfrac{t^3}{3} + c\\
+&= \dfrac{\sin^3(x)}{3} + c
+\end{align*}
+\begin{prob}
+$\displaystyle\int x^3 \sin\left( x^4 \right)$
+\[I = \int x^3 \sin\left( x^4 \right)\]
+Let $x^4 = t$\\
+$\Rightarrow 4x^3 \dif x = \dif t$
+\begin{align*}
+I &= \int \dfrac{\sin(t) \dif t}{4}\\
+&= \dfrac14 \int \sin(t) \dif t\\
+&= \dfrac{-1}4 \cos(t) + c\\
+&= \dfrac{-1}{4}\cos\left(x^4\right)+c
+\end{align*}
+\end{prob}
+\pagebreak
+\begin{prob}
+$\displaystyle\int \dfrac{\sin(x) + \cos(x)}{\left(\sin(x)-\cos(x)\right)^3}\dif x$
+\[I = \int \dfrac{\sin(x) + \cos(x)}{\left(\sin(x)-\cos(x)\right)^3}\dif x\]
+Let $\sin(x) - \cos(x) = t$\\
+$\Rightarrow \left(\cos(x) + \sin(x)\right) \dif x = \dif t$\\
+$\Rightarrow \left(\sin(x)+\cos(x)\right) \dif x = \dif t$
+\begin{align*}
+I &= \int \dfrac{1}{t^3}\dif t\\
+&= \int t^{-3} \dif t\\
+&= \dfrac{t^{-3+1}}{-3+1} + c\\
+&= \dfrac{t^{-2}}{-2} + c\\
+&= \dfrac{\left( \sin(x) - \cos(x) \right)^{-2}}{-2} + c\\
+&= \dfrac{-1}{2\left( \sin(x) - \cos(x) \right)^2}+c
+\end{align*}
+\end{prob}
+\begin{prob}
+$\displaystyle\int \dfrac{x \dif x}{\left(ax^2 + b\right)^p}$
+\[I = \int \dfrac{x \dif x}{\left(ax^2 + b\right)^p}\]
+Let $ax^2 + b = t$\\
+$\Rightarrow 2ax \dif x = \dif t$\\
+$\Rightarrow x \dif x = \dfrac{\dif t}{2a}$
+\begin{align*}
+I &= \dfrac1{2a} \int \dfrac{1}{t^p}\dif t\\
+&= \dfrac1{2a} \int t^{-p} \dif t\\
+&= \dfrac1{2a} \cdot \dfrac{t^{(-p+1)}}{-p+1} + c\\
+&= \dfrac{t^{(1-p)}}{2a(1-p)}+c
+\end{align*}
+\end{prob}
+\pagebreak
+\begin{prob}
+$\displaystyle\int \dfrac{\dif x}{{\rm e}^x + {\rm e}^{-x}}$
+\begin{align*}
+I &= \int \dfrac{\dif x}{{\rm e}^x + {\rm e}^{-x}}\\
+&= \int \dfrac{\dif x}{{\rm e}^{-x} \left( 1+ {\rm e}^{2x} \right)}\\
+&= \int \dfrac{{\rm e}^{x} \dif x}{1 + {\rm e^{2x}}}
+\end{align*}
+Let ${\rm e}^x = t$\\
+$\Rightarrow {\rm e}^{x} \dif x = \dif t$
+\begin{align*}
+\Rightarrow I &= \int \dfrac{\dif t}{1 + t^2}\\
+&= \tan^{-1}(t) + c\\
+&= \tan^{-1}(e^x) + c
+\end{align*}
+\end{prob}
+\begin{prob}
+$\displaystyle\int \dfrac{x^3}{\sqrt{x^8 + 1}} \dif x$
+\[I = \int \dfrac{x^3}{\sqrt{x^8 + 1}} \dif x\]
+Let $x^4 = t$\\
+$\Rightarrow 4x^3 \dif x = \dif t$\\
+$\Rightarrow x^3 \dif x = \dfrac{\dif t}{4}$
+\begin{align*}
+I &= \dfrac14 \int\dfrac{1}{\sqrt{t^2 + 1}} \dif t && \text{Using } \int \dfrac{\dif x}{\sqrt{x^2 + a^2}} = \log_{\rm e} \left(\abs{x + \sqrt{x^2 + a^2}} \right) + c\\
+&= \dfrac14 \ln\left( \abs{t + \sqrt{t^2 + 1}} \right) + c\\
+&= \dfrac14 \ln \left( \abs{x^4 + \sqrt{x^8 + 1}} \right) + c
+\end{align*}
+\end{prob}
+\pagebreak
+\begin{prob}
+$\displaystyle \int\dfrac{\sec^2(x)}{(\sec(x) + \tan(x))^{\frac32}} \dif x$
+\[I = \int \dfrac{\sec^2(x)}{(\sec(x) + \tan(x))^{\frac32}} \dif x\]
+Let $\sec(x) + \tan(x) = t$\\
+Then $\sec^2(x) - \tan^2(x) = 1$\\
+$\Rightarrow \left(\sec(x) + \tan(x) \right)\left( \sec(x) - \tan(x) \right) = 1$\\
+$\Rightarrow t\left( \sec(x) - \tan(x) \right) = 1$\\
+$\Rightarrow \sec(x) - \tan(x) = \dfrac1t$
+\begin{align*}
+\sec(x) + \tan(x) &= t\\
+\sec(x) - \tan(x) &= \dfrac1t\\
+\cline{1-2}
+2\sec(x) &= t + \dfrac1t\\
+\cline{1-2}
+\end{align*}
+$\Rightarrow \sec(x) = \dfrac12 \left(t + \dfrac1t\right)$\\
+$\sec(x) + \tan(x) = t$\\
+$\Rightarrow \sec(x) \left( \sec(x) + \tan(x) \right)\dif x = \dif t$\\
+$\Rightarrow \sec(x) \dif x = \dfrac{\dif t}{t}$
+\begin{align*}
+I &= \bigints \dfrac{\dfrac12 \left( t + \dfrac1t \right) \dfrac{\dif t}{t}}{t^{\frac92}}\\
+&=\dfrac12 \bigints \dfrac{ \left( t + \dfrac1t \right) \dfrac{1}{t}}{t^{\frac92}} \dif t =\dfrac12 \bigints \dfrac{ \left( 1 + \dfrac1{t^2} \right)}{t^{\frac92}} \dif t\\
+&= \dfrac12 \int t^{\frac{-9}{2}}\dif t + \dfrac12 \int t^{\frac{-13}{2}}\\
+&= \dfrac1{\cancel{2}} \left( \dfrac{t^{\frac{-7}{2}}}{\dfrac{-7}{\cancel{2}}}\right) + \dfrac1{\cancel{2}} \left( \dfrac{t^{\frac{-11}{2}}}{\dfrac{-11}{\cancel{2}}} \right) + c = \dfrac{1}{t^{\frac{11}{2}}}\left[\dfrac1{11} + \dfrac1{7}t^2 \right] + c\\
+&= \dfrac{-1}{(\sec(x) + \tan(x))^{\frac{11}{2}}}\left[\dfrac1{11} + \dfrac1{7}(\sec(x) + \tan(x))^2 \right] + c
+\end{align*}
+\end{prob}
+\pagebreak
+\begin{prob}
+$\displaystyle \int \dfrac{x^2 - 1}{x^3 \sqrt{2x^4 - 2x^2 + 1}} \dif x$
+\begin{align*}
+I &= \int \dfrac{x^2 - 1}{x^3 \sqrt{2x^4 - 2x^2 + 1}} \dif x\\
+&= \bigints \left(\dfrac{x^2 - 1}{x^5 \sqrt{2 - \dfrac2{x^2} + \dfrac1{x^4}}}\right) \dif x
+\end{align*}
+Let $2 - \dfrac2{x^2} + \dfrac{1}{x^4} = t$\\\\
+$\Rightarrow 2-2x^{-2} + x^{-4} = t$\\\\
+$\Rightarrow \left(4x^{-3} - 4x^{-5}\right) \dif x = \dif t$\\\\
+$\Rightarrow \left( \dfrac{1}{x^3} - \dfrac1{x^5}  \right) \dif x = \dfrac{\dif t}{4}$\\\\
+$\Rightarrow \left( \dfrac{x^2 - 1}{x^5} \right)\dif x = \dfrac{\dif t}{4}$
+\begin{align*}
+\Rightarrow I &= \dfrac14 \int \dfrac{\dif t}{\sqrt{t}}\\
+&= \dfrac14 \left(2\sqrt{t}\right) + c\\
+&= \dfrac{\sqrt{t}}{2} + c\\
+&= \dfrac{\sqrt{2x^4 - 2x^2 + 1}}{2} + c
+\end{align*}
+\end{prob}
+\begin{prob}
+$\displaystyle \int \dfrac{x^{n-1}}{x^{2n} + a^2} \dif x$
+\[I = \int \dfrac{x^{n-1}}{x^{2n} + a^2} \dif x\]
+Let $x^n = t$\\\\
+$\Rightarrow nx^{n-1} \dif x = \dif t$\\\\
+$\Rightarrow x^{n-1} \dif x = \dfrac{\dif t}{n}$
+\begin{align*}
+\Rightarrow I &= \dfrac1n \int \dfrac{\dif t}{t^2 + a^2}\\
+&= \dfrac1a \tan^{-1}\left(\dfrac{t}a \right) + c\\
+&= \dfrac1a \tan^{-1}\left(\dfrac{x^n}{a} \right) + c
+\end{align*}
+\end{prob}
+\pagebreak
+\begin{prob}
+$\displaystyle \int \dfrac{\dif x}{x^2 (x^4 + 1)^{3/4}}$
+\begin{align*}
+I &= \int \dfrac{\dif x}{x^2 (x^4 + 1)^{3/4}}\\
+&= \bigints \dfrac{\dif x}{x^2 \left[ x^4 \left(1 + \dfrac1{x^4} \right) \right]^{3/4}}\\
+&= \bigints \dfrac{\dif x}{x^5 \left(1 + \dfrac1{x^4} \right)^{3/4}}
+\end{align*}
+Let $1 + \dfrac1{x^4} = t$\\\\
+$\Rightarrow\dfrac{-4}{x^5} \dif x = \dif t$\\\\
+$\Rightarrow \dfrac{\dif x}{x^5} = \dfrac{-\dif t}{4}$
+\begin{align*}
+\Rightarrow I &= \dfrac{-1}{4} \cdot \int \dfrac{1}{t^{3/4}} \dif t\\
+&= \dfrac{-1}4 \cdot \dfrac{t^{\left(-\frac34 + 1\right)}}{\left(-\dfrac34 + 1\right)}+c\\
+&= \dfrac{-1}4 \cdot \dfrac{t^{\frac14}}{\dfrac14}+c\\
+&= -t^{1/4}+c\\
+&= - \left(1 + \dfrac1{x^4} \right)^{1/4}+c\\
+&= \dfrac{-(x^4 + 1)^{1/4}}{x}+c
+\end{align*}
+\end{prob}
+\pagebreak
+\begin{prob}
+$\displaystyle \bigint \dfrac{x^2 - 1}{(x^4 + 3x^2 + 1) \tan^{-1} \left( \dfrac{x^2 + 1}{x} \right)} \dif x$
+\begin{align*}
+I &= \bigint \dfrac{x^2 - 1}{(x^4 + 3x^2 + 1) \tan^{-1} \left( \dfrac{x^2 + 1}{x} \right)} \dif x\\
+&= \bigint \dfrac{1 - \cfrac1{x^2}}{\left[ \left( x + \dfrac1x \right)^2 + 1 \right] \tan^{-1} \left( x + \dfrac1x \right)} \dif x
+\end{align*}
+Let $x + \dfrac1x = t$\\
+$\left( 1 - \dfrac1{x^2} \right) \dif x = \dif t$\\
+\[
+\Rightarrow I = \int \dfrac{\dif t}{(t^2 + 1) \tan^{-1}(t)}
+\]
+Let $\tan^{-1} (t) = u$\\
+$\Rightarrow \dfrac{\dif t}{1 + t^2} = \dif u$\\
+\begin{align*}
+\Rightarrow I &= \int \dfrac{\dif u}{u}\\
+&= \ln\left(\; \abs{u} \right) + c\\
+&= \ln\left(\; \abs{\tan^{-1}(t)} \right) + c\\
+&= \ln\left(\; \abs{\tan^{-1}\left(x + \dfrac1x\right)} \right) + c
+\end{align*}
+\end{prob}
+\pagebreak
+\begin{prob}
+$\displaystyle \int \dfrac{\dif x}{a^2 \sin^2(x) + b^2 \cos^2(x)}$
+\begin{align*}
+I &= \int \dfrac{\dif x}{a^2 \sin^2(x) + b^2 \cos^2(x)} && \text{Divide numerator and denominator by } \cos^2(x)\\
+&= \int \dfrac{\sec^2(x)}{a^2 \tan^2(x) + b^2}\dif x
+\end{align*}
+Let $\tan(x) = t$\\
+$\Rightarrow \sec^2(x) \dif x = \dif t$
+\begin{align*}
+\Rightarrow I &= \int \dfrac{\dif t}{a^2 t^2 + b^2}\\
+&= \dfrac1{a^2} \bigintss \dfrac{\dif t}{t^2 + \dfrac{b^2}{a^2}}\\
+&= \dfrac1{a^{\cancel{2}}}\cdot \dfrac1{\left(\dfrac{b}{\cancel{a}}\right)} \tan^{-1}\left[\dfrac{t}{\left(\dfrac{b}{a}\right)}\right]+c\\
+&=\dfrac1{ab} \tan^{-1} \left( \dfrac{at}{b} \right)+c\\
+&=\dfrac1{ab} \tan^{-1} \left( \dfrac{a\tan(x)}{b} \right)+c
+\end{align*}
+\end{prob}
+\begin{prob}
+$\displaystyle \int \dfrac{1}{x\ln(x)}\dif x$
+\[I = \int \dfrac1{x \ln(x)} \dif x\]
+Let $\ln(x) = t$\\
+$\Rightarrow \dfrac1{x} \dif x = \dif t$
+\begin{align*}
+\Rightarrow I &= \int \dfrac1{t} \dif t\\
+&= \ln\left(\;\abs{t}\right) + c\\
+&= \ln\left(\; \abs{\ln(x)} \right) + c
+\end{align*}
+\end{prob}
+\pagebreak
+\subsection{Integration by Parts}
+We know from the product rule that
+\[\dfrac{\dif}{\dif x}(uv) = v\dfrac{\dif u}{\dif x} + u \dfrac{\dif v}{\dif x}\]
+\[\Rightarrow \dif\; (uv) = v \dif u + u \dif v\]
+\[\Rightarrow u \dif v = \dif\; (uv) - v \dif u\]
+Integrate both sides\\
+\[\Rightarrow \int u \dif v = uv - \int v \dif u\]
+We use this result to split the integrand into two ``parts" $u$ and $\dif v$.\\ We differentiate the first part $u$ and integrate the second part $\dif v$. 
+\begin{prob}
+$\displaystyle\int x \sin(x) \dif x$
+\[I = \int x \sin(x) \dif x\]
+Let us choose $u = x$ and $\dif v = \sin(x) \dif x$.\\
+$\Rightarrow \dif u = \dif x$ and $v =-\cos(x)$
+\begin{align*}
+\Rightarrow I = \int u \dif v &= uv - \int v \dif u\\
+&= -x \cos(x) - \int \left(- \cos(x)\right) \dif x\\
+&= -x \cos(x) + \int \cos(x) \dif x\\
+&= \sin(x) - x \cos(x) + c
+\end{align*}
+\end{prob}
+\begin{prob}
+$\displaystyle \int \sin^{-1}(x) \dif x$
+\begin{align*}
+I &= \int\sin^{-1}(x) \dif x\\
+\end{align*}
+Let us choose $u=\sin^{-1}(x)$ and $\dif v=\dif x$.\\
+Then $\dfrac1{\sqrt{1 - x^2}} \dif x = \dif u$ and $v = x$
+\begin{align*}
+\Rightarrow I = \int u \dif v &= uv - \int v \dif u\\
+&= x \sin^{-1}(x) - \int \dfrac{x \dif x}{\sqrt{1 - x^2}} && \text{Let } x^2 = t \Rightarrow 2x \dif x = \dif t\\
+&= x \sin^{-1}(x) - \dfrac12 \int \dfrac{\dif t}{\sqrt{1 - t}}\\
+&= x \sin^{-1}(x) + \dfrac1{\cancel{2}} \cdot \cancel{2}\sqrt{1-t}+c\\
+&= x \sin^{-1}(x) + \sqrt{1-t}+c\\
+&= x \sin^{-1}(x) + \sqrt{1-x^2}+c
+\end{align*}
+\end{prob}
+\pagebreak
+\begin{prob}
+$\displaystyle\int x \cdot {\rm e}^x \dif x$
+\end{prob}
+\[I = \int x \cdot {\rm e}^x \dif x\]
+Integrating by parts.\\
+Let us choose $u = x$ and $\dif v = {\rm e}^x \dif x$\\
+$\Rightarrow \dif u = \dif x$ and $v = e^x$
+\begin{align*}
+\Rightarrow I = \int u \dif v &= uv - \int v \dif u\\
+&= x\cdot {\rm e}^x - \int {\rm e}^x \dif x\\
+&= x\cdot {\rm e}^x - {\rm e}^x + c
+\end{align*}
+\begin{prob}
+$\displaystyle \int {\rm e}^x \cdot x^2 \dif x$
+\end{prob}
+\[I = \int {\rm e}^x \cdot x^2 \dif x\]
+Integrating by parts.\\
+Let us choose $u = x^2$ and $\dif v = {\rm e}^x \dif x$\\
+Then $\dif u = 2x \dif x$ and $v = {\rm e}^x$\\
+\begin{align*}
+\Rightarrow I = \int u \dif v &= uv - \int v \dif u\\
+&= x^2 \cdot {\rm e}^x - \int {\rm e}^x \cdot (2x \dif x)\\
+&= x^2 \cdot {\rm e}^x - 2 \int x \cdot {\rm e}^x \dif x
+\end{align*}
+Integrating by parts again.\\
+Let us choose $p = x$ and $\dif q = {\rm e}^x \dif x$\\
+Then $\dif p = \dif x$ and $q = {\rm e}^x$
+\begin{align*}
+\Rightarrow I = x^2 \cdot {\rm e}^x - 2 \int p \dif q &= x^2 \cdot {\rm e}^x - 2 \left( pq - \int q \dif p \right)\\
+&= x^2 \cdot {\rm e}^x - 2 \left( x {\rm e}^x - \int {\rm e}^x \dif x \right)\\
+&= x^2 \cdot {\rm e}^x - 2 \left( x {\rm e}^x - {\rm e}^x \right) + c
+\end{align*}
+Note: We can also solve this problem using the method of indefinite coefficients.
+\pagebreak
+\subsection{The Method of Indefinite Coefficients}
+\subsubsection{For Polynomial Functions}
+\textbf{Claim: } Let $P_n(x)$ be a polynomial in $x$ of degree $n$. Then,
+\[\int {\rm e}^{ax} P_n(x) \dif x = \rm {\rm e}^{ax} Q_n(x) + c\]
+where $Q_n(x)$ is some polynomial in $x$ of degree $n$. 
+\begin{prob}
+$\displaystyle \int {\rm e}^x \cdot x^2 \dif x$
+\[I = \int {\rm e}^x \cdot x^2 \dif x\]
+Using the method of indefinite coefficients,\\
+\[\int {\rm e}^x \cdot x^2 \dif x = {\rm e}^x \cdot \left(Ax^2 + Bx + C\right) + c\]
+for some $A$, $B$ and $C$.\\
+Differentiate both sides\\
+\[\cancel{{\rm e}^x} \cdot x^2 = \cancel{{\rm e}^x} \left( Ax^2 + Bx + C + 2Ax + B \right)\]
+\[\Rightarrow x^2 = Ax^2 + (2A + B)x + (B+C)\]
+Comparing coefficients\\
+\[A = 1\]
+\[2A + B = 0\]
+\[B + C = 0\]
+\[\Rightarrow B = -2\]
+\[\Rightarrow C = 2\]
+Therefore,
+\[I = {\rm e}^{x} \left(x^2 -2x + 2 \right) + c\]
+\end{prob}
+\pagebreak
+\begin{prob}
+$\displaystyle \int {\rm e}^x \cdot \left(x^3 + 3x^2 + 3x + 9\right) \dif x$
+\[I = \int {\rm e}^x \cdot \left(x^3 + 3x^2 + 3x + 9\right) \dif x\]
+Using the method of indefinite coefficients,\\
+\[I = {\rm e}^x \cdot \left(Ax^3 + Bx^2 + Cx + D\right) + c\]
+for some $A$, $B$, $C$ and $D$.\\
+Differentiate both sides\\
+\[\cancel{{\rm e}^x} \left(x^3 + 3x^2 + 3x + 9\right) = \cancel{{\rm e}^x} \left( Ax^3 + Bx^2 + Cx + D + 3Ax^2 + 2Bx + C \right)\]
+\[\Rightarrow \left(x^3 + 3x^2 + 3x + 9\right) = Ax^3 + (B + 3A)x^2 + (C + 2B)x + (C + D)\]
+Comparing coefficients\\
+\[A = 1\]
+\[B + 3A = 3 \Rightarrow B = 0\]
+\[C + 2B = 3 \Rightarrow C = 3\]
+\[C + D = 9 \Rightarrow D = 6\]
+Therefore,
+\[I = {\rm e}^{x} \left(x^3 + 3x + 6 \right) + c\]
+\end{prob}
+This idea can be extended to trigonometric functions as well.
+\subsubsection{For Trigonometric Functions}
+Extending the idea to Trigonometric functions,
+\[\int {\rm e}^{ax} \sin(px+q) \dif x = {\rm e}^{ax} \left( A \sin(px+q) + B \cos(px+q) \right) + c\] for some $A$ and $B$.\\
+Also,
+\[\int {\rm e}^{ax} \cos(px+q) \dif x= {\rm e}^{ax}\left[ A \cos(px +q) + B \sin(px + q) \right] + c\]
+for some A and B
+\subsection{Integrals of the form $\int {\rm e}^x \left( f(x) + f'(x) \right) \dif x$}
+\[\int {\rm e}^x \left( f(x) + f'(x)\right) \dif x = {\rm e}^x f(x) + c\]
+\pagebreak
+\begin{prob}
+$\displaystyle \bigintsss {\rm e}^x \left[ \dfrac{x^2 + 1}{(x + 1)^2} \right]\dif x$
+\begin{align*}
+I &= \bigintsss {\rm e}^x \left[ \dfrac{x^2 + 1}{(x + 1)^2}\right]\dif x\\
+&= \bigintsss {\rm e}^x \left[ \dfrac{x^2 - 1 + 2}{(x + 1)^2}\right]\dif x\\
+&=\bigintsss {\rm e}^x \left[ \dfrac{x^2 - 1}{(x + 1)^2} +  \dfrac{2}{(x + 1)^2} \right]\dif x\\
+&=\bigintsss {\rm e}^x \left[ \dfrac{\cancel{(x+1)}(x-1)}{(x + 1)^{\cancel{2}}} +  \dfrac{2}{(x + 1)^2} \right]\dif x\\
+&=\bigintsss {\rm e}^x \left[ \dfrac{x - 1}{x + 1} +  \dfrac{2}{(x + 1)^2} \right]\dif x
+\end{align*}
+Now, we can see that $\dfrac{\dif}{\dif x}\left(\dfrac{x-1}{x+1}\right) = \dfrac{x-1 - (x + 1)}{(x+1)^2} = \dfrac2{(x+1)^2}$
+\[\Rightarrow I = {\rm e}^x\left(\dfrac{x-1}{x+1}\right) + c\]
+\end{prob}
+\begin{prob}
+$\displaystyle \int {\rm e}^x \left( \dfrac{2+ \sin(2x)}{1+\cos(2x)}\right)\dif x $
+\begin{align*}
+I &= \int {\rm e}^x \left( \dfrac{2+ \sin(2x)}{1+\cos(2x)}\right)\dif x\\
+&= \int {\rm e}^x \left( \dfrac{2+ 2\sin(x)\cos(x)}{1+\cos(2x)}\right)\dif x\\
+&= \int {\rm e}^x \left( \dfrac{\cancel{2} \left(1 + \sin(x)\cos(x)\right)}{\cancel{2}\cos^2(x)}\right)\dif x\\
+&= \int {\rm e}^x \left(\sec^2(x) + \tan(x)\right)\dif x && \text{Notice that } \dfrac{\dif}{\dif x}\tan(x) = \sec^2(x)\\
+&= {\rm e}^x \tan(x) + c
+\end{align*}
+\end{prob}
+\begin{prob}
+$\displaystyle \int \left[\ln\left(\ln(x)\right)+ \dfrac1{\ln(x)} \right] \dif x$
+\[I = \int \left[\ln\left(\ln(x)\right)+ \dfrac1{\ln(x)} \right] \dif x\]
+Let $\ln(x) = t$\\
+$\Rightarrow x = {\rm e}^t \\\Rightarrow \dif x = {\rm e}^t \dif t$
+\begin{align*}
+\Rightarrow I &= \int \left[ \ln(t) + \dfrac1{\ln(t)} \right] {\rm e}^t \dif t\\
+&= {\rm e}^t \ln(t) + c\\ &= {\rm e}^{\ln(x)}\cdot \ln(\ln(x)) + c
+\end{align*}
+\end{prob}
+\pagebreak
+\subsection{General Formula for Integration by Parts}
+\[\int u(x) \cdot v(x) \dif x = u(x)\cdot v_1(x) - u'(x)\cdot v_2(x) + u''(x)\cdot v_3(x) - \cdots + (-1)^{(n-1)} u^{(n-1)}(x)\cdot v_n(x)\; +\; (-1)^n \int u^{(n)}(x) \cdot v_n(x) \dif x \]
+Where $u^{(i)}(x) = \dfrac{\dif^{\;i}}{\dif x^i} u(x)$  for $i \in \{1, 2, 3, \cdots n\}$\\
+And $v_1(x) = \int v(x) \dif x$,\\ $v_2(x) = \int v_1(x) \dif x,$\\ $\vdots$\\ $v_i(x) = \int v_{i-1}(x) \dif x$ for $i \in \{2, 3, 4, \cdots, n\}$
+\begin{prob}
+Find a formula for $\displaystyle\int P_n(x)\cdot {\rm e}^{kx} \dif x$ where $P_n(x)$ is a polynomial in $x$ of degree $n$.
+\[I = \int P_n(x)\cdot {\rm e}^{kx} \dif x\]
+Using the general formula for integration by parts.\\
+Let us choose $u(x) = P_n(x)$ and $v(x) = {\rm e}^x $\\
+Then $u'(x) = P_n'(x)$, $u''(x) = P_n''(x)$, $\cdots$, $u^{(n)}(x) = P_n^{(n)}(x)$\\
+And,\\ 
+$v_1(x) = \dfrac{{\rm e}^{kx}}{k}$\\
+$v_2(x) = \dfrac{{\rm e}^{kx}}{k^2}$\\
+$v_3(x) = \dfrac{{\rm e}^{kx}}{k^3}$\\
+$\vdots$\\
+$v_i(x) = \dfrac{{\rm e}^{kx}}{k^i} \; \forall i$\\
+$\vdots$\\
+$v_n(x) = \dfrac{{\rm e}^{kx}}{k^n}$\\
+Applying the formula,
+\[I = \int P_n(x)\cdot {\rm e}^{kx} \dif x
+= P_n(x) \dfrac{{\rm e}^{kx}}{k} - P_n'(x)\dfrac{{\rm e}^{kx}}{k^2}+P_n''(x)\dfrac{{\rm e}^{kx}}{k^3}-\cdots\;+\;(-1)^{n-1} P_n^{(n-1)}(x)\dfrac{{\rm e}^{kx}}{k^n} \;+\; (-1)^n P_n^{(n)}(x)\dfrac{{\rm e}^{kx}}{k^{n+1}}
+\]
+The advantage of using this formula is that this process will end in exactly $n$ (i.e. finitely many) steps.
+\end{prob}
+\pagebreak
+\subsection{Reduction Formulas}
+Reduction formulas are basically just recurrence relations in integrals. Here, we try to express an integral for $n$ in terms of its successor or predecessor.
+\begin{prob}
+$I_n = \displaystyle \int \dfrac{\dif x}{(x^2 + a^2)^n}$
+\[I_n = \int \dfrac{\dif x}{(x^2 + a^2)^n}\]
+Integrating by parts,\\
+Let $u = \dfrac{1}{(x^2 + a^2)^n}$ and $\dif v = \dif x$\\
+$\Rightarrow \dif u = \dfrac{-n(2x) \dif x}{(x^2 + a^2)^{n+1}}$ and $v = x$\\
+\begin{align*}
+\Rightarrow I_n = \int u \dif v &= uv - \int v \dif u\\
+&= \dfrac{x}{(x^2 + a^2)^n} + \int \dfrac{2n(x^2) \dif x}{(x^2 + a^2)^{n+1}}\\
+&= \dfrac{x}{(x^2 + a^2)^n} + \int \dfrac{2n(x^2 + a^2 - a^2)}{(x^2 + a^2)^{n+1}}\dif x\\
+&= \dfrac{x}{(x^2 + a^2)^n} + \int \dfrac{2n(x^2 + a^2)}{(x^2 + a^2)^{n+1}}\dif x - 2na^2\int \dfrac{\dif x}{(x^2 + a^2)^{n+1}}\\
+&= \dfrac{x}{(x^2 + a^2)^n} + \int \dfrac{2n}{(x^2 + a^2)^{n}}\dif x - 2na^2\int \dfrac{\dif x}{(x^2 + a^2)^{n+1}}\\
+&= \dfrac{x}{(x^2 + a^2)^n} + 2n \int \dfrac{1}{(x^2 + a^2)^{n}}\dif x - 2na^2\int \dfrac{\dif x}{(x^2 + a^2)^{n+1}}\\
+I_n&= \dfrac{x}{(x^2 + a^2)^n} + 2n \cdot I_n - 2na^2\cdot I_{n+1}\\
+\Rightarrow 2na^2\cdot I_{n+1} &= \dfrac{x}{(x^2 + a^2)^n} + 2n \cdot I_n - I_n\\
+&=\dfrac{x}{(x^2 + a^2)^n} + (2n-1) \cdot I_n\\
+\Rightarrow I_{n+1} &= \dfrac1{2na^2} \cdot \left( \dfrac{x}{(x^2 + a^2)^n} \right)+\dfrac{2n-1}{2na^2}\cdot I_n
+\end{align*}
+\end{prob}
+\pagebreak
+\begin{prob}
+Find a reduction formula for $I_n = \displaystyle \int \left( \ln(x) \right)^n \dif x$\\
+\[I_n = \int \left( \ln(x) \right)^n \dif x\]
+Integrating by parts,\\
+Let us choose $u = \left(\ln(x)\right)^n$ and $\dif v = \dif x$\\
+Then, $\dif u = \dfrac{n \left(\ln(x)\right)^{n-1}}{x} \dif x$ and $v = x$.
+\begin{align*}
+I_n = \int u \dif v &= uv - \int v \dif u\\
+&= x \left( \ln(x) \right)^n - \bigintsss \cancel{x} \cdot \dfrac{n \left(\ln(x)\right)^{n-1}}{\cancel{x}} \dif x\\
+&= x \left( \ln(x) \right)^n - n \int \left( \ln(x) \right)^{n-1} \dif x\\
+&=  x \left( \ln(x) \right)^n - n \cdot I_{n-1}
+\end{align*}
+So our reduction formula becomes
+\[I_n = x \left( \ln(x) \right)^n - n \cdot I_{n-1}\]
+\end{prob}
+\begin{prob}
+$I_n = \displaystyle \int x^{\alpha}\left( \ln(x) \right)^n$\\
+Integrating by parts.\\
+Choosing $u = \left(\ln(x)\right)^n$ and $\dif v = x^{\alpha} \dif x$\\
+Then, $\dif u = \dfrac{n \left(\ln(x)\right)^{n-1}}{x} \dif x$ and $v = \dfrac{x^{(\alpha + 1)}}{(\alpha + 1)}$.
+\begin{align*}
+\Rightarrow I_n = \int u \dif v &= uv - \int v \dif u\\
+&= \left(\ln(x)\right)^n \cdot \dfrac{x^{(\alpha + 1)}}{(\alpha + 1)} - \int \dfrac{x^{(\alpha + 1)}}{(\alpha + 1)} \cdot \dfrac{n \left(\ln(x)\right)^{n-1}}{x} \dif x\\
+&= \left(\ln(x)\right)^n \cdot \dfrac{x^{(\alpha + 1)}}{(\alpha + 1)} - \dfrac{n}{\alpha + 1}\int \dfrac{(x^{(\alpha + 1)}) \left(\ln(x)\right)^{n-1}}{x} \dif x\\
+&= \left(\ln(x)\right)^n \cdot \dfrac{x^{(\alpha + 1)}}{(\alpha + 1)} - \dfrac{n}{\alpha + 1}\int \dfrac{(x^{(\alpha + 1)}) \left(\ln(x)\right)^{n-1}}{x} \dif x\\
+&= \left(\ln(x)\right)^n \cdot \dfrac{x^{(\alpha + 1)}}{(\alpha + 1)} - \dfrac{n}{\alpha + 1}\int x^{\alpha} \left(\ln(x)\right)^{n-1} \dif x\\
+&= \left(\ln(x)\right)^n \cdot \dfrac{x^{(\alpha + 1)}}{(\alpha + 1)} - \dfrac{n}{\alpha + 1} \left(I_{n-1}\right)\\
+&= \dfrac1{\alpha + 1} \left[ x^{\alpha + 1} \left( \ln(x) \right)^n - n \cdot I_{n-1} \right]
+\end{align*}
+This gives us the following reduction formula:\\
+\[I_n = \dfrac1{\alpha + 1} \left[ x^{\alpha + 1} \left( \ln(x) \right)^n - n \cdot I_{n-1} \right]\]
+\end{prob}
+\pagebreak
+\subsubsection*{The Beta Function}
+More about it in Definite Integration. The Beta function actually has the limits of integration from 0 to 1. For now, we're concerned with just the antiderivative and a reduction formula for it.
+\begin{prob}
+$\beta(m, n) = \displaystyle \int x^m (1-x)^{n-1} \dif x$
+\[\beta(m, n) = \int x^m (1-x)^{n-1} \dif x\]
+Integrating by parts\\
+Let us choose $u = (1-x)^{n-1}$ and $\dif v = x^m \dif x$\\
+$\Rightarrow \dif u = -(n-1)(1-x)^{n-2} \dif x$ and $v = \dfrac{x^{m+1}}{m+1}$
+\begin{align*}
+\Rightarrow \beta(m, n) = \int u \dif v &= uv - \int v \dif u\\
+&= (1-x)^{n-1} \cdot \dfrac{x^{m+1}}{m+1}+ \int \dfrac{x^{m+1}}{m+1} (n-1)(1-x)^{n-2} \dif x\\
+&= (1-x)^{n-1} \cdot \dfrac{x^{m+1}}{m+1}+ \dfrac{n-1}{m+1} \int x^{m+1}(1-x)^{n-2} \dif x\\
+&= (1-x)^{n-1} \cdot \dfrac{x^{m+1}}{m+1}+ \dfrac{n-1}{m+1} \beta(m+1, n-2)\\
+\end{align*}
+\end{prob}
+\subsubsection*{The Gamma Function}
+Again, more details in Definite Integration. The Gamma Function actually has limits from $0$ to $\infty$ but for now, we're just concerned with its reduction formula. It is used to extend the idea of factorial to the set of real numbers.
+\begin{prob}
+$\Gamma(n) = \displaystyle\int x^n {\rm e}^{-x} \dif x$
+\[\Gamma(n) = \int x^n {\rm e}^{-x} \dif x\]
+Integrating by parts\\
+(Note that we are violating the ``ILATE" principle. It is not really a rule and just a matter of what's easy to integrate and differentiate.)\\
+Let us choose $u = {\rm e}^{-x}$ and $\dif v = x^n \dif x$\\
+$\Rightarrow \dif u = -{\rm e}^{-x} \dif x$ and $v = \dfrac{x^{n+1}}{n+1}$
+\begin{align*}
+\Gamma(n) = \int u \dif v &= uv - \int v \dif u\\
+&= {\rm e}^{-x} \cdot \dfrac{x^{n+1}}{n+1} - \int \dfrac{x^{n+1}}{n+1} \cdot \left(-{\rm e}^{-x}\right) \dif x\\
+&= {\rm e}^{-x} \cdot \dfrac{x^{n+1}}{n+1} + \dfrac1{n+1}\int x^{n+1} \cdot {\rm e}^{-x} \dif x\\
+&= {\rm e}^{-x} \cdot \dfrac{x^{n+1}}{n+1} + \dfrac1{n+1}\cdot \Gamma(n+1)
+\end{align*}
+So we get the following reduction formula:
+\[\Gamma(n) = \dfrac{x^{n+1}}{n+1} \left({\rm e}^{-x}\right) + \dfrac1{n+1} \Gamma(n+1)\]
+\end{prob}
+\pagebreak
+\begin{prob}
+$I_n = \displaystyle \int \left( a^2 - x^2 \right)^n \dif x$
+\[I_n = \int \left( a^2 - x^2 \right)^n \dif x\]
+Integrating by parts\\
+Let us choose $u = \left( a^2 - x^2\right)^n$ and $\dif v = \dif x$\\
+$\Rightarrow \dif u = -2nx\left( a^2 - x^2 \right)^{n-1}\dif x$ and $v=x$
+\begin{align*}
+I_n = \int u \dif v &= uv - \int v \dif u\\
+&= x\left( a^2 - x^2\right)^n - \bigintsss x\cdot \left( -2nx\left( a^2 - x^2 \right)^{n-1} \right) \dif x\\
+&= x\left( a^2 - x^2\right)^n - \bigintsss 2n\left( a^2 - x^2 + a^2\right)\cdot \left( a^2 - x^2 \right)^{n-1} \dif x\\
+&= x\left( a^2 - x^2\right)^n - 2n \bigintsss\left( a^2 - x^2\right)^n \dif x + 2na^2 \int \left( a^2 - x^2 \right)^{n-1} \dif x\\
+&= x\left( a^2 - x^2\right)^n - 2n I_n + 2na^2 I_{n-1}
+\end{align*}
+\[I_n = x\left( a^2 - x^2\right)^n - 2n I_n + 2na^2 I_{n-1}\]
+\end{prob}
+\begin{prob}
+$I_{(n, -m)} = \displaystyle \int \dfrac{\sin^n(x)}{\cos^m(x)} \dif x$
+\[I_{(n, -m)} = \int \dfrac{\sin^n(x)}{\cos^m(x)} \dif x\]
+\[I_{(n, -m)} = \int\sin^{n-1}(x) \dfrac{\sin(x)}{\cos^m(x)} \dif x\]
+Integrating by parts\\
+Let us choose $u = \sin^{n-1}(x)$ and $\dif v = \dfrac{\sin(x)}{\cos^m(x)} \dif x$\\
+$\Rightarrow \dif u = (n-1)\sin^{n}(x) \cos(x) \dif x$ and $v = \dfrac{\left(\cos(x)\right)^{-m+1}}{-m+1}$
+\begin{align*}
+I_{(n, -m)} = \int u \dif v &= uv - \int v \dif u\\
+&= \dfrac{\sin^{n-1}(x)\cdot \left(\cos(x)\right)^{-m+1}}{m-1} - \dfrac{n-1}{m-1} \int \dfrac{\sin^{n-2}(x)}{\cos^{m-2}(x)}\dif x\\
+&= \dfrac{\sin^{n-1}(x)\cdot \left(\cos(x)\right)^{-m+1}}{m-1} - \dfrac{n-1}{m-1} I_{(n-2, -(m-2))}
+\end{align*}
+This gives us the reduction formula as:
+\[I_{(n, -m)}= \dfrac{\sin^{n-1}(x)\cdot \left(\cos(x)\right)^{-m+1}}{m-1} - \dfrac{n-1}{m-1} \left(I_{(n-2, 2-m)}\right)\]
+\end{prob}
+\pagebreak
+\subsection{Integration of Rational Functions and Integration by Partial Fractions}
+An expression is said to be rational if it is of the form $\dfrac{P(x)}{Q(x)}$ where $P$ and $Q$ are polynomials.\\
+The rational function is said to be \textbf{proper} when the degree of $Q(x)$ is greater than the degree of $P(x)$; otherwise it is called \textbf{improper}.\\
+Given an improper rational function as the integrand, our first job is to convert it into a proper or mixed fraction, possibly by long division.\\\\
+\textbf{Step 1:} If $deg(P(x)) > deg(Q(x))$, then use long division to convert to mixed fraction, and try to integrate. Proceed to step 2\\
+Say from long division, $P(x) = q(x) \cdot Q(x) + r(x)$.
+Then,
+\[\int \dfrac{P(x)}{Q(x)} \dif x = \int q(x) \dif x + \int \dfrac{r(x)}{Q(x)} \dif x\]
+\textbf{Step 2:} Here, we have two cases:\\
+\begin{addmargin}[3em]{1em}% 1em left, 2em right
+\textbf{Case 1:} If $Q(x)$ is a polynomial of odd degree, then $Q(x)$ will have at least one root. Even if all other roots are non-real conjugates, they can be made into quadratics. Try to factor $Q(x)$ in such a form to get only linear or quadratic factors.\\
+\[Q(x) = (x-\alpha)(x^2 + \beta x + \gamma)\cdots\]
+\textbf{Case 2:} If $Q(x)$ is a polynomial of even degree, try to factor $Q(x)$. If all roots of $Q(x)$ are non-real, it can be expressed as a product of quadratics.\\
+In general, we'll try to factor $Q(x)$ as a product of linear and quadratic expressions.\\
+\end{addmargin}
+\textbf{Step 3:} Once that is done, we'll try to integrate, possibly by Partial Fractions.\\
+\subsubsection{Integration by Partial Fractions}
+The idea is to decompose a given rational function into a sum of simpler fractions (called partial fractions) that can be integrated by the techniques discussed earlier.\\
+We will separate the discussion into cases depending on the way in which the denominator $Q(x)$ can be factored.\\\\
+\textbf{Case 1:} If $Q(x)$ can be expressed as a product of distinct linear factors, such as
+\[Q(x) = (x - \alpha_1)(x-\alpha_2)(x-\alpha_3)\cdots (x-\alpha_n)\] then we can find constants $A_i$ for all $i$ such that
+\[\dfrac{P(x)}{Q(x)} = \dfrac{A_1}{x-\alpha_1} + \dfrac{A_2}{x-\alpha_2} + \dfrac{A_3}{x-\alpha_3} + \cdots + \dfrac{A_n}{x-\alpha_n}\]\\
+\textbf{Case 2:} If $Q(x)$ can be represented as a product of linear or quadratic factors, some of which are repeated, such as,
+\[Q(x) = (x-\alpha)^m \left( x^2 + \beta x + \gamma\right)^n\]
+Then,
+
+\[\dfrac{P(x)}{Q(x)} = \dfrac{A_1}{x - \alpha} +\dfrac{A_2}{(x- \alpha)^2} + \cdots + \dfrac{A_m}{(x-\alpha)^m} + \dfrac{B_1 x + C_1}{\left( x^2 + \beta x + \gamma\right)} + \dfrac{B_2 x + C_2}{\left( x^2 + \beta x + \gamma\right)^2} + \cdots + \dfrac{B_n x + c_n}{\left( x^2 + \beta x + \gamma\right)^n}\]
+Then, we can make a common denominator (LCM) on the right and compare coefficients, giving us a system of equations to solve. Alternatively, we can substitute values that make the variable vanish.
+\pagebreak
+\begin{prob}
+$\displaystyle \int \dfrac{2x-3}{(x-1)(2x-1)} \dif x$
+\[I = \int \dfrac{2x-3}{(x-1)(2x-1)} \dif x\]
+\begin{align*}
+\text{Let } \dfrac{2x-3}{(x-1)(2x-1)} &= \dfrac{A}{x-1} + \dfrac{B}{2x-1}\\
+&=\dfrac{A(2x-1) + B(x-1)}{(x-1)(2x-1)}\\
+\Rightarrow 2x-3 &= A(2x-1) + B(x-1)
+\end{align*}
+Substitute $x=1$\\
+$\Rightarrow 2-3 = A(2-1) \Rightarrow A = -1$\\
+Substitute $x = \dfrac12$\\
+$\Rightarrow B = 4$
+\begin{align*}
+\Rightarrow I &= \int \left( \dfrac{-1}{x-1} + \dfrac4{2x-1} \right) \dif x\\
+&= -\int \dfrac{\dif x}{x-1} + 4\int \dfrac{\dif x}{2x-1}\\
+&= -\ln\left(\; \abs{x-1} \right) + \dfrac{4 \ln \left(\; \abs{2x-1} \right)}{2}+c\\
+&= -\ln\left(\; \abs{x-1} \right) + 2 \ln \left(\; \abs{2x-1} \right)+c
+\end{align*}
+\end{prob}
+\pagebreak
+\section{Definite Integrals}
+\subsection{Notation}
+Say the antiderivative of $f(x)$ is $F(x)$.
+Then,
+\[\int\limits_a^b f(x) \dif x = F(b) - F(a)\]
 \end{document}

@@ -15,6 +15,7 @@
 \usepackage{mathtools}
 \usepackage{chngcntr}
 \usepackage{scrextend}
+\usepackage{mathtools}
 \usepackage{commath}
 \usepackage{bigints}
 \usepackage{hyperref}
@@ -36,6 +37,9 @@
 \theoremstyle{definition}
 \newtheorem{prob}{Problem}
 \newtheorem{algo}{Algorithm}
+\newtheoremstyle{case}{}{}{}{}{}{:}{ }{}
+\theoremstyle{case}
+\newtheorem{case}{Case}
 \begin{document}
 \title{Single-Variable Calculus}
 \author{Aryan Mediratta}
@@ -2148,23 +2152,31 @@ A function $P$ is called the \underline{primitive} (or the \underline{antideriva
 \item $\displaystyle\int \left(f(x)\right)^n \cdot f'(x) \dif x = \dfrac{\left[f(x)\right]^{n+1}}{n+1}+c$
 \item If $\displaystyle\int f(x) \dif x = F(x)$, then $\displaystyle\int f(ax+b) \dif x = \dfrac{F(ax+b)}{a}+c$
 \end{enumerate}
-\pagebreak
 \subsection{Standard Integrals}
 \begin{enumerate}
 \item $\displaystyle\int x^n \dif x = \dfrac{x^{n+1}}{n+1} + c$, $n \neq -1$
 \item $\displaystyle\int \dfrac1x \dif x = \log_{\rm e}\left(\;\abs{x}\right) + c$
 \item $\displaystyle\int \dfrac1{x^2} \dif x = -\dfrac1x + c$
 \item $\displaystyle\int\sqrt{x} \dif x = \dfrac23 x\sqrt{x} + c$
-\item $\displaystyle\int \dfrac1{\sqrt{x}} \dif x =  2\sqrt{x} + c$
+\item $\displaystyle\int \dfrac1{\sqrt{x}} \dif x =  2\sqrt{x} + c$\pagebreak
 \item $\displaystyle\int \cos(x) \dif x = \sin(x) + c$
 \item $\displaystyle\int \sin(x) \dif x = -\cos(x) + c$
 \item $\displaystyle\int \sec^2(x) \dif x = \tan(x) + c$
 \item $\displaystyle\int \sec(x) \tan(x) \dif x = \sec(x) + c$
 \item $\displaystyle\int \csc(x) \cot(x) \dif x = -\csc(x) + c$
 \item $\displaystyle\int \csc^2(x) \dif x = -\cot(x) + c$
+\item $\displaystyle\int \dfrac{\dif x}{x^2 + a^2} = \dfrac1a \tan^{-1}\left(\dfrac{x}{a}\right) + c$
 \item $\displaystyle\int \dfrac{\dif x}{x^2 - a^2} = \dfrac1{2a} \log\left(\;\abs{\dfrac{x-a}{x+a}} \right) + c$
 \item $\displaystyle\int \dfrac{\dif x}{a^2 -x^2} = \dfrac1{2a} \log\left(\;\abs{\dfrac{a+x}{a-x}} \right) + c$
-\item $\displaystyle\int \dfrac{\dif x}{x^2 + a^2} = \dfrac1a \tan^{-1}\left(\dfrac{x}{a}\right) + c$
+\item $\displaystyle \int \dfrac{\dif x}{\sqrt{x^2 + a^2}} = \log_{\rm e}\left( \abs{x + \sqrt{x^2 + a^2}}  \right) + c$
+\item $\displaystyle \int \dfrac{\dif x}{\sqrt{x^2 - a^2}} = \log_{\rm e} \left( \abs{x + \sqrt{x^2 - a^2}} \right) + c$
+\item $\displaystyle \int \dfrac{\dif x}{\sqrt{a^2 - x^2}} = \sin^{-1}\left( \dfrac{x}{a} \right) + c$
+\item $\displaystyle \int \dfrac{\dif x}{x \sqrt{x^2 - a^2}} =  \dfrac1{a} \sec^{-1}\left(\;\abs{ \dfrac{x}{a}} \right) + c$
+\item $\displaystyle \int \left( \sqrt{x^2 + a^2} 
+\right) \dif x = \dfrac{x}{2}\sqrt{x^2 + a^2} + \dfrac{a^2}{2}\log_{\rm e} \left( \abs{x + \sqrt{x^2 + a^2}} \right) + c$
+\item $\displaystyle \int \left( \sqrt{x^2 - a^2} 
+\right) \dif x = \dfrac{x}{2}\sqrt{x^2 - a^2} - \dfrac{a^2}{2}\log_{\rm e} \left( \abs{x + \sqrt{x^2 - a^2}} \right) + c$
+\item $\displaystyle \int \left( \sqrt{a^2 - x^2} \right) \dif x = \dfrac{x}{2}\sqrt{a^2 - x^2} + \dfrac{a^2}{2}\sin^{-1}\left( \dfrac{x}{a} \right) + c$
 \end{enumerate}
 \pagebreak
 \subsection{Integration by Transformation and Adjustment}
@@ -2500,6 +2512,29 @@ Then $\dfrac1{\sqrt{1 - x^2}} \dif x = \dif u$ and $v = x$
 \end{prob}
 \pagebreak
 \begin{prob}
+$\displaystyle \bigints \left( x - \dfrac1{x^3} \right) {\mathrm{e}}^{\left(x + \dfrac1x\right)} \dif x$
+\begin{align*}
+I &= \bigints \left( x - \dfrac1{x^3} \right) {\mathrm{e}}^{\left(x + \dfrac1x\right)} \dif x\\
+&=\bigints \left(\dfrac{x^4 - 1}{x^3} \right) {\mathrm{e}}^{\left(x + \dfrac1x\right)} \dif x\\
+&=\bigints \left(\dfrac{\left(x^2 + 1\right)\left(x^2 - 1\right)}{x^3} \right) {\mathrm{e}}^{\left(x + \dfrac1x\right)} \dif x\\
+&= \bigints \left( \left( \dfrac{x^2 + 1}{x} \right) \left( \dfrac{x^2 - 1}{x^2} \right) \right) {\mathrm{e}}^{\left(x + \dfrac1x\right)} \dif x\\
+&= \bigints  \left( x + \dfrac1x \right) \left( 1 - \dfrac1{x^2} \right) {\mathrm{e}}^{\left(x + \dfrac1x\right)} \dif x
+\end{align*}
+Let $x + \dfrac1x = t$, then $\left(1 - \dfrac1{x^2}\right) \dif x = \dif t$
+\[\Rightarrow I = \int t \cdot \mathrm{e}^t \dif t\]
+This essentially reduces to the next problem but let's just do it twice.\\
+Integrating by parts.\\
+Let us choose $u = t$ and $\dif v = e^t \dif t$\\
+Then $\dif u = \dif t$ and $v = \mathrm{e}^t$
+\begin{align*}
+I = \int u \dif v &= uv - \int v \dif u\\
+&= t\cdot \mathrm{e}^t - \int \mathrm{e}^t \dif t\\
+&= t\cdot \mathrm{e}^t - e^t + c && \text{Substitute back}\\
+&= {\left(x + \dfrac1x\right)} \cdot \mathrm{e}^{\left(x + \dfrac1x\right)} - \mathrm{e}^{\left(x + \dfrac1x\right)} + c
+\end{align*}
+\end{prob}
+\pagebreak
+\begin{prob}
 $\displaystyle\int x \cdot {\rm e}^x \dif x$
 \end{prob}
 \[I = \int x \cdot {\rm e}^x \dif x\]
@@ -2811,9 +2846,644 @@ $\Rightarrow B = 4$
 \end{align*}
 \end{prob}
 \pagebreak
+\subsection{Integration of Irrational Functions}
+\subsubsection{Type 1:}
+$\displaystyle \int \dfrac{\dif x}{\text{linear} \sqrt{\text{linear}}}$\\
+If you see something of this form, substitute $\sqrt{\text{linear}} = t$.\\
+Why? It will give us $\dfrac{\dif x}{2\sqrt{\text{linear}}} = \dif t$. Then, we can express the linear part outside the square root in terms of $t$ and integrate.
+\begin{prob}
+$\displaystyle \int \dfrac{\dif x}{(2x+3)\sqrt{x+1}}$
+\[I =\int \dfrac{\dif x}{(2x+3)\sqrt{x+1}}\]
+Let $\sqrt{x+1} = t$\\
+$\Rightarrow \dfrac{\dif x}{2\sqrt{x+1}} = \dif t$\\
+$\Rightarrow \dfrac{\dif x}{\sqrt{x+1}} = 2\dif t$\\\\
+$x + 1 = t^2$\\
+$\Rightarrow 2x + 2 = 2t^2$\\
+$\Rightarrow 2x + 3 = 2t^2 + 1$\\
+\begin{align*}
+\Rightarrow I &= \int \dfrac{2\dif t}{2t^2 + 1}\\
+&= \bigints \dfrac{\cancel{2} \dif t}{\cancel{2}\left( t^2 + \dfrac12 \right)}\\
+&= \dfrac{1}{\left(\dfrac{1}{\sqrt2}\right)}\tan^{-1}\left(\dfrac{t}{\left(\dfrac{1}{\sqrt2}\right)}\right) + c\\
+&= \sqrt2 \tan^{-1}\left(\sqrt{2} t\right) + c\\
+&= \sqrt2 \tan^{-1}\left(\sqrt{2} \cdot \sqrt{x+1}\right) + c\\
+&= \sqrt2 \tan^{-1}\left(\sqrt{2(x+1)}\right) + c
+\end{align*}
+\end{prob}
+\pagebreak
+\subsubsection{Type 2:}
+$\displaystyle \int \dfrac{\dif x}{(ax^2 + b)\sqrt{cx^2 + d}}$\\
+For integrals of this type, substitute $x = \dfrac1{t}$.\\
+This will give us $\dif x = -\dfrac1{t^2} \dif t$.
+\begin{prob}
+$\displaystyle \int \dfrac{\dif x}{(x^2 + 1)\sqrt{x^2 + 2}}$
+\[I = \int \dfrac{\dif x}{(x^2 + 1)\sqrt{x^2 + 2}}\]
+Let $x = \dfrac1{t}$.\\
+$\Rightarrow \dif x = -\dfrac1{t^2} \dif t$
+\begin{align*}
+\Rightarrow I &= - \bigint \dfrac{\dfrac{\dif t}{t^2}}{\left( \dfrac1{t^2} + 1 \right) \sqrt{\dfrac1{t^2} + 2}}\\
+&= - \bigint \dfrac{\dfrac{\dif t}{\cancel{t^2}}}{\left( \dfrac{t^2 + 1}{\cancel{t^2}} \right) \sqrt{\dfrac{1 + 2t^2}{t^2}}}\\
+&= - \int \dfrac{t \dif t}{(t^2 + 1)\sqrt{1 + 2t^2}}
+\end{align*}
+Let $1 + 2t^2 = u^2$\\
+$\Rightarrow 4t\dif t = 2u\dif u$\\
+$\Rightarrow t \dif t = \dfrac{u \dif u}2$\\
+Now $1 + 2t^2 = u^2$\\
+$\Rightarrow 2t^2 = u^2 - 1$\\
+$\Rightarrow t^2 = \dfrac{u^2 - 1}{2}$\\
+$\Rightarrow t^2 + 1 = \dfrac{u^2 - 1}{2} + 1 = \dfrac{u^2 + 1}2$
+\begin{align*}
+\Rightarrow I &= -\dfrac1{\cancel{2}} \bigintss \dfrac{\cancel{u} \dif u}{\left(\dfrac{u^2 + 1}{\cancel{2}}\right)\cancel{u}} = -\int \dfrac{\dif u}{u^2 + 1}\\
+&= - \tan^{-1}(u) + c\\
+&= - \tan^{-1}(1 + 2t^2) + c\\
+&= - \tan^{-1}\left(1 + \dfrac2{x^2}\right) + c\\
+\end{align*}
+\end{prob}
+\pagebreak
+\subsubsection{Type 3:}
+$\displaystyle \int \dfrac{\dif x}{\text{linear} \sqrt{\text{quadratic}}}$\\
+For this type, we substitute $\text{linear} = \dfrac1t$.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+\begin{prob}
+$\displaystyle \int \dfrac{\dif x}{(x+2)\sqrt{x^2 + 6x + 7}}$
+\[I = \int \dfrac{\dif x}{(x+2)\sqrt{x^2 + 6x + 7}}\]
+Let $x + 2 = \dfrac1t$\\
+$\Rightarrow \dif x = - \dfrac1{t^2} \dif t$\\\\
+And $x = \left(\dfrac1t - 2\right)$\\
+$\Rightarrow x^2 + 6x + 7 = \left(\dfrac1t - 2\right)^2 + 6\left(\dfrac1t - 2\right) + 7 = \dfrac{1 + 2t - t^2}{t^2}$
+\begin{align*}
+\Rightarrow I &= \bigint \dfrac{- \dfrac1{t^2} \dif t}{\dfrac1t \sqrt{\dfrac{1 + 2t - t^2}{t^2}}}\\
+&= -\int \dfrac{\dif t}{\sqrt{1 + 2t - t^2}}\\
+&= - \int\dfrac{\dif t}{\sqrt{2-(t-1)^2}}\\
+&= - \sin^{-1}\left(\dfrac{\sqrt2}{(t-1)}\right) + c\\
+&= \sin^{-1}\left(\dfrac{\sqrt2}{(1-t)}\right) + c
+\end{align*}
+\end{prob}
+\pagebreak
+\subsubsection{Type 4:}
+If there is a polynomial function of the form\\
+$f\left(x, x^{p_1/q_1}, x^{p_2/q_2} + x^{p_3/q_3} + \cdots + x^{p_r/q_r}\right)$,\\
+Then substitute $x = t^s$ where $s = LCM\left( q_1, q_2, q_3, \cdots, q_r\right)$.\\
+Similarly, if we have\\
+$f\left(x, (ax+b)^{p_1/q_1}, (ax+b)^{p_2/q_2} + (ax+b)^{p_3/q_3} + \cdots + (ax+b)^{p_r/q_r}\right)$\\
+Then substitute $(ax+b) = t^s$ where $s = LCM\left( q_1, q_2, q_3, \cdots, q_r\right)$.\\
+This will make it a rational function which can be evaluated.
+\begin{prob}
+$\displaystyle \int \dfrac{x + x^{2/3} + x^{1/6}}{x (1 + x^{1/3})} \dif x$
+\[I = \int \dfrac{x + x^{2/3} + x^{1/6}}{x (1 + x^{1/3})} \dif x\]
+Let $x = t^6$\\
+$\Rightarrow \dif x = 6t^5 \dif t$
+\begin{align*}
+\Rightarrow I &= \int\dfrac{6t^5 \left( t^6 + t^4 + t \right)}{t^6 \left( 1 + t^2 \right)} \dif t\\
+&= 6 \int \dfrac{t^6 + t^4 + t}{t\left( 1 + t^2 \right)} \dif t && \text{Long division}\\
+&= 6 \int \left[ t^3 + \dfrac1{t^2 + 1} \right] \dif t\\
+&= 6 \left[ \dfrac{t^4}{4} + \tan^{-1}(t) \right] + c\\
+&= 6 \left[ \dfrac{x^{4/6}}{4} + \tan^{-1}(x^{1/6}) \right] + c\\
+&= \dfrac32 x^{2/3} + 6 \tan^{-1}\left( x^{1/6} \right) + c\\
+\end{align*}
+\end{prob}
+\subsubsection{Type 5:}
+Integrals of the type $\displaystyle \int x^m \left( a + bx^n \right)^p \dif x$\\
+\begin{enumerate}
+\item If $m$ and $p$ are positive integers, simply use Binomial Theorem and evaluate.
+\item If $p$ is an integer but $m$ and $n$ are not integers (but rational), then substitute $x = t^s$ where $s$ is the $LCM$ of the denominators of $m$ and $n$.
+\item If $m$ and $p$ are not integers but $\dfrac{m+1}n$ is an integer, then substitute $a + bx^n = t^s$ where $s$ is the denominator of the fraction $p$.
+\item If $m$ and $p$ are not integers but $\dfrac{m+1}n + p$ is an integer, then put $ax^{-n} + b = t^s$ where $s$ is the denominator of the fraction $p$.
+\end{enumerate}
+\pagebreak
+\subsection{Other ``Special" Integrals}
+\subsubsection{When the Denominator is a Quadratic in $x^2$}
+Divide the numerator and denominator by $x^2$ and try to make some substitution from here.
+\begin{prob}
+$\displaystyle \int \dfrac{x^2 + 1}{x^4 + 1} \dif x$
+\begin{align*}
+I &= \int \dfrac{x^2 + 1}{x^4 + 1} \dif x\\
+&= \bigints \left(\dfrac{1 + \dfrac1{x^2}}{x^2 + \dfrac1{x^2}}\right) \dif x
+\end{align*}
+Let $x - \dfrac1{x} = t$.\\
+Then $\left(1 + \dfrac1{x^2}\right) \dif x = \dif t$\\
+$\left( x - \dfrac1{x} \right)^2 = t^2$\\
+$\Rightarrow x^2 - 2 + \dfrac1{x^2} = t^2$\\
+$\Rightarrow x^2 + \dfrac1{x^2} = t^2 + 2$
+\begin{align*}
+\Rightarrow I &= \int \dfrac{\dif t}{t^2 + 2}\\
+&= \int \dfrac{\dif t}{\left( \sqrt2 \right)^2 + t^2}\\
+&= \dfrac1{\sqrt2} \tan^{-1} \left(\dfrac{t}{\sqrt 2} \right) + c\\
+&= \dfrac1{\sqrt2} \tan^{-1} \left(\dfrac{\left(x - \dfrac1{x}\right)}{\sqrt 2} \right) + c
+\end{align*}
+\end{prob}
+\pagebreak
+\begin{prob}
+$\displaystyle \int \dfrac{x^2 - 1}{x^4 + 1} \dif x$
+\begin{align*}
+I &= \int \dfrac{x^2 - 1}{x^4 + 1} \dif x\\
+&= \bigints \left(\dfrac{1 - \dfrac1{x^2}}{x^2 + \dfrac1{x^2}}\right) \dif x
+\end{align*}
+Let $x + \dfrac1{x} = t$.\\
+Then $\left(1 - \dfrac1{x^2}\right) \dif x = \dif t$\\
+$\left( x + \dfrac1{x} \right)^2 = t^2$\\
+$\Rightarrow x^2 + 2 + \dfrac1{x^2} = t^2$\\
+$\Rightarrow x^2 + \dfrac1{x^2} = t^2 - 2$
+\begin{align*}
+\Rightarrow I &= \int \dfrac{\dif t}{t^2 - 2}\\
+\Rightarrow I &= \int \dfrac{\dif t}{t^2 - \left( \sqrt2 \right)^2}
+\end{align*}
+Using $\displaystyle\int \dfrac{\dif x}{x^2 - a^2} = \dfrac1{2a} \log\left(\;\abs{\dfrac{x-a}{x+a}} \right) + c$
+\[\Rightarrow I = \dfrac1{2\sqrt2} \ln\left(\;\abs{\dfrac{t-\sqrt2}{t+\sqrt2}} \right) + c\]
+\[\Rightarrow I = \dfrac1{2\sqrt2} \ln\left(\;\abs{\dfrac{x + \dfrac1{x}-\sqrt2}{x + \dfrac1{x}+\sqrt2}} \right) + c\]
+\end{prob}
+\pagebreak
+\subsubsection{Special Integrals Involving Sine and Cosine}
+\subsubsection*{Integrals of the form $\displaystyle\int \sin^m(x) \dif x$ or $\displaystyle \int \cos^m (x) \dif x$, where $m \in \mathbb{Z}$}
+If $m$ is even:\\
+\indent\indent Use $\sin^2(x) = \dfrac{1-\cos(2x)}{2}$ or $\cos^2(x) = \dfrac{1 + \cos(2x)}{2}$\\\\
+Otherwise, if $m$ is odd:\\
+\indent\indent Break it into power 1 and the nearest even power and use one of the following:\\
+\indent\indent\indent\indent $\sin^2(x) = 1-\cos^2(x)$ and substitute $\cos(x) = t$\\
+\indent\indent\indent\indent Or $\cos^2(x) = 1-\sin^2(x)$ and substitute $\sin(x) = t$
+\begin{prob}
+$\displaystyle \int \sin^4(x) \dif x$
+\begin{align*}
+I &= \int \sin^4(x) \dif x\\
+&= \int \left( \sin^2(x) \right)^2 \dif x\\
+&= \int \left( \dfrac{1-\cos(2x)}{2} \right)^2 \dif x\\
+&= \dfrac14 \int \left( 1 - 2\cos(2x) + \cos^2(x) \right)\dif x\\
+&= \dfrac14\int \dif x - \dfrac12 \int\cos(2x) \dif x + \dfrac14 \int \cos^2(2x) \dif x\\
+&= \dfrac{x}{4} - \dfrac12 \cdot \dfrac{\sin(2x)}2 + \dfrac14 \int \dfrac{1 + cos(4x)}{2} \dif x\\
+&=\dfrac{x}{4} - \dfrac12 \cdot \dfrac{\sin(2x)}2 + \dfrac18 \displaystyle \int \left(1 + \cos(4x)\right) \dif x\\
+&=\dfrac{x}{4} - \dfrac12 \cdot \dfrac{\sin(2x)}2 + \dfrac18 \left( x + \dfrac{\sin(4x)}{4} \right) + c\\
+&= \dfrac{x}4 - \dfrac{\sin(2x)}{4} + \dfrac{x}8 + \dfrac{\sin(4x)}{32} + c\\
+&= \dfrac{12x}{32} - \dfrac{\sin(2x)}{4}+ \dfrac{\sin(4x)}{32} + c\\
+&= \dfrac{12x - 8\sin(2x) + \sin(4x)}{32} + c
+\end{align*}
+\end{prob}
+\pagebreak
+\begin{prob}
+$\displaystyle \int \cos^5(x) \dif x$
+\begin{align*}
+I &= \int \cos^5(x) \dif x\\
+&= \int \cos(x) \cdot \cos^4(x) \dif x\\
+&= \int \cos(x) \cdot \left(\cos^2(x)\right)^2 \dif x\\
+&= \int \cos(x) \cdot \left( 1 - \sin^2(x) \right)^2 \dif x
+\end{align*}
+Let $\sin(x) = t$\\
+$\Rightarrow \cos(x) \dif x = \dif t$
+\end{prob}
+\begin{align*}
+\Rightarrow I &= \int \left( 1 - t^2 \right)^2 \dif t\\
+&= \int \left( 1 -2t^2 + t^4 \right) \dif t\\
+&= t -\dfrac{2t^3}{3} + \dfrac{t^5}{5} + c\\
+&= \sin(x) - \dfrac{2\sin^3(x)}{3} + \dfrac{\sin^5(x)}{5} + c
+\end{align*}
+\subsubsection*{Integrals of the form $\displaystyle\int \sin^m(x) \cdot \cos^n(x) \dif x$, where $m,n \in \mathbb{Z}^+$}
+If any of $m$ and $n$ is/are odd:\\
+\indent \indent Break the (least) odd power to nearest even like before and use one of the following:\\
+\indent\indent\indent\indent $\sin^2(x) = 1-\cos^2(x)$ and substitute $\cos(x) = t$\\
+\indent\indent\indent\indent Or $\cos^2(x) = 1-\sin^2(x)$ and substitute $\sin(x) = t$\\\\
+Else if $m$ = $n$, i.e. $\displaystyle \int sin^m(x) \cos^m(x) \dif x$:\\
+\indent \indent Multiply and divide by $2^m$ and try to solve like before.
+\subsubsection*{Integrals of the form $\displaystyle\int \sin(mx) \cdot \sin(nx) \dif x$, $\displaystyle\int \cos(mx) \cdot \cos(nx) \dif x$ or $\displaystyle\int \sin(mx) \cdot \cos(nx) \dif x$, where $m,n \in \mathbb{R}^+$}
+Multiply and divide by 2; use the transformation formulae from trigonometry to split them into sum/difference of sine and cosine.
+\pagebreak
 \section{Definite Integrals}
-\subsection{Notation}
-Say the antiderivative of $f(x)$ is $F(x)$.
-Then,
-\[\int\limits_a^b f(x) \dif x = F(b) - F(a)\]
+\subsection{The Second Fundamental Theorem of Calculus}
+\begin{theorem}
+Let $f$ be a continuous function on $[a, b]$ and $f(x) = g'(x) \quad \forall x \in [a,b]$. Then,
+\[\int\limits_a^b f(x) \dif x = \int\limits_a^b f = g(b) - g(a)\]
+\end{theorem}
+\subsection{Geometrical Interpretation}
+Let $f$ be a non-negative function on the closed interval $[a, b]$. Then the integral $\displaystyle \int\limits_a^b f(x) \dif x = R(f, a, b)$ represents the area bounded by the function $f$, the lines $x = a$, $x = b$ and the $x$-axis.
+\begin{figure}[h]
+\includegraphics[scale=0.5]{images/integral_area}
+\end{figure}
+\pagebreak
+\subsection{Examples}
+\begin{prob}
+$\displaystyle \int\limits_0^{\dfrac{\pi}{2}} \sin(2x) \dif x$
+\[\int\limits_0^{\pi/2} \sin(2x) \dif x = \left[ \dfrac{-\cos(2x)}{2} \right]_0^{\pi/2} = -\dfrac{\cos(\pi)}{2} + \dfrac{\cos(0)}{2} = \dfrac{-(-1)}{2} + \dfrac12 = 1 \]
+\end{prob}
+\begin{prob}
+$\displaystyle \int\limits_{\dfrac{\pi}6}^{\dfrac{\pi}2} \dfrac{\cos(x)}{\sin^3(x)} \dif x $
+\end{prob}
+\[I = \int\dfrac{\cos(x)}{\sin^3(x)} \dif x \]
+Let $\sin(x) = t$\\
+$\Rightarrow \cos(x) \dif x = \dif t$\\
+\[I = \int \dfrac{\dif t}{t^3} = \dfrac{t^{-2}}{-2} + c = \dfrac{\left( \sin(x) \right)^{-2}}{-2} + c\]
+So,
+\[\displaystyle \int\limits_{\pi/6}^{\pi/2} \dfrac{\cos(x)}{\sin^3(x)} \dif x = \left[ \dfrac{\left(\sin(x)\right)^{-2}}{-2}   \right]_{\pi/2}^{\pi/6} = \left[ \dfrac{-1}{2\sin^2(x)} \right]_{\pi/2}^{\pi/6} = \dfrac{-1}{2\sin^2\left(\dfrac{\pi}{6} \right)} + \dfrac1{2\sin^2\left( \dfrac{\pi}{2} \right)} = -2 + \dfrac12 = -\dfrac32\]
+\begin{prob}
+$\displaystyle \int\limits_0^2 \dfrac{\dif x}{\sqrt{16 - x^2}}$
+\[\int\limits_0^2 \dfrac{\dif x}{\sqrt{16 - x^2}} = \int\limits_0^2 \dfrac{\dif x}{\sqrt{4^2 - x^2}} = \left[ \sin^{-1}\left(\dfrac{x}4 \right) \right]_0^2 = \sin^{-1}\left(\dfrac12 \right) - \sin^{-1}(0) = \dfrac{\pi}{6}\]
+\end{prob}
+\pagebreak
+\subsection{Properties of Definite Integrals}
+\begin{enumerate}
+\item $\displaystyle \int\limits_a^a f(x) \dif x = 0$
+\item $\displaystyle \int\limits_a^b f(x) \dif x = \displaystyle \int\limits_a^b f(t) \dif t$
+\item $\displaystyle \int\limits_a^b f(x) \dif x = - \displaystyle \int\limits_b^a f(x) \dif x$
+\item $\displaystyle \int\limits_a^b f(x) \dif x = \displaystyle \int\limits_a^c f(x) \dif x + \displaystyle \int\limits_c^b f(x) \dif x$
+\item $\displaystyle \int\limits_a^b f(x) \dif x = \displaystyle \int\limits_a^{c_1} f(x) \dif x + \displaystyle \int\limits_{c_1}^{c_2} f(x) \dif x + \displaystyle \int\limits_{c_2}^{c_3} f(x) \dif x + \cdots +  \displaystyle \int\limits_{c_n}^{b} f(x) \dif x$
+\item $\displaystyle \int\limits_a^b f(x) \dif x = \displaystyle \int\limits_a^b f(a+b-x) \dif x$
+\item $\displaystyle \int\limits_0^a f(x) \dif x = \displaystyle \int\limits_0^a f(a-x) \dif x$
+\item $\displaystyle \int\limits_0^{2a} f(x) \dif x= \displaystyle \int\limits_0^a f(x) \dif x + \displaystyle \int\limits_0^a f(2a-x) \dif x$
+\item $\displaystyle \int\limits_0^{2a} f(x) \dif x = \begin{cases}
+      2\displaystyle\int\limits_0^a f(x) \dif x & \text{if }f(2a-x)=f(x) \\
+      0 & \text{if }f(2a-x)=-f(x)
+\end{cases}\, $
+\item $\displaystyle\int\limits_{-a}^a f(x) \dif x = \int\limits_0^a \left[ f(x) + f(-x) \right] \dif x$
+\item $\displaystyle \int\limits_{-a}^{a} f(x) \dif x = \begin{cases}
+      2\displaystyle\int\limits_0^a f(x) \dif x & \text{if }f(-x)=f(x) \text{ (even function)} \\
+      0 & \text{if }f(x)=-f(x) \text{ (odd function)}
+\end{cases}\, $
+%\item If $f(x)$ is a periodic function with period $T$, then\\
+$\displaystyle \int\limits_0^{nT} f(x) \dif x = n \int\limits_0^T f(x) \dif x$
+\end{enumerate}
+\pagebreak
+\subsection{Substitution in Definite Integrals}
+When we use the method of Integration by Substitution in Definite Integrals, we must ensure that the substituted function satisfies some criteria.\\
+Say we have $\displaystyle \int\limits_a^b f(x) \dif x$. Then if we want to make the substitution $x = g(t)$, we must ensure that $g$ is:
+\begin{enumerate}
+\item Defined on the interval $[a, b]$
+\item Continuously differentiable on $[a, b]$
+\item One-one
+\end{enumerate}
+Also, upon making a substitution, we must update the limits of the integral accordingly.\\
+So the following is ``obviously" incorrect:\\
+\fbox{
+\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{
+\textcolor{red}{
+\[I = \int\limits_{-1}^{1} x^4 \dif x\]
+Let $x^2 = t$\\
+Then, $t = 1$ when $x= -1$ and $t = 1$ when $x = 1$\\
+So the integral becomes
+\[I = \int\limits_1^1t^2 \dif t = 0\]
+}
+}}
+\subsection{Derivative of an Integral and Leibniz' Formula}
+If $h(x) = \displaystyle \int\limits_{q(x)}^{p(x)}f(t) \dif t$\\
+Then $h'(x) = f \left(p\left(x\right)\right) \cdot p'(x) - f \left(q\left(x\right)\right) \cdot q'(x)$
+\pagebreak
+\begin{prob}
+Consider the function $f$ defined as:
+\[
+f\left(x\right) = \left\{
+        \begin{array}{ll}
+            x^2 & \quad \text{if } 0 \leq x \leq 1  \\\\
+            \sqrt{x} & \quad \text{if } 1 < x \leq 2
+        \end{array}
+    \right.
+\]
+Find $\displaystyle \int \limits_0^2 f(x) \dif x$.\\
+\textbf{Solution:} Note that the function is continuous at $x=1$.\\
+Using  $\displaystyle \int\limits_a^b f(x) \dif x = \displaystyle \int\limits_a^c f(x) \dif x + \displaystyle \int\limits_c^b f(x) \dif x$
+\begin{align*}
+I = \int\limits_0^2 f(x) \dif x &= \int\limits_0^1 f(x) \dif x + \int \limits_1^2 f(x) \dif x\\
+&= \int\limits_0^1 x^2 \dif x + \int\limits_1^2 \sqrt{x} \dif x\\
+&= \left[ \dfrac{x^3}3 \right]_0^1 + \left[ \dfrac23 x\sqrt{x} 
+\right]_1^2\\
+&= \dfrac13 + \dfrac23 \left(2\sqrt2 - 1 \right)\\
+&= \dfrac13 + \dfrac{4\sqrt2}3 - \dfrac23\\
+&= \dfrac{4\sqrt2 - 1}{3}
+\end{align*}
+\end{prob}
+\begin{prob}
+$\displaystyle \int\limits_0^2 \abs{1-x} \dif x$\\
+Using $\displaystyle \int\limits_a^b f(x) \dif x = \displaystyle \int\limits_a^c f(x) \dif x + \displaystyle \int\limits_c^b f(x) \dif x$.
+\begin{align*}
+I &= \int\limits_0^2 \abs{1-x} \dif x = \int\limits_0^1 \abs{1-x} \dif x + \int\limits_1^2 \abs{1-x} \dif x\\
+&= \int\limits_0^1 (1-x) \dif x + \int\limits_1^2 (x-1) \dif x\\
+&= \left[ x - \dfrac{x^2}{2} \right]_0^1 + \left[ \dfrac{x^2}{2} - x \right]_1^2\\
+&= 1 - \dfrac12 + 0 - \left( \dfrac{-1}2 \right) \\
+&= 1
+\end{align*}
+\end{prob}
+\pagebreak
+\subsection{Newton's Proposition}
+Suppose $f$ is an increasing, integrable and invertible function. Then,
+\[\int \limits_a^b f^{-1} = b \cdot f^{-1}(b) - a \cdot f^{-1}(a) - \int\limits_{f^{-1}(a)}^{f^{-1}(b)} f\]
+Note that the above notation is perfectly acceptable and is equivalent to:
+\[\int \limits_a^b f^{-1}(x) \dif x = b \cdot f^{-1}(b) - a \cdot f^{-1}(a) - \int\limits_{f^{-1}(a)}^{f^{-1}(b)} f(x) \dif x\]
+\subsubsection{Formal Proof}
+\begin{proof}
+Let $I = \displaystyle\int\limits_a^b f^{-1}(x) \dif x$\\
+Let us make the substitution $x = f(t)$. Note that this is a valid substitution since $f$ is one-one because it is invertible.\\
+$\Rightarrow \dif x = f'(t) \dif t$\\
+$x = a \Rightarrow t = f^{-1}(a)$\\
+And $x = b \Rightarrow t = f^{-1}(b)$\\
+So, 
+\begin{align*}
+I &= \int\limits_a^b f^{-1}(x) \dif x\\
+&= \int\limits_{f^{-1}(a)}^{f^{-1}(b)} f^{-1}\left(f(t) \right) \cdot f'(t) \dif t\\
+&= \int\limits_{f^{-1}(a)}^{f^{-1}(b)} t \cdot f'(t) \dif t
+\end{align*}
+Integrating by parts,\\
+Let $u = t$ and $\dif v = f'(t) \dif t$\\
+$\Rightarrow \dif u = \dif t$ and $v = f(t)$\\
+$\int u \dif v = uv - \int v \dif u$
+\begin{align*}
+\Rightarrow I &= \left[ t \cdot f\big( t \big) \right]_{f^{-1}(a)}^{f^{-1}(b)} \; - \int\limits_{f^{-1}(a)}^{f^{-1}(b)} f(t) \dif t\\
+&= \left[ f^{-1}(b) \cdot f\left( f^{-1}(b) \right) - f^{-1}(a) \cdot f\left( f^{-1}(a) \right)\right] - \int\limits_{f^{-1}(a)}^{f^{-1}(b)} f(t) \dif t\\
+&= b \cdot f^{-1}(b) - a \cdot f^{-1}(a) - \int\limits_{f^{-1}(a)}^{f^{-1}(b)} f(x) \dif x\\
+\end{align*}
+\end{proof}
+\pagebreak
+\subsubsection{Geometric Intuition}
+We know that the graph of $y = f^{-1}(x)$ is simply the mirror image of the graph of $y = f(x)$ along the line $y = x$ since the mirror image of any point $(x_0, y_0)$ along $y = x$ is $(y_0, x_0)$ and $f^{-1}$ also does the same thing that is changes $(x, y)$ to $(y, x)$.\\
+\begin{figure}[h]
+\includegraphics[scale=0.4]{images/newton_prop_1}
+\includegraphics[scale=0.4]{images/newton_prop_2}
+\end{figure}\\
+So, if we look from {\color{red} (A)}, it's $f(x)$ and if we look from {\color{red} (B)}, it's $f^{-1}(x)$.\\
+Now, looking at Newton's Proposition.
+\[\int \limits_a^b f^{-1} = b \cdot f^{-1}(b) - a \cdot f^{-1}(a) - \int\limits_{f^{-1}(a)}^{f^{-1}(b)} f \]
+\[\Leftrightarrow \int \limits_a^b f^{-1} + \int\limits_{f^{-1}(a)}^{f^{-1}(b)} f = b \cdot f^{-1}(b) - a \cdot f^{-1} (a)\]
+\[\Leftrightarrow \text{Area of region {\color{blue}(i)}} + \text{Area of region {\color{purple}(ii)}} = \text{Area of rectangle OABC} - \text{Area of rectangle ODEF}\]\\
+\begin{figure}[h]
+\includegraphics[scale=0.73]{images/newton_prop_3}
+\end{figure}
+\pagebreak
+\subsection{Young's Inequality}
+Suppose that $f$ is a continuous increasing function with $f(0) = 0$. Then for $a, b > 0$,
+\[\int\limits_0^a f(x) \dif x + \int\limits_0^b f^{-1}(x) \dif x  \geq ab\]
+and the equality holds iff $a = f^{-1}(b)$
+\subsubsection{Formal Proof}
+\textbf{Note:} In such theoretical proofs, one nice way of substitution can be such that the limits of integration can be made equal to those of the integral on the RHS, just like we did for proving Newton's Proposition.\\
+\begin{proof}
+\begin{align*}
+I &= \int\limits_0^a f(x) \dif x + \int\limits_0^b f^{-1}(x) \dif x  && \text{Using Newton's Proposition}\\
+&= \int\limits_0^a f(x) \dif x + b \cdot f^{-1}(b) - \int\limits_0^{f^{-1}(b)}f(x) \dif x && \text{Using } \int\limits_a^b f = - \int\limits_b^a f\\
+&= \int\limits_{f^{-1}(b)}^0 f(x) \dif x + \int\limits_0^a f(x) \dif x + b \cdot f^{-1}(b) && \text{Using } \int\limits_a^c f + \int\limits_c^b f = \int\limits_a^b f\\
+&= \int\limits_{f^{-1}(b)}^a f(x) \dif x + b \cdot f^{-1}(b) && \text{Add and subtract } ab\\
+&= \int\limits_{f^{-1}(b)}^a f(x) \dif x + b \cdot f^{-1}(b) - ab + ab && \text{Factor out } b
+\end{align*}
+$\left[ \text{Wishful thinking: if we can prove }\displaystyle\int\limits_{f^{-1}(b)}^a f(x) \dif x + b \cdot f^{-1}(b) - ab \text{ is nonnegative, we are done.} \right]$
+\begin{align*}
+\Rightarrow I &= \int\limits_{f^{-1}(b)}^a f(x) \dif x + b \cdot \left( f^{-1}(b) - a\right) + ab && \text{Express } f^{-1}(b) - a = \int\limits_a^{f^{-1}(b)}1\dif x\\
+&= \int\limits_{f^{-1}(b)}^a f(x) \dif x + b \int\limits_a^{f^{-1}(b)}\dif x + ab && \text{Using } \int\limits_a^b f = - \int\limits_b^a f \text{ and } k \int\limits_a^b f = \int\limits_a^b kf\\
+&= \int\limits_{f^{-1}(b)}^a f(x) \dif x - \int\limits_{f^{-1}(b)}^a b \dif x + ab && \text{Using } \int\limits_a^b f + \int\limits_a^b g = \int\limits_a^b (f+g)\\
+&= \int\limits_{f^{-1}(b)}^a \left(f(x) - b\right) \dif x + ab
+\end{align*}
+We have
+$I = \displaystyle\int\limits_{f^{-1}(b)}^a \left(f(x) - b\right) \dif x + ab$.\\
+Three cases arise.
+\begin{case} {If $a = f^{-1}(b)$}\\
+\begin{align*}
+I &= \int\limits_a^a \left(f(x) - b\right) \dif x + ab && \text{Using } \int\limits_a^a f = 0\\
+&= 0 + ab\\
+&= ab \geq ab
+\end{align*}
+This proves that equality holds if $a = f^{-1}(b)$
+\end{case}
+\begin{case}
+If $a > f^{-1}(b)$
+\[I = \displaystyle\int\limits_{f^{-1}(b)}^a \left(f(x) - b\right) \dif x + ab\]
+\[\Rightarrow f^{-1}(b) \leq x \leq a\]
+Since $f$ is a strictly increasing function, we can compose this with $f$.
+\[\Rightarrow f\left( f^{-1}(b) \right) \leq f(x) \leq f(a)\]
+\[\Rightarrow b \leq f(x) \leq f(a)\]
+So $f(x) \geq b$\\
+Therefore $f(x) - b \geq 0$\\
+And since $a > f^{-1}(b)$,
+\[\int\limits_{f^{-1}(b)}^a \left( f(x) - b \right) > 0\]
+\[\Rightarrow \int\limits_{f^{-1}(b)}^a \left( f(x) - b \right) + ab > ab\]
+\end{case}
+\begin{case}
+If $a < f^{-1}(b)$
+\[I = \displaystyle\int\limits_{f^{-1}(b)}^a \left(f(x) - b\right) \dif x + ab = \int\limits_a^{f^{-1}(b)} \left(b - f(x)\right) \dif x + ab\]
+\[\Rightarrow a \leq x \leq f^{-1}(b) \Rightarrow f(a) \leq f(x) \leq b\]
+Therefore $b - f(x) \geq 0$\\
+And since $f^{-1(b)} > a$,
+\[\int\limits_a^{f^{-1}(b)} \left(b - f(x)\right) \dif x > 0\]
+\[\Rightarrow \int\limits_a^{f^{-1}(b)} \left(b - f(x)\right) \dif x + ab > ab\]
+\end{case}
+\end{proof}
+\pagebreak
+\subsubsection{Graphical Intuition}
+$f$ is a strictly increasing function and $f(0) = 0$.
+\begin{figure}[h]
+\includegraphics[scale=.55]{images/youngs_inequality_1}
+\includegraphics[scale=.55]{images/youngs_inequality_2}
+\end{figure}
+\begin{figure}[h]
+\includegraphics[scale=.55]{images/youngs_inequality_3}
+\end{figure}\\
+In all of the cases,\\
+\[\text{Area of region {\color{green}(i)}} + \text{Area of region {\color{purple}(ii)}} \geq \text{Area of rectangle } {\color{red}OABC}\]
+\[\Rightarrow {\color{green}\int\limits_0^a f(x) \dif x} + {\color{purple} \int\limits_0^b f^{-1}(x) \dif x} \geq ab\]
+\[\int\limits_0^a f(x) \dif x + \int\limits_0^b f^{-1}(x) \dif x \geq ab\]
+\begin{flushright}
+\qedsymbol
+\end{flushright}
+\pagebreak
+\subsection{Problems}
+\begin{prob}
+$\displaystyle \int\limits_1^5 (x-1)(x-2)(x-3)(x-4)(x-5) \dif x$
+\begin{align*}
+I &= \int\limits_1^5 (x-1)(x-2)(x-3)(x-4)(x-5) \dif x && \text{Using } \int\limits_a^bf(x)\dif x = \int\limits_a^b f(a+b-x) \dif x\\
+&= \int\limits_1^5 (6-x-1)(6-x-2)(6-x-3)(6-x-4)(6-x-5) \dif x\\
+&= \int\limits_1^5 (5-x)(4-x)(3-x)(2-x)(1-x) \dif x\\
+&= -\int\limits_1^5 (x-1)(x-2)(x-3)(x-4)(x-5) \dif x\\
+&= -I
+\end{align*}
+\[I = - I\]
+\[\Rightarrow I = 0\]
+\end{prob}
+\begin{prob}
+$\displaystyle\int\limits_{\sqrt{\ln(2)}}^{\sqrt{\ln(3)}}\dfrac{x \sin\left( x^2 \right)}{\sin\left(x^2\right) + \sin\left(\ln(6) - x^2 \right)} \dif x$
+\[I = \int\limits_{\sqrt{\ln(2)}}^{\sqrt{\ln(3)}}\dfrac{x \sin\left( x^2 \right)}{\sin\left(x^2\right) + \sin\left(\ln(6) - x^2 \right)} \dif x\]
+Substitute $x^2 = t \Rightarrow 2x \dif x = \dif t$\\
+$x = \sqrt{\ln(2)} \Rightarrow t = \ln(2)$ and $x = \sqrt{\ln(3)} \Rightarrow t = \ln(3)$
+\begin{equation}\label{ln_integral_1}
+\Rightarrow I =\dfrac12 \int\limits_{\ln(2)}^{\ln(3)} \dfrac{\sin(t)}{\sin(t) + \sin\left(\ln(6) - t \right)} \dif t
+\end{equation}
+Using $\displaystyle\int\limits_a^b f(x)\dif x = \int\limits_a^b f(a+b-x) \dif x$
+\begin{equation}\label{ln_integral_2}
+\Rightarrow I =\dfrac12 \int\limits_{\ln(2)}^{\ln(3)} \dfrac{\sin(\ln(6) - t)}{\sin(\ln(6) - t) + \sin\left(t \right)} \dif t
+\end{equation}
+Add \eqref{ln_integral_1} and \eqref{ln_integral_2},
+\[2I = \dfrac12 \int\limits_{\ln(2)}^{\ln(3)} \dfrac{\cancel{\sin(t) + \sin\left(\ln(6) - t\right)}}{\cancel{\sin(t) + \sin\left(\ln(6) - t\right)}} \dif t = \dfrac12\left( \ln(3) - \ln(2) \right)\]
+\[\Rightarrow I = \dfrac14 \left(\ln(3) - \ln(2)\right) = \dfrac14 \ln\left(\dfrac32 \right)\]
+\end{prob}
+\pagebreak
+\begin{prob}
+$\displaystyle\int\limits_0^{\dfrac{\pi}{2}} \dfrac{\sqrt{\sin(x)}}{\sqrt{\sin(x)} + \sqrt{\cos(x)}} \dif x$
+\begin{equation}
+I = \int\limits_0^{\dfrac{\pi}{2}} \dfrac{\sqrt{\sin(x)}}{\sqrt{\sin(x)} + \sqrt{\cos(x)}} \dif x
+\end{equation}
+Using property $\displaystyle \int\limits_0^a f(x) \dif x = \displaystyle \int\limits_0^a f(a-x) \dif x$
+\[I = \bigint\limits_0^{\dfrac{\pi}{2}}\dfrac{\sqrt{\sin\left(\dfrac{\pi}2 - x\right)}}{\sqrt{\sin\left(\dfrac{\pi}2 - x\right)} + \sqrt{\cos\left(\dfrac{\pi}2 - x\right)}} \dif x\]
+\begin{equation}
+\Rightarrow I = \int\limits_0^{\dfrac{\pi}{2}}\dfrac{\sqrt{\cos(x)}}{\sqrt{\cos(x)} + \sqrt{\sin(x)}} \dif x
+\end{equation}
+Add equations (1) and (2)\\
+\[2I = \int\limits_0^{\dfrac{\pi}{2}} \dfrac{\sqrt{\sin(x)}}{\sqrt{\cos(x)} + \sqrt{\sin(x)}} \dif x + \int\limits_0^{\dfrac{\pi}{2}}\dfrac{\sqrt{\cos(x)}}{\sqrt{\cos(x)} + \sqrt{\sin(x)}} \dif x\]
+We can combine the integrals here.
+\[\Rightarrow 2I = \int\limits_0^{\dfrac{\pi}{2}} \dfrac{\cancel{\sqrt{\cos(x)} + \sqrt{\sin(x)}}}{\cancel{\sqrt{\cos(x)} + \sqrt{\sin(x)}}} \dif x\]
+\[\Rightarrow 2I = \dfrac{\pi}{2}\]
+\[\Rightarrow I = \dfrac{\pi}{4}\]
+\end{prob}
+\pagebreak
+\begin{prob}
+Let $A = \displaystyle\int\limits_0^1 \dfrac{e^t}{t + 1} \dif t$\\
+Then, express the following in terms of A.\\
+(i) $I_1 = \displaystyle\int\limits_0^1 \dfrac{t\cdot {\rm e}^{t^2}}{t^2 + 1} \dif t$\\
+Let $x = t^2 \quad \Rightarrow \dif x = 2t \dif t$\\
+\[\Rightarrow \displaystyle\int\limits_0^1 \dfrac{t\cdot {\rm e}^{t^2}}{t^2 + 1} \dif t = \dfrac12 \int\limits_0^1 \dfrac{{\rm e}^x}{x + 1} \dif x = \dfrac12 \int\limits_0^1 \dfrac{e^t}{t + 1} \dif t = \dfrac12 (A) = \dfrac{A}2\]\\\\
+(ii) $I_2 = \displaystyle\int\limits_{a-1}^a \dfrac{{\rm e}^{-t}}{t-a-1} \dif t$\\
+Let $u = t - a + 1 \quad \Rightarrow \dif u = \dif t$\\
+$\Rightarrow t = u + a - 1$
+\[\Rightarrow \int\limits_{a-1}^a \dfrac{{\rm e}^{-t}}{t-a-1} \dif t = \int\limits_0^1 \dfrac{{\rm e}^{-u-a+1}}{u+\cancel{a}-1-\cancel{a}-1} \dif u = \int\limits_0^1 \dfrac{{\rm e}^{-u-a+1}}{u-2} \dif u \]
+Using $\displaystyle \int\limits_0^a f(x) \dif x = \int\limits_0^a f(a-x) \dif x$
+\[\Rightarrow I_2 = \int\limits_0^1 \dfrac{{\rm e}^{u-\cancel{1}-a+\cancel{1}}}{1-u-2} = \int\limits_0^1 \dfrac{{\rm e}^{u-a}}{-u-1} \dif u = -{\rm e}^{-a} \int\limits_0^1 \dfrac{{\rm e}^{u}}{u + 1} \dif u= -{\rm e}^{-a} \int\limits_0^1 \dfrac{{\rm e}^{t}}{t + 1} \dif t = -{\rm e}^{-a} \cdot (A)\]\\\\
+(iii) $I_3 = \displaystyle \int\limits_0^1 \dfrac{{\rm e}^t}{(t+1)^2} \dif t$\\
+Integrating by parts.\\
+Let $u = {\rm e}^t$ and $\dif v = \dfrac{\dif t}{(t+1)^2}$\\
+$\Rightarrow \dif u = {\rm e}^t \dif t$ and $v = \dfrac{-1}{t+1}$\\
+$\int u \dif v = uv - \int v \dif u$
+\[I_3 = \left[\dfrac{-{\rm e}^t}{t+1}\right]_0^1 - \int\limits_0^1 \dfrac{-{\rm e}^t}{t+1} \dif t = \dfrac{- {\rm e}}{2}  - (-1)  + \int\limits_0^1 \dfrac{{\rm e}^t}{t+1} \dif t = 1 - \dfrac{\rm e}{2} + A\]
+\end{prob}
+\pagebreak
+\begin{prob}
+Let $f(x) = \displaystyle \int\limits_1^x \dfrac{\ln(t)}{t+1} \dif t$. If $x > 0$, compute $f(x) + f\left( \dfrac1{x} \right)$  . Hence or otherwise, show that $f(2) + f\left(\dfrac12\right) = \dfrac12 \left( \ln(2) \right)^2$.\\
+\textbf{Solution:}\\
+\begin{align*}
+f(x) &= \int\limits_1^x \dfrac{\ln(t)}{t+1} \dif t = \int\limits_1^x \dfrac{\ln(u)}{u+1} \dif u\\
+f\left( \dfrac1x \right) &= \int\limits_1^{1/x} \dfrac{\ln(t)}{t+1} \dif t && \parbox[t]{5cm}{Let $t = \dfrac1u \quad \Rightarrow \dif t = \dfrac{-1}{u^2} \dif u$\\\\
+$t = 1 \Rightarrow u = 1$\\\\
+$t = \dfrac1x \Rightarrow u = x$}\\\\
+&= \bigint\limits_1^x \dfrac{-\ln\left( \dfrac1u \right)}{\dfrac1u + 1}\left(\dfrac{\dif u}{u^2}\right)\\
+&= \int\limits_1^x \dfrac{\ln(u)}{u(u+1)} \dif u\\
+\text{Now, } f(x) + f\left(\dfrac1{x}\right) &= \int\limits_1^x \left[\dfrac{\ln(u)}{u+1} + \dfrac{\ln(u)}{u(u+1)} \right] \dif u\\
+&= \int\limits_1^x \dfrac{u \ln(u) + \ln(u)}{u(u+1)} \dif u\\
+&= \int\limits_1^x \dfrac{\ln(u) \cdot \cancel{\left( u + 1 \right)}}{u\cancel{(u+1)}} \dif u && \text{Let } v = \ln(u)\quad \Rightarrow \dfrac1u \dif u = \dif v\\
+&= \int\limits_0^{\ln(x)} v \dif v = \left[ \dfrac{v^2}2 \right]_0^{\ln(x)}\\
+&=  \dfrac12 \left(\ln(x)\right)^2\\
+\therefore f(2) + f\left( \dfrac12 \right) &= \dfrac12 \left(\ln(2) \right)^2
+\end{align*}
+\begin{flushright}
+\qedsymbol
+\end{flushright}
+\end{prob}
+\pagebreak
+\begin{prob}
+A function $F$ is defined by the following definite integral.
+\[F(x) = \int\limits_1^x \dfrac{{\rm e}^t}{t} \dif t\]
+Prove that $\displaystyle\int\limits_1^x \dfrac{{\rm e}^t}{t+a} \dif t = {\rm e}^{-a} \left[ F(x+a) - F(1+a) \right]$.\\
+\begin{proof}
+\begin{align*}
+I &= \int\limits_1^x \dfrac{{\rm e}^t}{t+a} \dif t && \parbox[t]{3cm}{
+	Let $t+a = u$\\
+	$\Rightarrow \dif t = \dif u$\\
+	$t = 1 \Rightarrow u = 1 + a$\\
+	$t = x \Rightarrow u = x + a$
+}\\
+&= \int\limits_{1+a}^{x+a} \dfrac{{\rm e}^{u-a}}{u} \dif u\\
+&= {\rm e}^{-a}\int\limits_{1+a}^{x+a} \dfrac{{\rm e}^{u}}{u} \dif u && \text{Using } \int\limits_a^c f + \int\limits_c^b f = \int\limits_a^b f\\ 
+&= {\rm e}^{-a} \left[\int\limits_{1+a}^1 \dfrac{{\rm e}^{u}}{u} \dif u + \int\limits_1^{x+a} \dfrac{{\rm e}^{u}}{u} \dif u \right] && \text{Using } \int\limits_a^b f = - \int\limits_b^a f\\
+&= {\rm e}^{-a} \left[-\int\limits_1^{1+a} \dfrac{{\rm e}^{u}}{u} \dif u + \int\limits_1^{x+a} \dfrac{{\rm e}^{u}}{u} \dif u \right]\\
+&= {\rm e}^{-a} \left[ \int\limits_1^{x+a} \dfrac{{\rm e}^{u}}{u} \dif u -\int\limits_1^{1+a} \dfrac{{\rm e}^{u}}{u} \dif u \right]\\
+&= {\rm e}^{-a} \left[F(x+a) - F(1+a) \right]
+\end{align*}
+\end{proof}
+\end{prob}
+\pagebreak
+\begin{prob}
+Find a continuous function $f$ such that
+\[\left[ f(x) \right]^2 = \int\limits_0^x \dfrac{f(t) \cdot \sin(t)}{2 + \cos(t)} \dif t\]
+\textbf{Solution:}\\
+\begin{align*}
+\left[ f(x) \right]^2 &= \int\limits_0^x \dfrac{f(t) \cdot \sin(t)}{2 + \cos(t)} \dif t && \text{Differentiate both sides}\\
+\Rightarrow 2\cancel{f(x)} \cdot f'(x) &= \dfrac{\cancel{f(x)} \cdot \sin(x)}{2 + \cos(x)} && \text{Divide by } 2\\
+\Rightarrow f'(x) &= \dfrac12 \cdot \dfrac{\sin(x)}{2+\cos(x)}\\\\
+f(x) &= \int f'(x) \dif x\\
+&= \dfrac12 \int\dfrac{\sin(x)}{2+\cos(x)} \dif x && \parbox[t]{3cm}{Let $\cos(x) = t$\\
+$\Rightarrow -\sin(x) \dif x = \dif t$}\\
+&= -\dfrac12 \int\dfrac{\dif t}{2+t}\\
+&= -\dfrac12 \ln\left(\;\abs{2+t}\right) + c\\
+&= -\dfrac12 \ln\left(\;\abs{2+\cos(x)}\right) + c && c \text{ is an arbitrary constant}
+\end{align*}
+One such function is $f(x) = -\dfrac12 \ln\left(\;\abs{2+\cos(x)}\right)$
+\end{prob}
+\pagebreak
+\begin{prob}
+Prove that for any integral with finite limits $a$ and $b$, one can always choose a linear substitution $x = pt + q$, (where $p$ and $q$ are constants) so as to transform the integral into a new one with limits from $0$ to $1$.
+\begin{proof}\text{ }\\
+Let us consider any such integral $I = \displaystyle\int\limits_a^b f(x) \dif x$\\
+Let $x = pt + q$\\
+$\Rightarrow \dif x = p \dif t$\\
+Now,
+\[x = a \text{ at } t = 0\]
+\[\Rightarrow pt+q = a \text{ at } t = 0\]
+\[\therefore q = a\]
+And,
+\[x = b \text{ at } t = 1\]
+\[\Rightarrow pt+q = b \text{ at } t = 1\]
+\[\Rightarrow p + q = b\]
+\[\Rightarrow p = b - a\]
+So,
+\[\int\limits_a^b f(x) \dif x = p \int\limits_0^1 f(pt+q) \dif t\]
+where $p = b - a$ and $q = a$.\\
+So for any integral with finite limits $a$ to $b$, we can substitute $x = (b-a)t + a$ to change the limits to $0$ to $1$.
+\[\int\limits_a^b f(x) \dif x = (b-a) \cdot \int\limits_0^1 f\left((b-a)t + a\right) \dif t\]
+\end{proof}\text{}\\
+\textbf{Problem-Solving Tip: } In a general problem involving addition of two integrals, try to convert both of them into an integral of the form $\displaystyle\int\limits_0^1$ and then add.
+\end{prob}
+\pagebreak
+\begin{prob}
+$\displaystyle\int\limits_{-4}^{-5} {\rm e}^{(x+5)^2} \dif x + 3\int\limits_{1/3}^{2/3} {\rm e}^{9\left(x - \frac23\right)^2}\dif x$\\\\
+Let $p(x) = {\rm e}^{(x+5)^2}$ and $q(x) = {\rm e}^{9\left(x - \frac23\right)^2}$
+\begin{align*}
+I &= \int\limits_{-4}^{-5} {\rm e}^{(x+5)^2} \dif x + 3\int\limits_{1/3}^{2/3} {\rm e}^{9\left(x - \frac23\right)^2}\dif x\\
+&= \int\limits_{-4}^{-5} p(x) \dif x + 3\int\limits_{1/3}^{2/3} q(x) \dif x && \text{Using } \displaystyle\int\limits_a^b f(x) \dif x = (b-a) \int\limits_0^1 f\left( (b-a)t + a \right)\dif t\\
+&= \int\limits_0^1 p(-t-4) \dif t + \int\limits_0^1 q\left( \dfrac13 t + \dfrac13 \right) \dif t\\
+&= -1\int\limits_0^1 {\rm e}^{\left( (-t-4) + 5 \right)^2} \dif t + 3 \left( \dfrac13 \right) \int\limits_0^1 {\rm e}^{9\left(\frac13 t + \frac13 - \frac23\right)^2}\dif t\\
+&= -\int\limits_0^1 {\rm e}^{\left( 1-t \right)^2} \dif t +  \int\limits_0^1 {\rm e}^{9\left(\frac{t-1}{3} \right)^2}\dif t\\
+&= -\int\limits_0^1 {\rm e}^{\left( 1-t \right)^2} \dif t + \int\limits_0^1 {\rm e}^{\left( t-1 \right)^2}\dif t\\
+&= \cancel{-\int\limits_0^1 {\rm e}^{\left( t-1 \right)^2} \dif t} +  \cancel{\int\limits_0^1 {\rm e}^{\left( t-1 \right)^2}\dif t}\\
+&= 0
+\end{align*}
+\end{prob}
+\begin{prob}
+Let $f: \mathbb{R} \to \mathbb{R}$ and $g:\mathbb{R} \to \mathbb{R}$ be continuous functions. Then find the value of
+\[ I = \int\limits_{-\pi/2}^{\pi/2} \left[ f(x) + f(-x) \right] \cdot \left[ g(x) - g(-x) \right] \dif x \]
+Let $h(x) = \left[ f(x) + f(-x) \right] \cdot \left[ g(x) - g(-x) \right]$\\
+\begin{align*}
+h(x) &= \left[ f(x) + f(-x) \right] \cdot \left[ g(x) - g(-x) \right]\\
+\Rightarrow h(-x) &= \left[ f(-x) + f(x) \right] \cdot \left[ g(-x) - g(x) \right]\\
+&= \left[ f(-x) + f(x) \right] \cdot (-1) \left[ g(x) - g(-x) \right]\\
+&= -h(x)
+\end{align*}
+$\Rightarrow h(x)$ is an odd function.\\
+We know that $\displaystyle\int_{-a}^a f = 0$ if $f(-x) = -f(x)$\\\
+$\therefore I = 0$\\
+And we're done.
+\end{prob}
+\pagebreak
+\paragraph{Remark:} It is often a good idea to shift the origin to the midpoint of the limits of integration, thereby making them of the form $\int\limits_{-a}^a$.
+\begin{prob}
+$\displaystyle \int\limits_{-2}^0 \left( x^3 + 3x^2 + 3x + 3 + (x+1)\cos(x+1) \right) \dif x$\\
+\begin{align*}
+I &= \int\limits_{-2}^0 \left( x^3 + 3x^2 + 3x + 3 + (x+1)\cdot\cos(x+1) \right) \dif x\\
+&= \int\limits_{-2}^0 \left( (x+1)^3 + 2 + (x+1)\cdot \cos(x+1) \right) \dif x
+\end{align*}
+Let us shift the origin this time.\\
+Let $x + 1 = t$\\
+$\Rightarrow \dif x = \dif t$
+\begin{align*}
+\Rightarrow I &= \int\limits_{-1}^1 \left( t^3 + 2 + t \cos(t) \right) \dif t && \text{Note that } t^3 + t\cos(t) \text{ is an odd function}\\
+&= \int\limits_{-1}^1 2 \dif t\\
+&= \left[ 2x \right]_{-1}^1\\
+&= 4
+\end{align*}
+\end{prob}
+\begin{prob}
+$\displaystyle\int\limits_0^1 \sqrt[3]{2x^3 - 3x^2 - x + 1} \dif x \quad\quad$ [Putnam]
+\[I = \int\limits_0^1 \sqrt[3]{2x^3 - 3x^2 - x + 1} \dif x\]
+Shifting origin again,\\
+Let $x - \dfrac12 = t$\\
+$\Rightarrow \dif x = \dif t$
+\begin{align*}
+\Rightarrow I &= \int\limits_{-1/2}^{1/2} \sqrt[3]{2\left( t - \dfrac12 \right)^3 - 3 \left( t - \dfrac12 \right)^2 - \left( t - \dfrac12 \right) + 1  } \dif t\\
+&= \int\limits_{-1/2}^{1/2}\sqrt[3]{2t^3 - \dfrac{5t}2} \dif t && \text{This is an odd function}\\
+&= 0
+\end{align*}
+\end{prob}
 \end{document}

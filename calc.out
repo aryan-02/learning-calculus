@@ -115,5 +115,26 @@
 \BOOKMARK [2][-]{subsection.6.11}{Reduction Formulas}{section.6}% 115
 \BOOKMARK [2][-]{subsection.6.12}{Integration of Rational Functions and Integration by Partial Fractions}{section.6}% 116
 \BOOKMARK [3][-]{subsubsection.6.12.1}{Integration by Partial Fractions}{subsection.6.12}% 117
-\BOOKMARK [1][-]{section.7}{Definite Integrals}{}% 118
-\BOOKMARK [2][-]{subsection.7.1}{Notation}{section.7}% 119
+\BOOKMARK [2][-]{subsection.6.13}{Integration of Irrational Functions}{section.6}% 118
+\BOOKMARK [3][-]{subsubsection.6.13.1}{Type 1:}{subsection.6.13}% 119
+\BOOKMARK [3][-]{subsubsection.6.13.2}{Type 2:}{subsection.6.13}% 120
+\BOOKMARK [3][-]{subsubsection.6.13.3}{Type 3:}{subsection.6.13}% 121
+\BOOKMARK [3][-]{subsubsection.6.13.4}{Type 4:}{subsection.6.13}% 122
+\BOOKMARK [3][-]{subsubsection.6.13.5}{Type 5:}{subsection.6.13}% 123
+\BOOKMARK [2][-]{subsection.6.14}{Other ``Special" Integrals}{section.6}% 124
+\BOOKMARK [3][-]{subsubsection.6.14.1}{When the Denominator is a Quadratic in x2}{subsection.6.14}% 125
+\BOOKMARK [3][-]{subsubsection.6.14.2}{Special Integrals Involving Sine and Cosine}{subsection.6.14}% 126
+\BOOKMARK [1][-]{section.7}{Definite Integrals}{}% 127
+\BOOKMARK [2][-]{subsection.7.1}{The Second Fundamental Theorem of Calculus}{section.7}% 128
+\BOOKMARK [2][-]{subsection.7.2}{Geometrical Interpretation}{section.7}% 129
+\BOOKMARK [2][-]{subsection.7.3}{Examples}{section.7}% 130
+\BOOKMARK [2][-]{subsection.7.4}{Properties of Definite Integrals}{section.7}% 131
+\BOOKMARK [2][-]{subsection.7.5}{Substitution in Definite Integrals}{section.7}% 132
+\BOOKMARK [2][-]{subsection.7.6}{Derivative of an Integral and Leibniz' Formula}{section.7}% 133
+\BOOKMARK [2][-]{subsection.7.7}{Newton's Proposition}{section.7}% 134
+\BOOKMARK [3][-]{subsubsection.7.7.1}{Formal Proof}{subsection.7.7}% 135
+\BOOKMARK [3][-]{subsubsection.7.7.2}{Geometric Intuition}{subsection.7.7}% 136
+\BOOKMARK [2][-]{subsection.7.8}{Young's Inequality}{section.7}% 137
+\BOOKMARK [3][-]{subsubsection.7.8.1}{Formal Proof}{subsection.7.8}% 138
+\BOOKMARK [3][-]{subsubsection.7.8.2}{Graphical Intuition}{subsection.7.8}% 139
+\BOOKMARK [2][-]{subsection.7.9}{Problems}{section.7}% 140

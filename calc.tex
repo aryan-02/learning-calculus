@@ -37,6 +37,7 @@
 \theoremstyle{definition}
 \newtheorem{prob}{Problem}
 \newtheorem{algo}{Algorithm}
+\counterwithin*{equation}{prob}
 \newtheoremstyle{case}{}{}{}{}{}{:}{ }{}
 \theoremstyle{case}
 \newtheorem{case}{Case}
@@ -3484,6 +3485,29 @@ $\Rightarrow \dif x = \dif t$
 \Rightarrow I &= \int\limits_{-1/2}^{1/2} \sqrt[3]{2\left( t - \dfrac12 \right)^3 - 3 \left( t - \dfrac12 \right)^2 - \left( t - \dfrac12 \right) + 1  } \dif t\\
 &= \int\limits_{-1/2}^{1/2}\sqrt[3]{2t^3 - \dfrac{5t}2} \dif t && \text{This is an odd function}\\
 &= 0
+\end{align*}
+\end{prob}
+\pagebreak
+\begin{prob}
+$\displaystyle \int\limits_{1/2014}^{2014} \dfrac{\tan^{-1}(x)}{x}\dif x$
+\begin{equation}\label{p114eq1}
+I = \int\limits_{1/2014}^{2014} \dfrac{\tan^{-1}(x)}{x}\dif x
+\end{equation}
+Let $x = \dfrac1t$\\
+$\Rightarrow \dif x = \dfrac{-1}{t^2} \dif t$
+\begin{align*}
+\Rightarrow I &= \bigints\limits_{2014}^{1/2014} \dfrac{\tan^{-1} \left( \dfrac1t \right)}{\dfrac1t} \cdot \left( \dfrac{-\dif t}{t^2} \right)\\
+&= -\bigints\limits_{2014}^{1/2014} \dfrac{\tan^{-1}\left( \dfrac1t \right)}{t} \dif t
+\end{align*}
+\begin{equation}\label{p114eq2}
+\Rightarrow I = \bigints\limits_{1/2014}^{2014} \dfrac{\tan^{-1}\left( \dfrac1x \right)}{x} \dif x
+\end{equation}
+Adding \eqref{p114eq1} and \eqref{p114eq2},
+\begin{align*}
+2I &= \bigints\limits_{1/2014}^{2014} \dfrac{\tan^{-1}(x) +\tan^{-1}\left( \dfrac1x \right)}{x} && \text{Using } \tan^{-1}(x) + \tan^{-1}\left( \dfrac1x \right) = \dfrac{\pi}{2}\\
+&= \dfrac{\pi}{2} \left[\ln(x)\right]_{1/2014}^{2014}\\
+&= \pi \ln(2014)\\
+\Rightarrow I &= \dfrac{\pi}2 \ln(2014)
 \end{align*}
 \end{prob}
 \end{document}

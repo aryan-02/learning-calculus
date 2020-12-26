@@ -32,6 +32,7 @@
 \usepackage[left=3cm, right=3cm, top=2cm]{geometry}
 \newtheorem{id}{Identity Type}
 \newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
 \newtheorem{define}{Definition}
 \newtheorem*{ex}{Example}
 \theoremstyle{definition}
@@ -79,7 +80,7 @@ For all sequences that approach $c$, the answer to $\lim\limits_{x \rightarrow c
 $\lim\limits_{x \to c} f(x) = L$ iff for all sequences $x_n$ (with $x_n \neq a$ for all $n$) converging to $a$, $f(x_n)$ converges to $L$.
 \pagebreak
 \paragraph{Application:}
-Proof that $\lim\limits_{x \to \infty} sin(x)$ does not exist.\\
+Proof that $\lim\limits_{x \to \infty} \sin(x)$ does not exist.\\
 \textbf{The idea}: We will take two sequences that both blow up to infinity (i.e. get larger and larger as we increase the index variable) and show that the when we evaluate the limits using both the sequences, we get different values. By the sequential criterion for existence of limits, we will show that the limit does not exist.
 \begin{proof} (kind of) (Using sequential criterion of limits)\\
 Consider the sequence $a_n = n \pi$ where $n \in \mathbb{Z^+}$.\\
@@ -87,7 +88,7 @@ $n$ can be increased to get arbitrarily close to infinity.\\
 One way to evaluate the limit $\lim\limits_{x \to \infty} \sin(x)$ would be to evaluate $\lim\limits_{n \to \infty}\sin(a_n)$ where $n \in \mathbb{Z^+}$.\\
 Then,
 \[\lim\limits_{n \to \infty}\sin(a_n)= \lim\limits_{n \to \infty} \sin(n\pi)\]
-But $\sin(n\pi) = 0 \forall n \in \mathbb{Z}$.\\
+But $\sin(n\pi) = 0\; \forall n \in \mathbb{Z}$.\\
 Therefore, this would give us the limiting value as $0$.\\
 However, now consider the sequence $b_n = (2n+1)\dfrac{\pi}{2}$.\\
 Again, $b_n$ can be made arbitrarily large by increasing $n$.\\
@@ -100,12 +101,11 @@ But by the property of uniqueness of limits, the limit of a function at a point 
 \end{proof}
 \subsection{L'Hôpital's Rule}
 If a function $f$ is differentiable in any neighbourhood of $a$, except maybe at $a$,\\
-And $\Big[(\lim\limits_{x \to a} f(x) = 0$ and $\lim\limits_{x \to a} g(x) = 0)$ or $(\lim\limits_{x \to a}\dfrac{1}{f(x)} = 0)$ and $\lim\limits_{x \to a} \dfrac{1}{g(x)} = 0\Big]$, then\\
+And $\left[\left(\lim\limits_{x \to a} f(x) = 0 \text{ and }\lim\limits_{x \to a} g(x) = 0\right) \text{ or }\left(\lim\limits_{x \to a}\dfrac{1}{f(x)} = 0 \text{ and }\lim\limits_{x \to a} \dfrac{1}{g(x)} = 0\right)\right]$, then\\
 $\lim\limits_{x \to a} \dfrac{f(x)}{g(x)} = \lim\limits_{x \to a} \dfrac{f'(x)}{g'(x)}$
 \subsection{Guidelines for Evaluating Limits}
 \subsubsection*{Do not apply limits non-uniformly.}
 If you apply a standard limit formula to one part of an expression, this should be done to the entire expression at once.
-
 \subsubsection*{Never approximate.}
 For example, this is incorrect:\\
 \textcolor{red}{$\lim\limits_{x \to 0} \dfrac{{\rm e}^x - \dfrac{\sin(x)}{x}}{x} = \lim\limits_{x \to 0} \dfrac{{\rm e}^x - \dfrac{x}{x}}{x} = \lim\limits_{x \to 0} \dfrac{{\rm e}^x - 1}{x} = 1$}
@@ -3509,4 +3509,845 @@ Adding \eqref{p114eq1} and \eqref{p114eq2},
 \Rightarrow I &= \dfrac{\pi}2 \ln(2014)
 \end{align*}
 \end{prob}
+\pagebreak
+\begin{prob}
+Let $f$ be a differentiable function such that $f\left( f(x) \right) = x \; \forall x \in [0, 1]$. Suppose $f(0) = 1$. Determine the value of the following integral:
+\[\int\limits_0^1 \left( x - f(x) \right)^{2016} \dif x\]
+\textbf{Solution:}\\
+\[f\left(f(x)\right) = x \; \forall x \in [0, 1]\]
+\[\Rightarrow f\left(f(0)\right) = 0\]
+\[\Rightarrow f(1) = 0\]
+Since $f$ is given as a differentiable function, we are allowed to differentiate it.
+\[f\left(f(x)\right) = x\]
+\[\Rightarrow f'\left(f(x)\right) \cdot f'(x) = 1\]
+So, $f'(x)$ can never be zero.\\
+By Darboux's Theorem, $f'$ has intermediate value property.\\
+$\Rightarrow f'$ must preserve its sign.\\
+$\Rightarrow f'(x) > 0 \; \forall x$ or $f'(x) < 0 \; \forall x$\\
+But $f(0) = 1$ and $f(1) = 0$, is inconsistent with the condition that $f'(x) > 0 \; \forall x$\\
+$\Rightarrow f'(x) < 0 \; \forall x$\\
+$\Rightarrow f$ is strictly decreasing.\\
+$\Rightarrow f : [0, 1] \to [0, 1]$ is one-one and onto, implying $f$ is invertible. 
+\begin{equation} \label{p115e1}
+I = \int\limits_0^1 \left( x - f(x) \right)^{2016} \dif x = \int\limits_0^1 \left( t - f(t) \right)^{2016} \dif t
+\end{equation}
+Substitute $x = f(t)$. This is allowed because $f$ is one-one.\\
+$\Rightarrow \dif x = f'(t) \dif t$\\
+$x = 0 \Rightarrow t = 1$ and $x = 1 \Rightarrow t = 0$
+\begin{align*}
+\Rightarrow I &= \int\limits_1^0 \left( f(t) - f\left( f(t) \right) \right)^{2016} \cdot f'(t) \dif t\\
+&= -\int\limits_0^1 \left( f(t) - t \right)^{2016} \cdot f'(t) \dif t\\
+\end{align*}
+\begin{equation}\label{p115e2}
+\Rightarrow I = -\int\limits_0^1 \left( t - f(t) \right)^{2016} \cdot f'(t) \dif t
+\end{equation}
+Add \eqref{p115e1} and \eqref{p115e2},
+\[2I = \int\limits_0^1 \left( t - f(t)\right)^{2016} \cdot \left(1 - f'(t)\right) \dif t\]
+\pagebreak
+\[2I = \int\limits_0^1 \left( t - f(t)\right)^{2016} \cdot \left(1 - f'(t)\right) \dif t\]
+Let $t - f(t) = u$\\
+$\Rightarrow \left(1 - f'(t)\right) \dif t = \dif u$\\\\
+At $t = 0$,\\ 
+$u = t - f(t)\\ = 0 - f(0)\\ = 0 - 1\\ = -1$\\\\
+At $t = 1$,\\
+$u = t - f(t)\\ = 1 - f(1)\\ = 1 - 0 \\= 1$
+\begin{align*}
+\Rightarrow 2I &= \int\limits_{-1}^1 u^{2016} \dif u\\
+&= \left[ \dfrac{u^{2017}}{2017} \right]_{-1}^1\\
+&= \dfrac1{2017} - \dfrac{(-1)}{2017}\\
+&= \dfrac2{2017}\\
+\Rightarrow I &= \dfrac1{2017}
+\end{align*}
+\end{prob}
+\begin{prob}
+$\displaystyle\int\limits_{-1}^1 \dfrac{\sqrt[3]{x}}{\sqrt[3]{1 - x} + \sqrt[3]{1+x}} \dif x$
+\[I = \int\limits_{-1}^1 \dfrac{\sqrt[3]{x}}{\sqrt[3]{1 - x} + \sqrt[3]{1+x}} \dif x\]
+\[\text{Let } f(x) = \dfrac{\sqrt[3]{x}}{\sqrt[3]{1 - x} + \sqrt[3]{1+x}}\]
+\[\Rightarrow f(-x) = \dfrac{\sqrt[3]{-x}}{\sqrt[3]{1 + x} + \sqrt[3]{1-x}} = \dfrac{-\sqrt[3]{x}}{\sqrt[3]{1 - x} + \sqrt[3]{1+x}} = -f(x)\]
+$\Rightarrow f$ is an odd function.\\
+\[\Rightarrow I = \int\limits_{-1}^1 f(x) \dif x = 0\]
+\end{prob}
+\pagebreak
+\begin{prob}
+Let $a$ and $b$ be positive real numbers. Evaluate:
+\[\int\limits_a^b \dfrac{{\rm e}^{x/a} - {\rm e}^{b/x}}{x} \dif x\]
+\textbf{Solution:}
+\[I = \displaystyle\int\limits_a^b\dfrac{{\rm e}^{x/a} - {\rm e}^{b/x}}{x} \dif x\]
+Let $x = \dfrac{ab}{t}$\\
+$\Rightarrow \dif x = \dfrac{-ab}{t^2} \dif t$\\\\
+Now, $\dfrac{x}{a} = \dfrac{\left( \dfrac{\cancel{a}b}{t} \right)}{\cancel{a}} = \dfrac{b}{t}$\\\\
+$\dfrac{b}{x} = \dfrac{\cancel{b}}{\left( \dfrac{a\cancel{b}}{t} \right)} = \dfrac{t}a$
+\begin{align*}
+I & = \bigints\limits_b^a \dfrac{{\rm e}^{b/t} - {\rm e}^{t/a}}{\left(\dfrac{ab}{t}\right)} \cdot \dfrac{(-ab)}{t^2} \dif t\\
+&= \int\limits_b^a \dfrac{{\rm e}^{t/a} - {\rm e}^{b/t}}{t} \dif t\\
+&= -\int\limits_a^b \dfrac{{\rm e}^{t/a} - {\rm e}^{b/t}}{t} \dif t\\
+&= -\int\limits_a^b \dfrac{{\rm e}^{x/a} - {\rm e}^{b/x}}{t} \dif x\\
+&= -I\\
+\Rightarrow I &= 0
+\end{align*}
+\end{prob}
+\pagebreak
+\subsection{Comparison Theorem}
+\subsubsection{Statement}
+\begin{theorem}
+Say $f$ and $g$ are two functions such that $f(x) \geq g(x) \quad \forall x \in (a, b)$, then\\ $\displaystyle \int\limits_a^b f(x) \dif x \geq \int\limits_a^b g(x) \dif x$ and the equality holds iff $f(x) = g(x) \quad \forall x \in (a, b)$.
+\end{theorem}
+\subsubsection{Corollaries}
+\begin{corollary}
+If $f(x) \geq 0 \quad \forall x \in (a, b)$, then $\displaystyle\int\limits_a^b f(x) \geq 0$.
+\end{corollary}
+\begin{corollary}
+If $f(x) \geq 0 \quad \forall x \in (a, b)$ and $\displaystyle\int\limits_a^b f(x) \dif x = 0$, then $f(x) = 0$.
+\end{corollary}
+\subsubsection{Problems}
+\begin{prob}
+Arrange $I_1, I_2, I_3$ and $I_4$ in decreasing order.\\
+$I_1 = \displaystyle\int\limits_0^{\pi/4}{\rm e}^{x^2} \dif x$\\
+$I_2 = \displaystyle\int\limits_0^{\pi/4}{\rm e}^{x} \dif x$\\
+$I_3 = \displaystyle\int\limits_0^{\pi/4}{\rm e}^{x^2} \cdot \cos(x) \dif x$\\
+$I_4 = \displaystyle\int\limits_0^{\pi/4}{\rm e}^{x^2} \cdot \sin(x) \dif x$\\
+\textbf{Solution: } For $x \in \left(0, \dfrac{\pi}{4} \right)$, which is a subset of $(0, 1)$,
+\[{\rm e}^x > {\rm e}^{x^2} > {\rm e}^{x^2} \cdot \cos(x) > {\rm e}^{x^2} \cdot \sin(x)\]
+Using Comparison Theorem,
+\[\Rightarrow \int\limits_0^{\pi/4} {\rm e}^x > \int\limits_0^{\pi/4} {\rm e}^{x^2} > \int\limits_0^{\pi/4} {\rm e}^{x^2} \cdot \cos(x) > \int\limits_0^{\pi/4} {\rm e}^{x^2} \cdot \sin(x)\]
+\[\Rightarrow I_2 > I_1 > I_3 > I_4\]
+\end{prob}
+\pagebreak
+\begin{prob}
+Find the total number of distinct $x \in [0, 1]$ for which $\displaystyle\int\limits_0^x \dfrac{t^2}{1+t^4} \dif t = 2x-1$.\\
+\textbf{Solution:}\\
+\[\text{Let } f(x) = \int\limits_0^x \dfrac{t^2}{1+t^4} \dif t - 2x + 1\]
+We are concerned with the number of roots of $f(x)$ in $[0, 1]$.\\
+Note that $f$ is continuous in $[0, 1]$ and differentiable in $(0, 1)$. Applying Bolzano's Theorem:
+\[f(0) = \int\limits_0^0 \dfrac{t^2}{1+t^4} \dif t - 0 + 1 = 1\]
+\[\Rightarrow f(0) > 0\]
+\[f(1) = \int\limits_0^1 \dfrac{t^2}{1+t^4} \dif t - 1\]
+Now, for $t \in (0, 1)$, $t^2 < 1$ and $1 + t^4 > 1$\\
+$\Rightarrow t^2 < 1 + t^4$\\
+$\Rightarrow \dfrac{t^2}{1+t^4} < 1$\\
+Applying Comparison Theorem,\\
+$\Rightarrow \displaystyle\int\limits_0^1 \dfrac{t^2}{1+t^4} \dif t < 1$ 
+\[\Rightarrow f(1) < 0\]
+By Bolzano's Theorem, since $f$ is continuous, $f(0) > 0$ and $f(1) < 0$, there exists \textbf{at least one} root of $f(x)$ in $(0, 1)$.\\
+Now, assume for the purpose of contradiction that $f$ has two (or more) roots in $(0, 1)$.\\
+Then, by Rolle's Theorem, $f'(x)$ has at least one root in $(0, 1)$.
+\[f'(x) = \dfrac{x^2}{1+x^4} -2\]
+Since $\dfrac{x^2}{1+x^4} < 1 \; \forall x \in (0, 1)$, this implies $f'(x)$ can't be zero for any $x \in (0, 1)$\\
+$\Rightarrow f'(x)$ has no root in $(0, 1)$. This is a contradiction.\\
+$\therefore f(x)$ has exactly one root in $(0, 1)$.\\
+Therefore, there exists exactly one value of $x \in [0, 1]$ such that $\displaystyle\int\limits_0^x \dfrac{t^2}{1+t^4} \dif t = 2x-1$.
+\end{prob}
+\pagebreak
+\begin{prob}
+Find all continuous functions $f:[0, 1] \to \mathbb{R}$ satisfying 
+\[\int\limits_0^1 f(x) \dif x = \dfrac13 + \int\limits_0^1 \left( f\left( x^2 \right) \right)^2 \dif x\]
+\textbf{Solution:}
+\[\int\limits_0^1 f(x) \dif x = \dfrac13 + \int\limits_0^1 \left( f\left( x^2 \right) \right)^2 \dif x\]
+Let us try to express $\dfrac13$ as an integral, it may help us simplify stuff.\\
+$\dfrac13 = \displaystyle\int\limits_0^1 x^2 \dif x$
+\[\Rightarrow \int\limits_0^1 f(x) \dif x = \int\limits_0^1 x^2 \dif x + \int\limits_0^1 \left( f\left( x^2 \right) \right)^2 \dif x\]
+Now let us try to express the whole thing in terms of $x^2$.\\
+Substitute $x = t^2$ in LHS. This is allowed because $t^2$ is one-one for $t \in (0,1)$\\
+$\Rightarrow \dif x = 2t \dif t$
+\[\Rightarrow \int\limits_0^1 f\left(t^2\right) \cdot 2t \dif t = \int\limits_0^1 x^2 \dif x + \int\limits_0^1 \left( f\left( x^2 \right) \right)^2 \dif x\]
+\[\Rightarrow \int\limits_0^1 f\left(x^2\right) \cdot 2x \dif x = \int\limits_0^1 x^2 \dif x + \int\limits_0^1 \left( f\left( x^2 \right) \right)^2 \dif x\]
+Combine the integrals, bring to one side.
+\[\Rightarrow \bigintsss\limits_0^1 \left[ \left( f\left( x^2 \right) \right)^2 + x^2 - 2x \cdot f\left(x^2\right)    \right] \dif x = 0\]
+\[\Rightarrow \bigintsss\limits_0^1 \left( f\left(x^2\right) - x \right)^2 \dif x = 0\]
+Now, $\left( f\left(x^2\right) - x \right)^2 \geq 0 \; \forall x$ ($\because$ the square of a real number is always non-negative)\\
+$\Rightarrow \displaystyle\bigintsss\limits_0^1 \left( f\left(x^2\right) - x \right)^2 \dif x \geq 0$\\
+By Comparison Theorem, $\left( f\left(x^2\right) - x \right)^2 = 0$
+\[\Rightarrow f\left( x^2 \right) = x\]
+\[\Rightarrow f(x) = \sqrt{x}\]
+Therefore, $f(x) = \sqrt{x}$ is the only continuous function that satisfies the property.
+\end{prob}
+\pagebreak
+\begin{prob}
+Determine the continuous functions $f:[0, 1] \to \mathbb{R}$ satisfying
+\[ \int\limits_0^1 f(x) \cdot \left( x - f(x)\right) \dif x = \dfrac1{12} \]
+\textbf{Solution:}
+\[ \int\limits_0^1 f(x) \cdot \left( x - f(x)\right) \dif x = \dfrac1{12} \]
+Let us try to express $\dfrac1{12}$ as an integral with limits 0 to 1.\\
+\[ \Rightarrow \int\limits_0^1 \left(x \cdot f(x) - \left(f(x)\right)^2 \right) \dif x = \int\limits_0^1 \dfrac{x^2}{4} \dif x \]
+\[ \Rightarrow \bigintsss\limits_0^1\left( \left(f(x)\right)^2 - x \cdot f(x) + \dfrac{x^2}{4} \right) \dif x = 0\]
+\[\Rightarrow \int\limits_0^1 \left( f(x) - \dfrac{x}2 \right)^2 \dif x = 0\]
+Now, $\left( f(x) - \dfrac{x}2 \right)^2 \geq 0 \; \forall x$\\
+$\Rightarrow \displaystyle\int\limits_0^1 \left( f(x) - \dfrac{x}2 \right)^2 \dif x \geq 0 $\\\\
+Using the comparison theorem (Corollary 2),
+\[\Rightarrow f(x) - \dfrac{x}2 = 0\]
+\[\Rightarrow f(x) = \dfrac{x}2\]
+\end{prob}
+\subsection{Average Value of a Function}
+The average value of a function $f$ on an interval $[a, b]$ is defined as
+\[\dfrac{\displaystyle\int\limits_a^b f(x) \dif x}{b-a}\]
+The average value of a function $f$ over a function $g$ on the interval $[a, b]$ is defined as
+\[\dfrac{\displaystyle\int\limits_a^b f(x)\cdot g(x) \dif x}{\displaystyle \int\limits_a^b g(x) \dif x}\]
+\pagebreak
+\subsection{Mean Value Theorems for Integrals}
+\begin{theorem}
+Say a function $f$ is continuous on $[a, b]$, then there exists $c \in (a, b)$ such that:
+\[\int\limits_a^b f(x) \dif x = f(c) \cdot (b-a)\]
+\end{theorem}
+\begin{proof}
+Since $f$ is continuous on a closed interval, $f$ will have at least one absolute minimum and at least one absolute maximum value.\\
+Let $m$ and $M$ be the minimum and maximum values attained by $f$ respectively.
+\[m \leq f(x) \leq M\]
+Using Comparison Theorem, integrating throughout.
+\[\int\limits_a^b m \dif x \leq \int\limits_a^b f(x) \dif x \leq \int\limits_a^b M \dif x\]
+\[\Rightarrow m(b-a) \leq \int\limits_a^b f(x) \dif x \leq M(b-a)\]
+Since $b \geq a$, we can divide by $b-a$ without changing the signs of the inequality.
+\[\Rightarrow m \leq \dfrac{\displaystyle\int\limits_a^b f(x)\dif x}{b-a} \leq M\]
+By Intermediate Value Theorem, $\dfrac{\displaystyle\int\limits_a^b f(x)\dif x}{b-a}$ will take all the values between its maximum $M$ and minimum $m$.
+\[\exists\; c \in [a, b] : \dfrac{\displaystyle\int\limits_a^b f(x)\dif x}{b-a} = f(c)\]
+\[\Rightarrow \exists\; c \in [a, b] : \int\limits_a^b f(x)\dif x = f(c) \cdot (b-a)\]
+\end{proof}
+\pagebreak
+\subsubsection{The General Mean Value Theorems}
+\begin{theorem}
+Let $f$ and $g$ be two continuous functions in $[a, b]$ such that on the given interval, $g$ does not change sign. Then there exists some  $c \in [a, b]$ such that:
+\[\int\limits_a^b f(x) \cdot g(x) \dif x = f(c) \cdot \int\limits_a^b g(x) \dif x\]
+\end{theorem}
+\begin{proof}
+It is given that $g$ doesn't change sign.\\
+WLOG, consider the case where $g(x) > 0$.\\
+Since $f$ is continuous on a closed interval, $f$ will have at least one absolute minimum and at least one absolute maximum value.\\
+Let $m$ and $M$ be the minimum and maximum values attained by $f$ respectively.
+\[m \leq f(x) \leq M\]
+Multiply by $g(x)$
+\[m \cdot g(x) \leq f(x) \cdot g(x) \leq M \cdot g(x)\]
+Again, using comparison theorem, we can integrate.
+\[\int\limits_a^b m \cdot g(x) \dif x \leq \int\limits_a^b f(x) \cdot g(x) \dif x \leq \int\limits_a^b M \cdot g(x) \dif x\]
+\[\Rightarrow m \cdot \int\limits_a^b  g(x) \dif x \leq \int\limits_a^b f(x) \cdot g(x) \dif x \leq M \cdot \int\limits_a^b  g(x) \dif x\]
+Since $g(x) > 0$, by comparison theorem, $\displaystyle\int\limits_a^b g(x) \dif x > 0$.\\
+Divide by $\displaystyle\int\limits_a^b g(x) \dif x$.
+\[m \leq \dfrac{\displaystyle\int\limits_a^b f(x) \cdot g(x) \dif x}{\displaystyle\int\limits_a^b g(x) \dif x} \leq M\]
+By Intermediate Value Theorem $ \dfrac{\displaystyle\int\limits_a^b f(x) \cdot g(x) \dif x}{\displaystyle\int\limits_a^b g(x) \dif x}$ will take all values between its minimum $m$ and maximum $M$.\\ $\therefore\exists\; c \in [a, b]$ such that $\displaystyle \int\limits_a^b f(x) \cdot g(x) \dif x = f(c) \cdot \int\limits_a^b g(x) \dif x$
+\end{proof}
+\pagebreak
+\begin{theorem}
+Say $f$ and $g$ are continuous functions and say the derivative of $f$ is continuous and does not change sign. Then, there exists some $c \in [a, b]$ such that:
+\[\int\limits_a^b f(x) \cdot g(x) \dif x = f(a) \int\limits_a^c g(x) \dif x + f(b) \int\limits_c^b g(x) \dif x\]
+\end{theorem}
+\begin{proof}
+\[\text{Let } G(x) = \int\limits_a^x g(t) \dif t\]
+\[\Rightarrow G'(x) = g(x) - g(a)\cdot \dfrac{\dif}{\dif x}(a) = g(x)\]
+\[\text{Let }I = \int\limits_a^b f(x) \cdot g(x) \dif x\]
+\[\Rightarrow I = \int\limits_a^b f(x) \cdot G'(x) \dif x\]
+Integrating by parts.\\
+Let $u = f(x)$ and $\dif v = G'(x) \dif x$\\
+Then, $\dif u = f'(x) \dif x$ and $v = G(x)$\\
+$\int u \dif v = uv - \int v \dif u$
+\begin{align*}
+\Rightarrow I &= \left[ f(x) \cdot G(x) \right]_a^b - \int\limits_a^b f'(x) \cdot G(x) \dif x\\
+&= f(b) \int\limits_a^b g(x) \dif x - f(a) \int\limits_a^a g(x) \dif x - \int\limits_a^b f'(x) \cdot G(x) \dif x && \parbox[t]{3cm}{Using the previous general mean value theorem.}\\
+&= f(b) \int\limits_a^b g(x) \dif x - G(c) \int\limits_a^b f'(x) \dif x && \text{For some $c$}\\
+&= f(b) \int\limits_a^b g(x) \dif x - \left(\int\limits_a^c g(x) \dif x \right)\cdot\left(f(b) - f(a) \right)\\
+&= f(b) \int\limits_a^b g(x) \dif x - f(b) \int\limits_a^c g(x) \dif x + f(a) \int\limits_a^c g(x) \dif x\\
+&= - f(b) \int\limits_b^c g(x) \dif x + f(a) \int\limits_a^c g(x) \dif x\\
+&= f(a) \int\limits_a^c g(x) \dif x + f(b) \int\limits_c^b g(x) \dif x
+\end{align*}
+\end{proof}
+\pagebreak
+\begin{prob}
+Let $f : [0, \infty) \to \mathbb{R}$ be a non-decreasing continuous function. If $0 \leq x < y < z$, show that:
+\[(z-x) \int\limits_y^z f(u) \dif u \geq (z - y) \int\limits_x^z f(u) \dif u\]
+\begin{proof}
+Effectively, we have to prove that:
+\[\dfrac{\displaystyle\int\limits_y^z f(u) \dif u}{(z - y)} \geq \dfrac{\displaystyle\int\limits_x^z f(u) \dif u}{(z - x)}\]
+i.e. Fundamentally, we have to prove that the average of the function is a non-decreasing function.
+\[\text{Let } g(t) = \dfrac{\displaystyle\int\limits_t^z f(u) \dif u}{(z - t)}\]
+\begin{align*}
+g'(t) &= \dfrac{-(z-t) \cdot f(t) - \left(\displaystyle\int\limits_t^z f(u) \dif u\right) (-1)}{(z-t)^2}\\
+&= \dfrac{\displaystyle\int\limits_t^z f(u) \dif u-(z-t) \cdot f(t)}{(z-t)^2} && \parbox[t]{4.5cm}{Wishful thinking:\\ Denominator is non-negative. If we can prove the numerator is non-negative, we are done}\\
+\text{Now, } \int\limits_t^z f(u) \dif u = (z-t) f(c) &\text{ } \text{for some } c \in (t, z) && \parbox[t]{4.5cm}{Using Mean Value Theorem for integrals}\\
+\Rightarrow g'(t) &= \dfrac{(z-t) f(c) - (z-t) f(t)}{(z-t)^2}\\
+&= \dfrac{(z-t) \left(f(c) - f(t)\right)}{(z-t)^2}
+\end{align*}
+Now, $c \in [t, z] \Rightarrow c > t$\\
+$\Rightarrow f(c) \geq f(t)$, since $f$ is non-decreasing.\\
+Also, $t \leq z$.
+\[\Rightarrow g'(t) \geq 0\]
+$\Rightarrow g(t)$ is non-decreasing.\\
+\[\Rightarrow \dfrac{\displaystyle\int\limits_y^z f(u) \dif u}{(z - y)} \geq \dfrac{\displaystyle\int\limits_x^z f(u) \dif u}{(z - x)}\]
+\[\Rightarrow (z-x) \int\limits_y^z f(u) \dif u \geq (z - y) \int\limits_x^z f(u) \dif u\]
+\end{proof}
+\end{prob}
+\pagebreak
+\begin{prob}
+If $\phi''$ is continuous and non-zero on the closed interval $[a, b]$ and if there is a constant $m > 0$ such that $\phi'(t) \geq m \; \forall t \in [a, b]$, then prove that $\abs{\displaystyle\int\limits_a^b \sin\left(\phi(t)\right) \dif t} \leq \dfrac4m$
+\begin{proof}
+Let $I = \displaystyle\int\limits_a^b \sin\left(\phi(t)\right) \dif t$
+\[\Rightarrow I = \int\limits_a^b \dfrac{\sin\left(\phi(t)\right)}{\phi'(t)} \cdot \phi'(t) \dif t\]
+Let $f(t) = \dfrac1{\phi'(t)}$ and $g(t) = \sin\left(\phi(t)\right) \cdot \phi'(t)$\\
+Then, 
+\[I = \int\limits_a^b f(t)\cdot g(t) \dif t\]
+$f'(t) = \dfrac{-\phi'(t)}{\left[ \phi''(t) \right]^2}$\\
+Since $\phi''$ is continuous and non-zero, this implies $\phi''$ preserves its sign.\\
+Using the Second General Mean Value Theorem, $\exists c \in [a, b]$ such that
+\begin{align*}
+I &= f(a) \int\limits_a^c g(t) \dif t + f(b) \int\limits_c^b g(t) \dif t\\
+\Rightarrow \int\limits_a^b \dfrac{\sin\left(\phi(t)\right)}{\phi'(t)} \cdot \phi'(t) \dif t &= \dfrac1{\phi'(a)} \int\limits_a^c \sin\left(\phi(t)\right) \cdot \phi'(t) \dif t + \dfrac1{\phi'(b)} \int\limits_c^b \sin\left(\phi(t)\right) \cdot \phi'(t) \dif t
+\end{align*}
+Using the Triangle Inequality $\abs{x+y} \leq \abs{x} + \abs{y} \; \forall x, y \in \mathbb{C}$,
+\[\Rightarrow \abs{I} \leq \abs{\dfrac1{\phi'(a)}\int\limits_a^c \sin\left(\phi(t)\right)\phi'(t) \dif t} + \abs{\dfrac1{\phi'(b)}\int\limits_c^b \sin\left(\phi(t)\right)\phi'(t) \dif t}\]%//
+\[\Rightarrow \abs{I} \leq \abs{\dfrac{\left[-\cos\left(\phi(t)\right) \right]_a^c}{\phi'(a)}} + \abs{\dfrac{\left[-\cos\left(\phi(t)\right)\right]_c^b}{\phi'(b)}}\]
+Now,
+\[\phi'(t) \geq m \Rightarrow \dfrac1{\phi'(t)} \leq \dfrac1{m}\]
+And the maximum difference of $\cos(x)$ is $2$.
+\[\Rightarrow \abs{I} \leq \dfrac2m + \dfrac2m\]
+\[\Rightarrow \abs{\int\limits_a^b \sin\left(\phi(t)\right) \dif t} \leq \dfrac4m\]
+\end{proof}
+\end{prob}
+\pagebreak
+\subsection{Estimation of Integrals}
+\textbf{Note:} Estimates may be good or bad, but are seldom incorrect.
+\subsubsection{Method - 1: Comparison Theorem}
+Suppose we need to estimate $\displaystyle\int\limits_a^b f(x) \dif x$.\\
+We will estimate $f(x)$ between two functions whose integrals can be evaluated.
+\[g(x) < f(x) < h(x)\]
+Then, we'll use comparison theorem and evaluate.\\
+Also, we can use the fact that $\abs{\displaystyle\int\limits_a^b f(x) \dif x} \geq \displaystyle\int\limits_a^b \abs{f(x)} \dif x$.\\
+For example, if we need to estimate $\displaystyle\int\limits_0^1 {\rm e}^{-x^2} \dif x$, then ${\rm e}^{-x^2}$ can be estimated in two ways:
+\[1-x^2 \leq {\rm e}^{-x^2} \leq \dfrac1{1 - x^2} \text{\quad\quad Better, More precise}\]
+\[{\rm e}^{-x} \leq {\rm e}^{-x^2} \leq 1 \text{\quad\quad Not as precise}\]
+\subsubsection{Method - 2: Using a Minimum and Maximum Value}
+Say $f$ is a continuous function.\\
+To estimate $\displaystyle\int\limits_a^b f(x) \dif x$, we can find the minimum and maximum values of $f$. Say the minimum is $m$ and the maximum is $M$.
+\[m \leq f(x) \leq M\]
+Apply comparison theorem,
+\[m(b-a) \leq \int\limits_a^b f(x) \dif x \leq M(b-a)\]
+\subsubsection{Method - 3: Mean Value Theorem for Integrals}
+\[\int\limits_a^b f(x) \dif x = f(c) \cdot (b-a), \quad \text{for some }c \in [a, b]\]
+If $f$ is a non-decreasing function,\\
+then $a \leq c \leq b \Rightarrow f(a) \leq f(c) \leq f(b)$
+\[\Rightarrow f(a) \cdot (b-a) \leq \int\limits_a^b f(x) \dif x \leq f(b) \cdot (b-a)\]
+If $f$ is a non-increasing function,\\
+then $a \leq c \leq b \Rightarrow f(a) \geq f(c) \geq f(b)$
+\[\Rightarrow f(a) \cdot (b-a) \geq \int\limits_a^b f(x) \dif x \geq f(b) \cdot (b-a)\]
+\pagebreak
+\subsubsection{Method - 4: General Mean value Theorem for Integrals}
+\[\int\limits_a^b f(x) \cdot g(x) \dif x  = f(c) \cdot \int\limits_a^b g(x) \dif x, \quad \text{for some }c \in [a, b]\]
+If $f$ is a non-decreasing function,\\
+then $a \leq c \leq b \Rightarrow f(a) \leq f(c) \leq f(b)$
+\[\Rightarrow f(a) \cdot \int\limits_a^b g(x) \dif x \leq \int\limits_a^b f(x) \cdot g(x) \dif x \leq f(b) \cdot \int\limits_a^b g(x) \dif x\]
+If $f$ is a non-increasing function,\\
+then $a \leq c \leq b \Rightarrow f(a) \geq f(c) \geq f(b)$
+\[\Rightarrow f(a) \cdot \int\limits_a^b g(x) \dif x \geq \int\limits_a^b f(x) \cdot g(x) \dif x \geq f(b) \cdot \int\limits_a^b g(x) \dif x\]
+\subsubsection{Method - 5: Cauchy-Schwarz Inequality}
+If $f$ and $g$ are two functions integrable on $[a,b]$. Then,
+\[\abs{\int\limits_a^b f(x) \cdot g(x) \dif x} \leq \sqrt{\int\limits_a^b \left( f(x) \right)^2 \dif x \cdot \int\limits_a^b \left( g(x) \right)^2 \dif x}\]
+and equality holds iff $f(x) = \lambda \cdot g(x)$ for some constant $\lambda$.
+\begin{proof}
+\[\text{Let } F(x) = \left[ f(x) - \lambda \cdot g(x) \right]^2\]
+Now, $F(x) \geq 0 \; \forall x \in \mathbb{R}$, because the square of a real number is always non-negative.\\
+Using comparison theorem,
+\[\int\limits_a^b \left( f(x) - \lambda \cdot g(x) \right)^2 \dif x \geq 0\]
+\[\Rightarrow \int\limits_a^b \left(f(x) \right)^2 \dif x - 2\lambda \int\limits_a^b f(x) \cdot g(x) \dif x + \lambda^2 \int\limits_a^b \left(g(x)\right)^2 \dif x \geq 0\]
+\[\Rightarrow \lambda^2 \left( \int\limits_a^b \left(g(x)\right)^2 \right) - 2\lambda \left(\int\limits_a^b f(x) \cdot g(x) \dif x \right) + \int\limits_a^b \left(f(x) \right)^2 \geq 0\]
+This is a quadratic in $\lambda$. For the quadratic to be non-negative for all real $\lambda$, $D \leq 0$.
+\[\Rightarrow 4 \lambda^2 \left( \int\limits_a^b f(x) \cdot g(x) \dif x \right)^2 - 4 \int\limits_a^b \left(g(x)\right)^2 \cdot \int\limits_a^b \left(f(x) \right)^2 \leq 0\]
+\[\Rightarrow \abs{\int\limits_a^b f(x) \cdot g(x) \dif x} \leq \sqrt{\int\limits_a^b \left( f(x) \right)^2 \dif x \cdot \int\limits_a^b \left( g(x) \right)^2 \dif x}\]
+\end{proof}
+\pagebreak
+\subsubsection{Method - 6: Estimation Based on Shapes}
+Say $f$ is a strictly increasing function.\\
+If $f$ is concave up,
+\begin{figure}[h]
+\includegraphics[scale=.5]{images/shape_estimation_1}
+\end{figure}
+\[\text{Area of rectangle ABCD} \leq \text{Area under curve } f \leq \text{Area of trapezium ABED}\]
+\[\Rightarrow (b-a)\cdot f(a) \leq \int\limits_a^b f(x) \dif x \leq \dfrac12 \left( f(a) + f(b) \right)(b-a)\]
+Similarly, if $f$ is concave down,
+\begin{figure}[h]
+\includegraphics[scale=.5]{images/shape_estimation_2}
+\end{figure}
+\[\text{Area of trapezium ABCE} \leq \text{Area under curve } f \leq \text{Area of rectangle ABCD}\]
+\[\dfrac12 \left( f(a) + f(b) \right)(b-a) \leq \int\limits_a^b f(x) \dif x \leq (b-a) \cdot f(b)\]
+\pagebreak
+\begin{prob}
+Show that $0 < \displaystyle \int\limits_0^1 \dfrac{x^7}{\sqrt[3]{1+x^9}} \dif x < \dfrac18$\\
+For $x \in (0, 1)$,
+\[\dfrac{x^7}{\sqrt[3]{1+x^9}} > 0\]
+By comparison theorem,
+\[\int\limits_0^1 \dfrac{x^7}{\sqrt[3]{1+x^9}} \dif x > 0\]
+Also, for $x \in (0, 1)$,
+\[\Rightarrow \dfrac{x^7}{\sqrt[3]{1 + x^9}} < \dfrac{x^7}1\]
+By comparison theorem,
+\[\Rightarrow \int\limits_0^1 \dfrac{x^7}{\sqrt[3]{1+x^9}} \dif x < \int\limits_0^1 x^7 \dif x\]
+\[\Rightarrow \int\limits_0^1 \dfrac{x^7}{\sqrt[3]{1+x^9}} \dif x < \left[\dfrac{x^8}{8}\right]_0^1\]
+\[\Rightarrow\int\limits_0^1 \dfrac{x^7}{\sqrt[3]{1+x^9}} \dif x < \dfrac18\]
+Therefore,
+\[0 < \int\limits_0^1 \dfrac{x^7}{\sqrt[3]{1+x^9}} \dif x < \dfrac18\]
+\end{prob}
+\begin{prob}
+Show that $0 < \displaystyle\int\limits_0^1 {\rm e}^{x^2} \dif x < {\rm e}$\\
+For $x \in (0, 1)$,
+\[x^2 < x\]
+Since $\exp(x)$ is an increasing function,
+\[0 < {\rm e}^{x^2} < {\rm e}^x\]
+Apply comparison theorem,
+\[\int\limits_0^1 0\dif x < \int\limits_0^1{\rm e}^{x^2} \dif x < \int\limits_0^1{\rm e}^x \dif x\]
+\[\Rightarrow 0 < \int\limits_0^1 {\rm e}^{x^2} \dif x < \left[ {\rm e}^x \right]_0^1\]
+\[\Rightarrow 0 < \int\limits_0^1 {\rm e}^{x^2} \dif x < {\rm e} - 1 < {\rm e} \]
+\[\Rightarrow 0 < \int\limits_0^1 {\rm e}^{x^2} \dif x < {\rm e} \]
+\end{prob}
+\pagebreak
+\begin{prob}
+Estimate $\displaystyle\int\limits_{\pi/4}^{\pi/3} \dfrac{\sin(x)}{x} \dif x$\\
+We'll approach this with multiple methods.
+\paragraph{Method 1}
+\[\text{Let } f(x) = \dfrac{\sin(x)}{x}\]
+\begin{align*}
+\Rightarrow f'(x) &= \dfrac{x\cos(x) - \sin(x)}{x^2}\\
+&= \dfrac{\cos(x) \left[ x - \tan(x) \right]}{x^2}
+\end{align*}
+Now, for $x \in \left[\dfrac{\pi}{4}, \dfrac{\pi}{3} \right]$,
+\[\cos(x) > 0, \quad x^2 > 0 \quad \text{ and } \quad \tan(x) > x\]
+\[\Rightarrow f'(x) < 0\]
+$\Rightarrow f(x)$ is strictly decreasing for $x\in \left[\dfrac{\pi}{4}, \dfrac{\pi}{3} \right]$.\\
+Also, since $f(x)$ is continuous in $\left[\dfrac{\pi}{4}, \dfrac{\pi}{3} \right]$,
+\[f\left(\dfrac{\pi}{4}\right) \geq f(x) \geq f\left( \dfrac{\pi}{3} \right)\]
+So for $x \in \left(\dfrac{\pi}{4}, \dfrac{\pi}{3} \right)$,
+\[\Rightarrow \dfrac{\sin\left(\dfrac{\pi}{3}\right)}{\left(\dfrac{\pi}3\right)} < \dfrac{\sin(x)}{x} <\dfrac{\sin\left(\dfrac{\pi}{4}\right)}
+{\left(\dfrac{\pi}4\right)} \]
+\[\Rightarrow \dfrac3{\pi} \cdot \dfrac{\sqrt{3}}{2} < \dfrac{\sin(x)}{x} < \dfrac{4}{\pi} \cdot \dfrac{1}{\sqrt{2}}\]
+Using comparison theorem,
+\[\int\limits_{\pi/4}^{\pi/3} \dfrac{3 \sqrt3}{2\pi} \dif x < \int\limits_{\pi/4}^{\pi/3} \dfrac{\sin(x)}{x} \dif x < \int\limits_{\pi/4}^{\pi/3} \dfrac{4}{\pi \sqrt2} \dif x \]
+\[\Rightarrow \dfrac{3\sqrt3}{2\pi} \left[ \dfrac{\pi}{3} - \dfrac{\pi}{4}\right] < \int\limits_{\pi/4}^{\pi/3} \dfrac{\sin(x)}{x} \dif x < \dfrac{4}{\pi \sqrt2} \left[ \dfrac{\pi}{3} - \dfrac{\pi}{4} \right] \]
+\[\Rightarrow \dfrac{\sqrt3}{8} < \int\limits_{\pi/4}^{\pi/3} \dfrac{\sin(x)}{x} \dif x < \dfrac{\sqrt2}{6}\]
+\pagebreak
+\paragraph{Method 2}
+For $x \in \left[\dfrac{\pi}{4}, \dfrac{\pi}{3} \right]$,
+\[\sin(x) < x\]
+\[\Rightarrow \dfrac{\sin(x)}{x} < 1\]
+By Comparison Theorem,
+\[\int\limits_{\pi/4}^{\pi/3} \dfrac{\sin(x)}{x} \dif x < \int\limits_{\pi/4}^{\pi/3} 1 \dif x\]
+\[\Rightarrow \int\limits_{\pi/3}^{\pi/4} \dfrac{\sin(x)}{x} \dif x < \dfrac{\pi}4 - \dfrac{\pi}3\]
+\[\Rightarrow \int\limits_{\pi/4}^{\pi/3} \dfrac{\sin(x)}{x} \dif x < \dfrac{\pi}{12}\]
+\paragraph{Method 3}
+\[\text{Let } I = \int\limits_{\pi/4}^{\pi/3} \dfrac{\sin(x)}{x} \dif x\]
+\[\Rightarrow I = \int\limits_{\pi/4}^{\pi/3} \left( \dfrac1x\right) \left(\sin(x) \right)\dif x\]
+Using the General Mean Value Theorem for integrals, $\exists c \in \left(\dfrac{\pi}{4}, \dfrac{\pi}{3} \right)$ such that
+\begin{align*}
+I &= \dfrac1{c} \int\limits_{\pi/4}^{\pi/3} \dfrac{\sin(x)}{x} \dif x\\
+&= \dfrac1c \left[ -cos(x) \right]_{\pi/4}^{\pi/3}\\
+&= \dfrac1c \left[ -\cos\left( \dfrac{\pi}3 \right) + \cos\left( \dfrac{\pi}{4} \right) \right]\\
+&= \dfrac1c \left[\dfrac1{\sqrt2} - \dfrac12 \right]\\
+\end{align*}
+Now, $\dfrac{\pi}{4} < c < \dfrac{\pi}{3}\quad \Rightarrow \dfrac{3}{\pi} < \dfrac1c < \dfrac{4}{\pi}$
+\[\Rightarrow \dfrac{3}{\pi} \left[\dfrac1{\sqrt2} - \dfrac12 \right] <\int\limits_{\pi/4}^{\pi/3} \dfrac{\sin(x)}{x} \dif x < \dfrac{4}{\pi}\left[\dfrac1{\sqrt2} - \dfrac12 \right]\]
+\end{prob}
+\pagebreak
+\begin{prob}
+Show that $\dfrac1{10\sqrt{2}} \leq \displaystyle\int\limits_0^1 \dfrac{x^9}{\sqrt{1+x}} \dif x \leq \dfrac1{10}$\\
+For $x \in (0, 1)$,
+\[ \dfrac{x^9}{\sqrt{1+1}} \leq \dfrac{x^9}{\sqrt{1+x}} \leq \dfrac{x^9}{1}\]
+Using Comparison Theorem,
+\[\int\limits_0^1 \dfrac{x^9}{\sqrt2} \dif x \leq \int\limits_0^1 \dfrac{x^9}{\sqrt{1+x}} \dif x \leq \int\limits_0^1 \dfrac{x^9}{1} \dif x\]
+\[\Rightarrow \dfrac1{\sqrt2} \left[ \dfrac{x^{10}}{10} \right]_0^1 \leq \int\limits_0^1 \dfrac{x^9}{\sqrt{1+x}} \dif x \leq \left[\dfrac{x^{10}}{10}\right]_0^1\]
+\[\Rightarrow \dfrac1{10\sqrt2} \leq \int\limits_0^1\dfrac{x^9}{\sqrt{1+x}} \leq \dfrac1{10}\]
+\end{prob}
+\begin{prob}
+Show that $0.692 \leq \displaystyle\int\limits_0^1 x^x \dif x \leq 1$\\
+\[x^x \leq 1 \; \forall x \in (0, 1)\]
+Applying Comparison Theorem
+\[\int\limits_0^1 x^x \dif x \leq 1\]
+Now, let $f(x) = x^x$
+\[\Rightarrow f'(x) = x^x \left[ 1 + \ln(x)\right]\]
+\[f'(x) = 0 \Leftrightarrow x = \dfrac1{\rm e}\]
+$f(x)$ attains its minimum value at $x = \dfrac1{\rm e}$\\
+So the minimum value of $f$ becomes $f\left( \dfrac1{\rm e} \right) = \left(\dfrac{1}{\rm e}\right)^{\dfrac1{\rm e}}$
+\[\Rightarrow \left(\dfrac{1}{\rm e}\right)^{\dfrac1{\rm e}} \leq x^x \; \forall x \in (0, 1)\]
+Using Comparison Theorem,
+\[\Rightarrow \left({\dfrac1{\rm e}}\right)^{1/{\rm e}} \leq \int\limits_0^1 x^x \dif x\]
+\[\Rightarrow 0.692 \leq \int\limits_0^1 x^x \dif x\]
+\[\Rightarrow 0.692 \leq \int\limits_0^1 x^x \dif x \leq \dfrac1{10}\]
+\end{prob}
+\pagebreak
+\begin{prob}
+Show that $0.41 < \displaystyle\int\limits_0^1 x^{\sin(x) + \cos(x)} \dif x < 0.5$\\
+We know that
+\[1 < \sin(x) + \cos(x) < \sqrt2 \quad \forall x \in (0, 1)\]
+\[\Rightarrow x^{\sqrt2} < x^{\sin(x) + \cos(x)} < x \quad \left[ \because x \in (0, 1) \right]\]
+Using Comparison Theorem,
+\[\Rightarrow \int\limits_0^1 x^{\sqrt2} \dif x < \int\limits_0^1 x^{\sin(x) + \cos(x)} \dif x < \int\limits_0^1 x \dif x\]
+\[\Rightarrow \dfrac1{\sqrt2 + 1} < \int\limits_0^1 x^{\sin(x) + \cos(x)} \dif x < \dfrac12\]
+\[\Rightarrow \sqrt2 - 1 < \int\limits_0^1 x^{\sin(x) + \cos(x)} \dif x < \dfrac12\]
+Since $0.41 < \sqrt 2 - 1$,
+\[\Rightarrow 0.41 < \int\limits_0^1 x^{\sin(x) + \cos(x)} \dif x < 0.5\]
+\end{prob}
+\begin{prob}
+Show that $4 \leq =\displaystyle\int\limits_1^3 \sqrt{3 + x^3} \dif x \leq 2 \sqrt{30}$\\
+\[\text{Let } f(x) = \sqrt{3+x^3}\]
+\[f'(x) = \dfrac1{2\sqrt{3+x^2}} \cdot 3x^2\]
+Since $f'(x) > 0 \; \forall x \in (1, 3)$, $f$ is strictly increasing.
+\[\Rightarrow f(1) \leq f(x) \leq f(3) \quad \forall x \in (1, 3)\]
+\[\Rightarrow \sqrt{3+1^2} \leq \sqrt{3+x^2} \leq \sqrt{3+3^2}\]
+\[\Rightarrow 2 \leq \sqrt{3+x^2} \leq 2\sqrt3\]
+Using Comparison Theorem,
+\[2 \cdot (3-1) \leq \int\limits_1^3 \sqrt{3+x^2} \dif x \leq 2\sqrt3 \cdot (3-1)\]
+\[\Rightarrow 4 \leq \int\limits_1^3 \sqrt{3+x^2} \dif x \leq 4\sqrt{3} < 2\sqrt{30}\]
+\[\Rightarrow 4 \leq \int\limits_1^3 \sqrt{3+x^2} \dif x \leq 2\sqrt{30}\]
+\end{prob}
+\pagebreak
+\begin{prob}
+Show that $\displaystyle\int\limits_0^{\pi/2} {\rm e}^{-R \sin(x)} \dif x < \dfrac{\pi}{2R} \left(1- {\rm e}^{-R}\right)$ for $R>0$.\\
+The right-hand side can be written as
+\[\dfrac{\pi}{2R} \left(1- {\rm e}^{-R}\right) = \int\limits_0^{\pi/2} {\rm e}^{\frac{-2Rx}{\pi}} \dif x\]
+So we have to prove:
+\[\int\limits_0^{\pi/2} {\rm e}^{-R\sin(x)} \dif x < \int\limits_0^{\pi/2} {\rm e}^{\frac{-2Rx}{\pi}} \dif x\]
+So, by Comparison Theorem, if we can prove
+${\rm e}^{-R \sin(x)} < {\rm e}^{\frac{-2Rx}{\pi}}\quad \forall x  \in \left( 0, \dfrac{\pi}2\right)$, we're done.
+\begin{proof}
+Consider $f(x) = \dfrac{\sin(x)}{x}$\\
+We know by differentiation that $f(x)$ is continuous and decreasing in $\left(0, \dfrac{\pi}{2} \right]$,\\ So it takes its least value at $\dfrac{\pi}2$.
+\[\Rightarrow \dfrac{\sin(x)}{x} < \dfrac2{\pi}\; \forall x \in \left(0, \dfrac{\pi}{2}\right)\]
+Since $x > 0$,
+\[\Rightarrow \sin(x) < \dfrac{2x}{\pi}\; \forall x \in \left(0, \dfrac{\pi}{2}\right)\]
+Since $R > 0$,
+\[\Rightarrow -R \sin(x) > \dfrac{-2Rx}{\pi}\]
+Now, since ${\rm e}^x$ is strictly increasing,
+\[\Rightarrow {\rm e}^{-R \sin(x)} < {\rm e}^{\frac{-2Rx}{\pi}}\; \forall x  \in \left( 0, \dfrac{\pi}2\right)\]
+Using Comparison Theorem,
+\[\Rightarrow \int\limits_0^{\pi/2}{\rm e}^{-R \sin(x)}\dif x <  \int\limits_0^{\pi/2} {\rm e}^{\frac{-2Rx}{\pi}} \dif x\]
+\end{proof}
+\end{prob}
+\pagebreak
+\begin{prob}
+Let $I = \displaystyle\sum\limits_{k=1}^{98} \int\limits_k^{k+1}\dfrac{k+1}{x(x+1)} \dif x$.\\
+Then which of the following is/are correct?\\
+\begin{enumerate*}[label=(\Alph*)]
+\item $I < \dfrac{49}{50}\quad\quad
+$\item $I < \ln(99)\quad\quad$
+\item $I > \dfrac{49}{50}\quad\quad$
+\item $I > \ln(99)\quad\quad$
+\end{enumerate*}\\\\
+\textbf{Solution: (B, C) }\\
+For $x \in (k, k+1)$,
+\[\dfrac{k+1}{x(x+1)} < \dfrac{\cancel{k+1}}{x(\cancel{k+1})}\]
+\[\Rightarrow \dfrac{k+1}{x(x+1)} < \dfrac{1}{x}\]
+Using Comparison Theorem,
+\[\int\limits_k^{k+1} \dfrac{k+1}{x(x+1)} < \left[\ln\left(\;\abs{x}\right) \right]_k^{k+1}\]
+\[\int\limits_k^{k+1} \dfrac{k+1}{x(x+1)} < \ln(k+1) - \ln(k)\]
+Therefore,
+\[\sum\limits_{k=1}^{98} \int\limits_k^{k+1} \dfrac{k+1}{x(x+1)} < \sum\limits_{k=1}^{98} \left(\ln(k+1) - \ln(k)\right)\]
+Now the right hand side becomes a telescopic sum.
+Let $v_k = \ln(k+1) - \ln(k)$
+\begin{align*}
+v_1 &= \cancel{\ln(2)} - \ln(1)\\
+v_2 &= \cancel{\ln(3)} - \cancel{\ln(2)}\\
+\vdots \;\; & \;\; \quad\quad\vdots \quad\quad \vdots\\
+v_{97} &= \cancel{\ln(98)} - \cancel{\ln(97)}\\
+v_{98} &= \ln(99) - \cancel{\ln(98)}\\
+\cline{1-2}
+\sum\limits_{k=1}^{98} v_k &= \ln(99) - \ln(1) = \ln(99)\\
+\cline{1-2}
+\end{align*}
+\[\therefore I < \ln(99)\]
+Similarly, for $x \in (k, k+1)$,
+\[\dfrac{\cancel{k+1}}{(\cancel{k+1})(x+1)} < \dfrac{k+1}{x(x+1)}\]
+By Comparison Theorem,
+\[I > \sum\limits_{k=1}^{98} \left[\ln(k+2) - \ln(k+1) \right] = \ln(100) - \ln(2) = \ln(50)\]
+\[\Rightarrow I > \ln(50) > \dfrac{49}{50}\]
+Therefore, options B and C are correct.
+\end{prob}
+\pagebreak
+\begin{prob}
+Let $f(x)$ (where $x \geq 0$) be a continuous and non-negative function and let \\$F(x) = \displaystyle\int\limits_0^x f(t) \dif t$ ($x \geq 0$). If for some $c > 0$, $f(x) \leq c F(x)\; \forall x \geq 0$, show that $f(x) = 0 \; \forall x \geq 0$.
+\begin{proof}
+\[F(x) = \int\limits_0^x f(t) \dif t\]
+Using the Fundamental Theorem of Calculus,
+\[F'(x) = f(x)\]
+Now, it is given that there exists $c > 0$ such that
+\[f(x) \leq c F(x) \quad \forall x \geq 0\]
+\[\Rightarrow F'(x) - cF(x) \leq 0\]
+Multiply by integrating factor ${\rm e}^{-cx}$
+\[\Rightarrow {\rm e}^{-cx} F'(x) - c\cdot{\rm e}^{-cx} F(x) \leq 0\]
+\[\Rightarrow \dfrac{\dif}{\dif x} \left[ {\rm e}^{-cx} F(x) \right] \leq 0\]
+Let $g(x) = {\rm e}^{-cx} F(x)$. Then $g(x)$ is non-increasing $\forall x \geq 0$
+\[\Rightarrow g(x) \leq g(0) \quad \forall x \geq 0\]
+Now, $g(0) = {\rm e}^0 F(0) = F(0) = \displaystyle\int\limits_0^0 f(t)\dif t = 0$
+\[\Rightarrow g(x) \leq 0 \quad \forall x \geq 0 \]
+\[\Rightarrow {\rm e}^{-cx} F(x) \leq 0 \quad \forall x \geq 0\]
+But ${\rm e}^{-cx} > 0 \quad \forall x \in \mathbb{R}$,
+\[\Rightarrow F(x) \leq 0 \quad \forall x \geq 0\]
+Now, it is given that $f(x) \geq 0$. By Comparison Theorem, for all non-negative $x$,
+\[F(x) = \int\limits_0^x f(x) \geq 0 \quad \forall x \geq 0\]
+\[\Rightarrow F(x) \leq 0 \quad \forall x \geq 0 \text{ and } F(x) \geq 0 \quad \forall x \geq 0\]
+\[\Rightarrow F(x) = 0 \quad \forall x \geq 0\]
+\end{proof}
+\end{prob}
+\pagebreak
+\begin{prob}
+Let $f$ be a function on $[a, b]$ such that $f(x) \geq 0$.\\
+Prove that the expression $\displaystyle\int\limits_a^b f(x) \dif x \cdot \int\limits_a^b \dfrac1{f(x)} \dif x$ takes its least value when $f$ is a constant function.
+\begin{proof}
+Using the Cauchy-Schwarz Inequality
+\[\left( \int\limits_a^b \sqrt{f(x)} \cdot \dfrac1{\sqrt{f(x)}} \dif x \right)^2 \leq \int\limits_a^b \left(\sqrt{f(x)}\right)^2 \dif x \cdot \int\limits_a^b \left(\dfrac1{\sqrt{f(x)}} \right)^2 \dif x\]
+\[\Rightarrow \int\limits_a^b f(x) \dif x \cdot \int\limits_a^b \dfrac1{f(x)} \dif x \geq (b-a)^2\]
+We know that for the Cauchy-Schwarz Inequality, the equality holds when $f(x) = \lambda g(x)$.\\
+So in this case, the expression will take its minimum value when the equality holds, i.e. when
+\[f(x) = \lambda \cdot \dfrac1{f(x)}\]
+\[\Rightarrow \left(f(x)\right)^2 = \lambda\]
+\[\Rightarrow \abs{f(x)} = \sqrt{\lambda}\]
+i.e. $f(x)$ is a constant function.\\
+\end{proof}
+\end{prob}
+\pagebreak
+\subsection{Reduction Formulae}
+\subsubsection{The Beta Function}
+The Beta Function is defined as:
+\[\beta(m,n) = \int\limits_0^1 x^{m-1} (1-x)^{n-1} \dif x\]
+\textbf{Claim: } $\beta(m, n) = \beta(n, m)$
+\begin{proof}\text{}\\
+Using $\displaystyle \int\limits_a^b f(x) \dif x = \int\limits_a^b f(a+b-x) \dif x$
+\begin{align*}
+\beta(m, n) &= \int\limits_0^1 x^{m-1} (1-x)^{n-1} \dif x\\
+&= \int\limits_0^1 (1-x)^{m-1} (1-1+x)^{n-1} \dif x\\
+&= \int\limits_0^1 (1-x)^{m-1} (x)^{n-1} \dif x\\
+&= \beta(n, m)
+\end{align*}
+\end{proof}
+\subsubsection*{Finding a Reduction Formula}
+\[\beta(m+1, n+1) = \int\limits_0^1 x^m (1-x)^n \dif x\]
+Integrating by parts. \\
+Let us choose $u = (1-x)^n$ and $\dif v = x^m \dif x$\\
+Then $\dif u = -n(1-x)^{n-1}$ and $v = \dfrac{x^{m+1}}{m+1}$\\
+$\int u \dif v = uv - \int v \dif u$
+\begin{align*}
+\Rightarrow \beta(m+1, n+1) &= \left[(1-x^n)\cdot \dfrac{x^{m+1}}{m+1} \right]_0^1 - \int\limits_0^1 \dfrac{x^{m+1}}{m+1} \cdot \left(-n(1-x)^{n-1} \right)\dif x\\
+&= 0 + \dfrac{n}{m+1}\int\limits_0^1 x^{m+1}(1-x)^{n-1} \dif x\\
+\Rightarrow \beta(m+1, n+1) &= \dfrac{n}{m+1} \beta(m+2, n)
+\end{align*}
+And we have our reduction formula.
+\pagebreak
+\subsubsection*{Finding an explicit formula}
+\begin{align*}
+\beta(m+1, n+1) &= \dfrac{n}{m+1} \cdot \beta(m+2, n)\\
+&= \dfrac{n}{m+1} \cdot \dfrac{(n-1)}{(m+2)} \cdot \beta(m+3, n-1)\\
+&= \dfrac{n}{m+1} \cdot \dfrac{(n-1)}{(m+2)} \cdot \dfrac{(n-2)}{(m+3)} \cdot \beta(m+4, n-2)\\
+&= \dfrac{n}{m+1} \cdot \dfrac{(n-1)}{(m+2)} \cdot \dfrac{(n-2)}{(m+3)} \cdot \cdots \cdot  \dfrac{2}{(m+n-1)} \cdot \dfrac{1}{(m+n)} \cdot \beta(m+n+1, 1)\\
+&= \dfrac{n!}{(m+1)(m+2)(m+3)\cdots (m+n-1)(m+n)}\cdot\beta(m+n+1, 1)\\
+&= \dfrac{n!}{(m+1)(m+2)(m+3)\cdots (m+n-1)(m+n)}\cdot \int\limits_0^1 x^{m+n} (1-x)^0 \dif x\\
+&= \dfrac{n!}{(m+1)(m+2)(m+3)\cdots (m+n-1)(m+n)}\cdot \int\limits_0^1 x^{m+n} \dif x\\
+\text{Multiply and divide by } m!\\
+&= \dfrac{n! \cdot m!}{m!(m+1)(m+2)(m+3)\cdots (m+n-1)(m+n)}\cdot \int\limits_0^1 x^{m+n} \dif x\\
+&= \dfrac{n!\cdot m!}{(m+n)!}\cdot \dfrac1{(m+n+1)}\\
+&= \dfrac1{^{m+n}C_n} \cdot \dfrac1{(m+n+1)}
+\end{align*}
+\[\therefore \beta(m+1, n+1) = \int\limits_0^1 x^m (1-x)^n \dif x =  \dfrac1{^{m+n}C_n} \cdot \dfrac1{(m+n+1)}\]
+This idea connects discrete and continuous mathematics -- combinatorics and calculus.\\
+Such intersections of two seemingly divergent branches of mathematics don't appear very often. But when they do, they can produce some really elegant results.\\\\
+There is another method to derive the same result. That involves introducing a parameter (say $t$) and invoking the Binomial Theorem. While we can surely use Reduction Formulae to solve problems, the other method has its own elegance, and can offer new insight into problem-solving.
+\pagebreak
+\subsubsection*{Another Method (Variation of Parameter, Binomial Theorem)}
+\[\beta(m+1, n+1) = \int\limits_0^1 x^m (1-x)^n \dif x\]
+\textbf{Wishful thinking: }$x^m (1-x)^n$ is highly reminiscent of a term in a binomial expansion.\\
+Assume that $t$ is a parameter independent of $x$ and consider the expansion of $\left(tx + (1-x) \right)^{m+n}$.
+\begin{align*}
+\int\limits_0^1 \left(tx + (1-x) \right)^{m+n} \dif x &= \int\limits_0^1 \left( x(t-1) + 1 \right)^{m+n} \dif x\\
+&= \left[ \dfrac{ \left(x(t-1) + 1 \right)^{m+n+1} }{(m+n+1)(t-1)} \right]_0^1\\
+&=\dfrac{t^{m+n+1} - 1}{(m+n+1)(t-1)}\\
+&= \dfrac{t^{m+n+1} - 1}{t-1} \cdot \dfrac1{m+n+1}
+\end{align*}
+Now, $\dfrac{t^{m+n+1} - 1}{t-1}$ can be thought of as the sum of a geometric progression.
+\[\Rightarrow \int\limits_0^1 \left(tx + (1-x) \right)^{m+n} \dif x = \left(1 + t + t^2 + \cdots + t^{m+n} \right)\cdot \dfrac1{m+n+1}\]
+Now, using Binomial Theorem,
+\begin{align*}
+\int\limits_0^1 \left(tx + (1-x) \right)^{m+n} \dif x &= \int\limits_0^1 \sum\limits_{r=0}^{m+n} \; ^{m+n}C_r \cdot (tx)^r \cdot (1-x)^{m+n-r} \dif x\\
+&= \sum\limits_{r=0}^{m+n} \int\limits_0^1 \; ^{m+n}C_r \cdot t^r x^r \cdot (1-x)^{m+n-r} \dif x\\
+&= \sum\limits_{r=0}^{m+n} \; ^{m+n}C_r \cdot t^r \int\limits_0^1 x^r (1-x)^{m+n-r} \dif x
+\end{align*}
+This should give us a polynomial in $t$. However, we have already evaluated the integral as a polynomial in $t$. Equating them now.
+\[\Rightarrow \sum\limits_{r=0}^{m+n} \; ^{m+n}C_r \cdot t^r \int\limits_0^1 x^r (1-x)^{m+n-r} \dif x = \left(1 + t + t^2 + \cdots + t^{m+n} \right)\cdot \dfrac1{m+n+1}\]
+Equating the coefficient of $t^m$ from both sides.
+\[^{m+n}C_m \cdot \int\limits_0^1 x^m (1-x)^{n} \dif x = \dfrac1{m+n+1}\]
+Isolate the integral, and we have our result:
+\[\beta(m+1, n+1) = \int\limits_0^1 x^m (1-x)^n \dif x = \dfrac1{^{m+n}C_m}\cdot\dfrac1{m+n+1}\]
+\pagebreak
+\[\beta(m+1, n+1)=\int\limits_0^1 x^m (1-x)^n \dif x = \dfrac1{^{m+n}C_m}\cdot\dfrac1{m+n+1}\]
+\subsubsection*{A Special Case}
+Note that the following is just a special case of the above result:
+\[\beta(r+1, n-r+1)=\int\limits_0^1 x^r (1-x)^{n-r} \dif x = \dfrac1{^nC_r} \cdot \dfrac1{n+1}\]
+\[\Rightarrow \int\limits_0^1 x^r (1-x)^{n-r} \dif x = \dfrac1{(n+1)\cdot\;^nC_r}\]
+\[\Rightarrow \dfrac1{^nC_r} = (n+1) \int\limits_0^1 x^r(1-x)^{n-r} \dif x\]
+This can serve as a nice result for problem-solving.
+\begin{prob}
+$\displaystyle\int\limits_0^1 x^{70} (1-x)^{30} \dif x$\\
+\textbf{Solution:} (Directly using Beta Function)
+\begin{align*}
+\int\limits_0^1 x^{70} (1-x)^{30} \dif x = \beta(71, 31) &= \dfrac1{^{70+30}C_{30}} \cdot \dfrac1{70+30+1}\\
+&= \dfrac1{101 \cdot \; ^{100}C_{30}}
+\end{align*}
+\end{prob}
+\begin{prob}
+Evaluate $\displaystyle \sum\limits_{r=0}^n \dfrac{(-1)^r}{^nC_r}$\\
+\textbf{Solution:} Note that this problem could be easily solved with prior knowledge on an ad-hoc basis if $n$ were odd.\\
+For the case where $n$ is odd,\\
+Using $^nC_r =\; ^nC_{n-r}$
+\begin{align*}
+\sum\limits_{r=0}^{n} \dfrac{(-1)^r}{^nC_r} &= \dfrac1{^nC_0} - \dfrac1{^nC_1} + \cdots - \dfrac1{^nC_{(n-1)/2}} + \dfrac1{^nC_{(n+1)/2}} - \cdots + \dfrac1{^nC_{n-1}} - \dfrac1{^nC_n}\\
+&= \cancel{\dfrac1{^nC_0}} - \cancel{\dfrac1{^nC_1}} + \cdots - \cancel{\dfrac1{^nC_{(n-1)/2}}} + \cancel{\dfrac1{^nC_{(n-1)/2}}} - \cdots + \cancel{\dfrac1{^nC_1}} - \cancel{\dfrac1{^nC_0}}\\
+&= 0
+\end{align*}
+If $n$ were odd, everything would beautifully cancel, and give us 0.\\
+However, we are interested in the general case, where $n$ is any non-negative integer.\\
+For that we'll make the substitution for $\dfrac1{^nC_r}$ that we derived above:
+\[\dfrac1{^nC_r} = (n+1)\int\limits_0^1 x^r (1-x)^{n-r} \dif x\]
+\pagebreak
+\begin{align*}
+\sum\limits_{r=0}^{n} \dfrac{(-1)^r}{^nC_r} &= \sum\limits_{r=0}^{n} (-1)^r \cdot (n+1)\int\limits_0^1 x^r(1-x)^{n-r} \dif x\\
+&= (n+1)\sum\limits_{r=0}^{n}\int\limits_0^1 (-1)^r \cdot x^r(1-x)^{n-r} \dif x\\
+&= (n+1)\int\limits_0^1 \sum\limits_{r=0}^{n} (-1)^r \cdot x^r(1-x)^{n-r} \dif x\\
+&= (n+1) \int\limits_0^1 \left[ (1-x)^n - x(1-x)^{n-1} + x^2(1-x)^{n-2} - \cdots + (-1)^n x^n \right] \dif x
+\end{align*}
+Now, notice that $\left[ (1-x)^n - x(1-x)^{n-1} + x^2(1-x)^{n-2} - \cdots + (-1)^n x^n \right]$ is just the sum of terms of a geometric progression of $n+1$ terms with common ratio $\dfrac{-x}{1-x}$ and first term $(1-x)^n$. So we can use the GP sum formula.
+\begin{align*}
+\Rightarrow \sum\limits_{r=0}^{n} \dfrac{(-1)^r}{^nC_r} &=
+(n+1) \bigint\limits_0^1 (1-x)^n \cdot \left(\dfrac{ 1 - \left( \dfrac{-x}{1-x} \right)^{n+1} }{1-\left( \dfrac{-x}{1-x} \right)} \right) \dif x\\
+&= (n+1) \int\limits_0^1 (1-x)^{n+1} \cdot \left(1 - \left( \dfrac{-x}{1-x} \right)^{n+1} \right) \dif x\\
+&= (n+1) \int\limits_0^1 \left( (1-x)^{n+1} - (1-x)^{n+1} \cdot \left( \dfrac{-x}{1-x} \right)^{n+1} \right) \dif x\\
+&= (n+1) \int\limits_0^1 \left( (1-x)^{n+1} - (-x)^{n+1} \right) \dif x\\
+&= (n+1) \int\limits_0^1 \left( (1-x)^{n+1} - (-1)^{n+1}(x)^{n+1} \right) \dif x\\
+&= (n+1) \int\limits_0^1 \left( (1-x)^{n+1} + (-1)^{n+2}(x)^{n+1} \right) \dif x\\
+&= (n+1) \left[\int\limits_0^1 (1-x)^{n+1} \dif x + (-1)^{n+2}\int\limits_0^1 x^{n+1} \dif x \right]\\
+&= (n+1) \left\{ \left[\dfrac{-(1-x)^{n+2}}{n+2}\right]_0^1 + (-1)^{n+2} \left[ \dfrac{x^{n+2}}{n+2} \right]_0^1 \right\}\\
+\Rightarrow \sum\limits_{r=0}^{n} \dfrac{(-1)^r}{^nC_r} &= (n+1) \left[ \dfrac1{n+2} + \dfrac{(-1)^{n+2}}{n+2} \right] = \dfrac{(n+1)}{(n+2)}\left[ 1 + (-1)^{n} \right]
+\end{align*}
+And we have our answer for the general case. Also we can see from the general formula that the sum will equal $0$ if $n$ is odd.
+\end{prob}
+\subsubsection{Wallis Product and $\displaystyle\int\limits_0^{\pi/2} \sin^n(x) \dif x$}
+\subsubsection*{Finding a Reduction Formula}
+Let $I_n = \displaystyle\int\limits_0^{\pi/2} \sin^n(x) \dif x$
+\begin{align*}
+I_n &= \displaystyle\int\limits_0^{\pi/2} \sin(x) \dif x\\
+&= \displaystyle \int\limits_0^{\pi/2} \sin^{n-1}(x) \cdot\sin^n(x) \dif x && \text{Integrating by parts}
+\end{align*}
+Let $u = \sin^{n-1}(x)$ and $\dif v = \sin(x) \dif x$\\
+Then $\dif u = (n-1) \sin^{n-2}(x) \cos(x) \dif x$ and $ v = -\cos(x)$\\
+$\int u \dif v = uv - \int v \dif u$
+\begin{align*}
+\Rightarrow I_n &= \left[ -\sin^{n-1}(x) \cos(x) \right]_0^{\pi/2} - \int\limits_0^{\pi/2} -\cos^2(x) \cdot (n-1) \sin^{n-2}(x) \dif x\\
+&=-\left[ \sin^{n-1}(x) \cos(x) \right]_0^{\pi/2} + (n-1) \int\limits_0^{\pi/2} \cos^2(x) \sin^{n-2}(x) \dif x\\
+&= 0 + (n-1) \int\limits_0^{\pi/2} \left[ 1 - \sin^2(x) \right] \sin^{n-2}(x) \dif x\\
+&= (n-1) \int\limits_0^{\pi/2} \left( \sin^{n-2}(x) - \sin^n(x) \right) \dif x\\
+&= (n-1)\left[ \int\limits_0^{\pi/2} \sin^{n-2}(x) \dif x - \int\limits_0^{\pi/2} \sin^n(x) \dif x\right]\\
+&= (n-1) I_{n-2} - (n-1)I_n \\
+\Rightarrow I_n + (n-1)I_n &= (n-1)I_{n-2}\\
+\Rightarrow n \cdot I_n &= (n-1) I_{n-2}\\
+\Rightarrow I_n &= \left(\dfrac{n-1}{n}\right) I_{n-2}\\
+\end{align*}
+And we have our reduction formula
+\[I_n = \dfrac{n-1}{n} \cdot I_{n-2}\]
+\pagebreak
+\subsubsection*{Finding an Explicit Formula}
+\textbf{Case 1:} If $n$ is odd, i.e. $n = 2m+1$ for some $m$
+\begin{align*}
+I_n &= \dfrac{n-1}{n} \cdot I_{n-2}\\
+\Rightarrow I_{2m+1} &= \dfrac{2m}{2m+1} \cdot I_{2m-1}\\
+&= \dfrac{2m}{2m+1} \cdot \dfrac{2m-2}{2m-1} \cdot I_{2m-3}\\
+&= \dfrac{2m}{2m+1} \cdot \dfrac{2m-2}{2m-1} \cdot \dfrac{2m-4}{2m-3} \cdot \; \cdots \; \cdot \dfrac67 \cdot \dfrac{4}{5} \cdot \dfrac23 \cdot I_1\\
+&= \dfrac{2m}{2m+1} \cdot \dfrac{2m-2}{2m-1} \cdot \dfrac{2m-4}{2m-3} \cdot \; \cdots \; \cdot \dfrac67 \cdot \dfrac{4}{5} \cdot \dfrac23 \cdot \int\limits_0^{\pi/2} \sin(x) \dif x\\
+&= \dfrac{2m}{2m+1} \cdot \dfrac{2m-2}{2m-1} \cdot \dfrac{2m-4}{2m-3} \cdot \; \cdots \; \cdot \dfrac67 \cdot \dfrac{4}{5} \cdot \dfrac23 \cdot \left[ -\cos(x) \right]_0^{\pi/2}\\
+&=\dfrac{ (2m)(2m-2)(2m-4)\cdot \; \cdots \; \cdot 4 \cdot 2 }{ (2m+1)(2m-1)(2m-3) \cdot \; \cdots \; \cdot 5 \cdot 3 } && \parbox[t]{2.5cm}{[Multiply and divide by \\numerator]}\\
+&=\dfrac{ (2m)(2m-2)(2m-4)\cdot \; \cdots \; \cdot 4 \cdot 2 }{ (2m+1)(2m-1)(2m-3) \cdot \; \cdots \; \cdot 5 \cdot 3 } \cdot \dfrac{(2m)(2m-2)(2m-4)\cdot \; \cdots \; \cdot 4 \cdot 2}{(2m)(2m-2)(2m-4)\cdot \; \cdots \; \cdot 4 \cdot 2}\\
+&= \dfrac{\left(2^m \cdot m!\right)^2}{(2m+1)!}
+\end{align*}
+\[\Rightarrow \int\limits_0^{\pi/2} \sin^{2m+1}(x) \dif x =\dfrac{\left(2^m \cdot m!\right)^2}{(2m+1)!} \]
+\textbf{Case - 2}: If $n$ is even, i.e. $n = 2m$ for some $m$
+\begin{align*}
+I_n &= \dfrac{n-1}{n} \cdot I_{n-2}\\
+\Rightarrow I_{2m} &= \dfrac{2m-1}{2m} \cdot I_{2m-2}\\
+&= \dfrac{2m-1}{2m} \cdot \dfrac{2m-3}{2m-2} \cdot I_{2m-4}\\
+&= \dfrac{2m-1}{2m} \cdot \dfrac{2m-3}{2m-2} \cdot \; \cdots \; \cdot \dfrac34 \cdot \dfrac12 \cdot I_0\\
+&= \dfrac{ (2m-1)(2m-3) \cdots \; \cdot 3 \cdot 1 }{(2m)(2m-2) \cdots\; \cdot 4 \cdot 2} \cdot \int\limits_0^{\pi/2} \cancelto{1}{\sin^0(x)}\;\;\; \dif x\\
+&= \dfrac{ (2m-1)(2m-3) \cdots \; \cdot 3 \cdot 1 }{(2m)(2m-2) \cdots\; \cdot 4 \cdot 2} \cdot \dfrac{\pi}{2} && \parbox[t]{2.5cm}{[Multiply and \\divide by \begin{math}{(2m) \cdots4\cdot 2}\end{math}]}\\
+&= \dfrac{ (2m-1)(2m-3) \cdots \; \cdot 3 \cdot 1 }{(2m)(2m-2) \cdots\; \cdot 4 \cdot 2} \cdot \dfrac{(2m)(2m-2) \cdots\; \cdot 4 \cdot 2}{(2m)(2m-2) \cdots\; \cdot 4 \cdot 2} \cdot \dfrac{\pi}{2}\\
+&= \dfrac{(2m)!}{\left(2^m \cdot m!\right)^2}
+\end{align*}
+\[\Rightarrow \int\limits_0^{\pi/2} \sin^{2m}(x) \dif x = \dfrac{(2m)!}{\left(2^m \cdot m!\right)^2}\]
+Now,
+\nopagebreak
+\[\sin^{2m+1}(x) \leq \sin^{2m}(x) \leq \sin^{2m-1}(x) \quad \forall x \in \left( 0, \dfrac{\pi}{2} \right)\]
+Using Comparison Theorem,
+\[\Rightarrow \int\limits_0^{\pi/2} \sin^{2m+1}(x) \dif x \leq \int\limits_0^{\pi/2} \sin^{2m}(x) \dif x \leq \int\limits_0^{\pi/2} \sin^{2m-1}(x) \dif x\]
+\[\Rightarrow I_{2m+1} \leq I_{2m} \leq I_{2m-1}\]
+Divide by $I_{2m+1}$. This won't change the sign as $I_{2m+1}>0$ (By Comparison Theorem).
+\begin{equation}\label{wallis_ineq_1}
+\Rightarrow 1 \leq \dfrac{I_{2m}}{I_{2m+1}} \leq \dfrac{I_{2m-1}}{I_{2m+1}}
+\end{equation}
+Now,
+\[I_{2m+1} = \dfrac{\left(2^m \cdot m!\right)^2}{(2m+1)!}\]
+\[I_{2m-1} = I_{2\cdot(m-1)+1} = \dfrac{\left(2^{(m-1)} \cdot (m-1)!\right)^2}{(2m-1)!}\]
+\[\Rightarrow\dfrac{I_{2m-1}}{I_{2m+1}} = 
+\dfrac{ \left( \dfrac{\left(2^{m-1} \cdot (m-1)!\right)^2}{(2m-1)!} \right) } 
+{ \left( \dfrac{\left(2^m \cdot m!\right)^2}{(2m+1)!} \right) } = \dfrac{2m+1}{2m} =  1 + \dfrac1{2m}\]
+Substitute in \eqref{wallis_ineq_1},
+\[\Rightarrow 1 \leq \dfrac{I_{2m}}{I_{2m+1}} \leq 1 + \dfrac1{2m}\]
+Now, \[\lim\limits_{m \to \infty} \left( 1 + \dfrac1{2m} \right) = 1+0 = 1\]
+Therefore, using Squeeze Theorem,
+\[\lim\limits_{m \to \infty} \dfrac{I_{2m}}{I_{2m+1}} = 1\]
+\[\Rightarrow \lim\limits_{m \to \infty} I_{2m} \cdot \dfrac{1}{I_{2m+1}} = 1 \]
+\[\Rightarrow \lim\limits_{m \to \infty} \left(
+\dfrac{ (2m-1)(2m-3) \cdots \; \cdot 3 \cdot 1 }{(2m)(2m-2) \cdots\; \cdot 4 \cdot 2} \cdot \dfrac{\pi}{2} \cdot
+\dfrac{ (2m+1)(2m-1) \cdot \; \cdots \; \cdot 5 \cdot 3 }{ (2m)(2m-2)\cdot \; \cdots \; \cdot 4 \cdot 2 }\right) = 1
+\]
+\[\Rightarrow \lim\limits_{m \to \infty} \left(
+\dfrac{(2m)(2m-2) \cdots\; \cdot 4 \cdot 2}{ (2m-1)(2m-3) \cdots \; \cdot 3 \cdot 1 } \cdot \dfrac2{\pi} \cdot
+\dfrac{ (2m)(2m-2)\cdot \; \cdots \; \cdot 4 \cdot 2 }{ (2m+1)(2m-1) \cdot \; \cdots \; \cdot 5 \cdot 3 }\right) = 1
+\]
+\[\Rightarrow \lim\limits_{m \to \infty} \dfrac{2\cdot 2 \cdot 4 \cdot 4 \cdot \; \cdots \; \cdot (2m)\cdot (2m)}{1\cdot 1 \cdot 3 \cdot 3 \cdot\; \cdots \; \cdot (2m-1)(2m-1)(2m+1)} = \dfrac{\pi}{2}\]
+\[\Rightarrow \lim\limits_{m \to \infty} \dfrac{2 \cdot 4  \cdot \; \cdots \; \cdot (2m)}{1 \cdot 3 \cdot\; \cdots \; \cdot (2m-1)} \cdot \dfrac1{\sqrt{2m+1}} = \sqrt{\dfrac{\pi}{2}}\]
+This is known as the Wallis Product.
+\pagebreak
+\subsubsection{Another Wallis Integral}
+Let us define
+\[J_{p, q} = \int\limits_0^{\pi/2} \sin^p(\theta) \cdot \cos^q(\theta) \dif \theta\]
+\subsubsection*{Finding a Reduction Formula}
+\textbf{Claim: } $J_{p, q} = \dfrac{p-1}{p+q} \cdot J_{p, q-2}$
+\begin{proof}
+\begin{align*}
+J_{p, q}&= \int\limits_0^{\pi/2} \sin^p(\theta) \cdot \cos^{q-1}(\theta) \cdot \cos(\theta) \dif \theta\\
+\end{align*}
+Integrating by parts\\
+Let $u = \sin^{p}(\theta) \cdot \cos^{q-1}(\theta)$ and $\dif v = \cos(\theta) \dif \theta$\\
+Then,\\
+$\dif u = \left[ p \cdot \sin^{p-1}(\theta) \cos^q(\theta) - (q-1) \cos^{q-2}(\theta) \cdot \sin^{p+1}(\theta) \right] \dif \theta$\\
+And\\
+$v = \sin(\theta)$\\
+$\int u \dif v = uv - \int v \dif u$
+\begin{align*}
+\Rightarrow J_{p, q} &= \left[\sin^{p+1}(\theta) \cdot \cos^{q-1}(\theta) \right]_0^{\pi/2} - \int\limits_0^{\pi/2} \left[ p \cdot \sin^{p}(\theta) \cos^q(\theta) - (q-1) \cos^{q-2}(\theta) \cdot \sin^{p+2}(\theta) \right] \dif \theta\\
+&= 0 - p \int\limits_0^{\pi/2}\sin^p(\theta) \cdot \cos^{q}(\theta) \dif \theta + (q-1)\int\limits_0^{\pi/2}\cos^{q-2}(\theta) \cdot \sin^{p+2}(\theta) \dif\theta\\
+&= -p \cdot J_{p, q} + (q-1) \int\limits_0^{\pi/2} \cos^{q-2}(\theta)\sin^{p}(\theta) \cdot \sin^2(\theta) \dif \theta\\
+\Rightarrow J_{p,q} \cdot (1+p) &= (q-1) \int\limits_0^{\pi/2} \cos^{q-2}(\theta) \cdot \sin^{p} (\theta) \cdot \left( 1 - \cos^2(\theta)\right) \dif \theta\\
+\Rightarrow J_{p,q} &= \dfrac{(q-1)}{(p+1)} \cdot \left[ \int\limits_0^{\pi/2} \cos^{q-2}(\theta) \cdot \sin^{p}(\theta) \dif \theta - \int\limits_0^{\pi/2} \sin^p(\theta)\cdot \cos^q(\theta) \dif \theta \right]\\
+&=\dfrac{(q-1)}{(p+1)} \cdot \left[ J_{p, q-2} - J_{p, q} \right]\\
+\Rightarrow J_{p, q} \cdot \left[ 1 + \dfrac{q-1}{p+1} \right] &= \dfrac{q-1}{p+1} \cdot J_{p, q-2}\\
+\Rightarrow J_{p, q} \cdot \left[ \dfrac{p+q}{\cancel{p+1}} \right] &= \dfrac{q-1}{\cancel{p+1}} \cdot J_{p, q-2}\\
+\Rightarrow J_{p, q} &= \dfrac{q-1}{p+q} \cdot J_{p, q-2}
+\end{align*}
+\end{proof}
+\subsubsection*{Relation Between the Beta Function and $J_{p, q}$}
+We have
+\[\beta(m+1, n+1) = \int\limits_0^1 x^m (1-x)^n \dif x\]
+Let us substitute $x = \sin^2(\theta)$. Note that this substitution is valid because $\sin^2(\theta)$ is one-one in $\left(0, \dfrac{\pi}{2}\right)$.\\
+$\dif x = 2 \sin(\theta) \cdot \cos(\theta) \dif \theta$\
+\begin{align*}
+\Rightarrow \beta(m+1, n+1) &= \int\limits_0^{\pi/2} \sin^{2m}(\theta) \cdot \left[ 1- \sin^{2}(\theta)\right]^n \cdot 2 \sin(\theta) \cos(\theta) \dif \theta\\
+&= \int\limits_0^{\pi/2} \sin^{2m}(\theta) \cdot \cos^{2n}(\theta) \cdot 2 \sin(\theta) \cos(\theta) \dif \theta\\
+&= 2 \int\limits_0^{\pi/2} \sin^{2m+1}(\theta) \cos^{2n+1}(\theta) \dif \theta\\
+&= 2 \cdot J_{2m+1, 2n+1} && \text{Using } J_{p, q} = \dfrac{q-1}{p+q} \cdot J_{p, q-2}\\
+&= 2 \cdot \dfrac{2n}{2m+2n+2} \cdot J_{2m+1, 2n-1}\\
+&= 2 \cdot \dfrac{2n}{2m+2n+2} \cdot \dfrac{2n-2}{2m+2n} J_{2m+1, 2n-3}\\
+&= 2 \cdot \dfrac{2n}{2m+2n+2} \cdot \dfrac{2n-2}{2m+2n} \cdot \; \cdots \; \cdot \dfrac2{2m+4} J_{2m+1, 1}\\
+&= 2 \cdot \dfrac{2n}{2m+2n+2}\cdot \dfrac{2n-2}{2m+2n} \cdot \; \cdots \; \cdot \dfrac2{2m+4} \int\limits_0^{\pi/2}\sin^{2m+1}(\theta) \cos(\theta) \dif \theta && \quad\parbox[t]{3cm}{Let $\sin(\theta) = t\\\Rightarrow \cos(\theta)\dif \theta = \dif t $}\\ 
+&= 2 \cdot \dfrac{2n}{2m+2n+2}\cdot \dfrac{2n-2}{2m+2n} \cdot \; \cdots \; \cdot \dfrac2{2m+4} \cdot \int\limits_0^1 t^{2m+1} \dif t\\
+&= 2 \cdot \dfrac{\cancel{2}n}{\cancel{2}(m+n+1)}\cdot \dfrac{\cancel{2}(n-1)}{\cancel{2}(m+n)} \cdot \; \cdots \; \cdot \dfrac{\cancel{2}}{\cancel{2}(m+2)} \cdot \left(\dfrac1{2m+2}\right)\\
+&= \dfrac{n}{(m+n+1)}\cdot \dfrac{(n-1)}{(m+n)} \cdot \; \cdots \; \cdot \dfrac{1}{(m+2)} \cdot \left(\dfrac{\cancel{2}}{\cancel{2}(m+1)}\right) && \text{Multiply and divide by } m!\\
+&= \dfrac1{m+n+1} \cdot \dfrac{m!\cdot n!}{(m+n) \cdots (m+2)(m+1)m!}\\
+&= \dfrac1{m+n+1} \cdot \dfrac{m! \cdot n!}{(m+n)!}\\
+&= \dfrac1{m+n+1} \cdot \dfrac1{^{m+n}C_m}\\
+\end{align*}
 \end{document}
+

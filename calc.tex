@@ -4349,5 +4349,149 @@ $\dif x = 2 \sin(\theta) \cdot \cos(\theta) \dif \theta$\
 &= \dfrac1{m+n+1} \cdot \dfrac{m! \cdot n!}{(m+n)!}\\
 &= \dfrac1{m+n+1} \cdot \dfrac1{^{m+n}C_m}\\
 \end{align*}
+\pagebreak
+\begin{prob}
+Let $I_n = \displaystyle \int\limits_0^{\pi/2} \theta \cdot \sin^{n}(\theta) \dif \theta$. Then prove that $I_n = \dfrac{n-1}{n} \cdot I_{n-2} + \dfrac1{n^2}$.
+\begin{proof}
+\begin{align*}
+I_n &= \int\limits_0^{\pi/2} \theta \cdot \sin^{n}(\theta) \dif \theta\\
+&= \int\limits_0^{\pi/2} \sin^{n-1}(\theta) \cdot \theta \cdot \sin^{n-1}(\theta)
+\end{align*}
+Integrating by parts,\\
+Let $u = \sin^{n-1}(\theta)$ and $\dif v = \theta \cdot \sin(\theta) \dif \theta$\\
+$\Rightarrow \dif u = (n-1)\sin^{n-2}(\theta) \cdot \cos(\theta) \dif \theta$\\
+And $v = \int\displaystyle\theta \cdot \sin(\theta) \dif \theta$.\\
+Let $p = \theta$ and $\dif q = \sin(\theta) \dif \theta$\\
+$\Rightarrow v = \int p \dif q = pq - \int q \dif p = \sin(\theta) - \theta \cdot \cos(\theta)$\\\\
+$\int u \dif v = uv - \int v \dif u$
+\begin{align*}
+\Rightarrow I_n &= \left[ \sin^n(\theta) - \theta \cdot \sin^{n-1}(\theta) \cdot \cos(\theta) \right]_0^{\pi/2} - \int\limits_0^{\pi/2} \left[\sin(\theta) - \theta \cdot \cos(\theta) \right] \cdot (n-1)\sin^{n-2}(\theta) \cdot \cos(\theta) \dif \theta\\
+&= 1 - (n-1) \int\limits_0^{\pi/2} \left[\sin(\theta) - \theta \cdot \cos(\theta) \right] \sin^{n-2}(\theta) \cdot \cos(\theta) \dif \theta\\
+&= 1 - (n-1) \left[ \int\limits_0^{\pi/2} \sin^{n-1}(\theta) \cdot \cos(\theta) \dif \theta - \int\limits_0^{\pi/2} \theta \cdot \sin^{n-2}(\theta) \cdot \cos^2(\theta) \dif \theta \right]\\
+& \text{Let } \sin(\theta) = t \Rightarrow \cos(\theta) \dif \theta = \dif t\\
+\Rightarrow I_n &= 1 - (n-1)\left[ \int\limits_0^1 t^{n-1} \dif t - \int\limits_0^{\pi/2} \theta \cdot \sin^{n-2}(\theta) \cdot \left(1- \sin^2(\theta)\right) \dif \theta \right]\\
+\Rightarrow I_n &= 1 - (n-1)\left[ \dfrac1{n} - \int\limits_0^{\pi/2} \theta \cdot \sin^{n-2}(\theta) \dif \theta + \int\limits_0^{\pi/2} \theta \sin^n(\theta)  \dif \theta \right]\\
+&= 1 - \dfrac{n-1}{n} + (n-1) \cdot I_{n-2} - (n-1) \cdot I_n\\
+\Rightarrow I_n \cdot (n) &= \cancel{1} - \cancel{1} + \dfrac1n + (n-1) \cdot I_{n-2}\\
+\Rightarrow I_n &= \dfrac1{n^2} + \dfrac{n-1}{n} \cdot I_{n-2}
+\end{align*}
+\end{proof}
+\end{prob}
+\pagebreak
+\begin{prob}
+Show that $\displaystyle\int\limits_0^1 \left( 1-x^2 \right)^n \dif x = \dfrac23 \cdot \dfrac45 \cdot \dfrac67\cdot \; \cdots \; \cdot \dfrac{2n}{2n+1}$\\
+\begin{proof}
+\[\text{Let } I_n = \int\limits_0^1 \left( 1-x^2 \right)^n \dif x\]
+Substitute $x = \sin(\theta)$\\
+$\Rightarrow \dif x = \cos(\theta) \dif \theta$
+\begin{align*}
+\Rightarrow I_n &= \int\limits_0^{\pi/2} \left( 1 - \sin^2(\theta) \right) \cdot \cos(\theta) \dif \theta\\
+&= \int\limits_0^{\pi/2} \left(\cos^2(\theta)\right)^n \cdot \cos(\theta) \dif \theta\\
+&= \int\limits_0^{\pi/2} \left(\cos^{2n+1}(\theta)\right) \dif \theta && \text{Using } \int\limits_a^b f(x) \dif x = \int\limits_a^b f(a+b-x) \dif x\\
+&= \int\limits_0^{\pi/2} \sin^{2n+1}(\theta) \dif \theta && \text{This is just the Wallis integral}\\
+&= \dfrac{\left( 2^n \cdot n! \right)^2}{(2n+1)!}\\
+&= \dfrac23 \cdot \dfrac45 \cdot \dfrac67\cdot \; \cdots \; \cdot \dfrac{2n}{2n+1}
+\end{align*}
+\end{proof}
+\end{prob}
+\begin{prob}
+Show that $\displaystyle\int\limits_0^{\infty} \dfrac1{\left( 1 + x^2 \right)^n} \dif x = \dfrac12 \cdot \dfrac34 \cdot \dfrac56 \cdot \; \cdots \; \cdot \dfrac{2n-3}{2n-2} \cdot \dfrac{\pi}{2}$
+\begin{proof} (Similar to the previous problem)
+\[\text{Let } I_n = \int\limits_0^{\infty} \dfrac1{\left( 1 + x^2 \right)^n} \dif x\]
+Substitute $x = \tan(\theta)$\\
+$\Rightarrow \dif x = \sec^2(\theta) \dif \theta$
+\begin{align*}
+\Rightarrow I_n &= \int\limits_0^{\pi/2} \dfrac1{\left(1 + \tan^2(\theta) \right)^n} \cdot \sec^2(\theta) \dif \theta\\
+&= \int\limits_0^{\pi/2}\dfrac1{\sec^{2n-2}(\theta)} \dif \theta = \int\limits_0^{\pi/2} \cos^{2n-1}(\theta) \dif \theta\\
+&= \int\limits_0^{\pi/2} \sin^{2n-2}(\theta) \dif \theta = \dfrac12 \cdot \dfrac34 \cdot \dfrac56 \cdot \; \cdots \; \cdot \dfrac{2n-3}{2n-2} \cdot \dfrac{\pi}{2}
+\end{align*}
+\end{proof}
+\end{prob}
+\pagebreak
+\subsubsection{Finding $\displaystyle\int\limits_0^{\infty} {\rm e}^{-x^2} \dif x$}
+This is going to be interesting because the antiderivative of ${\rm e}^{-x^2}$ cannot be expressed in terms of elementary functions, meaning we can't find it using the tools we have. However, we can find out the value of the definite integral $\displaystyle\int\limits_0^{\infty} {\rm e}^{-x^2} \dif x$, which we will attempt now.\\\\
+\textbf{Claim 1:} $1-x^2 \leq {\rm e}^{-x^2}$ for $0 \leq x \leq 1$
+\begin{proof}
+Let $x^2 = t$\\
+$0 \leq x \leq 1 \implies 0 \leq x^2 \leq 1 \implies 0 \leq t \leq 1$\\
+Let $f(t) = {\rm e}^{-t} + t -1$\\
+Then, for $0 \leq t \leq 1$,
+\[f(t) = {\rm e}^{-t} + t - 1\]
+\[\Rightarrow f'(t) =  - {\rm e}^{-t} + 1 = 1 - {\rm e}^{-t} = 1 - \dfrac1{{\rm e}^t} \geq 0\]
+$\Rightarrow f$ is strictly increasing.\\
+$\Rightarrow f(t) > f(0) \quad \forall t > 0$\\
+Also,
+\[f(0) = 0\]
+$\Rightarrow f(t) \geq 0$ for $0 \leq t \leq 1$\\
+$\Rightarrow f(x^2)\geq 0$ for $0 \leq x \leq 1$
+\[\Rightarrow {\rm e}^{-x^2} \geq 1 - x^2 \quad \forall x \in [0, 1]\]
+\end{proof}
+\textbf{Claim 2:} ${\rm e}^{-x^2} \leq \dfrac1{1+x^2}$ for $x \geq 0$
+\begin{proof}
+Again, let $x^2 = t$\\
+$x \geq 0 \implies x^2 \geq 0 \implies t \geq 0$\\
+Let $f(t) = (1+t) \cdot {\rm e^{-t}} - 1$\\
+Then, for $t \geq 0$,
+\[f(t) = (t+1) \cdot {\rm e}^{-t} - 1\]
+\[\Rightarrow f'(t) = -(t+1)\cdot{\rm e}^{-t} + {\rm e}^{-t} = -t \cdot {\rm e}^{-t} \leq 0\]
+$\Rightarrow f$ is strictly decreasing\\
+$\Rightarrow f(t) < f(0)$ for $t > 0$\\
+Also,
+\[f(0) = -1\]
+$\Rightarrow f(t) \leq 0$ for $t \geq 0$\\
+$\Rightarrow f(x^2) \leq 0$ for $x^2 \geq 0$
+\[\Rightarrow (1+x^2) \cdot {\rm e}^{-x^2} - 1 \leq 0 \quad \forall x \geq 0\]
+\[\Rightarrow {\rm e}^{-x^2} \leq \dfrac1{1+x^2} \quad \forall x \geq 0\] 
+\end{proof}
+Then, we have the following result for $x \in [0, 1]$:
+\[1-x^2 \leq {\rm e}^{-x^2} \leq \dfrac1{1+x^2} \quad \forall x \in [0, 1]\]
+[This is a nice inequality to remember.]
+\pagebreak
+\[1-x^2 \leq {\rm e}^{-x^2} \leq \dfrac1{1+x^2} \quad \forall x \in [0, 1]\]
+Raise to the $n^{th}$ power (where $n \geq 0$). Note that we don't need to worry about the sign since all terms are non-negative.
+\[\left(1-x^2\right)^n \leq {\rm e}^{-nx^2} \leq \dfrac1{\left( 1+x^2 \right)^n}\]
+Using comparison theorem,
+\[\int\limits_0^1 \left(1-x^2\right)^n \dif x \leq \int\limits_0^1 {\rm e}^{-nx^2} \dif x \leq \int\limits_0^1 \dfrac1{\left( 1+x^2\right)^n} \dif x \]
+\[\Rightarrow\int\limits_0^1 \left(1-x^2\right)^n \dif x \leq \int\limits_0^1 {\rm e}^{-nx^2} \dif x \leq \int\limits_0^1 \dfrac1{\left( 1+x^2\right)^n} \dif x \leq \int\limits_0^{\infty} \dfrac1{\left( 1+x^2 \right)^n} \dif x \]
+\[\Rightarrow\int\limits_0^1 \left(1-x^2\right)^n \dif x \leq \int\limits_0^1 {\rm e}^{-nx^2} \dif x \leq \int\limits_0^{\infty} \dfrac1{\left( 1+x^2 \right)^n} \dif x \]
+Let $y = \sqrt{n} \cdot x$\\
+$\Rightarrow \dif y = \sqrt{n} \cdot \dif x$\\
+\[\Rightarrow\int\limits_0^1 \left(1-x^2\right)^n \dif x \leq \dfrac1{\sqrt{n}}\int\limits_0^{\sqrt{n}} {\rm e}^{-y^2} \dif y \leq \int\limits_0^{\infty} \dfrac1{\left( 1+x^2 \right)^n} \dif x \]
+Multiply by $\sqrt{n}$\\
+\[\Rightarrow \sqrt{n}\int\limits_0^1 \left(1-x^2\right)^n \dif x \leq \int\limits_0^{\sqrt{n}} {\rm e}^{-y^2} \dif y \leq \sqrt{n} \int\limits_0^{\infty} \dfrac1{\left( 1+x^2 \right)^n} \dif x\]
+Take the limit as $n \to \infty$
+\[\Rightarrow \lim\limits_{n \to \infty} \sqrt{n}\int\limits_0^1 \left(1-x^2\right)^n \dif x \leq \lim\limits_{n \to \infty} \int\limits_0^{\sqrt{n}} {\rm e}^{-y^2} \dif y \leq \lim\limits_{n \to \infty} \sqrt{n} \int\limits_0^{\infty} \dfrac1{\left( 1+x^2 \right)^n} \dif x \]
+\[\Rightarrow \lim\limits_{n \to \infty} \sqrt{n}\int\limits_0^1 \left(1-x^2\right)^n \dif x \leq \int\limits_0^{\infty} {\rm e}^{-y^2} \dif y \leq \lim\limits_{n \to \infty} \sqrt{n} \int\limits_0^{\infty} \dfrac1{\left( 1+x^2 \right)^n} \dif x \]
+\[\Rightarrow \lim\limits_{n \to \infty} \sqrt{n}\int\limits_0^{\pi/2} \left(1-\sin^2(\theta)\right)^n \cdot \cos(\theta) \dif \theta \leq \int\limits_0^{\infty} {\rm e}^{-y^2} \dif y \leq \lim\limits_{n \to \infty} \sqrt{n} \int\limits_0^{\pi/2} \dfrac1{\left( 1+\tan^2(\theta) \right)^n} \cdot \sec^2(\theta) \dif \theta \]
+\[\Rightarrow \lim\limits_{n \to \infty} \sqrt{n}\int\limits_0^{\pi/2} \cos^{2n+1}(\theta) \dif \theta \leq \int\limits_0^{\infty} {\rm e}^{-y^2} \dif y \leq \lim\limits_{n \to \infty} \sqrt{n} \int\limits_0^{\pi/2} \cos^{2n-2}(\theta) \dif \theta \]
+\[\Rightarrow \lim\limits_{n \to \infty} \sqrt{n}\int\limits_0^{\pi/2} \sin^{2n+1}(\theta) \dif \theta \leq \int\limits_0^{\infty} {\rm e}^{-y^2} \dif y \leq \lim\limits_{n \to \infty} \sqrt{n} \int\limits_0^{\pi/2} \sin^{2n-2}(\theta) \dif \theta \]
+\pagebreak
+\[\Rightarrow \lim\limits_{n \to \infty} \sqrt{n}\int\limits_0^{\pi/2} \sin^{2n+1}(\theta) \dif \theta \leq \int\limits_0^{\infty} {\rm e}^{-y^2} \dif y \leq \lim\limits_{n \to \infty} \sqrt{n} \int\limits_0^{\pi/2} \sin^{2n-2}(\theta) \dif \theta \]
+Now, we will use\\
+$\displaystyle\int\limits_0^{\pi/2} \sin^{2n+1}(\theta) \dif \theta = \dfrac23 \cdot \dfrac45 \cdot \dfrac67\cdot \; \cdots \; \cdot \dfrac{2n}{2n+1} \quad$ and $\quad\displaystyle\int\limits_0^{\pi/2} \sin^{2n-2}(\theta) \dif \theta = \dfrac12 \cdot \dfrac34 \cdot \dfrac56 \cdot \; \cdots \; \cdot \dfrac{2n-3}{2n-2} \cdot \dfrac{\pi}{2}$\\
+Also, Wallis Product:
+\[\lim\limits_{m \to \infty} \dfrac{2 \cdot 4  \cdot \; \cdots \; \cdot (2m)}{1 \cdot 3 \cdot\; \cdots \; \cdot (2m-1)} \cdot \dfrac1{\sqrt{2m+1}} = \sqrt{\dfrac{\pi}{2}}\]
+So,
+\begin{align*}
+\lim\limits_{n \to \infty} \sqrt{n}\int\limits_0^{\pi/2} \sin^{2n+1}(\theta) \dif \theta &=\lim\limits_{n \to \infty} \sqrt{n} \cdot \dfrac23 \cdot \dfrac45 \cdot \dfrac67\cdot \; \cdots \; \cdot \dfrac{2n-2}{2n-1} \cdot \dfrac{2n}{2n+1}\\
+&=\lim\limits_{n \to \infty} \cdot \dfrac23 \cdot \dfrac45 \cdot \dfrac67\cdot \; \cdots \; \cdot \dfrac{2n-2}{2n-1} \cdot \dfrac{2n}{\sqrt{2n+1}} \dfrac{\sqrt{n}}{\sqrt{2n+1}} && \text{Using Wallis Product}\\
+&= \sqrt{\dfrac{\pi}{2}} \cdot \lim\limits_{n \to \infty} \sqrt{\dfrac{n}{2n+1}}\\
+&= \sqrt{\dfrac{\pi}{2}} \cdot \lim\limits_{n \to \infty}\sqrt{\dfrac{\cancel{n}}{\cancel{n}\left(2 + \dfrac1n\right)}} = \sqrt{\dfrac{\pi}{2}} \cdot \dfrac1{\sqrt2} = \dfrac{\sqrt{\pi}}2
+\end{align*}\\
+Similarly,
+\begin{align*}
+\lim\limits_{n \to \infty} \sqrt{n}\int\limits_0^{\pi/2} \sin^{2n-2}(\theta) \dif \theta &= \lim\limits_{n \to \infty} \sqrt{n} \cdot \dfrac12 \cdot \dfrac34 \cdot \dfrac56 \cdot \; \cdots \; \cdot \dfrac{2n-3}{2n-2} \cdot \dfrac{\pi}{2}\\
+&= \lim\limits_{n \to \infty} \sqrt{n} \cdot \dfrac12 \cdot \dfrac34 \cdot \dfrac56 \cdot \; \cdots \; \cdot \dfrac{2n-3}{2n-2} \cdot \dfrac{2n-1}{2n} \cdot \dfrac{\pi}{2}\\
+&= \lim\limits_{n \to \infty} \dfrac{\sqrt{n}}{\sqrt{2n+1}} \cdot \dfrac12 \cdot \dfrac34 \cdot \dfrac56 \cdot \; \cdots \; \cdot \dfrac{2n-3}{2n-2} \cdot \dfrac{2n-1}{2n} \cdot  \sqrt{2n+1} \cdot \dfrac{\pi}{2} && \text{Using Wallis Product}\\
+&= \sqrt{\dfrac2{\pi}} \cdot\lim\limits_{n \to \infty} \dfrac{\sqrt{n}}{\sqrt{2n+1}} \cdot \dfrac{\pi}{2}\\
+&= \sqrt{\dfrac2{\pi}} \cdot \dfrac{\pi}{2\sqrt2} = \dfrac{\cancel{\sqrt{2}}}{\sqrt{\pi}} \cdot \dfrac{\pi}{2\cancel{\sqrt2}} = \dfrac{\sqrt{\pi}}2
+\end{align*}
+\[\Rightarrow \dfrac{\sqrt{\pi}}2 \leq \int\limits_0^{\infty} {\rm e}^{-y^2} \dif y \leq \dfrac{\sqrt{\pi}}{2}\]
+\[\Rightarrow \int\limits_0^{\infty} {\rm e}^{-y^2} \dif y = \dfrac{\sqrt{\pi}}{2}\]
+\[\Rightarrow \int\limits_0^{\infty} {\rm e}^{-x^2} \dif x = \dfrac{\sqrt{\pi}}{2}\]
+\pagebreak
+\subsubsection{The Gamma Function}
+The Gamma Function is defined as:
+\[\Gamma(x) = \int\limits_0^{\infty} {\rm e}^{-t} \cdot t^{x-1} \dif t\]
 \end{document}
 

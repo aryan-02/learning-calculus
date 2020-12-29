@@ -4493,5 +4493,51 @@ Similarly,
 \subsubsection{The Gamma Function}
 The Gamma Function is defined as:
 \[\Gamma(x) = \int\limits_0^{\infty} {\rm e}^{-t} \cdot t^{x-1} \dif t\]
+\subsubsection*{Finding a Reduction Formula}
+\[\Gamma(x) = \int\limits_0^{\infty} {\rm e}^{-t} \cdot t^{x-1} \dif t\]
+Integrating by parts,\\
+Let $u = t^{x-1}$ and $\dif v = {\rm e}^{-t} \dif t$\\
+$\Rightarrow \dif u = (x-1)t^{x-2} \dif t$ and $v = -{\rm e}^{-t}$\\\\
+$\int u \dif v = uv - \int v \dif u$
+\begin{align*}
+\Rightarrow \Gamma(x) &= \left[ t^{x-1} \cdot \left(-{\rm e}^{-t}\right) \right]_0^{\infty} - \int\limits_0^{\infty} \left( -{\rm e}^{-t}\right) \cdot (x-1)t^{x-2} \dif t\\
+&= \left[ \dfrac{t^{x-1}}{{\rm e}^t} \right]_{\infty}^0 + (x-1) \int\limits_0^{\infty} {\rm e^{-t}} \cdot t^{x-2} \dif t\\
+&= 0 + (x-1) \cdot \Gamma(x-1)\\
+\Rightarrow \Gamma(x) &= (x-1) \cdot \Gamma(x-1)
+\end{align*}
+\subsubsection*{Base Case}
+\[\Gamma(1) = \int\limits_0^{\infty} {\rm e}^{-t} \cdot t^{1-1} \dif t = \int\limits_0^{\infty} {\rm e}^{-t} \dif t = \left[ - {\rm e}^{-t} \right]_0^{\infty} = 1\]
+\subsubsection*{Finding an Explicit Formula}
+\begin{align*}
+\Gamma(n) &= (n-1)\cdot \Gamma(n-1)\\
+&= (n-1)\cdot(n-2)\cdot\Gamma(n-3)\\
+&= (n-1)\cdot(n-2)\cdot(n-3)\cdot\Gamma(n-4)\\
+&= (n-1)\cdot(n-2)\cdot(n-3)\cdot \; \cdots \; \cdot 3 \cdot 2 \cdot \Gamma(1)\\
+&= (n-1)\cdot(n-2)\cdot(n-3)\cdot \; \cdots \; \cdot 3 \cdot 2 \cdot 1\\
+&= (n-1)!
+\end{align*}
+\[\Rightarrow \Gamma(n+1) = n!\]
+\[\Rightarrow \Gamma(n+1) = \int\limits_0^{\infty}{\rm e}^{-t} \cdot t^{n} \dif t = n!\]
+This is another beautiful connection between Discrete and Continuous mathematics.\\\\
+\pagebreak
+\paragraph{}\text{}\\
+The Gamma function can be used to extend the domain of Factorial from integers to all real numbers.\\
+So we could say something like the following:\\\\
+\[\text{Consider } I = \int\limits_0^{\infty} {\rm e}^{-x^2} \dif x\]
+Let $x^2 = u$\\
+$\Rightarrow \dif x =\dfrac1{2\sqrt u} \dif u$
+\begin{align*}
+\Rightarrow I &= \int\limits_0^{\infty} {\rm e}^u 
+\cdot \dfrac1{2 \sqrt u} \dif u\\
+&= \dfrac12 \int\limits_0^{\infty} {\rm e}^u \cdot u^{-1/2} \dif u\\
+&= \dfrac12 \int\limits_0^{\infty} {\rm e}^u \cdot u^{(1/2) -1} \dif u\\
+&= \dfrac12 \cdot \Gamma\left(\dfrac12\right)
+\end{align*}
+But we know that $I = \displaystyle\int\limits_0^{\infty} {\rm e}^{-x^2} \dif x = \dfrac{\sqrt{\pi}}{2}$
+\[\Rightarrow \dfrac12 \cdot \Gamma\left( \dfrac12 \right) =\dfrac{\sqrt{\pi}}{2}\]
+\[\Rightarrow \Gamma\left( \dfrac12 \right) = \sqrt{\pi}\]
+Now,
+\[\Gamma\left( \dfrac32 \right) = \dfrac12 \cdot \Gamma\left(\dfrac12\right) = \dfrac{\sqrt{\pi}}2\]
+\[\Rightarrow \left( \dfrac12 \right)! = \dfrac{\sqrt{\pi}}{2}\]
 \end{document}
 

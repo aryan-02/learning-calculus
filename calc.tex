@@ -4539,5 +4539,91 @@ But we know that $I = \displaystyle\int\limits_0^{\infty} {\rm e}^{-x^2} \dif x 
 Now,
 \[\Gamma\left( \dfrac32 \right) = \dfrac12 \cdot \Gamma\left(\dfrac12\right) = \dfrac{\sqrt{\pi}}2\]
 \[\Rightarrow \left( \dfrac12 \right)! = \dfrac{\sqrt{\pi}}{2}\]
+\pagebreak
+\subsection{Feynman's Technique for Integration}
+Let $f$ be a function whose first derivative is continuous in a given region with respect to the variables involved, and
+\[\Phi(y) = \int\limits_{q(y)}^{p(y)} f(x,y) \dif x\]
+Then,
+\[\Phi'(y) = \int\limits_{q(y)}^{p(y)} f_y(x, y) \dif x + f\left(p\left( y\right), y\right) \cdot p'(y) - f\left(q\left(y\right), y \right) \cdot q'(y)\]
+Where $f_y(x, y) = \dfrac{\partial}{\partial y} f(x, y)$,\\ i.e. $f_y(x, y)$ is the partial derivative of $f(x, y)$ with respect to $y$.
+\begin{prob}
+Evaluate $\displaystyle\int\limits_0^a \dfrac{\log_{\rm e}(1+ax)}{1+x^2} \dif x$ and hence find $\displaystyle\int\limits_0^1 \dfrac{\log_{\rm e}(1+x)}{1+x^2} \dif x$.\\
+\textbf{Solution:} The value of the integral depends on $a$.\\
+Let us define
+\[\Phi(a) = \int\limits_0^a \dfrac{\log_e(1+ax)}{1+x^2} \dif x\]
+Now, \[\dfrac{\partial}{\partial a} \left(\dfrac{\log_e(1+ax)}{1+x^2}\right) = \dfrac{x}{(1+x^2)(1+ax)}\]
+Using Feynman's Technique,
+\begin{align*}
+\Phi'(a) &= \int\limits_0^a \dfrac{x}{(1+x^2)(1+ax)} \dif x + \dfrac{\log_e(1+a^2)}{1+a^2} - \dfrac{\log_e(1 + 0)}{1+0}\\
+&= \int\limits_0^a \dfrac{x}{(1+x^2)(1+ax)} \dif x + \dfrac{\log_e(1+a^2)}{1+a^2}\\
+\end{align*}
+Let $I = \displaystyle\int\limits_0^a \dfrac{x}{(1+x^2)(1+ax)}$\\
+Evaluating integral $I$ by partial fractions.\\
+\begin{align*}
+\text{Let } \dfrac{x}{(1+x^2)(1+ax)} &= \dfrac{Ax+B}{1+x^2} + \dfrac{C}{1+ax}\\
+&= \dfrac{(Ax+B)(1+ax) + C(1+x^2)}{(1+x^2)(1+ax)}\\
+\Rightarrow x &= (Ax + B)(1+ ax) + C(1+x^2)\\
+&= Ax + Aax^2 + B + Bax + C + Cx^2\\
+&= (Aa + C) x^2 + (A + Ba)x + B + C
+\end{align*}
+Solve to get $A = \dfrac{1}{1+a^2},\quad B = \dfrac{a}{1+a^2}, \quad C = \dfrac{-a}{1+a^2}$
+\pagebreak
+\begin{align*}
+\Rightarrow \dfrac{x}{(1+x^2)(1+ax)} &= \dfrac{\left( \dfrac{1}{1+a^2} \right)x + \left( \dfrac{a}{1+a^2} \right)}{1+x^2} + \dfrac{\left( \dfrac{-a}{1+a^2} \right)}{1+ax}\\
+&= \dfrac{x+a}{(1+a^2)(1+x^2)} - \dfrac{a}{(1+a^2)(1+ax)}
+\end{align*}
+Then,
+\begin{align*}
+I = \int\limits_0^a \dfrac{x}{(1+x^2)(1+ax)} \dif x &= \int\limits_0^a \dfrac{x+a}{(1+a^2)(1+x^2)} \dif x - \int\limits_0^a \dfrac{a}{(1+a^2)(1+ax)} \dif x\\
+&= \int\limits_0^a \dfrac{x}{(1+a^2)(1+x^2)} \dif x + \int\limits_0^a \dfrac{a}{(1+a^2)(1+x^2)} \dif x - \int\limits_0^a \dfrac{a}{(1+a^2)(1+ax)} \dif x\\
+&= \dfrac{1}{2(1+a^2)}\int\limits_0^a \dfrac{2x}{1+x^2} \dif x + \dfrac{a}{1+a^2}\int\limits_0^a \dfrac{1}{1+x^2} \dif x - \dfrac{a}{1+a^2} \int\limits_0^a \dfrac1{1+ax} \dif x\\
+& \left[\text{Let } 1 + x^2 = t \implies 2x \dif x = \dif t\right]\\
+&= \dfrac1{2(1+a^2)} \left[ \log_{\rm e}(1+x^2) \right]_0^a + \dfrac{a}{1+a^2} \left[ \tan^{-1}(x) \right]_0^a - \dfrac{\cancel{a}}{1+a^2} \cdot \dfrac1{\cancel{a}} \left[ \log_{\rm e}\left(\;\abs{1+ax}\right) \right]_0^a\\
+&= \dfrac{\log_{\rm e}(1+a^2)}{2(1+a^2)} + \dfrac{a \cdot \tan^{-1}(a)}{1+a^2} - \dfrac{\log_e(1+a^2)}{1+a^2}\\
+&= \dfrac{a \cdot \tan^{-1}(a)}{1+a^2} - \dfrac12 \cdot \dfrac{\log_{\rm e}(1+a^2)}{(1+a^2)} 
+\end{align*}
+\begin{align*}
+\Rightarrow \Phi'(a) &= I + \dfrac{\log_e(1+a^2)}{1+a^2}\\
+&= \dfrac{a \cdot \tan^{-1}(a)}{1+a^2} - \dfrac12 \cdot \dfrac{\log_{\rm e}(1+a^2)}{(1+a^2)} + \dfrac{\log_e(1+a^2)}{1+a^2}\\
+&= \dfrac12 \cdot \dfrac{\log_{\rm e}(1+a^2)}{(1+a^2)} + \dfrac{a \cdot \tan^{-1}(a)}{1+a^2}
+\end{align*}
+Integrate with respect to $a$ to get $\Phi(a)$:
+\[\Phi(a) = \int \dfrac{\log_{\rm e}(1+a^2)}{2(1+a^2)} \dif a + \int \dfrac{a \cdot \tan^{-1}(a)}{1+a^2} \dif a\]
+Integrating by parts,\\
+Let $u = \dfrac12 \log_{\rm e}(1+a^2) \implies \dif u =\dfrac1{\cancel{2} (1+a^2)} \cdot \cancel{2}a \dif a = \dfrac{a}{(1+a^2)} \dif a$\\
+Let $\dif v = \dfrac1{1+a^2} \dif a \implies v = \tan^{-1}(a)$
+\begin{align*}
+\Phi(a) &= \int u \dif v + \int \dfrac{a \cdot \tan^{-1}(a)}{1+a^2} \dif a\\
+&= uv - \int v \dif u + \int \dfrac{a \cdot \tan^{-1}(a)}{1+a^2} \dif a\\
+&= \dfrac12 \log_e(1+a^2) \cdot \tan^{-1}(a) - \cancel{\int \dfrac{a \cdot \tan^{-1}(a)}{(1+a^2)} \dif a} + \cancel{\int \dfrac{a \cdot \tan^{-1}(a)}{1+a^2} \dif a} + c\\
+&= \dfrac12 \log_{\rm e}(1+a^2) \cdot \tan^{-1}(a) + c
+\end{align*}
+\pagebreak
+\[\Rightarrow \Phi(a) = \dfrac12 \log_{\rm e}(1+a^2) \cdot \tan^{-1}(a) + c\]
+\begin{align*}
+\Rightarrow \Phi(0) &= \dfrac12 \log_{\rm e}(1) \cdot \tan^{-1}(1) + c\\ &= 0 + c
+\end{align*}
+\begin{equation}\label{Feynman_c}
+\Rightarrow\Phi(0) = c
+\end{equation}
+But we defined
+\[\Phi(a) = \int\limits_0^a \dfrac{\log_e(1+ax)}{1+x^2} \dif x\]
+\[\Rightarrow \Phi(0) = \int\limits_0^0 \dfrac{\log_e(1+0)}{1+x^2} \dif x = 0\]
+\begin{equation}\label{Feynman_0}
+\Phi(0) = 0
+\end{equation}
+Now, from equations \eqref{Feynman_c} and \eqref{Feynman_0},
+\[c = 0\]
+\[\Rightarrow \Phi(a) = \dfrac12 \log_{\rm e}(1+a^2) \cdot \tan^{-1}(a)\]
+Now,
+\begin{align*}
+\int\limits_0^1 \dfrac{\log_{\rm e}(1+x)}{1+x^2} &= \Phi(1)\\
+&= \dfrac12 \log_{\rm e}(1+1^2) \cdot \tan^{-1}(1)\\
+&= \dfrac12 \log_{\rm e}(2) \cdot \tan^{-1}(1)\\
+&= \log_{\rm e}\left(2^{1/2}\right) \cdot \dfrac{\pi}{4}\\
+&= \log_{\rm e}\left(\sqrt2\right) \cdot \dfrac{\pi}{4}\\
+&= \dfrac{\pi}{4} \log_{\rm e}\left(\sqrt2\right)
+\end{align*}
+\end{prob}
 \end{document}
 

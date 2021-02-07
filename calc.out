@@ -53,7 +53,7 @@
 \BOOKMARK [2][-]{subsection.3.7}{Leibniz Formula for Derivatives}{section.3}% 53
 \BOOKMARK [2][-]{subsection.3.8}{Differentiability, Existence of Derivative and Continuity of Derivative}{section.3}% 54
 \BOOKMARK [2][-]{subsection.3.9}{Standard Derivatives}{section.3}% 55
-\BOOKMARK [1][-]{section.4}{Problems on Differential Calculus - 1}{}% 56
+\BOOKMARK [1][-]{section.4}{Miscellaneous Problems on Differential Calculus}{}% 56
 \BOOKMARK [1][-]{section.5}{Applications of Derivatives}{}% 57
 \BOOKMARK [2][-]{subsection.5.1}{Derivative as a Rate of Change}{section.5}% 58
 \BOOKMARK [2][-]{subsection.5.2}{Tangents and Normals}{section.5}% 59
@@ -159,3 +159,7 @@
 \BOOKMARK [3][-]{subsubsection.7.14.4}{Finding 0 e-x2 `39`42`"613A``45`47`"603Ad x}{subsection.7.14}% 159
 \BOOKMARK [3][-]{subsubsection.7.14.5}{The Gamma Function}{subsection.7.14}% 160
 \BOOKMARK [2][-]{subsection.7.15}{Feynman's Technique for Integration}{section.7}% 161
+\BOOKMARK [2][-]{subsection.7.16}{Integral as the Limit of a Sum}{section.7}% 162
+\BOOKMARK [3][-]{subsubsection.7.16.1}{Condition for Integrability}{subsection.7.16}% 163
+\BOOKMARK [3][-]{subsubsection.7.16.2}{Defining the Integral as the Limit of a Sum}{subsection.7.16}% 164
+\BOOKMARK [2][-]{subsection.7.17}{Areas}{section.7}% 165

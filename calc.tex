@@ -569,7 +569,7 @@ $\Rightarrow f'(x)$ is discontinuous at $x = 0$.
 \item $\dfrac{\dif}{\dif x} \cot^{-1}(x) = \dfrac{1}{1 + x^2}$
 \end{itemize}
 \pagebreak
-\section{Problems on Differential Calculus - 1}
+\section{Miscellaneous Problems on Differential Calculus}
 \begin{prob}
 Suppose $f$ and $g$ are differentiable functions. Find the derivative of $f \cdot g$.
 \paragraph{Solution:} Let $p(x) = f(x) \cdot g(x)$
@@ -4625,5 +4625,388 @@ Now,
 &= \dfrac{\pi}{4} \log_{\rm e}\left(\sqrt2\right)
 \end{align*}
 \end{prob}
+\pagebreak
+\subsection{Integral as the Limit of a Sum}
+Let $f$ be a continuous function in a closed interval $[a, b]$.\\ Let us partition the interval into $n$ parts $[a, a_1], [a_1, a_2], [a_2, a_3], \cdots, [a_{n-2}, a_{n-1}], [a_{n-1}, b]$.\\\\
+Now, let $m_i$ denote the minimum value of $f$ in the $i^{\text{th}}$ interval.\\
+And let $M_i$ denote the maximum value of $f$ in the $i^{\text{th}}$ interval.\\
+\begin{figure}[h]
+\includegraphics[scale=.24]{images/limit_of_sum}
+\end{figure}\\
+Say the set $P$ is the partition set:
+\[P = \{a_1, a_2, a_3, \cdots , a_{n-1}, a_n\}\]
+\[m_1 (a_1 - a) + m_2 (a_2 - a_1) + \cdots + m_n(b-a_{n-1}) \leq \int\limits_a^b f(x) \dif x \leq M_1(a_1 - a) + M_2 (a_2 - a_1) + \cdots + M_n(b - a_{n-1}) \]
+Then the Riemann Lower Sum with respect to partition $P$ is defined as:
+\[L(f, P) = m_1 (a_1 - a) + m_2 (a_2 - a_1) + \cdots + m_n(b-a_{n-1}) = \sum\limits_{i=1}^n m_i \Delta x_i\]
+And the Riemann Upper Sum with respect to partition $P$ is defined as:
+\[U(f, P) = M_1 (a_1 - a) + M_2 (a_2 - a_1) + \cdots + M_n(b-a_{n-1}) = \sum\limits_{i=1}^n M_i \Delta x_i \]
+\pagebreak
+\subsubsection{Condition for Integrability}
+A function is said to be (Riemann-Darboux) Integrable iff $\forall \varepsilon > 0$, $\exists\; p$ such that
+\[\abs{U(f, P) - L(f, P)} < \varepsilon\]
+(This is known as the Cauchy Criterion for Riemann Integrability)\\\\
+The upper integral is defined as
+\[\overline{\int\limits_a^b} f(x) \dif x = \inf\left(U(f, P)\right)\]
+And the lower integral is defiend as
+\[\underline{\int\limits_a^b} f(x) \dif x = \sup\left(L(f, P)\right)\]
+Where $\sup$ stands for the supremum, a.k.a. the lowest upper bound and $\inf$ stands for the infimum, a.k.a. the greatest lower bound.\\
+The Cauchy Criterion is equivalent to the statement that a function $f$ is integrable in $[a, b]$ iff
+\[\overline{\int\limits_a^b} f(x) \dif x = \underline{\int\limits_a^b} f(x) \dif x \]
+\[\Leftrightarrow \inf\left( U(f, P) \right) = \sup\left( L(f, P) \right)\]
+\subsubsection{Defining the Integral as the Limit of a Sum}
+Say $f$ is an increasing function. Let us partition the interval $[a, b]$ into $n$ parts of equal width. Then the minima in the intervals will be at their left endpoints. If we take these minima and multiply them with the width of the intervals, and take their sum, we'll get the Riemann Lower Sum.
+\[ \left( \dfrac{b-a}{n} \right)\left[f(a)  + f\left(a + \dfrac{b-a}{n} \right) + f\left(a + \dfrac{2(b-a)}{n}\right) + \cdots + f\left(a + \dfrac{(n-1)(b-a)}{n} \right)\right] = L(f, P)\]
+\[\Rightarrow \left( \dfrac{b-a}{n} \right) \sum\limits_{r=0}^{n-1} f\left( a + \dfrac{r(b-a)}{n} \right) = L(f, P)\]
+Similarly for the Riemann Upper Sum:
+\[\left( \dfrac{b-a}{n} \right) \left[ f\left( a + \dfrac{b-a}{n} \right) + f\left(a + \dfrac{2(b-a)}{n} \right) + \cdots + f\left(a + \dfrac{n(b-a)}{n} \right) \right] = U(f, P)\]
+\[\Rightarrow \left( \dfrac{b-a}{n} \right) \sum\limits_{r=1}^n f\left( a + \dfrac{r(b-a)}{n} \right) = U(f, P)\]
+\pagebreak
+\text{}\\
+So we have the following if $f$ is increasing.
+\[\Rightarrow \left( \dfrac{b-a}{n} \right) \sum\limits_{r=0}^{n-1} f\left( a + \dfrac{r(b-a)}{n} \right) \leq \int\limits_a^b f(x) \dif x \leq \left( \dfrac{b-a}{n} \right) \sum\limits_{r=1}^n f\left( a + \dfrac{r(b-a)}{n} \right)\]
+Similarly, if $f$ is decreasing, the upper sum and lower sum would get interchanged, giving us:
+\[\Rightarrow \left( \dfrac{b-a}{n} \right) \sum\limits_{r=1}^n f\left( a + \dfrac{r(b-a)}{n} \right) \leq \int\limits_a^b f(x) \dif x \leq \left( \dfrac{b-a}{n} \right) \sum\limits_{r=0}^{n-1} f\left( a + \dfrac{r(b-a)}{n} \right) \]
+For an integrable function, the limit of the upper and lower sums as the number of partitions $n \to \infty$ equals the value of the integral.
+\[\Rightarrow \lim\limits_{n \to \infty} \left( \dfrac{b-a}{n} \right) \sum\limits_{r=0}^{n-1} f\left( a + \dfrac{r(b-a)}{n} \right) = \lim\limits_{n \to \infty} \left( \dfrac{b-a}{n} \right) \sum\limits_{r=1}^n f\left( a + \dfrac{r(b-a)}{n} \right) = \int\limits_a^b f(x) \dif x\]
+This is an important result.\\
+It can be thought of like the $\dfrac{b-a}{n}$ serves as the $\dif x$ and the $a + \dfrac{r(b-a)}{n}$ serves as the $x$ in the integral.\\\\
+For problems involving infinite series, to find the lower and upper limits of the integral, plug in extreme values of $r$ and evaluate the limit.\\
+\begin{prob}
+Evaluate $\lim\limits_{n \to \infty} \left(\dfrac1{n+1} + \dfrac1{n+2} + \dfrac1{n+3} + \cdots + \dfrac1{n + n} \right)$\\
+\textbf{Solution:}\\\\
+Observation: Note that this limit doesn't simply evaluate to zero, because the number of terms is $n$, which is a variable, so we can't really split it into $n$ different limits, each evaluating to zero, since the limit itself is on $n \to \infty$.
+\[\text{Let } S = \lim\limits_{n \to \infty} \left(\dfrac1{n+1} + \dfrac1{n+2} + \dfrac1{n+3} + \cdots + \dfrac1{n + n} \right)\]
+\begin{align*}
+S &= \lim\limits_{n \to \infty} \sum\limits_{r = 1}^n \left(\dfrac1{n+r}\right)\\
+&= \lim\limits_{n \to \infty} \dfrac1n \sum\limits_{r=1}^n  \left( \dfrac1{1 + \left( \dfrac{r}{n} \right)}\right)
+\end{align*}
+Comparing it with the definition of an integral as the limit of a sum.\\
+Now, $b - a = 1 \implies a + \dfrac{r(b-a)}{n} = a + \dfrac{r}{n} = 1 + \dfrac{r}{n}$\\
+$\Rightarrow a = 1$ and $b = 2$\\
+\begin{align*}
+\therefore S &= \int\limits_1^2 \dfrac1x \dif x\\ 
+&= \ln(2) - \ln(1)\\ 
+&= \ln(2)
+\end{align*}
+\[\therefore S = \ln(2)\]
+\end{prob}
+\pagebreak
+\begin{prob}
+Evaluate $\lim\limits_{n \to \infty} \dfrac{\pi}{n} \left( \sin\left( \dfrac{\pi}{n} \right) + \sin\left( \dfrac{2\pi}{n} \right) + \sin\left( \dfrac{3\pi}{n} \right) + \cdots + \sin\left( \dfrac{n\pi}{n} \right) \right)$\\
+\textbf{Solution:}\\
+\[\text{Let } S = \lim\limits_{n \to \infty} \dfrac{\pi}{n} \left( \sin\left( \dfrac{\pi}{n} \right) + \sin\left( \dfrac{2\pi}{n} \right) + \sin\left( \dfrac{3\pi}{n} \right) + \cdots + \sin\left( \dfrac{n\pi}{n} \right) \right)\]
+\begin{align*}
+\Rightarrow S &= \lim\limits_{n \to \infty} \dfrac{\pi}{n} \cdot \sum\limits_{r = 1}^{n} \sin\left( \dfrac{r \pi}{n} \right)
+\end{align*}
+Comparing with the limit of a sum definition.\\
+$b - a = \pi \implies a + \dfrac{r(b-a)}{n} = a + \dfrac{r\pi}{n} = \dfrac{r\pi}{n}$\\
+$\Rightarrow a = 0$ and $b = \pi$
+\begin{align*}
+\Rightarrow S &= \int\limits_0^{\pi} \sin(x) \dif x\\
+&= -\left[\cos(x)\right]_0^{\pi}\\
+&= - \left[ (-1) - (+1) \right]\\
+&= 2
+\end{align*}
+\end{prob}
+\begin{prob}
+Evaluate $\lim\limits_{n \to \infty} \left( \dfrac1{\sqrt{4n^2 - 1}} + \dfrac1{\sqrt{4n^2 - 2^2}} + \dfrac1{\sqrt{4n^2 - 3^2}} + \cdots + \dfrac1{\sqrt{4n^2 - n^2}} \right)$\\
+\textbf{Solution:}
+\[\text{Let } S = \lim\limits_{n \to \infty} \left( \dfrac1{\sqrt{4n^2 - 1}} + \dfrac1{\sqrt{4n^2 - 2^2}} + \dfrac1{\sqrt{4n^2 - 3^2}} + \cdots + \dfrac1{\sqrt{4n^2 - n^2}} \right)\]
+\begin{align*}
+\Rightarrow S &= \lim\limits_{n \to \infty} \sum\limits_{r=1}^n \left( \dfrac1{\sqrt{4n^2 - r^2}} \right)\\
+&= \lim\limits_{n \to \infty} \sum\limits_{r=1}^n \left( \dfrac1{\sqrt{n^2 \cdot \left(4 - \dfrac{r^2}{n^2} \right)}} \right)\\
+&= \lim\limits_{n \to \infty} \dfrac1n \sum\limits_{r=0}^n \left( \dfrac1{\sqrt{4 - \left(\dfrac{r}{n}\right)^2}}\right)
+\end{align*}
+Comparing with the limit of a sum definition.\\
+$b - a = 1 \Rightarrow a + \dfrac{r}{n} = \dfrac{r}{n}$\\
+$\Rightarrow a = 0$ and $b = 1$
+\[\Rightarrow S = \int\limits_0^1 \dfrac1{\sqrt{4 - x^2}} \dif x = \left[ \sin^{-1}\left(\dfrac{x}2\right) \right]_0^1 = \dfrac{\pi}{6}\]
+\end{prob}
+\pagebreak
+\begin{prob}
+Evaluate $\lim\limits_{n \to \infty} \dfrac1n \left( \sqrt{1 + \dfrac1n} + \sqrt{1 + \dfrac2n} + \sqrt{1 + \dfrac3n} + \cdots + \sqrt{1 + \dfrac{n}{n}} \right)$\\
+\textbf{Solution:}
+\[\text{Let } S = \lim\limits_{n \to \infty} \dfrac1n \left( \sqrt{1 + \dfrac1n} + \sqrt{1 + \dfrac2n} + \sqrt{1 + \dfrac3n} + \cdots + \sqrt{1 + \dfrac{n}{n}} \right)\]
+\[\Rightarrow S = \lim\limits_{n \to \infty} \dfrac1n \sum\limits_{r=1}^n \sqrt{1 + \dfrac{r}{n}}\]
+Comparing with the limit of a sum definition.\\
+$\Rightarrow b - a = 1 \Rightarrow a + \dfrac{r}{n} = 1 + \dfrac{r}{n}$\\
+$\Rightarrow a = 1$ and $b = 2$
+\begin{align*}
+\Rightarrow S &= \int\limits_1^2 \sqrt{x} \dif x\\
+&= \dfrac23 \left[ x^{3/2} \right]_1^2\\
+&= \dfrac23 \left[ 2\sqrt2 - 1 \right]
+\end{align*}
+\end{prob}
+\begin{prob}
+Evaluate $\lim\limits_{n \to \infty} \dfrac{1 + \sqrt[3]{2} + \sqrt[3]{3} + \sqrt[3]{4} + \cdots + \sqrt[3]{n}}{\sqrt[3]{n^4}}$
+\begin{align*}
+\text{Let } S &= \lim\limits_{n \to \infty} \dfrac{1 + \sqrt[3]{2} + \sqrt[3]{3} + \sqrt[3]{4} + \cdots + \sqrt[3]{n}}{\sqrt[3]{n^4}}\\
+&= \lim\limits_{n \to \infty} \dfrac{1 + \sqrt[3]{2} + \sqrt[3]{3} + \sqrt[3]{4} + \cdots + \sqrt[3]{n}}{\sqrt[3]{n^3 \cdot n}}\\
+&= \lim\limits_{n \to \infty} \dfrac1n \left( \sqrt[3]{\dfrac1n} + \sqrt[3]{\dfrac2n} + \sqrt[3]{\dfrac3n} + \cdots + \sqrt[3]{\dfrac{n}n} \right)\\
+&= \lim\limits_{n \to \infty} \dfrac1n \sum\limits_{r=1}^n \sqrt[3]{\dfrac{r}{n}}
+\end{align*}
+Comparing with the limit of a sum definition.\\
+$b - a = 1 \Rightarrow a + \dfrac{r}{n} = \dfrac{r}{n}$\\
+$\Rightarrow a = 0$ and $b = 1$
+\begin{align*}
+\Rightarrow S &= \int\limits_0^1 \sqrt[3]{x} \dif x\\
+&= \int\limits_0^1 x^{1/3} \dif x\\
+&= \dfrac34 \left[ x^{4/3} \right]_0^1\\
+&= \dfrac34
+\end{align*}
+\end{prob}
+\pagebreak
+\begin{prob}
+Evaluate $\lim\limits_{n \to \infty} \dfrac{\sqrt[n]{n!}}{n}$\\
+\textbf{Solution:}
+\begin{align*}
+\text{Let } A &= \lim\limits_{n \to \infty} \dfrac{\sqrt[n]{n!}}{n}\\
+&= \lim\limits_{n \to \infty} \dfrac{(n!)^{1/n}}{n} && \text{Take natural log on both sides}\\
+\Rightarrow \ln(A) &= \ln\left( \lim\limits_{n \to \infty} \dfrac{(n!)^{1/n}}{n} \right)\\
+&= \lim\limits_{n \to \infty} \ln \left( \left( \dfrac{n!}{n^n} \right)^{1/n} \right)\\
+&= \lim\limits_{n \to \infty} \dfrac1n \ln\left( \dfrac{n!}{n^n} \right)\\
+&= \lim\limits_{n \to \infty} \dfrac1n \ln\left( \dfrac1n \cdot \dfrac2n \cdot \dfrac3n \cdot \; \cdots \; \cdot \dfrac{n}n \right)\\
+&= \lim\limits_{n \to \infty} \dfrac1n \left( \ln\left( \dfrac1n \right) + \ln\left( \dfrac2n \right) + \ln\left( \dfrac3n \right) + \cdots + \ln\left( \dfrac{n}{n} \right)  \right)\\
+&= \lim\limits_{n \to \infty} \dfrac1n \sum\limits_{r=1}^n \ln\left( \dfrac{r}{n} \right)
+\end{align*}
+Comparing with the limit of a sum definition.\\
+$b - a = 1 \Rightarrow a + \dfrac{r}{n} = \dfrac{r}{n}$\\
+$\Rightarrow a = 0$ and $b = 1$
+\begin{align*}
+\Rightarrow \ln(A) &= \int\limits_0^1 \ln(x) \dif x && \text{Integrate by parts}\\
+&= \left[ x \cdot \ln(x) - x \right]_0^1\\
+&= -1\\
+\Rightarrow A &= {\rm e}^{-1}\\
+&= \dfrac1{\rm e}
+\end{align*}
+\end{prob}\text{}\\
+Generally, if we see a product of $n$ terms in a limit problem, it may be a good idea to take the natural logarithm on both sides to turn it into a problem of an infinite sum, or an integral as the limit of a sum.
+\pagebreak
+\begin{prob}
+Evaluate $\lim\limits_{n \to \infty} \dfrac{\left[ (n+1) \cdot (n+2) \cdot (n+3) \cdot \; \cdots \; \cdot (n + n) \right]^{1/n}}n$\\
+\textbf{Solution:}\\
+\[\text{Let } A = \lim\limits_{n \to \infty} \dfrac{\left[ (n+1) \cdot (n+2) \cdot (n+3) \cdot \; \cdots \; \cdot (n + n) \right]^{1/n}}n\]
+\begin{align*}
+\Rightarrow \ln(A) &= \ln\left( \lim\limits_{n \to \infty} \dfrac{\left[ (n+1) \cdot (n+2) \cdot (n+3) \cdot \; \cdots \; \cdot (n + n) \right]^{1/n}}n \right)\\
+&= \lim\limits_{n \to \infty} \ln\left( \left[\dfrac{ (n+1) \cdot (n+2) \cdot (n+3) \cdot \; \cdots \; \cdot (n + n) }{n^n}\right]^{1/n} \right)\\
+&= \lim\limits_{n \to \infty}\dfrac1{n} \ln\left( \left[ \left(\dfrac{n+1}{n}\right) \cdot \left(\dfrac{n+2}{n}\right) \cdot \left(\dfrac{n+3}{n}\right) \cdot \; \cdots \; \cdot \left(\dfrac{n+n}{n}\right) \right] \right)\\
+&= \lim\limits_{n \to \infty} \dfrac1{n} \left[ \ln\left(\dfrac{n+1}{n}\right) + \ln\left(\dfrac{n+2}{n}\right) + \ln\left(\dfrac{n+3}{n}\right) + \; \cdots \; + \ln\left(\dfrac{n+n}{n}\right) \right]\\
+&= \lim\limits_{n \to \infty} \dfrac1n \sum\limits_{r=0}^n \ln\left(\dfrac{n+r}{n}\right)\\
+&= \lim\limits_{n \to \infty} \dfrac1n \sum\limits_{r=0}^n \ln\left(1 +\dfrac{r}{n}\right)\\
+\end{align*}
+Comparing with the limit of a sum definition,\\
+$b - a= 1 \Rightarrow a + \dfrac{r}{n} = 1 + \dfrac{r}{n}$\\
+$\Rightarrow a = 1$ and $b = 2$.
+\begin{align*}
+\Rightarrow \ln(A) &= \int\limits_1^2 \ln(x) \dif x && \text{Integrate by parts}\\
+&= \left[x \cdot \ln(x) - x \right]_1^2\\
+&= \left( 2\ln(2) - 2 \right) - \left(\ln(1) - 1\right)\\
+&= 2\ln(2) - 1\\
+\Rightarrow A &= {\rm e}^{2\ln(2) - 1}\\
+&= {\rm e}^{\ln(4) - \ln({\rm e})}\\
+&= {\rm e}^{\ln\left( 4/{\rm e} \right)}\\
+&= \dfrac{4}{\rm e}
+\end{align*}
+\end{prob}
+\pagebreak
+\begin{prob}
+Evaluate $\lim\limits_{n \to \infty} \left[ \tan\left( \dfrac{\pi}{2n} \right) \cdot \tan\left(\dfrac{2\pi}{2n}\right) \cdot \tan\left(\dfrac{3\pi}{2n}\right) \cdot \; \cdots \; \cdot \tan\left(\dfrac{n\pi}{2n}\right) \right]^{1/n}$\\
+\textbf{Solution:}
+\[\text{Let } A = \lim\limits_{n \to \infty} \left[ \tan\left( \dfrac{\pi}{2n} \right) \cdot \tan\left(\dfrac{2\pi}{2n}\right) \cdot \tan\left(\dfrac{3\pi}{2n}\right) \cdot \; \cdots \; \cdot \tan\left(\dfrac{n\pi}{2n}\right) \right]^{1/n}\]
+Taking the natural logarithm on both sides.
+\begin{align*}
+\ln(A) &= \ln\left(\lim\limits_{n \to \infty} \left[ \tan\left( \dfrac{\pi}{2n} \right) \cdot \tan\left(\dfrac{2\pi}{2n}\right) \cdot \tan\left(\dfrac{3\pi}{2n}\right) \cdot \; \cdots \; \cdot \tan\left(\dfrac{n\pi}{2n}\right) \right]^{1/n}\right)\\
+&= \lim\limits_{n \to \infty} \dfrac1{n} \left[
+\ln\left(\tan\left(\dfrac{\pi}{2n}\right)\right) +
+\ln\left(\tan\left(\dfrac{2\pi}{2n}\right)\right) +
+\ln\left(\tan\left(\dfrac{3\pi}{2n}\right)\right) + \cdots +
+\ln\left(\tan\left(\dfrac{n\pi}{2n}\right)\right)
+\right]\\
+&= \lim\limits_{n \to \infty} \dfrac1{n} \sum\limits_{r=1}^n \ln\left(\tan\left( \dfrac{r\pi}{2n} \right) \right)
+\end{align*}
+Comparing with the limit of a sum definition.\\
+$b - a = 1 \Rightarrow a + \dfrac{r}{n} = \dfrac{r}{n}$\\
+$\Rightarrow a = 0$ and $b = 1$
+\begin{align*}
+\Rightarrow \ln(A) &= \int\limits_0^1 \ln\left(\tan\left( \dfrac{\pi}{2}x \right)\right) \dif x && \text{Using } \int\limits_a^b f(x) \dif x = \int\limits_a^b f(a+b-x) \dif x\\
+&= \int\limits_0^1 \ln\left( \tan\left(\dfrac{\pi}{2}\left(1 - x\right)\right) \right) \dif x && \text{Add}\\
+\Rightarrow 2\ln(A) &= \int\limits_0^1 \left[  \ln\left(\tan\left( \dfrac{\pi}{2}x \right)\right) + \ln\left( \tan\left(\dfrac{\pi}{2} - \dfrac{\pi}{2}x\right) \right) \right] \dif x\\
+&= \int\limits_0^1 \left[  \ln\left(\tan\left( \dfrac{\pi}{2}x \right)\right) + \ln\left( \cot\left(\dfrac{\pi}{2}x\right) \right) \right] \dif x \\
+&= \int\limits_0^1 \ln\left( \tan\left(\dfrac{\pi}{2}x\right) \cdot \cot\left(\dfrac{\pi}{2}x\right) \right) \dif x\\
+&= \int\limits_0^1 \ln(1) \dif x\\
+\Rightarrow 2\ln(A) &= 0\\
+\Rightarrow \ln(A) &= 0\\
+\Rightarrow A &= {\rm e}^0\\
+&= 1
+\end{align*}
+\[\Rightarrow A = 1\]
+\end{prob}
+\pagebreak
+\subsection{Areas}
+\begin{enumerate}
+\item Let $f$ be a non-negative function on the interval $[a, b]$. Then the area bounded by the function $y=f(x)$ with the x-axis and the lines $x = a$ and $x = b$ is given by
+\[\int\limits_a^b y \dif x = \int\limits_a^b f(x) \dif x\]
+\begin{figure}[h]\centering
+\includegraphics[scale=.4]{images/int_areas_nonneg}
+\end{figure}
+\item In general, if $f$ doesn't change sign in $[a, b]$, then the area bounded by the function with the $x-axis$ and lines $y=a$ and $y=b$ is 
+\[\int\limits_a^b \abs{f(x)} \dif x\]
+\begin{figure}[h]\centering
+\includegraphics[scale=.4]{images/int_areas_general_no_sign_change}
+\end{figure}
+\pagebreak
+\item Say we want to find the area bounded by the curve with the $y$-axis and the lines $y=c$ and $y=d$. If $x$ is non-negative,
+\[\text{Area} = \int\limits_c^d x \dif y = \int\limits_c^d f^{-1}(y) \dif y\]
+\begin{figure}[h]\centering
+\includegraphics[scale=.4]{images/int_areas_y_axis}
+\end{figure}
+\[\text{In general, Area} = \int\limits_c^d \abs{x} \dif y = \int\limits_a^b \abs{f^{-1}(y)} \dif y\]
+\item Say in the interval $[a, b]$, $f(x) \geq g(x)$ and the curves intersect at the points $a$ and $b$. Then the area bounded between $f(x)$ and $g(x)$ is 
+\[\int\limits_a^b \left( f(x) - g(x) \right) \dif x\]
+\begin{figure}[h]\centering
+\includegraphics[scale=.4]{images/int_areas_cycle}
+\end{figure}
+\item The other way of finding the same area could be
+\[\int\limits_c^d \left( x_1 - x_2 \right) \dif y = \int\limits_c^d \left( g^{-1}(y) - f^{-1}(y) \right) \dif y\]
+We can use this if the functions are easier to deal with in terms of $y$.
+\item \textbf{Polar Coordinates:}\\
+\begin{figure}[h]\centering
+\includegraphics[scale=.4]{images/int_areas_polar}
+\end{figure}
+\[\text{Area of small sector} = \dfrac12 (\dif \theta) r^2\]
+\[\text{Area bounded by the curve} = \int\limits_{\phi_1}^{\phi_2} \dfrac12 r^2 \dif \theta\]
+\item \textbf{Volume of Revolution:}\\
+If we take the curve and rotate it about the $x$-axis, we'll get a cylinder-like solid whose volume will be given by
+\[\text{Volume} = \int\limits_a^b \pi \left( f(x) \right)^2 
+\dif x\]
+\nopagebreak
+\begin{figure}[h]\centering
+\includegraphics[scale=.31]{images/int_areas_revolution}
+\end{figure}
+\end{enumerate}
+\pagebreak
+\begin{prob}
+Find the area bounded by the curve $\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1$ where $a$ and $b$ are non-zero real numbers.\\
+\textbf{Solution:}\\
+\begin{figure}[h]\centering
+\includegraphics[scale=.2]{images/ellipse}
+\end{figure}
+Let the required area be $A$.\\
+Then, since the ellipse is symmetric, if we find the area bounded in the first quadrant and multiply it by $4$, we'll get the total area.
+\[\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1\]
+\[\Rightarrow \dfrac{y^2}{b^2} = 1 - \dfrac{x^2}{a^2}\]
+First quadrant:
+\[y = b\sqrt{\dfrac{a^2 - x^2}{a^2}}\]
+\[\Rightarrow y = \dfrac{b}{a} \sqrt{a^2 - x^2}\]
+So the required area becomes:
+\begin{align*}
+A &= 4 \int\limits_0^a \dfrac{b}{a} \sqrt{a^2 - x^2} \dif x\\
+&= \dfrac{4b}{a} \int\limits_0^a \sqrt{a^2 - x^2} \dif x\\
+&= \dfrac{4b}{a} \cdot \left[ \dfrac{x}2 \sqrt{a^2 - x^2} + \dfrac{a^2}{2} \sin^{-1}\left( \dfrac{x}{a} \right) \right]_0^a\\
+&= \dfrac{4b}{a} \cdot \left[ \dfrac{a}2 (0) + \dfrac{a^2}{2} \sin^{-1}\left( \dfrac{\cancel{a}}{\cancel{a}} \right) \right]\\
+&= \dfrac{4b}{a} \cdot \left[ \dfrac{a^2}{2} \cdot \dfrac{\pi}{2} \right]\\
+&= \pi a b
+\end{align*}
+\pagebreak
+\text{}\\
+\textbf{Alternatively:}\\
+We have \[\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1\]\\
+Let $S$ be the set of ordered pairs from which $x$ and $y$ take their values.\\
+Then, our objective is to find the value of $\displaystyle\int\limits_S y \dif x$.\\
+Let us substitute $\dfrac{x}{a} = u$ and $\dfrac{y}{b} = v$.\\
+Or in other terms,
+\[y = bv\]
+\[x = au\]
+\[\Rightarrow \dif x = a \dif u\]
+Let $S'$ be the corresponding set from which $u$ and $v$ take their values.\\
+\[\int\limits_S y \dif x = \int\limits_{S'} (bv) a \dif u = ab \int\limits_{S'} v \dif u\]
+And the equation becomes
+\[u^2 + v^2 = 1\]
+Now for the relation $u^2 + v^2 = 1$, the integral $\displaystyle\int\limits_{S'} v \dif u$ represents the area of the unit circle centred at the origin.\\
+\[\text{i.e. } \int\limits_{S'} v \dif u = \pi\]
+So the area of the ellipse represented by the ellipse represented by the equation $\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1$ becomes
+\begin{align*}
+A &= \int\limits_{S} y \dif x\\
+&= ab \int\limits_{S'} v \dif u\\
+&= ab \cdot \pi\\
+&= \pi ab
+\end{align*}
+\end{prob}
+\pagebreak
+\begin{prob}
+Find the area bounded by the curve $y = \sqrt{4-x}$ with the $x$ and $y$ axes.\\
+\textbf{Solution:}
+\[y = \sqrt{4-x}\]
+Finding intercepts:
+\[x = 0 \iff y = 2\]
+\[y = 0 \iff x = 4\]
+Differentiate:
+\begin{align*}
+\dfrac{\dif y}{\dif x} &= \dfrac{-1}{2\sqrt{4-x}}\\
+&= \dfrac{-1}{2} \left( 4-x \right)^{-1/2}\\
+\Rightarrow \dfrac{\dif^{\;2} y}{\dif x^2} &= \dfrac{-1}4 (4-x)^{-3/2}
+\end{align*}
+Now,\\\\
+$\dfrac{\dif y}{\dif x} \leq 0$ and the equality holds only at a discrete point $\implies y$ is strictly decreasing.\\
+Similarly $\dfrac{\dif^{\;2}y}{\dif x^2} < 0$ and the equality holds only at a discrete point $\implies y$ is strictly concave down.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=.3]{images/area4-x}
+\[y^2 = 4-x\]
+\[\implies x = 4-y^2\]
+\[\text{Area} = \int\limits_0^2 x \dif y = \int\limits_0^2 \left( 4 - y^2\right) \dif y = \left[4y - \dfrac{y^3}{3} \right]_0^2 = 8 - \dfrac83 = \dfrac{16}3\]
+\end{figure}
+\end{prob}
+\pagebreak
+\begin{prob}
+If the line $x = \alpha$ divides the area of the region
+\[R = \left\{ (x, y) : (x, y) \in \mathbb{R}^2,\quad x^3 \leq y \leq x, \quad 0 \leq x \leq 1 \right\}\]
+in two parts of equal area, then which of the following is/are true?\\\\
+\begin{enumerate*}[label=(\Alph*)]
+\item $2\alpha^4 - 4\alpha^2 + 1 = 0\quad\quad\quad$
+\item $\alpha^4 + 4\alpha^2 - 1 = 0\quad\quad\quad$
+\item $0 < \alpha \leq \dfrac12\quad\quad\quad$
+\item $\dfrac12 < \alpha < 1$
+\end{enumerate*}\\
+\textbf{Solution: (A, D) }\\
+For $x \in [0, 1]$, we have
+\[x^3 \leq y \leq x\]
+\[\Rightarrow y \geq x^3 \text{ and } y \leq x\]
+\begin{figure}[h]\centering
+\includegraphics[scale=.2]{images/area_half_x3yx}
+\end{figure}
+\begin{align*}
+\int\limits_0^{\alpha} (x - x^3) \dif x &= \int\limits_{\alpha}^1 (x - x^3) \dif x\\
+\Rightarrow \left[ \dfrac{x^2}{2} - \dfrac{x^{4}}4 \right]_0^{\alpha} &= \left[ \dfrac{x^2}{2} - \dfrac{x^{4}}4 \right]_{\alpha}^1\\
+\Rightarrow \dfrac{\alpha^2}{2} - \dfrac{\alpha^2}{4} &= \dfrac12 - \dfrac14 - \dfrac{\alpha^2}2 + \dfrac{\alpha^2}{4}\\
+\Rightarrow \alpha^2 - \dfrac{\alpha^4}{2} &= \dfrac14\\
+\Rightarrow 4\alpha^2 - 2\alpha^4 &= 1\\
+\Rightarrow 2\alpha^4 - 4 \alpha^2 + 1 &= 0\\
+\therefore \text{Option \textbf{(A)} is correct.}
+\end{align*}
+Let $\alpha^2 = t$
+\[\Rightarrow 2t^2 - 4t + 1 = 0\]
+\[\Rightarrow t = \dfrac{4 \pm \sqrt{8}}{4} = 1 \pm \dfrac1{\sqrt2}\]
+But $0 < \alpha < 1 \implies 0 < t < 1 \implies t = \alpha^2 = 1 - \dfrac1{\sqrt2} \approx 0.3$\\
+$\Rightarrow \dfrac12 < \alpha < 1$, therefore option \textbf{(D)} is correct.
+\end{prob}
+\pagebreak
+\begin{prob}
+Find the area of a cardioid (using polar coordinates).\\
+\textbf{Solution:} A cardioid is represented by the following polar equation and gets its name from its shape resembling a heart. \[r = a\left(1 + \cos(\theta)\right)\]
+It is defined as the locus of a point on the perimeter of a circle that is rolling around a fixed circle of the same radius (without slipping).
+\begin{figure}[h]\centering
+\includegraphics[scale=.3]{images/cardioid}
+\end{figure}
+\begin{align*}
+\text{Area} &= \int\limits_0^{2\pi} \dfrac12 r^2 \dif \theta\\
+&= \dfrac12 \int\limits_0^{2\pi} a^2\left(1+\cos(\theta)\right)^3 \dif \theta\\
+&= \dfrac{a^2}2 \int\limits_0^{2\pi}\left(1 + \cos(\theta)\right)^2\dif \theta\\
+&= \dfrac{a^2}{2} \int\limits_0^{2\pi} \left( 1 + 2\cos(\theta) + \cos^2(\theta) \right) \dif \theta\\
+&= \dfrac{a^2}{2} \int\limits_0^{2\pi} \left( 1 + 2\cos(\theta) + \dfrac{1 + \cos(2\theta)}2 \right) \dif \theta\\
+&= \dfrac{a^2}{2} \left[ \theta + 2\sin(\theta) + \dfrac{\theta}{2} + \dfrac14 \sin(2\theta) \right]_0^{2\pi}\\
+&= \dfrac{a^2}{2} \left[ 2\pi + \pi \right]\\
+&= \dfrac{3\pi}{2} a^2
+\end{align*}
+\end{prob}
 \end{document}
-

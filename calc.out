@@ -11,155 +11,169 @@
 \BOOKMARK [2][-]{subsection.1.6}{One-Sided Limits}{section.1}% 11
 \BOOKMARK [3][-]{subsubsection.1.6.1}{Left Hand Limit}{subsection.1.6}% 12
 \BOOKMARK [3][-]{subsubsection.1.6.2}{Right Hand Limit}{subsection.1.6}% 13
-\BOOKMARK [2][-]{subsection.1.7}{Cluster Point}{section.1}% 14
-\BOOKMARK [2][-]{subsection.1.8}{Polynomial Approximation of Functions to Arbitrary Precision}{section.1}% 15
-\BOOKMARK [3][-]{subsubsection.1.8.1}{Taylor Series}{subsection.1.8}% 16
-\BOOKMARK [3][-]{subsubsection.1.8.2}{Maclaurin Series}{subsection.1.8}% 17
-\BOOKMARK [1][-]{section.2}{Continuity}{}% 18
-\BOOKMARK [2][-]{subsection.2.1}{Definition}{section.2}% 19
-\BOOKMARK [2][-]{subsection.2.2}{Continuity of Combinations of Continuous Functions}{section.2}% 20
-\BOOKMARK [2][-]{subsection.2.3}{Continuity of Composite Functions}{section.2}% 21
-\BOOKMARK [2][-]{subsection.2.4}{Product of Continuous and Discontinuous Function}{section.2}% 22
-\BOOKMARK [2][-]{subsection.2.5}{Calculus and Zeros}{section.2}% 23
-\BOOKMARK [3][-]{subsubsection.2.5.1}{Warm-Up Problem}{subsection.2.5}% 24
-\BOOKMARK [3][-]{subsubsection.2.5.2}{Bolzano's Theorem}{subsection.2.5}% 25
-\BOOKMARK [3][-]{subsubsection.2.5.3}{Important Results Derived From Bolzano's Theorem}{subsection.2.5}% 26
-\BOOKMARK [3][-]{subsubsection.2.5.4}{Problems based on Bolzano's Theorem}{subsection.2.5}% 27
-\BOOKMARK [2][-]{subsection.2.6}{Checking Continuity of Some Weird Functions}{section.2}% 28
-\BOOKMARK [3][-]{subsubsection.2.6.1}{Dirichlet Function}{subsection.2.6}% 29
-\BOOKMARK [3][-]{subsubsection.2.6.2}{Thomae's Function}{subsection.2.6}% 30
-\BOOKMARK [2][-]{subsection.2.7}{The Intermediate Value Theorem}{section.2}% 31
-\BOOKMARK [3][-]{subsubsection.2.7.1}{Statement and Proof}{subsection.2.7}% 32
-\BOOKMARK [3][-]{subsubsection.2.7.2}{Example Problems}{subsection.2.7}% 33
-\BOOKMARK [2][-]{subsection.2.8}{Boundedness}{section.2}% 34
-\BOOKMARK [3][-]{subsubsection.2.8.1}{Definition}{subsection.2.8}% 35
-\BOOKMARK [2][-]{subsection.2.9}{Absolute Maxima and Minima}{section.2}% 36
-\BOOKMARK [3][-]{subsubsection.2.9.1}{Absolute/Global Maximum}{subsection.2.9}% 37
-\BOOKMARK [3][-]{subsubsection.2.9.2}{Absolute/Global Minimum}{subsection.2.9}% 38
-\BOOKMARK [2][-]{subsection.2.10}{Properties of a Continuous Function}{section.2}% 39
-\BOOKMARK [2][-]{subsection.2.11}{Problems Based on Continuity}{section.2}% 40
-\BOOKMARK [1][-]{section.3}{Derivatives and Differentiability}{}% 41
-\BOOKMARK [2][-]{subsection.3.1}{Definition}{section.3}% 42
-\BOOKMARK [3][-]{subsubsection.3.1.1}{Left-Hand Derivative}{subsection.3.1}% 43
-\BOOKMARK [3][-]{subsubsection.3.1.2}{Right-Hand Derivative}{subsection.3.1}% 44
-\BOOKMARK [3][-]{subsubsection.3.1.3}{Geometric Intuition}{subsection.3.1}% 45
-\BOOKMARK [2][-]{subsection.3.2}{Differentiability Implies Continuity}{section.3}% 46
-\BOOKMARK [2][-]{subsection.3.3}{Differentiability of Combinations of Differentiable Functions}{section.3}% 47
-\BOOKMARK [2][-]{subsection.3.4}{Combination of Differentiable and Non-Differentiable Functions}{section.3}% 48
-\BOOKMARK [2][-]{subsection.3.5}{Differentiability of the Modulus Function}{section.3}% 49
-\BOOKMARK [3][-]{subsubsection.3.5.1}{Differentiability of x and x - a where a is Constant}{subsection.3.5}% 50
-\BOOKMARK [3][-]{subsubsection.3.5.2}{Differentiability of xa where a is Constant}{subsection.3.5}% 51
-\BOOKMARK [2][-]{subsection.3.6}{Important Result on Differentiability}{section.3}% 52
-\BOOKMARK [2][-]{subsection.3.7}{Leibniz Formula for Derivatives}{section.3}% 53
-\BOOKMARK [2][-]{subsection.3.8}{Differentiability, Existence of Derivative and Continuity of Derivative}{section.3}% 54
-\BOOKMARK [2][-]{subsection.3.9}{Standard Derivatives}{section.3}% 55
-\BOOKMARK [1][-]{section.4}{Miscellaneous Problems on Differential Calculus}{}% 56
-\BOOKMARK [1][-]{section.5}{Applications of Derivatives}{}% 57
-\BOOKMARK [2][-]{subsection.5.1}{Derivative as a Rate of Change}{section.5}% 58
-\BOOKMARK [2][-]{subsection.5.2}{Tangents and Normals}{section.5}% 59
-\BOOKMARK [3][-]{subsubsection.5.2.1}{Equation of Tangent at \(x0, y0\)}{subsection.5.2}% 60
-\BOOKMARK [3][-]{subsubsection.5.2.2}{Equation of Normal at \(x0, y0\)}{subsection.5.2}% 61
-\BOOKMARK [2][-]{subsection.5.3}{Angle of Intersection of 2 Curves}{section.5}% 62
-\BOOKMARK [2][-]{subsection.5.4}{Lengths}{section.5}% 63
-\BOOKMARK [3][-]{subsubsection.5.4.1}{Length of Subtangent}{subsection.5.4}% 64
-\BOOKMARK [3][-]{subsubsection.5.4.2}{Length of Subnormal}{subsection.5.4}% 65
-\BOOKMARK [3][-]{subsubsection.5.4.3}{Length of Tangent}{subsection.5.4}% 66
-\BOOKMARK [3][-]{subsubsection.5.4.4}{Length of Normal}{subsection.5.4}% 67
-\BOOKMARK [3][-]{subsubsection.5.4.5}{Length of the Curve from a to b}{subsection.5.4}% 68
-\BOOKMARK [3][-]{subsubsection.5.4.6}{Radius of Curvature}{subsection.5.4}% 69
-\BOOKMARK [2][-]{subsection.5.5}{Local Maxima and Minima}{section.5}% 70
-\BOOKMARK [3][-]{subsubsection.5.5.1}{Local Maximum}{subsection.5.5}% 71
-\BOOKMARK [3][-]{subsubsection.5.5.2}{Local Minimum}{subsection.5.5}% 72
-\BOOKMARK [2][-]{subsection.5.6}{Fermat's Theorem}{section.5}% 73
-\BOOKMARK [2][-]{subsection.5.7}{Rolle's Theorem}{section.5}% 74
-\BOOKMARK [3][-]{subsubsection.5.7.1}{Conclusions}{subsection.5.7}% 75
-\BOOKMARK [2][-]{subsection.5.8}{Linear Differential Equation and Inequality}{section.5}% 76
-\BOOKMARK [2][-]{subsection.5.9}{Darboux's Theorem}{section.5}% 77
-\BOOKMARK [2][-]{subsection.5.10}{Multiplicity of Roots and Rolle's Theorem}{section.5}% 78
-\BOOKMARK [2][-]{subsection.5.11}{Problems on Rolle's Theorem and Roots}{section.5}% 79
-\BOOKMARK [2][-]{subsection.5.12}{Mean Value Theorems}{section.5}% 80
-\BOOKMARK [3][-]{subsubsection.5.12.1}{Lagrange's Mean Value Theorem}{subsection.5.12}% 81
-\BOOKMARK [3][-]{subsubsection.5.12.2}{Cauchy's Mean Value Theorem}{subsection.5.12}% 82
-\BOOKMARK [3][-]{subsubsection.5.12.3}{Important Result from Lagrange's Mean Value Theorem}{subsection.5.12}% 83
-\BOOKMARK [3][-]{subsubsection.5.12.4}{Example Problems}{subsection.5.12}% 84
-\BOOKMARK [3][-]{subsubsection.5.12.5}{Differentiation of Determinants}{subsection.5.12}% 85
-\BOOKMARK [3][-]{subsubsection.5.12.6}{The General Mean Value Theorem}{subsection.5.12}% 86
-\BOOKMARK [2][-]{subsection.5.13}{Monotonicity}{section.5}% 87
-\BOOKMARK [3][-]{subsubsection.5.13.1}{Definitions}{subsection.5.13}% 88
-\BOOKMARK [3][-]{subsubsection.5.13.2}{Properties}{subsection.5.13}% 89
-\BOOKMARK [3][-]{subsubsection.5.13.3}{Problems}{subsection.5.13}% 90
-\BOOKMARK [2][-]{subsection.5.14}{Testing for Local Maxima and Minima}{section.5}% 91
-\BOOKMARK [2][-]{subsection.5.15}{Concavity}{section.5}% 92
-\BOOKMARK [3][-]{subsubsection.5.15.1}{Mathematical Condition for a Function to be Concave Up}{subsection.5.15}% 93
-\BOOKMARK [3][-]{subsubsection.5.15.2}{Properties}{subsection.5.15}% 94
-\BOOKMARK [2][-]{subsection.5.16}{Inflection Points}{section.5}% 95
-\BOOKMARK [2][-]{subsection.5.17}{Jensen's Inequality}{section.5}% 96
-\BOOKMARK [3][-]{subsubsection.5.17.1}{Proof of the AM-GM Inequality}{subsection.5.17}% 97
-\BOOKMARK [3][-]{subsubsection.5.17.2}{Problems}{subsection.5.17}% 98
-\BOOKMARK [2][-]{subsection.5.18}{Problems on Functional Equations}{section.5}% 99
-\BOOKMARK [2][-]{subsection.5.19}{Approximations}{section.5}% 100
-\BOOKMARK [3][-]{subsubsection.5.19.1}{First Order Approximations}{subsection.5.19}% 101
-\BOOKMARK [1][-]{section.6}{The Antiderivative}{}% 102
-\BOOKMARK [2][-]{subsection.6.1}{The First Fundamental Theorem of Calculus}{section.6}% 103
-\BOOKMARK [2][-]{subsection.6.2}{Definition of the Antiderivative}{section.6}% 104
-\BOOKMARK [2][-]{subsection.6.3}{Properties of the Antiderivative}{section.6}% 105
-\BOOKMARK [2][-]{subsection.6.4}{Standard Integrals}{section.6}% 106
-\BOOKMARK [2][-]{subsection.6.5}{Integration by Transformation and Adjustment}{section.6}% 107
-\BOOKMARK [2][-]{subsection.6.6}{Integration By Substitution}{section.6}% 108
-\BOOKMARK [2][-]{subsection.6.7}{Integration by Parts}{section.6}% 109
-\BOOKMARK [2][-]{subsection.6.8}{The Method of Indefinite Coefficients}{section.6}% 110
-\BOOKMARK [3][-]{subsubsection.6.8.1}{For Polynomial Functions}{subsection.6.8}% 111
-\BOOKMARK [3][-]{subsubsection.6.8.2}{For Trigonometric Functions}{subsection.6.8}% 112
-\BOOKMARK [2][-]{subsection.6.9}{Integrals of the form ex \( f\(x\) + f'\(x\) \) `39`42`"613A``45`47`"603Ad x}{section.6}% 113
-\BOOKMARK [2][-]{subsection.6.10}{General Formula for Integration by Parts}{section.6}% 114
-\BOOKMARK [2][-]{subsection.6.11}{Reduction Formulas}{section.6}% 115
-\BOOKMARK [2][-]{subsection.6.12}{Integration of Rational Functions and Integration by Partial Fractions}{section.6}% 116
-\BOOKMARK [3][-]{subsubsection.6.12.1}{Integration by Partial Fractions}{subsection.6.12}% 117
-\BOOKMARK [2][-]{subsection.6.13}{Integration of Irrational Functions}{section.6}% 118
-\BOOKMARK [3][-]{subsubsection.6.13.1}{Type 1:}{subsection.6.13}% 119
-\BOOKMARK [3][-]{subsubsection.6.13.2}{Type 2:}{subsection.6.13}% 120
-\BOOKMARK [3][-]{subsubsection.6.13.3}{Type 3:}{subsection.6.13}% 121
-\BOOKMARK [3][-]{subsubsection.6.13.4}{Type 4:}{subsection.6.13}% 122
-\BOOKMARK [3][-]{subsubsection.6.13.5}{Type 5:}{subsection.6.13}% 123
-\BOOKMARK [2][-]{subsection.6.14}{Other ``Special" Integrals}{section.6}% 124
-\BOOKMARK [3][-]{subsubsection.6.14.1}{When the Denominator is a Quadratic in x2}{subsection.6.14}% 125
-\BOOKMARK [3][-]{subsubsection.6.14.2}{Special Integrals Involving Sine and Cosine}{subsection.6.14}% 126
-\BOOKMARK [1][-]{section.7}{Definite Integrals}{}% 127
-\BOOKMARK [2][-]{subsection.7.1}{The Second Fundamental Theorem of Calculus}{section.7}% 128
-\BOOKMARK [2][-]{subsection.7.2}{Geometrical Interpretation}{section.7}% 129
-\BOOKMARK [2][-]{subsection.7.3}{Examples}{section.7}% 130
-\BOOKMARK [2][-]{subsection.7.4}{Properties of Definite Integrals}{section.7}% 131
-\BOOKMARK [2][-]{subsection.7.5}{Substitution in Definite Integrals}{section.7}% 132
-\BOOKMARK [2][-]{subsection.7.6}{Derivative of an Integral and Leibniz' Formula}{section.7}% 133
-\BOOKMARK [2][-]{subsection.7.7}{Newton's Proposition}{section.7}% 134
-\BOOKMARK [3][-]{subsubsection.7.7.1}{Formal Proof}{subsection.7.7}% 135
-\BOOKMARK [3][-]{subsubsection.7.7.2}{Geometric Intuition}{subsection.7.7}% 136
-\BOOKMARK [2][-]{subsection.7.8}{Young's Inequality}{section.7}% 137
-\BOOKMARK [3][-]{subsubsection.7.8.1}{Formal Proof}{subsection.7.8}% 138
-\BOOKMARK [3][-]{subsubsection.7.8.2}{Graphical Intuition}{subsection.7.8}% 139
-\BOOKMARK [2][-]{subsection.7.9}{Problems}{section.7}% 140
-\BOOKMARK [2][-]{subsection.7.10}{Comparison Theorem}{section.7}% 141
-\BOOKMARK [3][-]{subsubsection.7.10.1}{Statement}{subsection.7.10}% 142
-\BOOKMARK [3][-]{subsubsection.7.10.2}{Corollaries}{subsection.7.10}% 143
-\BOOKMARK [3][-]{subsubsection.7.10.3}{Problems}{subsection.7.10}% 144
-\BOOKMARK [2][-]{subsection.7.11}{Average Value of a Function}{section.7}% 145
-\BOOKMARK [2][-]{subsection.7.12}{Mean Value Theorems for Integrals}{section.7}% 146
-\BOOKMARK [3][-]{subsubsection.7.12.1}{The General Mean Value Theorems}{subsection.7.12}% 147
-\BOOKMARK [2][-]{subsection.7.13}{Estimation of Integrals}{section.7}% 148
-\BOOKMARK [3][-]{subsubsection.7.13.1}{Method - 1: Comparison Theorem}{subsection.7.13}% 149
-\BOOKMARK [3][-]{subsubsection.7.13.2}{Method - 2: Using a Minimum and Maximum Value}{subsection.7.13}% 150
-\BOOKMARK [3][-]{subsubsection.7.13.3}{Method - 3: Mean Value Theorem for Integrals}{subsection.7.13}% 151
-\BOOKMARK [3][-]{subsubsection.7.13.4}{Method - 4: General Mean value Theorem for Integrals}{subsection.7.13}% 152
-\BOOKMARK [3][-]{subsubsection.7.13.5}{Method - 5: Cauchy-Schwarz Inequality}{subsection.7.13}% 153
-\BOOKMARK [3][-]{subsubsection.7.13.6}{Method - 6: Estimation Based on Shapes}{subsection.7.13}% 154
-\BOOKMARK [2][-]{subsection.7.14}{Reduction Formulae}{section.7}% 155
-\BOOKMARK [3][-]{subsubsection.7.14.1}{The Beta Function}{subsection.7.14}% 156
-\BOOKMARK [3][-]{subsubsection.7.14.2}{Wallis Product and 0/2 sinn\(x\) `39`42`"613A``45`47`"603Ad x}{subsection.7.14}% 157
-\BOOKMARK [3][-]{subsubsection.7.14.3}{Another Wallis Integral}{subsection.7.14}% 158
-\BOOKMARK [3][-]{subsubsection.7.14.4}{Finding 0 e-x2 `39`42`"613A``45`47`"603Ad x}{subsection.7.14}% 159
-\BOOKMARK [3][-]{subsubsection.7.14.5}{The Gamma Function}{subsection.7.14}% 160
-\BOOKMARK [2][-]{subsection.7.15}{Feynman's Technique for Integration}{section.7}% 161
-\BOOKMARK [2][-]{subsection.7.16}{Integral as the Limit of a Sum}{section.7}% 162
-\BOOKMARK [3][-]{subsubsection.7.16.1}{Condition for Integrability}{subsection.7.16}% 163
-\BOOKMARK [3][-]{subsubsection.7.16.2}{Defining the Integral as the Limit of a Sum}{subsection.7.16}% 164
-\BOOKMARK [2][-]{subsection.7.17}{Areas}{section.7}% 165
+\BOOKMARK [2][-]{subsection.1.7}{Limits to Infinity}{section.1}% 14
+\BOOKMARK [3][-]{subsubsection.1.7.1}{Intuition}{subsection.1.7}% 15
+\BOOKMARK [3][-]{subsubsection.1.7.2}{Formal Definition}{subsection.1.7}% 16
+\BOOKMARK [2][-]{subsection.1.8}{Cluster Point}{section.1}% 17
+\BOOKMARK [2][-]{subsection.1.9}{Polynomial Approximation of Functions to Arbitrary Precision}{section.1}% 18
+\BOOKMARK [3][-]{subsubsection.1.9.1}{Taylor Series}{subsection.1.9}% 19
+\BOOKMARK [3][-]{subsubsection.1.9.2}{Maclaurin Series}{subsection.1.9}% 20
+\BOOKMARK [1][-]{section.2}{Continuity}{}% 21
+\BOOKMARK [2][-]{subsection.2.1}{Definition}{section.2}% 22
+\BOOKMARK [2][-]{subsection.2.2}{Continuity of Combinations of Continuous Functions}{section.2}% 23
+\BOOKMARK [2][-]{subsection.2.3}{Continuity of Composite Functions}{section.2}% 24
+\BOOKMARK [2][-]{subsection.2.4}{Product of Continuous and Discontinuous Function}{section.2}% 25
+\BOOKMARK [2][-]{subsection.2.5}{Calculus and Zeros}{section.2}% 26
+\BOOKMARK [3][-]{subsubsection.2.5.1}{Warm-Up Problem}{subsection.2.5}% 27
+\BOOKMARK [3][-]{subsubsection.2.5.2}{Bolzano's Theorem}{subsection.2.5}% 28
+\BOOKMARK [3][-]{subsubsection.2.5.3}{Important Results Derived From Bolzano's Theorem}{subsection.2.5}% 29
+\BOOKMARK [3][-]{subsubsection.2.5.4}{Problems based on Bolzano's Theorem}{subsection.2.5}% 30
+\BOOKMARK [2][-]{subsection.2.6}{Checking Continuity of Some Weird Functions}{section.2}% 31
+\BOOKMARK [3][-]{subsubsection.2.6.1}{Dirichlet Function}{subsection.2.6}% 32
+\BOOKMARK [3][-]{subsubsection.2.6.2}{Thomae's Function}{subsection.2.6}% 33
+\BOOKMARK [2][-]{subsection.2.7}{The Intermediate Value Theorem}{section.2}% 34
+\BOOKMARK [3][-]{subsubsection.2.7.1}{Statement and Proof}{subsection.2.7}% 35
+\BOOKMARK [3][-]{subsubsection.2.7.2}{Example Problems}{subsection.2.7}% 36
+\BOOKMARK [2][-]{subsection.2.8}{Boundedness}{section.2}% 37
+\BOOKMARK [3][-]{subsubsection.2.8.1}{Definition}{subsection.2.8}% 38
+\BOOKMARK [2][-]{subsection.2.9}{Absolute Maxima and Minima}{section.2}% 39
+\BOOKMARK [3][-]{subsubsection.2.9.1}{Absolute/Global Maximum}{subsection.2.9}% 40
+\BOOKMARK [3][-]{subsubsection.2.9.2}{Absolute/Global Minimum}{subsection.2.9}% 41
+\BOOKMARK [2][-]{subsection.2.10}{Properties of a Continuous Function}{section.2}% 42
+\BOOKMARK [2][-]{subsection.2.11}{Problems Based on Continuity}{section.2}% 43
+\BOOKMARK [1][-]{section.3}{Derivatives and Differentiability}{}% 44
+\BOOKMARK [2][-]{subsection.3.1}{Definition}{section.3}% 45
+\BOOKMARK [3][-]{subsubsection.3.1.1}{Left-Hand Derivative}{subsection.3.1}% 46
+\BOOKMARK [3][-]{subsubsection.3.1.2}{Right-Hand Derivative}{subsection.3.1}% 47
+\BOOKMARK [3][-]{subsubsection.3.1.3}{Geometric Intuition}{subsection.3.1}% 48
+\BOOKMARK [2][-]{subsection.3.2}{Differentiability Implies Continuity}{section.3}% 49
+\BOOKMARK [2][-]{subsection.3.3}{Differentiability of Combinations of Differentiable Functions}{section.3}% 50
+\BOOKMARK [2][-]{subsection.3.4}{Combination of Differentiable and Non-Differentiable Functions}{section.3}% 51
+\BOOKMARK [2][-]{subsection.3.5}{Differentiability of the Modulus Function}{section.3}% 52
+\BOOKMARK [3][-]{subsubsection.3.5.1}{Differentiability of x and x - a where a is Constant}{subsection.3.5}% 53
+\BOOKMARK [3][-]{subsubsection.3.5.2}{Differentiability of xa where a is Constant}{subsection.3.5}% 54
+\BOOKMARK [2][-]{subsection.3.6}{Important Result on Differentiability}{section.3}% 55
+\BOOKMARK [2][-]{subsection.3.7}{Leibniz Formula for Derivatives}{section.3}% 56
+\BOOKMARK [2][-]{subsection.3.8}{Differentiability, Existence of Derivative and Continuity of Derivative}{section.3}% 57
+\BOOKMARK [2][-]{subsection.3.9}{Standard Derivatives}{section.3}% 58
+\BOOKMARK [1][-]{section.4}{Miscellaneous Problems on Differential Calculus}{}% 59
+\BOOKMARK [1][-]{section.5}{Applications of Derivatives}{}% 60
+\BOOKMARK [2][-]{subsection.5.1}{Derivative as a Rate of Change}{section.5}% 61
+\BOOKMARK [2][-]{subsection.5.2}{Tangents and Normals}{section.5}% 62
+\BOOKMARK [3][-]{subsubsection.5.2.1}{Equation of Tangent at \(x0, y0\)}{subsection.5.2}% 63
+\BOOKMARK [3][-]{subsubsection.5.2.2}{Equation of Normal at \(x0, y0\)}{subsection.5.2}% 64
+\BOOKMARK [2][-]{subsection.5.3}{Angle of Intersection of 2 Curves}{section.5}% 65
+\BOOKMARK [2][-]{subsection.5.4}{Lengths}{section.5}% 66
+\BOOKMARK [3][-]{subsubsection.5.4.1}{Length of Subtangent}{subsection.5.4}% 67
+\BOOKMARK [3][-]{subsubsection.5.4.2}{Length of Subnormal}{subsection.5.4}% 68
+\BOOKMARK [3][-]{subsubsection.5.4.3}{Length of Tangent}{subsection.5.4}% 69
+\BOOKMARK [3][-]{subsubsection.5.4.4}{Length of Normal}{subsection.5.4}% 70
+\BOOKMARK [3][-]{subsubsection.5.4.5}{Length of the Curve from a to b}{subsection.5.4}% 71
+\BOOKMARK [3][-]{subsubsection.5.4.6}{Radius of Curvature}{subsection.5.4}% 72
+\BOOKMARK [2][-]{subsection.5.5}{Local Maxima and Minima}{section.5}% 73
+\BOOKMARK [3][-]{subsubsection.5.5.1}{Local Maximum}{subsection.5.5}% 74
+\BOOKMARK [3][-]{subsubsection.5.5.2}{Local Minimum}{subsection.5.5}% 75
+\BOOKMARK [2][-]{subsection.5.6}{Fermat's Theorem}{section.5}% 76
+\BOOKMARK [2][-]{subsection.5.7}{Rolle's Theorem}{section.5}% 77
+\BOOKMARK [3][-]{subsubsection.5.7.1}{Conclusions}{subsection.5.7}% 78
+\BOOKMARK [2][-]{subsection.5.8}{Linear Differential Equation and Inequality}{section.5}% 79
+\BOOKMARK [2][-]{subsection.5.9}{Darboux's Theorem}{section.5}% 80
+\BOOKMARK [2][-]{subsection.5.10}{Multiplicity of Roots and Rolle's Theorem}{section.5}% 81
+\BOOKMARK [2][-]{subsection.5.11}{Problems on Rolle's Theorem and Roots}{section.5}% 82
+\BOOKMARK [2][-]{subsection.5.12}{Mean Value Theorems}{section.5}% 83
+\BOOKMARK [3][-]{subsubsection.5.12.1}{Lagrange's Mean Value Theorem}{subsection.5.12}% 84
+\BOOKMARK [3][-]{subsubsection.5.12.2}{Cauchy's Mean Value Theorem}{subsection.5.12}% 85
+\BOOKMARK [3][-]{subsubsection.5.12.3}{Important Result from Lagrange's Mean Value Theorem}{subsection.5.12}% 86
+\BOOKMARK [3][-]{subsubsection.5.12.4}{Example Problems}{subsection.5.12}% 87
+\BOOKMARK [3][-]{subsubsection.5.12.5}{Differentiation of Determinants}{subsection.5.12}% 88
+\BOOKMARK [3][-]{subsubsection.5.12.6}{The General Mean Value Theorem}{subsection.5.12}% 89
+\BOOKMARK [2][-]{subsection.5.13}{Monotonicity}{section.5}% 90
+\BOOKMARK [3][-]{subsubsection.5.13.1}{Definitions}{subsection.5.13}% 91
+\BOOKMARK [3][-]{subsubsection.5.13.2}{Properties}{subsection.5.13}% 92
+\BOOKMARK [3][-]{subsubsection.5.13.3}{Problems}{subsection.5.13}% 93
+\BOOKMARK [2][-]{subsection.5.14}{Testing for Local Maxima and Minima}{section.5}% 94
+\BOOKMARK [2][-]{subsection.5.15}{Concavity}{section.5}% 95
+\BOOKMARK [3][-]{subsubsection.5.15.1}{Mathematical Condition for a Function to be Concave Up}{subsection.5.15}% 96
+\BOOKMARK [3][-]{subsubsection.5.15.2}{Properties}{subsection.5.15}% 97
+\BOOKMARK [2][-]{subsection.5.16}{Inflection Points}{section.5}% 98
+\BOOKMARK [2][-]{subsection.5.17}{Jensen's Inequality}{section.5}% 99
+\BOOKMARK [3][-]{subsubsection.5.17.1}{Proof of the AM-GM Inequality}{subsection.5.17}% 100
+\BOOKMARK [3][-]{subsubsection.5.17.2}{Problems}{subsection.5.17}% 101
+\BOOKMARK [2][-]{subsection.5.18}{Problems on Functional Equations}{section.5}% 102
+\BOOKMARK [2][-]{subsection.5.19}{Approximations}{section.5}% 103
+\BOOKMARK [3][-]{subsubsection.5.19.1}{First Order Approximations}{subsection.5.19}% 104
+\BOOKMARK [1][-]{section.6}{The Antiderivative}{}% 105
+\BOOKMARK [2][-]{subsection.6.1}{The First Fundamental Theorem of Calculus}{section.6}% 106
+\BOOKMARK [2][-]{subsection.6.2}{Definition of the Antiderivative}{section.6}% 107
+\BOOKMARK [2][-]{subsection.6.3}{Properties of the Antiderivative}{section.6}% 108
+\BOOKMARK [2][-]{subsection.6.4}{Standard Integrals}{section.6}% 109
+\BOOKMARK [2][-]{subsection.6.5}{Integration by Transformation and Adjustment}{section.6}% 110
+\BOOKMARK [2][-]{subsection.6.6}{Integration By Substitution}{section.6}% 111
+\BOOKMARK [2][-]{subsection.6.7}{Integration by Parts}{section.6}% 112
+\BOOKMARK [2][-]{subsection.6.8}{The Method of Indefinite Coefficients}{section.6}% 113
+\BOOKMARK [3][-]{subsubsection.6.8.1}{For Polynomial Functions}{subsection.6.8}% 114
+\BOOKMARK [3][-]{subsubsection.6.8.2}{For Trigonometric Functions}{subsection.6.8}% 115
+\BOOKMARK [2][-]{subsection.6.9}{Integrals of the form ex \( f\(x\) + f'\(x\) \) `39`42`"613A``45`47`"603Ad x}{section.6}% 116
+\BOOKMARK [2][-]{subsection.6.10}{General Formula for Integration by Parts}{section.6}% 117
+\BOOKMARK [2][-]{subsection.6.11}{Reduction Formulas}{section.6}% 118
+\BOOKMARK [2][-]{subsection.6.12}{Integration of Rational Functions and Integration by Partial Fractions}{section.6}% 119
+\BOOKMARK [3][-]{subsubsection.6.12.1}{Integration by Partial Fractions}{subsection.6.12}% 120
+\BOOKMARK [2][-]{subsection.6.13}{Integration of Irrational Functions}{section.6}% 121
+\BOOKMARK [3][-]{subsubsection.6.13.1}{Type 1:}{subsection.6.13}% 122
+\BOOKMARK [3][-]{subsubsection.6.13.2}{Type 2:}{subsection.6.13}% 123
+\BOOKMARK [3][-]{subsubsection.6.13.3}{Type 3:}{subsection.6.13}% 124
+\BOOKMARK [3][-]{subsubsection.6.13.4}{Type 4:}{subsection.6.13}% 125
+\BOOKMARK [3][-]{subsubsection.6.13.5}{Type 5:}{subsection.6.13}% 126
+\BOOKMARK [2][-]{subsection.6.14}{Other ``Special" Integrals}{section.6}% 127
+\BOOKMARK [3][-]{subsubsection.6.14.1}{When the Denominator is a Quadratic in x2}{subsection.6.14}% 128
+\BOOKMARK [3][-]{subsubsection.6.14.2}{Special Integrals Involving Sine and Cosine}{subsection.6.14}% 129
+\BOOKMARK [1][-]{section.7}{Definite Integrals}{}% 130
+\BOOKMARK [2][-]{subsection.7.1}{The Second Fundamental Theorem of Calculus}{section.7}% 131
+\BOOKMARK [2][-]{subsection.7.2}{Geometrical Interpretation}{section.7}% 132
+\BOOKMARK [2][-]{subsection.7.3}{Examples}{section.7}% 133
+\BOOKMARK [2][-]{subsection.7.4}{Properties of Definite Integrals}{section.7}% 134
+\BOOKMARK [2][-]{subsection.7.5}{Substitution in Definite Integrals}{section.7}% 135
+\BOOKMARK [2][-]{subsection.7.6}{Derivative of an Integral and Leibniz' Formula}{section.7}% 136
+\BOOKMARK [2][-]{subsection.7.7}{Newton's Proposition}{section.7}% 137
+\BOOKMARK [3][-]{subsubsection.7.7.1}{Formal Proof}{subsection.7.7}% 138
+\BOOKMARK [3][-]{subsubsection.7.7.2}{Geometric Intuition}{subsection.7.7}% 139
+\BOOKMARK [2][-]{subsection.7.8}{Young's Inequality}{section.7}% 140
+\BOOKMARK [3][-]{subsubsection.7.8.1}{Formal Proof}{subsection.7.8}% 141
+\BOOKMARK [3][-]{subsubsection.7.8.2}{Graphical Intuition}{subsection.7.8}% 142
+\BOOKMARK [2][-]{subsection.7.9}{Problems}{section.7}% 143
+\BOOKMARK [2][-]{subsection.7.10}{Comparison Theorem}{section.7}% 144
+\BOOKMARK [3][-]{subsubsection.7.10.1}{Statement}{subsection.7.10}% 145
+\BOOKMARK [3][-]{subsubsection.7.10.2}{Corollaries}{subsection.7.10}% 146
+\BOOKMARK [3][-]{subsubsection.7.10.3}{Problems}{subsection.7.10}% 147
+\BOOKMARK [2][-]{subsection.7.11}{Average Value of a Function}{section.7}% 148
+\BOOKMARK [2][-]{subsection.7.12}{Mean Value Theorems for Integrals}{section.7}% 149
+\BOOKMARK [3][-]{subsubsection.7.12.1}{The General Mean Value Theorems}{subsection.7.12}% 150
+\BOOKMARK [2][-]{subsection.7.13}{Estimation of Integrals}{section.7}% 151
+\BOOKMARK [3][-]{subsubsection.7.13.1}{Method - 1: Comparison Theorem}{subsection.7.13}% 152
+\BOOKMARK [3][-]{subsubsection.7.13.2}{Method - 2: Using a Minimum and Maximum Value}{subsection.7.13}% 153
+\BOOKMARK [3][-]{subsubsection.7.13.3}{Method - 3: Mean Value Theorem for Integrals}{subsection.7.13}% 154
+\BOOKMARK [3][-]{subsubsection.7.13.4}{Method - 4: General Mean value Theorem for Integrals}{subsection.7.13}% 155
+\BOOKMARK [3][-]{subsubsection.7.13.5}{Method - 5: Cauchy-Schwarz Inequality}{subsection.7.13}% 156
+\BOOKMARK [3][-]{subsubsection.7.13.6}{Method - 6: Estimation Based on Shapes}{subsection.7.13}% 157
+\BOOKMARK [2][-]{subsection.7.14}{Reduction Formulae}{section.7}% 158
+\BOOKMARK [3][-]{subsubsection.7.14.1}{The Beta Function}{subsection.7.14}% 159
+\BOOKMARK [3][-]{subsubsection.7.14.2}{Wallis Product and 0/2 sinn\(x\) `39`42`"613A``45`47`"603Ad x}{subsection.7.14}% 160
+\BOOKMARK [3][-]{subsubsection.7.14.3}{Another Wallis Integral}{subsection.7.14}% 161
+\BOOKMARK [3][-]{subsubsection.7.14.4}{Finding 0 e-x2 `39`42`"613A``45`47`"603Ad x}{subsection.7.14}% 162
+\BOOKMARK [3][-]{subsubsection.7.14.5}{The Gamma Function}{subsection.7.14}% 163
+\BOOKMARK [2][-]{subsection.7.15}{Feynman's Technique for Integration}{section.7}% 164
+\BOOKMARK [2][-]{subsection.7.16}{Integral as the Limit of a Sum}{section.7}% 165
+\BOOKMARK [3][-]{subsubsection.7.16.1}{Condition for Integrability}{subsection.7.16}% 166
+\BOOKMARK [3][-]{subsubsection.7.16.2}{Defining the Integral as the Limit of a Sum}{subsection.7.16}% 167
+\BOOKMARK [2][-]{subsection.7.17}{Areas}{section.7}% 168
+\BOOKMARK [3][-]{subsubsection.7.17.1}{Gabriel's Horn and the Painter's Paradox}{subsection.7.17}% 169
+\BOOKMARK [1][-]{section.8}{Differential Equations}{}% 170
+\BOOKMARK [2][-]{subsection.8.1}{Introduction}{section.8}% 171
+\BOOKMARK [2][-]{subsection.8.2}{Order and Degree}{section.8}% 172
+\BOOKMARK [3][-]{subsubsection.8.2.1}{Heuristics for Finding Degree}{subsection.8.2}% 173
+\BOOKMARK [2][-]{subsection.8.3}{Solutions of Differential Equations}{section.8}% 174
+\BOOKMARK [3][-]{subsubsection.8.3.1}{General Solution}{subsection.8.3}% 175
+\BOOKMARK [3][-]{subsubsection.8.3.2}{Particular Solution}{subsection.8.3}% 176
+\BOOKMARK [3][-]{subsubsection.8.3.3}{Singular Solution}{subsection.8.3}% 177
+\BOOKMARK [2][-]{subsection.8.4}{Forming Differential Equations from the General Solution}{section.8}% 178
+\BOOKMARK [2][-]{subsection.8.5}{Solving First Order and First Degree Differential Equations}{section.8}% 179

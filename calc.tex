@@ -19,6 +19,10 @@
 \usepackage{commath}
 \usepackage{bigints}
 \usepackage{hyperref}
+\usepackage{epigraph}
+\setlength \epigraphwidth {\linewidth}
+\setlength \epigraphrule {0pt}
+\AtBeginDocument{\renewcommand {\epigraphflush}{center}}
 %\usepackage{enumitem}
 \usepackage[inline]{enumitem}
 \usepackage{pgffor}
@@ -84,7 +88,7 @@ Proof that $\lim\limits_{x \to \infty} \sin(x)$ does not exist.\\
 \textbf{The idea}: We will take two sequences that both blow up to infinity (i.e. get larger and larger as we increase the index variable) and show that the when we evaluate the limits using both the sequences, we get different values. By the sequential criterion for existence of limits, we will show that the limit does not exist.
 \begin{proof} (kind of) (Using sequential criterion of limits)\\
 Consider the sequence $a_n = n \pi$ where $n \in \mathbb{Z^+}$.\\
-$n$ can be increased to get arbitrarily close to infinity.\\
+$n$ can be increased to make $a_n$ arbitrarily large.\\
 One way to evaluate the limit $\lim\limits_{x \to \infty} \sin(x)$ would be to evaluate $\lim\limits_{n \to \infty}\sin(a_n)$ where $n \in \mathbb{Z^+}$.\\
 Then,
 \[\lim\limits_{n \to \infty}\sin(a_n)= \lim\limits_{n \to \infty} \sin(n\pi)\]
@@ -116,12 +120,22 @@ Some problems will result in an infinite loop of differentiation if you try to s
 \subsubsection{Left Hand Limit}
 \begin{define}
 Let $f(x)$ be a function and let $I$ be an interval within its domain.\\
-Then $\lim\limits_{x \to a^-} f(x) = L \Leftrightarrow \forall \varepsilon > 0, \exists \, \delta > 0 : \forall x \in I,\, 0 < x - a < \delta \Rightarrow 0 < |f(x) - L| < \varepsilon$.
+Then $\lim\limits_{x \to a^-} f(x) = L \iff \forall \varepsilon > 0, \exists \, \delta > 0 : \forall x \in I,\, 0 < x - a < \delta \implies 0 < |f(x) - L| < \varepsilon$.
 \end{define}
 \subsubsection{Right Hand Limit}
 \begin{define}
 Let $f(x)$ be a function and let $I$ be an interval within its domain.\\
-Then $\lim\limits_{x \to a^+} f(x) = L \Leftrightarrow \forall \varepsilon > 0, \exists \, \delta > 0 : \forall x \in I,\, 0 < a - x < \delta \Rightarrow 0 < |f(x) - L| < \varepsilon$.
+Then $\lim\limits_{x \to a^+} f(x) = L \iff \forall \varepsilon > 0, \exists \, \delta > 0 : \forall x \in I,\, 0 < a - x < \delta \implies 0 < |f(x) - L| < \varepsilon$.
+\end{define}
+\subsection{Limits to Infinity}
+\subsubsection{Intuition}
+\begin{define}
+$\lim\limits_{x \to \infty} f(x) = L$ iff we can make $f(x)$ as close as we like to $L$ by making $x$ sufficiently large.
+\end{define}
+\subsubsection{Formal Definition}
+\begin{define}
+Let $f(x)$ be a function.\\
+$\lim\limits_{x \to \infty} f(x) = L \iff \forall \varepsilon > 0, \exists N > 0$ such that $x > N \implies f(x) - L < \varepsilon$ 
 \end{define}
 \subsection{Cluster Point}
 \begin{define}
@@ -172,7 +186,7 @@ Therefore, there two points of discontinuity: at $x = 0$ and at $x = 1$.
 \end{ex}
 \pagebreak
 \subsection{Product of Continuous and Discontinuous Function}
-Let $f$ be a continuous function and $g$ be a discontinuous function and assume that all the limits are real and finite.\\\\
+Let $f$ be a continuous function at $a$ and $g$ be a discontinuous function at $a$ and assume that all the limits are real and finite.\\\\
 Say $K_1 = \lim\limits_{x \to a^-} f(x) = \lim\limits_{x \to a^+} f(x) = f(a)$\\\\
 Say $K_2 = \lim\limits_{x \to a^-} g(x) \neq \lim\limits_{x \to a^+} g(x) = g(x) = K_3$\\\\
 And let $h(x) = f(x) + g(x)$. We have to comment on the nature of $h(x)$.\\\\
@@ -272,7 +286,7 @@ This means, the graph of $y = f(x)$ intersects the graph of $y = x$ at least onc
 Suppose $f:[0, 1] \to \mathbb{R}$ is a continuous function and $f(0) = f(1)$. Then prove that there exists some $c \in \Big[0, \dfrac{1}{2}\Big]$ such that $f(c) = f\Big(c + \dfrac{1}{2}\Big)$
 \begin{proof} (Using Bolzano's Theorem)\\
 Let $g(x) = f(x) - f\Big(x + \dfrac{1}{2}\Big)$\\
-$g$ is continuous in $\mathbb{R}$ since $f$ is continuous in $\mathbb{R}$.\\
+$g$ is continuous in $\left[ 0, \dfrac12 \right]$ since $f$ is continuous in $[0, 1]$.\\
 \begin{align}
 g(0) &= f(0) - \cancel{f\Big(\dfrac{1}{2}\Big)}\\
 g\Big(\dfrac{1}{2}\Big) &= \cancel{f\Big(\dfrac{1}{2}\Big)} - f(1)\\
@@ -290,7 +304,7 @@ Using Bolzano's Theorem, $\exists c \in \Big(0, \dfrac{1}{2}\Big) : f(c) = f\Big
 \end{prob}
 \pagebreak
 \begin{prob}
-Suppose $f$ is a continuous function on $[0, 1]$ and $f(0) = f(1)$. Let $n$ be any natural number, then prove that there exists some $c$ such that $f(c) = f\Big(c + \dfrac{1}{n}\Big)$.
+Suppose $f$ is a continuous function and $f(0) = f(1)$. Let $n$ be any natural number, then prove that there exists some $c$ such that $f(c) = f\Big(c + \dfrac{1}{n}\Big)$.
 \end{prob}
 \begin{proof}
 (Note: this is just the generalized version of the previous problem)\\
@@ -350,7 +364,7 @@ Then $f(x) = \dfrac{1}{n}$\\
 If we approach $x$ from a sequence of irrationals, we will get the limiting value as $0$. Even if the limit does exist, $\dfrac{1}{n}$ (the value of the function) cannot be equal to $0$ (The limiting value).\\
 So it has to be discontinuous for all rational inputs.\\
 \end{proof}
-\paragraph{Claim:} This function is continuous at all rational values of $x$.
+\paragraph{Claim:} This function is continuous at all irrational values of $x$.
 \begin{proof}
 Let $x_0$ be an irrational number.\\
 $\Rightarrow f(x_0) = 0$\\
@@ -522,9 +536,9 @@ Also note that this can be used as an alternative definition of the derivative b
 \subsection{Leibniz Formula for Derivatives}
 Let $u$ and $v$ be functions which are differentiable $n$ times. Then,\\
 \[
-\dfrac{\dif^{\;n}}{\dif x^n} (uv) = \sum\limits_{r=0}^{n} {n \choose r} u^r \cdot v^{n - r}
+\dfrac{\dif^{\;n}}{\dif x^n} (uv) = \sum\limits_{r=0}^{n} {n \choose r} u^{(r)} \cdot v^{(n - r)}
 \]
-Where $u^r$ denotes the $r^{th}$ derivative of $u$ and $v^{n-r}$ represents the $(n-r)^{th}$ derivative of $v$.
+Where $u^{(r)}$ denotes the $r^{th}$ derivative of $u$ and $v^{(n-r)}$ represents the $(n-r)^{th}$ derivative of $v$.
 \subsection{Differentiability, Existence of Derivative and Continuity of Derivative}
 Differentiability is the same as the existence of derivative.\\
 However, if a function is differentiable at a point (i.e. has a real and finite derivative at that point), that does \textbf{NOT} mean derivative of the function is continuous at that point.\\
@@ -2567,6 +2581,29 @@ Then $\dif p = \dif x$ and $q = {\rm e}^x$
 &= x^2 \cdot {\rm e}^x - 2 \left( x {\rm e}^x - {\rm e}^x \right) + c
 \end{align*}
 Note: We can also solve this problem using the method of indefinite coefficients.
+\pagebreak
+\begin{prob}
+$\displaystyle \int {\rm e}^x \cdot \cos(x) \dif x$\\
+Let $I = \displaystyle\int{\rm e}^x\cos(x) \dif x$\\
+Integrating by parts.\\
+Let $u = \cos(x)$ and $\dif v = {\rm e}^x \dif x$\\
+Then $\dif u = -\sin(x) \dif x$ and $v = {\rm e}^x$
+\begin{align*}
+\Rightarrow I &= uv - \int v \dif u\\
+&= {\rm e}^x \cos(x) + \int {\rm e}^x \sin(x) \dif x
+\end{align*}
+Integrating by parts again.\\
+Let $p = \sin(x)$ and $\dif q = {\rm e}^x \dif x$\\
+Then $\dif p = \cos(x) \dif x$ and $q = {\rm e}^x$
+\begin{align*}
+\Rightarrow I &= {\rm e}^x \cos(x) + pq - \int q \dif p\\
+&= {\rm e}^x \cos(x) + {\rm e}^x \sin(x) - \int {\rm e}^x \cos(x) \dif x\\
+&= {\rm e}^x \cos(x) + {\rm e}^x \sin(x) - I + c_1\\
+I &= {\rm e}^x \cos(x) + {\rm e}^x \sin(x) - I + c_1 \\
+2I &= {\rm e}^x \cos(x) + {\rm e}^x \sin(x) + c_1 \\
+I &= \dfrac{{\rm e}^x}2 \left[ \cos(x) + \sin(x) \right] + c
+\end{align*}
+\end{prob}
 \pagebreak
 \subsection{The Method of Indefinite Coefficients}
 \subsubsection{For Polynomial Functions}
@@ -5009,4 +5046,278 @@ It is defined as the locus of a point on the perimeter of a circle that is rolli
 &= \dfrac{3\pi}{2} a^2
 \end{align*}
 \end{prob}
+\pagebreak
+\begin{prob}
+Find the area bounded by the loop $4y^2 = 4x^2 - x^3$.\\
+\textbf{Solution:}\\
+\[4y^2 = 4x^2 - x^3\]
+First, we observe that if we replace $y$ by $-y$ in the above equation, there is no change to the overall equation, implying that the curve is symmetric about the $x$-axis.\\
+Also, since the square of a real number is always non-negative,
+\[4x^2 - x^3 \geq 0\]
+\[\Rightarrow x^2(4-x) \geq 0\]
+\[\Rightarrow x \leq 4\]
+So the graph of the equation doesn't exist to the right of the line $x=4$.\\
+At $x = 4$, 
+\[4y^2 = 4(4)^2 - 4^3 = 0\]
+\[\Rightarrow y = 0\]
+Another trivial solution for $y=0$ comes out to be $x=0$.\\
+After working with the sign of derivatives, we can figure out which parts of the function are increasing and which parts are decreasing. Then we can plot the curve.\\
+\begin{figure}[h]\centering
+\includegraphics[scale=.27]{images/loop}
+\end{figure}\\
+Since the curve is symmetric about the $x$-axis, we can find the area of the loop above the $x$-axis and multiply it by two.\\
+$\text{Area (in sq. units)} = 2 \displaystyle\int\limits_0^4 \sqrt{\dfrac{4x^2 - x^3}{4}} \dif x = \int\limits_0^4 \sqrt{4x^2 - x^3} \dif x = \int\limits_0^4 x\sqrt{4-x} \dif x$\\
+Let $4-x=t^2 \implies \dif x = -2t \dif t$\\
+$\text{Area (in sq. units)} = \displaystyle\int\limits_0^2 2\left(4-t^2\right)t^2 \dif t = \int\limits_0^2 \left( 8t^2 -2t^4 \right) \dif t = \left[ \dfrac{8t^3}{3} - \dfrac{2t^5}{5} \right]_0^2 = \dfrac{64}{3} - \dfrac{64}{5} = \dfrac{128}{15}$
+\end{prob}
+\pagebreak
+\begin{prob}
+Find the area enclosed by the loop $y^2 = x^2\left( a^2 - x^2 \right)$\\
+\textbf{Solution: }
+\[y^2 = x^2 \left( a^2 - x^2 \right)\]
+First, if we replace $x$ by $-x$ or $y$ by $-y$ in the above equation, it remains unchanged. This means the loop is symmetric about the $x$ and $y$ axes.
+Now,
+\[x = 0 \implies y = 0\]
+And
+\[y = 0 \implies x = 0 \text{ or } x = \pm a\]
+Also, since the square of a real number is always non-negative,
+\[x^2(a^2 - x^2) \geq 0\]
+\[\implies a^2 - x^2 \geq 0\]
+\[\implies -a \leq x \leq a\]
+Now, we have enough information to graph the equation.
+\begin{figure}[h]\centering
+\includegraphics[scale=.25]{images/loop2}
+\end{figure}\\
+Since the curve is symmetric, we will find the area enclosed in the first quadrant and then multiply it by 4.\\
+Area (in sq. units) = $4\displaystyle\int\limits_0^a x\sqrt{a^2 - x^2} \dif x$\\
+Let $a^2 - x^2 = t \implies -2x \dif x = \dif t$
+\begin{align*}
+A &= \dfrac{-4}2 \int\limits_{a^2}^{0} \sqrt{t} \dif t\\
+&= \dfrac42 \int\limits_0^{a^2} \sqrt t \dif t\\
+&= \dfrac42 \cdot \dfrac23 \left[ t^{3/2} \right]_0^{a^2}\\
+&= \dfrac{4a^3}3
+\end{align*}
+\end{prob}
+\pagebreak
+\subsubsection{Gabriel's Horn and the Painter's Paradox}
+Consider the graph of $y = \dfrac1{x}$ for $x \geq 1$.\\
+Now, if we rotate this curve about the $x$-axis in three dimensions, we'll get its solid of revolution.\\
+\begin{figure}[h]\centering
+\includegraphics[scale=.3]{images/horn_2d}
+\end{figure}\\
+The resulting solid of revolution is known as Gabriel's Horn, a.k.a. Torricelli's Trumpet. Notice that this extends indefinitely to the right.
+\begin{figure}[h]\centering
+\includegraphics[scale=.1]{images/GabrielHorn}
+\end{figure}\\
+Let us find the volume of this solid.\\
+As discussed before,
+\[\text{Volume} = \int\limits_a^b \pi \left(f(x)\right)^2 \dif x\]
+So the volume of this solid becomes:
+\begin{align*}
+V &= \int\limits_1^{\infty} \pi \left(\dfrac1{x}\right)^2 \dif x\\
+&= \pi \int\limits_1^{\infty} \dfrac1{x^2} \dif x\\
+&= \pi \cdot \lim\limits_{k \to \infty} \left[ \dfrac{-1}{k} - \dfrac{-1}{1} \right]\\
+&= \pi
+\end{align*}
+So this horn extending infinitely has a finite volume, and therefore we can fill it from inside completely with exactly $\pi$ cubic units of paint.\\
+But what if we had to paint it completely, could that be done with a finite amount of paint? Our intuition might suggest that, but to truly answer that, let us find the surface area of this horn.\pagebreak
+\[\text{Surface Area} = \int\limits_a^b 2\pi \cdot y \dif S\]
+where $\dif S = \sqrt{1 + \left( \dfrac{\dif y}{\dif x} \right)^2} \dif x$\\
+So for Gabriel's Horn, the surface area becomes:
+\[S = \int\limits_1^{\infty} \dfrac1{x} \sqrt{1 + \dfrac1{x^4}} \dif x\]
+Now, for $x \in [1, \infty)$, 
+\[\sqrt{1 + \dfrac1{x^4}} > 1\]
+Since $x$ is positive, we can divide both sides by $x$ without changing the sign of the inequality.
+\[\dfrac1{x} \sqrt{1 + \dfrac{1}{x^4}} > \dfrac1x\]
+Then, using Comparison Theorem,
+\[\int\limits_1^{\infty} \dfrac1{x} \sqrt{1 + \dfrac1{x^4}} \dif x > \int\limits_1^{\infty} \dfrac1{x} \dif x\]
+\[S > \int\limits_1^\infty \dfrac1x \dif x\]
+\[S > \lim\limits_{k \to \infty} \ln(k) - \ln(1)\]
+\[S > \lim\limits_{k \to \infty} \ln(k)\]
+But $\ln(x)$ can be made arbitrarily large by making $x$ sufficiently large, implying Gabriel's Horn has infinite surface area.\\
+This is the paradox. If we want to paint Gabriel's Horn, we need an infinite amount of paint, but we can fill it completely from inside with a finite amount of paint (exactly $\pi$ cubic units).
+\pagebreak
+\section{Differential Equations}
+\subsection{Introduction}
+A differential equation is an equation that relates a function to its derivatives. These equations generally pop up when it's easier to talk about change than absolute amounts of something.\\
+Differential equations are generally classified under two headings: Ordinary and Partial.\\
+An example of an ordinary differential equation can be
+\[f(x) = f'(x)\]
+which is satisfied by the function $f(x) = {\rm e}^x$.\\
+A partial differential equation will deal with multivariable functions and their partial derivatives, for example the heat equation describes how temperature of a substance changes with position (space) and time:
+\[\dfrac{\partial T}{\partial t}(x, t) = \alpha \cdot \dfrac{\partial^2 T}{\partial x^2}(x, t)\]
+We will however limit our discussion from here to ordinary differential equations.
+\begin{define}
+A differential equation involving derivatives of a dependent variable with respect to only one independent variable is called an \underline{ordinary differential equation}.
+\end{define}
+\subsection{Order and Degree}
+\begin{define}
+The \underline{order} of a differential equation is the order of the highest order derivative appearing in the equation.
+\end{define}
+\begin{define}
+The \underline{degree} (if defined) of a differential equation is the degree (highest power) of the highest order derivative involved in it, when the differential coefficients are free from radicals and fractions (i.e. the differential equation is written as a polynomial in the derivatives). 
+\end{define}
+\begin{ex}
+$\left( \dfrac{\dif^{\;2} y}{\dif x^2} \right)^3 + \left( \dfrac{\dif^{\;2} y}{\dif x ^2} \right) + \left( \dfrac{\dif y}{\dif x} \right)^5 + y^{10} = \sin(x)$.\\
+This differential equation has order $2$ and degree $3$.
+\end{ex}
+\subsubsection{Heuristics for Finding Degree}
+\begin{itemize}
+\item Express the differential equation as a polynomial in the differential coefficients.
+\item Ensure that the exponents of the differential coefficients are natural numbers.
+\item The degree of a differential equation is defined only when expressing the differential equation in such a way is possible.
+\item Once that is done, look for the terms with the highest order derivative. The highest exponent of these will be the degree.
+\end{itemize}
+\pagebreak
+\begin{prob}
+Find the order and degree of the differential equation:
+$\dfrac{\dif^{\;2}y}{\dif x^2} = \left( y + \left( \dfrac{\dif y}{\dif x} \right)^6 \right)^{1/4}$\\
+\textbf{Solution:}
+\[\dfrac{\dif^{\;2}y}{\dif x^2} = \left( y + \left( \dfrac{\dif y}{\dif x} \right)^6 \right)^{1/4}\]
+Clearly, the highest order derivative in the given equation is a second derivative. So the order of this differential equation is $2$.\\
+Now, let us try to express the derivatives in polynomial form.
+\[\dfrac{\dif^{\;2}y}{\dif x^2} = \left( y + \left( \dfrac{\dif y}{\dif x} \right)^6 \right)^{1/4}\]
+Raising both sides to the fourth power:
+\[\left(\dfrac{\dif^{\;2}y}{\dif x^2}\right)^4 =  y + \left( \dfrac{\dif y}{\dif x} \right)^6 \]
+Now we can see that the highest order derivative is raised to the fourth power, so the degree is $4$.
+\end{prob}
+\begin{prob}
+Find the order and degree:
+$\dfrac{\sqrt{1 + \left( \dfrac{\dif y}{\dif x} \right)^2}}{\dfrac{\dif y}{\dif x}} = x + \left( \dfrac{\dif y}{\dif x} \right)^2$\\
+\textbf{Solution:}
+\[\dfrac{\sqrt{1 + \left( \dfrac{\dif y}{\dif x} \right)^2}}{\dfrac{\dif y}{\dif x}} = x + \left( \dfrac{\dif y}{\dif x} \right)^2\]
+Since we don't see any second or higher derivatives in the equation, it has order $1$.\\
+Now to find the degree, we will first multiply both sides by $\dfrac{\dif y}{\dif x}$.
+\[\sqrt{1 + \left( \dfrac{\dif y}{\dif x} \right)^2} = x \dfrac{\dif y}{\dif x} + \left( \dfrac{\dif y}{\dif x} \right)^3\]
+Now, let us square both sides,
+\[1 + \left(\dfrac{\dif y}{\dif x}\right)^2 = \left( x \dfrac{\dif y}{\dif x} + \left( \dfrac{\dif y}{\dif x} \right)^3\right)^2\]
+At this point, it is clear that upon using the binomial expansion for index 2, we'll get the degree of this differential equation as $6$.
+\end{prob}
+\pagebreak
+\begin{prob}
+Find the order and degree: $\dfrac{\dif y}{\dif x} + \sin\left( \dfrac{\dif y}{\dif x} \right) = x$\\
+\textbf{Solution:}\\
+Since there are no higher derivatives, the order of the differential equation is $1$.\\
+Because of the sine function, we can't express it as a polynomial in the derivative. Even if we use Taylor/Maclaurin series to expand the sine function, we'll get infinitely many terms, so it won't be a polynomial.\\
+Therefore, the degree of this differential equation is not defined.
+\end{prob}
+\begin{prob}
+Find the order and degree: $\sin^{-1}\left( \dfrac{\dif y}{\dif x} \right) = x + y$\\
+\textbf{Solution:}\\
+By now it is clear that the order is 1.\\
+For finding the degree, we have the equation as
+\[\sin^{-1}\left( \dfrac{\dif y}{\dif x} \right) = x + y\]
+Let us take the sine on both sides.
+\[\dfrac{\dif y}{\dif x} = \sin(x+y)\]
+So that gives us the degree as 1.
+\end{prob}
+\begin{prob}
+Find the order and degree: $y = 1 + \dfrac{\dif y}{\dif x} + \dfrac1{1\cdot 2} \left( \dfrac{\dif y}{\dif x} \right)^2 + \dfrac1{1\cdot 2 \cdot 3} \left(\dfrac{\dif y}{\dif x}\right)^3 + \cdots$\\
+\textbf{Solution:}\\ Clearly, the order is 1.\\
+Finding degree:\\
+\[y = 1 + \dfrac{\dif y}{\dif x} + \dfrac1{1\cdot 2} \left( \dfrac{\dif y}{\dif x} \right)^2 + \dfrac1{1\cdot 2 \cdot 3} \left(\dfrac{\dif y}{\dif x}\right)^3 + \dfrac1{1\cdot 2 \cdot 3 \cdot 4} \left( \dfrac{\dif y}{\dif x} \right)^4 +  \cdots\]
+\[\Rightarrow y = 1 + \dfrac{\dif y}{\dif x} + \dfrac1{2!} \left( \dfrac{\dif y}{\dif x} \right)^2 + \dfrac1{3!} \left(\dfrac{\dif y}{\dif x}\right)^3 + \dfrac1{4!} \left( \dfrac{\dif y}{\dif x} \right)^4 +  \cdots\]
+\[\Rightarrow y = {\rm e}^{\left(\dfrac{\dif y}{\dif x}\right)}\]
+\[\Rightarrow \ln(y) = \dfrac{\dif y}{\dif x}\]
+So the degree is 1.
+\end{prob}
+\pagebreak
+\subsection{Solutions of Differential Equations}
+\subsubsection{General Solution}
+The general solution to an ordinary differential equation will be a class (family) of infinitely many functions/curves that satisfy it. Such a solution will contain arbitrary constant(s), where each value assigned to the arbitrary constant(s) will correspond to a possible solution of the differential equation.\\
+The general solution to a differential equation of order $n$ will contain $n$ independent arbitrary constants.\\
+For example, consider the differential equation
+$\dfrac{\dif y}{\dif x} = \cos(x)$.\\
+The general solution to this equation will be $y = \sin(x) + C$ where $C$ is an arbitrary constant.
+\subsubsection{Particular Solution}
+When we substitute a specific value for the arbitrary constant in the general solution of a differential equation, we get a particular solution to the differential equation. If we are asked to solve a differential equation with another condition given to us (such as the value of the function at a point), then we may be expected to find the particular situation.\\
+For example, consider the differential equation 
+$\dfrac{\dif y}{\dif x} = \dfrac{y}{x}$ with the condition that $y(1) = 1$.\\
+The general solution to the differential will be $y=mx$ where $m$ is an arbitrary constant/parameter, so it represents a family of straight lines passing through the origin.\\ The particular solution for the given condition will be $y = x$.
+\subsubsection{Singular Solution}
+A singular solution is a solution which has no arbitrary constant and isn't derived from the general solution. Instead, it exists separately in the differential equation.\\
+For example, consider the differential equation
+$(y-2x^2)(x \dif y - y \dif x) = 0$.\\
+Then, for this equation, $y - 2x^2 = 0$ is a singular solution.
+\subsection{Forming Differential Equations from the General Solution}
+Given a general solution with $n$ arbitrary constants, we will differentiate it $n$ times and then eliminate all of the arbitrary constants. The resulting equation will be the required differential equation.
+\begin{ex}
+Form a differential equation with general solution as $y = a\cos(x) + b \sin(x)$, where $a$ and $b$ are arbitrary constants.
+\[y = a \cos(x) + b \sin(x)\]
+\[y' = -a \sin(x) + b \cos(x)\]
+\[y'' = -a \cos(x) - b \sin(x)\]
+\[\Rightarrow y'' = - \left(a \cos(x) + b\sin(x) \right)\]
+\[\Rightarrow y'' = - y\]
+Or in Leibniz' Notation,
+\[\dfrac{\dif ^{\;2} y}{\dif x^2} = -y\]
+\end{ex}
+\pagebreak
+\begin{prob}
+Form a differential equation for general solution $y = a {\rm e}^x + b {\rm e}^{-x}$, where $a$ and $b$ are arbitrary constants.\\
+\textbf{Solution:}
+\[y = a{\rm e}^x + b{\rm e}^{-x}\]
+\[\Rightarrow y' = a{\rm e}^{x} - b {\rm e}^{-x}\]
+\[\Rightarrow y'' = a{\rm e}^x + b{\rm e}^{-x}\]
+\[\Rightarrow y'' = y\]
+\[\Rightarrow y'' - y = 0\]
+Or in Leibniz Notation,
+\[\dfrac{\dif^{\; 2} y}{\dif x^2} - y = 0\]
+\end{prob}
+\begin{prob}
+Form a differential equation for general solution $y = c(x-c)^2$, where $c$ is an arbitrary constant.\\
+\textbf{Solution:}
+\begin{equation}\label{diffeq162_1}
+y = c(x-c)^2
+\end{equation}
+\begin{equation}\label{diffeq162_2}
+\Rightarrow y' = 2c(x-c)
+\end{equation}
+Divide equation \eqref{diffeq162_1} by equation \eqref{diffeq162_2},
+\[\dfrac{y}{y'} = \dfrac{\cancel{c}(x-c)^{\cancel{2}}}{2\cancel{c}\cancel{(x-c)}}\]
+\[\Rightarrow x-c = \dfrac{2y}{y'}\]
+\[\Rightarrow c = x - \dfrac{2y}{y'}\]
+\end{prob}
+Substitute in equation \eqref{diffeq162_1},
+\[y = \left(x - \dfrac{2y}{y'}\right) \left(\dfrac{2y}{y'}\right)^2\]
+\begin{prob}
+Form a differential equation for all circles touching the $x$-axis at the origin and centred at the $y$-axis.\\
+\textbf{Solution:}\\
+Let such a general circle have its centre at $(0, a)$.\\
+Then, the general solution of the differential equation will be
+\[x^2 + (y-a)^2 = a^2\]
+where $a$ is an arbitrary constant/parameter.\\
+\[\Rightarrow x^2 + y^2 - 2ay = 0\]
+Differentiating it gives us
+\[2x + 2y y' - 2ay' = 0\]
+\[x + yy' - ay' = 0\]
+\[\Rightarrow a = \dfrac{x + yy'}{y'}\]
+Substitute in the original equation:
+\[x^2 + y^2 =2y\left(\dfrac{x+yy'}{y'}\right) \implies y'=\dfrac{2xy}{x^2 - y^2}\]
+\end{prob}
+\pagebreak
+\begin{prob}
+Find the differential equation for all non-vertical lines in a plane.\\
+\textbf{Solution:}\\
+Any non-vertical line in a plane will be of the form
+\[y = mx + c\]
+where $m$ and $c$ are arbitrary constants/parameters.
+Then
+\[y' = m\]
+\[y''=0\]
+And the arbitrary constants got eliminated on their own this time; we didn't have to do anything. So the required differential equation becomes:
+\[\dfrac{\dif^{\; 2} y}{\dif x^2} = 0\]
+\end{prob}
+\begin{prob}
+Find the differential equation for all lines in the $x-y$ plane passing through the origin.
+\textbf{Solution:}\\
+The general form of such a line will be:
+\[y = mx\]
+Where $m$ is an arbitrary constant.\\
+Differentiate both sides:
+\[y' = m\]
+\[\Rightarrow \dfrac{y}{y'} = \dfrac{\cancel{m}x}{\cancel{m}}\]
+\[\Rightarrow y = \dfrac{\dif y}{\dif x} x\]
+\[\Rightarrow y \dif x = x \dif y\]
+\end{prob}
+\subsection{Solving First Order and First Degree Differential Equations}
 \end{document}

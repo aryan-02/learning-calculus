@@ -5320,4 +5320,320 @@ Differentiate both sides:
 \[\Rightarrow y \dif x = x \dif y\]
 \end{prob}
 \subsection{Solving First Order and First Degree Differential Equations}
+\subsubsection{Separable Differential Equations}
+A first order and first degree differential equation will be of the form
+\[\dfrac{\dif y}{\dif x} = F(x, y)\]
+If $F(x, y)$ can be expressed as a product $p(x) q(y)$, i.e. one function is exclusively in terms of $x$ and the other exclusively in terms of $y$, then we can solve the equation by separating the variables. This will result in our differential equation becoming:
+\[\dfrac{\dif y}{\dif x} = p(x) \cdot q(y)\]
+\[\Rightarrow \dfrac1{q(y)} \dif y = p(x) \dif x\]
+And now after separating variables, we can take the antiderivative on both sides.
+\[\Rightarrow \int\dfrac1{q(y)} \dif y = \int p(x) \dif x\]
+If the antiderivatives of $p(x)$ and $\dfrac1{q(x)}$ are $P(x)$ and $Q(x)$ respectively, the general solution of the differential equation will become
+\[Q(x) = P(x) + C\]
+where $C$ is an arbitrary constant.
+\pagebreak
+\begin{prob}
+Solve: $y \dif x - x \dif y = 0$\\
+\textbf{Solution:}\\
+\begin{align*}
+y \dif x - x \dif y &= 0\\
+\Rightarrow y \dif x &= x \dif y\\
+\Rightarrow \dfrac{\dif x}{x} &= \dfrac{\dif y}{y} && \text{Integrate both sides}\\
+\Rightarrow\int \dfrac1x \dif x &= \int \dfrac1y \dif y\\
+\Rightarrow \ln(\;\abs{x}) + C &= \ln(\;\abs{y}) && \text{Let } C = \ln(m)\\
+\Rightarrow \ln(\;\abs{y}) &= \ln(\;\abs{x}) \cdot \ln(m)\\
+\Rightarrow \ln(\;\abs{y}) &= \ln(m\abs{x}) && \text{Since the log function is one-one}\\
+\Rightarrow \abs{y} &= m\abs{x}
+\end{align*}
+\end{prob}
+\begin{prob}
+Solve: $\dfrac{\dif y}{\dif x} = \dfrac{x-1}{2-y}$\\
+\textbf{Solution:}\\
+\begin{align*}
+\dfrac{\dif y}{\dif x} &= \dfrac{x-1}{2-y}\\
+\Rightarrow (2-y) \dif y &= (x - 1) \dif x && \text{Integrating both sides.}\\
+\Rightarrow \int(2-y) \dif y &= \int(x - 1) \dif x\\
+\Rightarrow 2y - \dfrac{y^2}{2} &= \dfrac{x^2}2 - x + C\\
+\Rightarrow 4y - y^2 - x^2 + x + 2C &= 0\\
+\Rightarrow x^2 + y^2 - 4y - x - 2C &= 0 && \text{Let } -2C = D\\
+\Rightarrow x^2 + y^2 - 4y - x + D &= 0
+\end{align*}
+\end{prob}
+\begin{prob}
+Solve: $\dfrac{\dif y}{\dif x} = \dfrac{1+y^2}{1+x^2}$\\
+\textbf{Solution: }
+\begin{align*}
+\dfrac{\dif y}{\dif x} &= \dfrac{1+y^2}{1+x^2} && \text{Separating the variables}\\
+\Rightarrow\dfrac{\dif y}{1 + y^2} &= \dfrac{\dif x}{1 + x^2} && \text{Integrating both sides}\\
+\Rightarrow\int\dfrac{\dif y}{1 + y^2} &= \int\dfrac{\dif x}{1 + x^2}\\
+\Rightarrow \tan^{-1}(y) &= \tan^{-1}(x) + C
+\end{align*}
+\end{prob}
+\pagebreak
+\begin{prob}
+Find the particular solution of $\dfrac{\dif y}{\dif x} = -4xy^2$ given that $x = 0$ when $y=1$.\\
+\textbf{Solution:}
+\begin{align*}
+\dfrac{\dif y}{\dif x} &= -4xy^2 && \text{Separate variables and integrate}\\
+\Rightarrow\int\dfrac{\dif y}{y^2} &= -4 \int x \dif x\\
+\Rightarrow \dfrac{-1}{y} &= -2 x^2 + C\\
+\Rightarrow y &= \dfrac{-1}{C-2x^2}
+\end{align*}
+This is our general solution.\\
+Now we're given that $x = 0$ when $y = 1$. Substituting $x = 0$ and $y = 1$ in the general solution.
+\[\Rightarrow 1 = \dfrac{-1}{C}\]
+\[\Rightarrow C = -1\]
+So the particular solution becomes
+\[y = \dfrac{-1}{-1-2x^2}\]
+\[\Rightarrow y = \dfrac1{2x^2 + 1}\]
+\end{prob}
+\begin{prob}
+Solve the differential equation $\left(1 + {\rm e}^{2x}\right) \dif y + \left(1 + y^2\right){\rm e}^{x} \dif x = 0$ if $y(0) = 1$.\\
+\textbf{Solution:}
+\begin{align*}
+\left(1 + {\rm e}^{2x}\right) \dif y + \left(1 + y^2\right){\rm e}^{x} \dif x &= 0\\
+\Rightarrow \left(1 + {\rm e}^{2x}\right) \dif y &= - \left(1 + y^2\right){\rm e}^{x} \dif x\\
+\Rightarrow \dfrac{\dif y}{1 + y^2} &= - \dfrac{{\rm e}^x }{1 + {\rm e}^{2x}}\dif x && \text{Integrate both sides}\\
+\Rightarrow \int \dfrac{\dif y}{1 + y^2} &= - \int \dfrac{{\rm e}^x}{1+{\rm e}^{2x}}\dif x && \text{Let } {\rm e}^x = u \implies {\rm e}^x \dif x = \dif u\\
+\Rightarrow \tan^{-1}(y) &= -\int\dfrac{1}{1 + u^2}\dif u\\
+\Rightarrow \tan^{-1}(y) &= -\tan^{-1}(u) + C\\
+\Rightarrow \tan^{-1}(y) &= -\tan^{-1}\left({\rm e}^{x}\right) + C
+\end{align*}
+This is our general solution. Now, we're given $y(0) = 1$.\\
+So substituting $x = 0$ and $y = 1$:
+\[\Rightarrow \tan^{-1}(1) = - \tan^{-1}({\rm e}^0) + C\]
+\[\Rightarrow C = 2\tan^{-1}(1) = 2 \cdot \dfrac{\pi}{4} = \dfrac{\pi}2\]
+That gives us the general solution as
+\[\tan^{-1}(y) = -\tan^{-1}\left({\rm e}^{x}\right) + \dfrac{\pi}{2}\]
+\end{prob}
+\pagebreak
+\begin{prob}
+Let the population of rabbits in an area at time $t$ be governed by $\dfrac{\dif \left(P(t)\right)}{\dif t} = \dfrac12 P(t) - 200$ where $P(0) = 100$. Find an expression for $P(t)$.\\
+\textbf{Solution:}
+\begin{align*}
+\dfrac{\dif \left(P(t)\right)}{\dif t} &= \dfrac12 P(t) - 200\\
+\Rightarrow  \dfrac{\dif \left(P(t)\right)}{\dfrac12 P(t) - 200} &= \dif t
+\end{align*}
+Let $\dfrac12 P(t) - 200 = y \implies \dif\left(P(t)\right) = 2 \dif y$
+\[\Rightarrow 2 \dfrac{\dif y}{y} = \dif t\]
+Integrating both sides,
+\[2 \int \dfrac{\dif y}{y} = \dif t\]
+\[\Rightarrow 2 \ln(\;\abs{y}) = t + C_1\]
+\[\Rightarrow 2\ln\left(\;\abs{\dfrac12 P(t) - 200}\right) = t + C_1\]
+\[\Rightarrow \ln\left(\;\abs{\dfrac12 P(t) - 200}\right) = \dfrac{t}2 + C_2\]
+where $C_2 = \dfrac{C_1}2$
+\[\Rightarrow \dfrac12 P(t) - 200 = \pm{\rm e}^{t/2} \cdot {\rm e}^{C_2}\]
+Let $\pm {\rm e}^{C_2} = K$
+\[\Rightarrow \dfrac12 P(t) - 200 = K {\rm e}^{t/2}\]
+\[\Rightarrow P(t) = {2K {\rm e}^{t/2} + 400}\]
+Now, $P(0) = 100$,
+\[\Rightarrow 100 = 2K + 400\]
+\[\Rightarrow K = \dfrac{-300}{2} = -150\]
+So that gives us the population function as
+\[P(t) = -300{\rm e}^{t/2} + 400\]
+\end{prob}
+\pagebreak
+\begin{prob}
+Solve: $\dfrac{2+\sin(x)}{y + 1} \cdot \dfrac{\dif y}{\dif x} = -\cos(x)$\\
+\textbf{Solution:}\\
+\begin{align*}
+\dfrac{2+\sin(x)}{y + 1} \cdot \dfrac{\dif y}{\dif x} &= -\cos(x) && \text{Separating variables}\\
+\dfrac1{y + 1} \dif y &= \dfrac{-\cos(x)}{2 + \sin(x)} \dif x && \text{Integrating both sides}\\
+\int\dfrac1{y + 1} \dif y &= -\int\dfrac{\cos(x)}{2 + \sin(x)} \dif x\\
+\Rightarrow \ln\left(\;\abs{y+1}\right) &= - \ln\left(\;\abs{2+\sin(x)}\right) + C_1 && \text{Let } C_1 = \ln(C_2)\\
+\Rightarrow \ln\left(\;\abs{y+1} \right) &= + \ln\left(\dfrac{C_2}{\abs{2+\sin(x)}}\right)\\
+\Rightarrow y + 1 &= \dfrac{\pm C_2}{2 + \sin(x)} && \text{Let } K = \pm C_2\\
+\Rightarrow \left(y + 1\right)\left(2+\sin(x)\right) &= K
+\end{align*}
+And this is our general solution.
+\end{prob}
+\begin{prob}
+Solve: $\dfrac{\dif y}{\dif x} = \dfrac{1-\cos(x)}{1+\cos(x)}$ \\
+\textbf{Solution:}
+\[\dfrac{\dif y}{\dif x} = \dfrac{1-\cos(x)}{1+\cos(x)}\]
+Separate variables and integrate:
+\begin{align*}
+\int\dif y &= \int \dfrac{1-\cos(x)}{1+\cos(x)} \dif x\\
+\Rightarrow y &= \int \dfrac{1-\cos(x)}{1+\cos(x)}\dif x\\
+&= \bigint \dfrac{2 \sin^2 \left( \dfrac{x}2 \right)}{2 \cos^2 \left( \dfrac{x}2 \right)} \dif x\\
+&= \int \tan^2\left( \dfrac{x}2 \right) \dif x\\
+&= \int \left( \sec^2\left(\dfrac{x}2\right) - 1 \right) \dif x\\
+&= 2\tan\left(\dfrac{x}2\right) - x + C
+\end{align*}
+\[\Rightarrow y = 2\tan\left(\dfrac{x}2\right) - x + C \]
+And we have our general solution.
+\end{prob}
+\pagebreak
+\subsubsection{Reducible to Separable Form}
+Some differential equations are not directly expressed in variable-separable form but can be reduced to the variable separable form using a suitable substitution.\\
+It's generally a good idea to try such substitutions on differential equations of the form:
+\[\dfrac{\dif y}{\dif x} = f(ax+by+c)\]
+We can substitute $t = ax + by  + c$\\
+Implying $\dfrac{\dif t}{\dif x} = a + b \dfrac{\dif y}{\dif x} \implies \dfrac{\dif y}{\dif x} = \dfrac{\dfrac{\dif t}{\dif x} - a}{b}$\\\\
+So the differential equation becomes
+\[\dfrac{\dfrac{\dif t}{\dif x} - a}{b} = f(t)\]
+This is now separable:
+\[\dfrac{\dif t}{b\cdot f(t) + a} = \dif x\]
+From here, we can just integrate and get the general solution.
+\begin{prob}
+Solve: $\dfrac{\dif y}{\dif x} = x+y+1$\\
+\textbf{Solution:}\\
+\[\dfrac{\dif y}{\dif x} = x+y+1\]
+Substitute $x + y + 1 = t$\\
+$\Rightarrow 1 + \dfrac{\dif y}{\dif x} = \dfrac{\dif t}{\dif x}$\\
+$\Rightarrow \dfrac{\dif y}{\dif x} = \dfrac{\dif t}{\dif x} - 1$\\
+\begin{align*}
+\Rightarrow \dfrac{\dif t}{\dif x} - 1 &= t\\
+\Rightarrow \dfrac{\dif t}{\dif x} &= t + 1 && \text{Separate variables and integrate}\\
+\Rightarrow \int\dif x &= \int \dfrac1{t+1} \dif t\\
+\Rightarrow x &= \ln\left(\;\abs{t+1}\right) + C\\
+\Rightarrow x&= \ln\left(\;\abs{x+y+2}\right) + C\\
+\Rightarrow x+y+2 &=  {\rm e}^{x-C}\\
+\Rightarrow y &= {\rm e}^{x - C} - x - 2 && \text{Let } {\rm e}^{-C} = k\\
+\Rightarrow y &= k{\rm e}^x - x - 2
+\end{align*}
+\end{prob}
+\pagebreak
+\begin{prob}
+Solve: $\dfrac{\dif y}{\dif x} = \cos(x+y)$\\
+\textbf{Solution:}
+\[\dfrac{\dif y}{\dif x} = \cos(x+y)\]
+Substitute $x + y = t$\\
+$\Rightarrow 1 + \dfrac{\dif y}{\dif x} = \dfrac{\dif t}{\dif x}$\\
+$\Rightarrow \dfrac{\dif y}{\dif x} = \dfrac{\dif t}{\dif x} - 1$
+\begin{align*}
+\Rightarrow \dfrac{\dif t}{\dif x} - 1 &= \cos(t)\\
+\Rightarrow \dfrac{\dif t}{\dif x} &= \cos(t) + 1 && \text{Separate variables and integrate}\\
+\Rightarrow \int\dif x &= \int \dfrac1{1 + \cos(t)} \dif t\\
+\Rightarrow x &= \bigint \dfrac1{2\cos^2\left(\dfrac{t}{2}\right)} \dif t\\
+&= \dfrac12 \int\sec^2\left(\dfrac{t}2\right)\dif t\\
+&= \tan\left(\dfrac{t}2\right) + C\\
+\Rightarrow x &= \tan\left(\dfrac{x+y}2\right) + C\\
+\end{align*}
+\end{prob}
+\pagebreak
+\subsubsection{Homogeneous Differential Equation}
+Let us first generalize the idea of a homogeneous polynomial to define a homogeneous function. Recall that a homogeneous polynomial is a polynomial expression where each term has the same degree.
+\begin{define}
+A \underline{homogeneous function} is a (possibly multivariate) function that shows multiplicative scaling behaviour. If all of its constants are multiplied by a factor, then its value is multiplied by some integer power of that factor.
+\end{define}
+i.e. a function $f(x, y)$ is said to be homogeneous iff
+\[f(\lambda x, \lambda y) = \lambda^n \cdot f(x, y)\]
+for some integer $n$.\\
+In general, a function $g(x_1, x_2, x_3, \cdots, x_k)$ is said to be homogeneous iff
+\[g(\lambda x_1, \lambda x_2, \lambda x_3, \cdots, \lambda x_k) = \lambda^n \cdot f(x_1, x_2, x_3, \cdots, x_k)\]
+for some integer $n$.\\
+Here, $n$ is called the \textbf{degree of homogeneity}.\\
+Notice that by this definition, all homogeneous polynomials will also be homogeneous functions.\\
+Let us consider some examples of functions.\\
+\begin{ex}
+$f(x, y) = \cos\left(\dfrac{x}{y}\right)$
+\[f(\lambda x, \lambda y) = \cos\left( \dfrac{\cancel{\lambda} x}{\cancel{\lambda} y} \right) = \lambda^0 \cdot f(x, y)\]
+So this is a homogeneous function of degree 0.
+\end{ex}
+\begin{ex}
+$f(x, y) = 2x - 3y$
+\[f(\lambda x, \lambda y) = 2\lambda x - 3\lambda y = \lambda(2x-3y) = \lambda^1 \cdot f(x, y)\]
+This is a homogeneous function of degree 1.
+\end{ex}
+\begin{ex}
+$f(x, y) = \sin(x) + \cos(y)$
+\[f(\lambda x, \lambda y) = \sin(\lambda x) + \cos(\lambda y) \neq \lambda^n f(x, y)\]
+This is a non-homogeneous function.
+\pagebreak
+\end{ex}\text{}\\
+\textbf{Claim:} Any homogeneous function $f(x, y)$ of degree $n$ can be expressed as
+\[f(x, y) = x^n \cdot g\left(\dfrac{y}{x}\right)\]
+or
+\[f(x, y) = y^n \cdot h\left(\dfrac{x}{y}\right)\]
+\begin{proof}
+We are given that $f(x, y)$ is homogeneous, so it satisfies the following property by definition:
+\[f(\lambda x, \lambda y) = \lambda^n \cdot f(x, y)\]
+Since $\lambda$ is an arbitrary parameter, we are allowed to substitute it with any real number.\\
+Substitute $\lambda = \dfrac1x$.
+\[\Rightarrow f\left(1, \dfrac{y}{x}\right) = \dfrac1{x^n} \cdot f(x, y)\]
+\[\Rightarrow f(x, y) = x^n \cdot f\left(1, \dfrac{y}{x}\right)\]
+Let $f\left(1, \dfrac{y}{x}\right) = g\left(\dfrac{y}{x}\right)$
+\[\Rightarrow f(x, y) = x^n \cdot g\left(\dfrac{y}{x}\right)\]
+Similarly, substituting $\lambda = \dfrac1{y}$ will give us
+\[f(x, y) = y^n \cdot f\left( \dfrac{x}{y}, 1 \right)\]
+\[\Rightarrow f(x, y) = y^n \cdot h\left(\dfrac{x}{y}\right)\]
+\end{proof}\text{}\\
+\textbf{Homogeneous differential equations:}\\
+A differential equation of the form \[\dfrac{\dif y}{\dif x} = \dfrac{f(x, y)}{g(x, y)}\] is said to be homogeneous if $f$ and $g$ are homogeneous functions of the same degree.\\
+In other words, a differential equation of the form \[\dfrac{\dif y}{\dif x} = P(x, y)\]
+is homogeneous if $P$ is a homogeneous function of degree zero.\\
+\newpage
+\text{}\\
+To solve a homogeneous differential equation of the form 
+\[\dfrac{\dif y}{\dif x} = P(x, y)\]
+We first observe that $P$ is a homogeneous function of degree zero. So we can express it as $x^0$ times a function of $\dfrac{y}{x}$.
+\[\Rightarrow \dfrac{\dif y}{\dif x} = g\left(\dfrac{y}{x}\right)\]
+Now, we substitute $y = v \cdot x$\\
+Which means $\dfrac{y}{x} = v$\\
+$\Rightarrow \dfrac{\dif y}{\dif x} = v + x \dfrac{\dif v}{\dif x}$
+\[\Rightarrow v + x \dfrac{\dif v}{\dif x} = g(v)\]
+\[\Rightarrow x \dfrac{\dif v}{\dif x} = g(v) - v\]
+Now, this differential equation is separable and can be solved by separating variables and integrating both sides.
+\[\Rightarrow \dfrac{\dif v}{g(v) - v} = \dfrac{\dif x}{x}\]
+\begin{prob}
+Solve: $x \cos\left( \dfrac{y}{x}\right) \cdot \dfrac{\dif y}{\dif x} = y \cos\left(\dfrac{y}{x}\right) + x$\\
+\textbf{Solution:}\\
+\[x \cos\left( \dfrac{y}{x}\right) \cdot \dfrac{\dif y}{\dif x} = y \cos\left(\dfrac{y}{x}\right) + x\]
+\[\Rightarrow \dfrac{\dif y}{\dif x} = \dfrac{y \cos\left(\dfrac{y}{x}\right) + x}{x \cos\left(\dfrac{y}{x}\right)}\]
+Let $f(x, y) = \dfrac{y \cos\left(\dfrac{y}{x}\right) + x}{x \cos\left(\dfrac{y}{x}\right)}$
+\[f(\lambda x, \lambda y) = \dfrac{\lambda y \cos\left(\dfrac{\cancel{\lambda} y}{\cancel{\lambda} x }\right) + \lambda x}{\lambda x \cos\left(\dfrac{y}{x}\right)} = \lambda^0 \cdot f(x, y)\]
+So this is a homogeneous differential equation.\\
+Let $y = vx$\\
+$\Rightarrow \dfrac{\dif y}{\dif x} = v + x \dfrac{\dif v}{\dif x}$\\
+So the differential equation becomes:
+\[v + x \dfrac{\dif v}{\dif x} = \dfrac{vx \cos(v) + x}{x \cos(v)}\]
+\[\Rightarrow v + x \dfrac{\dif v}{\dif x} = \dfrac{v \cos(v) + 1}{ \cos(v)}\]
+\[\Rightarrow x\dfrac{\dif v}{\dif x} = \dfrac{v \cos(v) + 1}{ \cos(v)} - v\]
+\begin{align*}
+\Rightarrow x\dfrac{\dif v}{\dif x} &= \dfrac{\cancel{v \cos(v)} + 1 - \cancel{v \cos(v)}}{ \cos(v)}\\
+\Rightarrow x\dfrac{\dif v}{\dif x} &= \dfrac1{\cos(v)} && \text{Separate variables and integrate.}\\
+\Rightarrow \int\dfrac{1}{x} \dif x &= \int\cos(v) \dif v\\
+\Rightarrow \ln\left(\;\abs{x}\right) + \ln(\;\abs{c}) &= \sin(v)\\
+\Rightarrow \sin\left(\dfrac{y}{x}\right) &= \ln\left(\;\abs{cx}\right)
+\end{align*}
+\end{prob}
+\begin{prob}
+Show that the family of curves for which the slope of the tangent at any point $(x, y)$ on it is $\dfrac{x^2 + y ^2}{2xy}$, is given by $x^2 - y^2 = cx$.\\
+\begin{proof}
+We have the differential equation
+\[\dfrac{\dif y}{\dif x} = \dfrac{x^2 + y^2}{2xy}\]
+This is a homogeneous differential equation.\\
+\[\Rightarrow \dfrac{\dif y}{\dif x} = \dfrac{\cancel{x^2} \left(1 + \dfrac{y^2}{x^2}\right)}{\cancel{x^2}} = \dfrac{1 + \left(\dfrac{y}{x}\right)^2}{2\left(\dfrac{y}{x}\right)}\]
+Let $y = v \cdot x$\\
+$\Rightarrow \dfrac{\dif y}{\dif x} = v + x \dfrac{\dif v}{\dif x}$\\
+Substitute:
+\begin{align*}
+\Rightarrow v + x \dfrac{\dif v}{\dif x} &= \dfrac{1+v^2}{2v}\\
+\Rightarrow x \dfrac{\dif v}{\dif x} &= \dfrac{1+v^2}{2v} - v\\
+\Rightarrow x \dfrac{\dif v}{\dif x} &= \dfrac{1-v^2}{2v} && \text{Separate variables and integrate.}\\
+\Rightarrow \int \dfrac{1}{x}\dif x &= \int \dfrac{2v}{1-v^2}\dif v && \text{Let } v^2 = u \implies 2v \dif v = \dif u\\
+\Rightarrow \int\dfrac{1}{1 - u} \dif u &= \ln\abs{x} + \ln\abs{k}\\
+\Rightarrow -\ln\abs{1-\dfrac{y^2}{x^2}} &= \ln\abs{kx}\\
+\Rightarrow \dfrac{x^2 - y^2}{x^2} &= \pm \dfrac1{kx} && \text{Let } c = \pm \dfrac1{k}\\
+\Rightarrow x^2 - y^2 &= cx
+\end{align*}
+\end{proof}
+\end{prob}
+\pagebreak
+\begin{prob}
+Solve: $\dfrac{\dif y}{\dif x} = \dfrac{y}{x} - \sin\left(\dfrac{y}{x}\right)$\\
+\textbf{Solution:}\\
+\[\dfrac{\dif y}{\dif x} = \dfrac{y}{x} - \sin\left(\dfrac{y}{x}\right)\]
+This is clearly a homogeneous differential equation.\\
+Let $y = vx$\\
+$\Rightarrow \dfrac{\dif y}{\dif x} = v + x \dfrac{\dif v}{\dif x}$
+\begin{align*}
+\Rightarrow v + x \dfrac{\dif v}{\dif x} &= v - \sin(v)\\
+\Rightarrow x \dfrac{\dif v}{\dif x} &= -\sin(v) && \text{Separate variables and integrate}\\
+\Rightarrow \int \dfrac1{x} \dif x &= -\int\csc(x) \dif x\\
+\Rightarrow \ln\abs{x} + \ln\abs{c} &= \ln\abs{\csc(x) + \cot(x)}\\
+\Rightarrow \csc(x) + \cot(x) &= kx
+\end{align*}
+\end{prob}
 \end{document}
